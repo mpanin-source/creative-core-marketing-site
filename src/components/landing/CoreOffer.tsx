@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, X, ChevronDown } from "lucide-react";
+import { Check, X, ChevronDown, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CoreOffer = () => {
@@ -7,54 +7,74 @@ const CoreOffer = () => {
 
   const phases = [
     {
-      title: "PHASE 1 · SEASONAL ALIGNMENT & OFFER FIT",
-      summary: "Clarify your local buyer and peak demand window. Lock a seasonal offer that actually converts. Set win metrics for the sprint: leads, booked calls, and ROAS.",
+      title: "PHASE 1 · SEASONAL ALIGNMENT & OFFER FIT (5–10 days)",
+      problem: "\"I don't know my seasonal window or how to position to it\"",
+      summary:
+        "Deep-dive audit to map YOUR market's exact seasonal demand calendar. Craft buyer personas, seasonal positioning angles, and set KPI targets.",
       bullets: [
-        "Deep-dive into your local market and buyer persona",
-        "Craft a seasonal offer positioned for maximum conversion",
-        "Define clear KPIs: lead targets, booked calls, and ROAS benchmarks"
-      ]
+        "Written seasonal demand map for your market",
+        "Buyer persona: who buys during YOUR peak window",
+        "Positioning document (copy angles tested, e.g. \"Don't freeze this winter\")",
+        "KPI target sheet: leads, booked calls, and ROAS benchmarks",
+      ],
+      effort: "Time investment from you: 3–4 hours (interview + feedback)",
     },
     {
-      title: "PHASE 2 · HIGH-INTENSITY LAUNCH & OPTIMIZATION",
-      summary: "Rebuild paid campaigns around winning angles. Rapid creative testing to find scroll-stopping ads. Daily checks to cut waste and push winners.",
+      title: "PHASE 2 · HIGH-INTENSITY LAUNCH & OPTIMIZATION (20–25 days)",
+      problem: "\"I need ads live fast and I need them to convert\"",
+      summary:
+        "Campaign architecture on Meta + Google built around seasonal positioning. Rapid creative testing, daily optimization, and lead quality filtering.",
       bullets: [
-        "Launch paid campaigns with high-converting creative angles",
-        "A/B test ad variations to identify top performers fast",
-        "Daily budget reallocation to maximize ROAS"
-      ]
+        "Live paid campaigns (Meta + Google) with seasonal positioning",
+        "A/B test headlines, CTAs, form fields on landing page",
+        "Launch 3 ad angles, kill the losers by Day 5",
+        "Daily budget reallocation to top-performing angles",
+        "Lead quality scoring to separate real buyers from tire-kickers",
+        "Daily performance dashboard (CPC, CVR, ROAS)",
+      ],
+      effort: "Time investment from you: 5–10 hours/week (review ads, approve creative)",
+      guarantee:
+        "First-Peak Lead Guarantee: If we don't generate 2x your total ad spend in qualified lead value by the end of your peak window, we work for free until we do.",
     },
     {
-      title: "PHASE 3 · DATA-DRIVEN HANDOVER & SCALE PLAN",
-      summary: "Loom walkthrough of every funnel change. Bottleneck map for the next 90 days. Option to retain Creative Core as a growth partner.",
+      title: "PHASE 3 · DATA-DRIVEN HANDOVER & SCALE PLAN (5–10 days)",
+      problem: "\"How do I maintain this after you're done? What's next?\"",
+      summary:
+        "Comprehensive documentation, team training, and a 90-day growth roadmap so you can maintain and scale independently.",
       bullets: [
-        "Comprehensive Loom video documenting all funnel changes",
+        "Comprehensive Loom walkthrough of every campaign and decision",
         "90-day bottleneck map with prioritized action items",
-        "Optional retainer proposal for continued growth partnership"
-      ]
+        "Team training: your in-house team learns to maintain + optimize",
+        "Quarterly growth roadmap",
+        "Optional retainer proposal if you want ongoing support",
+      ],
+      effort: "Time investment from you: 3–5 hours (review Loom, ask questions)",
     },
   ];
 
   const included = [
-    "Strategic seasonal offer positioning based on your Core Funnel Audit.",
-    "Ad campaign setup on Meta, Google, or both—aligned with peak demand.",
-    "Conversion-focused landing page tweaks to plug obvious leaks.",
-    "15–30 minute Loom breakdown of your funnel performance.",
-    "Simple dashboard for the metrics that matter: CPC, Lead Quality, and ROI.",
+    "Seasonal demand mapping for your specific market",
+    "Buyer persona + peak-window positioning (2–3 test angles)",
+    "Paid campaign setup (Meta, Google, or both)",
+    "Landing page A/B testing + optimization",
+    "Daily performance monitoring + budget reallocation",
+    "Lead quality scoring + filtering",
+    "First-Peak Lead Guarantee (work for free if we miss targets)",
+    "Comprehensive Loom documentation (Phase 3)",
+    "90-day growth roadmap",
+    "Optional: 90-day retainer proposal",
   ];
 
   const notIncluded = [
-    "A long-term, expensive retainer or open-ended management plan.",
-    "A 'magic button' or guaranteed-lead scheme for poor offers.",
-    "Organic social media, SEO, or general content marketing.",
-    "Endless revisions—this is a focused, high-speed 30-45 day sprint.",
+    "A long-term expensive retainer with undefined scope",
+    "A \"magic lead machine\" (your offer still has to be solid)",
+    "Organic social media, SEO, or content marketing",
+    "Endless revisions or hand-holding (focused sprint, not ongoing consulting)",
+    "Guaranteed revenue (we guarantee lead QUALITY and QUANTITY, not close rates)",
   ];
 
-  const handleScrollToForm = () => {
-    const formElement = document.getElementById('corediagnostic');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const togglePhase = (index: number) => {
@@ -66,26 +86,31 @@ const CoreOffer = () => {
       <div className="container-wide">
         <div className="container-narrow text-center mb-16">
           <p className="text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
-            IMPLEMENTATION PROGRAM • BY INVITE AFTER CORE FUNNEL AUDIT
+            BY INVITE ONLY AFTER YOUR FREE CORE FUNNEL AUDIT
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6 tracking-wider">
-            SEASONAL GROWTH SPRINT (30–45 DAY BUILD + LAUNCH)
+            THE SEASONAL GROWTH SPRINT (30–45 DAYS)
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            A focused implementation sprint we offer to qualified brands after your Core Funnel Audit. 
-            We fix the biggest leaks in your funnel and scale into peak demand while momentum is on your side.
+            A focused 30–45 day sprint for HVAC, Roofing, and Solar companies
+            who are ready to stop wasting ad spend and start capturing buyers
+            during their peak-demand windows. We rebuild your entire approach
+            around timing, not guessing.
+          </p>
+          <p className="text-sm text-accent font-semibold mt-4">
+            Real dollar value of deliverables: $15,000–$25,000 if purchased separately
           </p>
         </div>
 
-        {/* Three Phases - Accordion Style */}
+        {/* Three Phases */}
         <div className="max-w-4xl mx-auto mb-12 space-y-4">
           {phases.map((phase, index) => (
             <motion.div
               key={index}
               className={`bg-card rounded-lg border-2 transition-all duration-300 cursor-pointer overflow-hidden ${
-                expandedPhase === index 
-                  ? 'border-accent shadow-lg' 
-                  : 'border-border hover:border-accent/50 hover:-translate-y-1 hover:shadow-md'
+                expandedPhase === index
+                  ? "border-accent shadow-lg"
+                  : "border-border hover:border-accent/50 hover:-translate-y-1 hover:shadow-md"
               }`}
               onClick={() => togglePhase(index)}
             >
@@ -106,7 +131,7 @@ const CoreOffer = () => {
                   <ChevronDown className="w-5 h-5 text-accent" />
                 </motion.div>
               </div>
-              
+
               <AnimatePresence>
                 {expandedPhase === index && (
                   <motion.div
@@ -115,15 +140,28 @@ const CoreOffer = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-6 pb-6 pt-2 border-t border-border/50">
+                    <div className="px-6 pb-6 pt-2 border-t border-border/50 space-y-4">
+                      <p className="text-xs text-destructive italic">
+                        Problem this solves: {phase.problem}
+                      </p>
                       <ul className="space-y-3">
-                        {phase.bullets.map((bullet, bulletIndex) => (
-                          <li key={bulletIndex} className="flex items-start gap-3">
+                        {phase.bullets.map((bullet, j) => (
+                          <li key={j} className="flex items-start gap-3">
                             <Check className="w-4 h-4 text-accent mt-1 shrink-0" />
                             <span className="text-sm text-foreground/90">{bullet}</span>
                           </li>
                         ))}
                       </ul>
+                      <p className="text-xs text-muted-foreground italic">
+                        {phase.effort}
+                      </p>
+                      {phase.guarantee && (
+                        <div className="bg-accent/10 border border-accent/30 rounded-lg p-4">
+                          <p className="text-sm font-bold text-accent">
+                            {phase.guarantee}
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </motion.div>
                 )}
@@ -132,20 +170,9 @@ const CoreOffer = () => {
           ))}
         </div>
 
-        {/* Bridge CTA */}
-        <div className="text-center mb-12">
-          <button
-            onClick={handleScrollToForm}
-            className="text-accent hover:text-accent/80 text-sm font-medium underline underline-offset-4 transition-colors duration-200"
-          >
-            Not sure you're ready for the sprint? Start with a FREE Core Funnel Audit →
-          </button>
-        </div>
-
-        {/* What's Included / What This Is Not - High Contrast Cards */}
+        {/* Included / Not Included */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-          {/* Included Card - White background with dark-blue checks */}
-          <div className="p-6 bg-white rounded-lg shadow-md order-1">
+          <div className="p-6 bg-background rounded-lg shadow-md border border-accent/20">
             <h3 className="text-xl font-display font-bold text-foreground mb-6 tracking-wider">
               What's Included
             </h3>
@@ -153,14 +180,13 @@ const CoreOffer = () => {
               {included.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-foreground">{item}</span>
+                  <span className="text-foreground text-sm">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Not Included Card - Light grey background with grey X icons */}
-          <div className="p-6 bg-muted rounded-lg shadow-md order-2">
+          <div className="p-6 bg-muted rounded-lg shadow-md">
             <h3 className="text-xl font-display font-bold text-foreground mb-6 tracking-wider">
               What This Is Not
             </h3>
@@ -168,15 +194,15 @@ const CoreOffer = () => {
               {notIncluded.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <X className="w-5 h-5 text-muted-foreground/60 mt-0.5 shrink-0" />
-                  <span className="text-muted-foreground">{item}</span>
+                  <span className="text-muted-foreground text-sm">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Final Hook */}
-        <motion.div 
+        {/* CTA */}
+        <motion.div
           className="text-center max-w-4xl mx-auto mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -184,22 +210,16 @@ const CoreOffer = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="relative inline-block">
-            {/* Background glow effect */}
             <div className="absolute -inset-4 bg-accent/10 rounded-2xl blur-xl" />
-            
-            {/* Main content card */}
             <div className="relative bg-gradient-to-r from-card via-card to-card border-2 border-accent/30 rounded-xl px-8 py-6 md:px-12 md:py-8 shadow-lg">
               <p className="text-2xl md:text-3xl lg:text-4xl font-display tracking-wider text-foreground leading-tight">
-                EVERY SEASONAL MOMENTUM SPRINT STARTS WITH A{' '}
+                EVERY SEASONAL SPRINT STARTS WITH A{" "}
                 <button
-                  onClick={handleScrollToForm}
+                  onClick={scrollToContact}
                   className="text-accent hover:text-accent/80 italic underline underline-offset-4 decoration-2 transition-colors duration-200"
                 >
                   FREE CORE FUNNEL AUDIT
                 </button>
-              </p>
-              <p className="mt-4 text-lg md:text-xl font-medium text-muted-foreground">
-                We fix real leaks, we don't guess.
               </p>
             </div>
           </div>
