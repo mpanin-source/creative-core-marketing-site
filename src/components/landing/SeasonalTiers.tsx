@@ -1,6 +1,11 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Lock } from "lucide-react";
+import { Check, X as XIcon, ArrowRight, Lock } from "lucide-react";
+
+interface TierFeature {
+  text: string;
+  included: boolean;
+}
 
 const tiers = [
   {
@@ -12,13 +17,17 @@ const tiers = [
     monthly: null,
     tagline: "Understand Your Seasonal Window Before Committing",
     forWho: "Companies wanting to understand their seasonal window before committing",
-    includes: [
-      "Phase 1 only (Seasonal Alignment & Offer Fit)",
-      "Market analysis + positioning document",
-      "KPI target sheet",
-    ],
-    result:
-      "You'll know your peak window, your ideal buyer, and your positioning angle",
+    features: [
+      { text: "Phase 1 (Seasonal Alignment & Offer Fit)", included: true },
+      { text: "Market analysis + positioning document", included: true },
+      { text: "KPI target sheet", included: true },
+      { text: "Campaign setup", included: false },
+      { text: "Daily optimization", included: false },
+      { text: "First-Peak Lead Guarantee", included: false },
+      { text: "Loom documentation", included: false },
+      { text: "90-day growth roadmap", included: false },
+    ] as TierFeature[],
+    result: "You'll know your peak window, your ideal buyer, and your positioning angle",
     bestFor: "Testing whether seasonal approach makes sense for your business",
     colorClass: "bg-tier-blue",
     textClass: "text-tier-blue-foreground",
@@ -34,13 +43,17 @@ const tiers = [
     monthly: "+ $299/mo optional retainer",
     tagline: "Launch, Optimize, Prove ROAS",
     forWho: "Companies ready to run Phase 1 + 2, then decide on retainer",
-    includes: [
-      "Phases 1 + 2 (Seasonal Alignment + Launch & Optimization)",
-      "Campaign setup + optimization",
-      "First-Peak Lead Guarantee",
-      "Loom documentation (light version)",
-      "30 days of optimization + daily monitoring",
-    ],
+    features: [
+      { text: "Phases 1 + 2 (Alignment + Launch & Optimization)", included: true },
+      { text: "Campaign setup + optimization", included: true },
+      { text: "First-Peak Lead Guarantee", included: true },
+      { text: "Loom documentation (light version)", included: true },
+      { text: "30 days optimization + daily monitoring", included: true },
+      { text: "Phase 3 handover", included: false },
+      { text: "90-day growth roadmap", included: false },
+      { text: "Weekly check-in calls", included: false },
+      { text: "Quarterly strategy review", included: false },
+    ] as TierFeature[],
     result: "Live campaigns capturing peak-season buyers + proven ROAS",
     bestFor: "Ready to launch and see results this season",
     colorClass: "bg-tier-teal",
@@ -57,14 +70,18 @@ const tiers = [
     monthly: "+ $399/mo retainer",
     tagline: "Full Sprint + Handover + Scale Plan",
     forWho: "Companies wanting full 30–45 day sprint with Phase 3 + light retainer",
-    includes: [
-      "Phases 1 + 2 + 3 (Full sprint + handover)",
-      "Campaign setup + daily optimization",
-      "First-Peak Lead Guarantee",
-      "Comprehensive Loom documentation",
-      "90-day growth roadmap",
-      "60 days of access/support",
-    ],
+    features: [
+      { text: "Phases 1 + 2 + 3 (Full sprint + handover)", included: true },
+      { text: "Campaign setup + daily optimization", included: true },
+      { text: "First-Peak Lead Guarantee", included: true },
+      { text: "Comprehensive Loom documentation", included: true },
+      { text: "90-day growth roadmap", included: true },
+      { text: "60 days of access/support", included: true },
+      { text: "Weekly check-in calls", included: false },
+      { text: "Quarterly strategy review", included: false },
+      { text: "Lead-scoring refinement", included: false },
+      { text: "Post-90-day continuation", included: false },
+    ] as TierFeature[],
     result: "Full sprint + documented process + ready to scale",
     bestFor: "Established businesses ready to invest in long-term growth",
     colorClass: "bg-tier-purple",
@@ -81,15 +98,15 @@ const tiers = [
     monthly: "+ $599/mo after 90 days",
     tagline: "Done-With-You Growth Partner for Market Domination",
     forWho: "Companies wanting done-with-you approach + ongoing growth partner",
-    includes: [
-      "Phases 1 + 2 + 3 (Full sprint + deep handover)",
-      "First-Peak Lead Guarantee",
-      "90 days of included retainer ($1,797 value)",
-      "Weekly check-in calls",
-      "Quarterly strategy review",
-      "Lead-scoring refinement",
-      "Comprehensive Loom documentation + 90-day roadmap",
-    ],
+    features: [
+      { text: "Phases 1 + 2 + 3 (Full sprint + deep handover)", included: true },
+      { text: "First-Peak Lead Guarantee", included: true },
+      { text: "90 days of included retainer ($1,797 value)", included: true },
+      { text: "Weekly check-in calls", included: true },
+      { text: "Quarterly strategy review", included: true },
+      { text: "Lead-scoring refinement", included: true },
+      { text: "Comprehensive Loom documentation + 90-day roadmap", included: true },
+    ] as TierFeature[],
     result: "Full sprint + 3-month partnership to scale beyond seasonal window",
     bestFor: "Market leaders ready to dominate and scale aggressively",
     colorClass: "bg-tier-gold",
@@ -201,19 +218,31 @@ const SeasonalTiers = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8">
+                  {/* Features with red/green icons */}
                   <div>
-                    <p className="font-display text-lg mb-3">INCLUDES:</p>
+                    <p className="font-display text-lg mb-3">FEATURES:</p>
                     <ul className="space-y-2">
-                      {tier.includes.map((item, j) => (
+                      {tier.features.map((feature, j) => (
                         <li
                           key={j}
-                          className="flex items-start gap-2 font-body text-sm leading-relaxed"
+                          className={`flex items-start gap-2 font-body text-sm leading-relaxed ${
+                            !feature.included ? "opacity-50" : ""
+                          }`}
                         >
-                          <Check
-                            size={16}
-                            className="mt-0.5 flex-shrink-0 opacity-80"
-                          />
-                          {item}
+                          {feature.included ? (
+                            <Check
+                              size={16}
+                              className="mt-0.5 flex-shrink-0 text-green-400"
+                            />
+                          ) : (
+                            <XIcon
+                              size={16}
+                              className="mt-0.5 flex-shrink-0 text-red-400"
+                            />
+                          )}
+                          <span className={!feature.included ? "line-through" : ""}>
+                            {feature.text}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -227,6 +256,11 @@ const SeasonalTiers = () => {
                     <div className="bg-white/10 rounded-lg p-4">
                       <p className="font-display text-sm mb-1">BEST FOR:</p>
                       <p className="font-body text-sm">{tier.bestFor}</p>
+                    </div>
+                    <div className="bg-white/5 rounded-lg p-3 border border-white/10">
+                      <p className="font-body text-xs opacity-60">
+                        Total value: $15,000–$25,000 if purchased à la carte
+                      </p>
                     </div>
                   </div>
                 </div>
