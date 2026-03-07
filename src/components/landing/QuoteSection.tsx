@@ -1,10 +1,42 @@
 import { motion } from "framer-motion";
 
 interface QuoteSectionProps {
-  variant: "full" | "short" | "confidence";
+  variant: "full" | "short" | "confidence" | "guarantee";
 }
 
 const QuoteSection = ({ variant }: QuoteSectionProps) => {
+  if (variant === "guarantee") {
+    const words = [
+      { text: "We generate leads worth", highlight: false },
+      { text: "2x your ad spend", highlight: true },
+      { text: "during your first peak window", highlight: false },
+      { text: "—guaranteed.", highlight: false },
+    ];
+
+    return (
+      <section className="section-padding bg-background">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          {words.map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.25, duration: 0.6, ease: [0.32, 0.72, 0.3, 1] }}
+              className={`block font-display tracking-wider ${
+                word.highlight
+                  ? "text-accent text-5xl md:text-7xl lg:text-8xl my-4"
+                  : "text-foreground text-3xl md:text-4xl lg:text-5xl"
+              }`}
+            >
+              {word.text}
+            </motion.span>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   if (variant === "full") {
     return (
       <section id="philosophy-quote" className="section-padding bg-background">
@@ -16,6 +48,7 @@ const QuoteSection = ({ variant }: QuoteSectionProps) => {
           className="max-w-3xl mx-auto rounded-2xl p-8 md:p-12 border-l-4 border-accent shadow-sm"
           style={{ background: "hsl(var(--accent) / 0.05)" }}
         >
+          <div className="quote-line mb-4" />
           <p className="text-lg md:text-xl leading-relaxed text-foreground mb-4">
             ROAS is one of the most misunderstood metrics in paid ads. HVAC and
             roofing companies chase big numbers without understanding what they

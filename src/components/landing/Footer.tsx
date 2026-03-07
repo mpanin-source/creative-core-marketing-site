@@ -4,16 +4,15 @@ const Footer = () => {
       <div className="container-wide">
         <div className="text-center mb-8 pb-8 border-b border-border">
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Seasonal Momentum is built for HVAC, Roofing, and Solar companies
-            ready to capture peak-demand buyers. No hype—just data, timing, and
-            ads that convert.
+            Creative Core · Full-Funnel Growth for HVAC, Roofing, and Solar companies.
+            No hype—just data, timing, and ads that convert.
           </p>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-center md:text-left">
             <p className="font-display text-lg font-medium text-foreground">
-              Seasonal Momentum
+              Creative Core
             </p>
             <p className="text-sm text-muted-foreground mt-1">
               Full-Funnel Growth for HVAC, Roofing, Solar

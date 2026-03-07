@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { X, Menu } from "lucide-react";
+import { X, Menu, Zap } from "lucide-react";
 import AnimatedLogo from "./AnimatedLogo";
 
 const Header = () => {
@@ -35,6 +35,13 @@ const Header = () => {
                   {link.label}
                 </button>
               ))}
+              <button
+                onClick={() => scrollTo("ala-carte")}
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-medium hover:bg-accent/10 transition-colors"
+              >
+                <Zap className="w-3.5 h-3.5" />
+                Just Want The Website?
+              </button>
               <Button
                 variant="accent"
                 size="sm"
@@ -95,6 +102,13 @@ const Header = () => {
                   {link.label}
                 </button>
               ))}
+              <button
+                onClick={() => scrollTo("ala-carte")}
+                className="w-full text-left px-4 py-3 rounded-xl font-display text-base tracking-wide text-accent bg-accent/10 hover:bg-accent/15 transition-colors flex items-center gap-2"
+              >
+                <Zap className="w-4 h-4" />
+                Just Want The Website?
+              </button>
               <button
                 onClick={() => scrollTo("contact")}
                 className="w-full text-left px-4 py-3 rounded-xl font-display text-base tracking-wide bg-accent text-accent-foreground"
