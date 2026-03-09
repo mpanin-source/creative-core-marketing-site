@@ -63,7 +63,7 @@ const Hero = () => {
                   onClick={scrollToContact}
                   className="group w-full sm:w-auto transition-transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)]"
                 >
-                  Schedule Free Core Funnel Audit
+                  Schedule Free Phase 1 Audit
                   <ArrowRight className="ml-1 transition-transform group-hover:translate-x-1" />
                 </Button>
                 <span className="text-xs text-muted-foreground mt-2 text-center sm:text-left">
