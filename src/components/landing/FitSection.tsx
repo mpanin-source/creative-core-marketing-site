@@ -97,7 +97,7 @@ const FitSection = () => {
                     </span>
                   </div>
                   <h3 className="font-display text-xl text-foreground tracking-wider mb-2">
-                    CAN'T AFFORD THE UPFRONT FEE?
+                    CAN'T AFFORD UPFRONT? WE'VE GOT OPTIONS.
                   </h3>
                   <p className="text-sm text-muted-foreground mb-6">
                     Performance-based pricing designed for solo-pros testing seasonal positioning.
@@ -105,23 +105,51 @@ const FitSection = () => {
 
                   <div className="space-y-3 mb-6">
                     <div className="flex justify-between items-center p-3 bg-card rounded-lg">
-                      <span className="text-sm text-foreground">Upfront (Phase 1 audit)</span>
+                      <span className="text-sm text-foreground">Entry (Phase 1 Setup)</span>
                       <span className="font-display text-lg text-accent">$2,000</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-card rounded-lg">
-                      <span className="text-sm text-foreground">% of qualified leads booked</span>
-                      <span className="font-display text-lg text-accent">15%</span>
+                      <span className="text-sm text-foreground">Performance Kicker</span>
+                      <span className="font-display text-lg text-accent">15% of lead value</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-card rounded-lg">
                       <span className="text-sm text-foreground">Cap</span>
                       <span className="font-display text-lg text-accent">$15K or 90 days</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-card rounded-lg">
+                      <span className="text-sm text-foreground">After Cap</span>
+                      <span className="font-display text-lg text-accent">$299/mo flat</span>
+                    </div>
+                  </div>
+
+                  {/* Timeline */}
+                  <div className="mb-6">
+                    <p className="text-xs font-bold tracking-wider text-accent uppercase mb-3">YOUR PATH TO OWNERSHIP</p>
+                    <div className="flex items-center gap-1 overflow-x-auto pb-2">
+                      {[
+                        { label: "$2K Setup", sub: "You're in" },
+                        { label: "15% Kicker", sub: "We earn as you earn" },
+                        { label: "$15K Cap Hit", sub: "Kicker stops" },
+                        { label: "$299/mo", sub: "Forever" },
+                      ].map((step, i) => (
+                        <div key={i} className="flex items-center gap-1">
+                          <div className="px-3 py-2 bg-accent/10 border border-accent/20 rounded-lg text-center min-w-[80px]">
+                            <p className="text-xs font-bold text-accent">{step.label}</p>
+                            <p className="text-[10px] text-muted-foreground">{step.sub}</p>
+                          </div>
+                          {i < 3 && <ArrowRight className="w-3 h-3 text-accent/40 shrink-0" />}
+                        </div>
+                      ))}
                     </div>
                   </div>
 
                   <div className="bg-accent/5 border border-accent/20 rounded-lg p-4 mb-6">
                     <p className="text-xs text-muted-foreground mb-2 font-semibold uppercase tracking-wider">Example:</p>
                     <p className="text-sm text-foreground">
-                      You generate $100K in leads → You pay $2K + 15% = $17K → That's 17% cost of acquisition
+                      $10K ads → $100K leads over 90 days → You pay $2K + 15% = $17K total → After cap: $299/mo flat
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-2 italic">
+                      "This isn't a retainer trap. There's a finish line. Once you hit the cap, you own a high-margin lead machine and we maintain it for $299/mo."
                     </p>
                   </div>
 

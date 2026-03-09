@@ -20,7 +20,7 @@ const Hero = () => {
               SEASONAL MOMENTUM · HVAC / ROOFING / SOLAR
             </p>
             <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-display font-black leading-[0.95] tracking-wide text-foreground mb-4 animate-fade-in [animation-delay:100ms] opacity-0 uppercase">
-              YOUR Q1 PEAK SEASON JUST BECAME A $50K+ REVENUE SPRINT
+              YOUR PEAK SEASON IS YOUR GOLDMINE. WE SHOW YOU HOW TO MINE IT.
               <span
                 style={{
                   textShadow:
@@ -63,7 +63,7 @@ const Hero = () => {
                   onClick={scrollToContact}
                   className="group w-full sm:w-auto transition-transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)]"
                 >
-                  Schedule Free Core Funnel Audit
+                  Schedule Free Phase 1 Audit
                   <ArrowRight className="ml-1 transition-transform group-hover:translate-x-1" />
                 </Button>
                 <span className="text-xs text-muted-foreground mt-2 text-center sm:text-left">
