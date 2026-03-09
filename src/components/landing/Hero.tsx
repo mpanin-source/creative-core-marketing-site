@@ -20,7 +20,7 @@ const Hero = () => {
               SEASONAL MOMENTUM · HVAC / ROOFING / SOLAR
             </p>
             <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-display font-black leading-[0.95] tracking-wide text-foreground mb-4 animate-fade-in [animation-delay:100ms] opacity-0 uppercase">
-              YOUR Q1 PEAK SEASON JUST BECAME A $50K+ REVENUE SPRINT
+              YOUR PEAK SEASON IS YOUR GOLDMINE. WE SHOW YOU HOW TO MINE IT.
               <span
                 style={{
                   textShadow:
