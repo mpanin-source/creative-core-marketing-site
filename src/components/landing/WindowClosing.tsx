@@ -33,7 +33,7 @@ const WindowClosing = () => {
           </div>
 
           {/* Scarcity Box */}
-          <div className="bg-background/10 border border-background/20 rounded-xl p-8 mb-10">
+          <div className="bg-background/10 border border-background/20 rounded-xl p-6 md:p-8 mb-10">
             <div className="flex items-center gap-3 mb-4 justify-center">
               <Clock className="w-6 h-6 text-accent" />
               <p className="font-display text-xl text-background tracking-wider">
