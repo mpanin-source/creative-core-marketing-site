@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section className="section-padding min-h-[85vh] flex items-center px-6 md:px-8 lg:px-12 -mt-16 pt-16">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Left Column */}
           <div className="max-w-xl">
             <p className="text-sm font-medium tracking-wider text-accent uppercase mb-6 animate-fade-in">
