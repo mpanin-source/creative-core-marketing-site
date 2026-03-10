@@ -35,7 +35,7 @@ const CoreOffer = () => {
       ],
       effort: "Time investment from you: 5–10 hours/week (review ads, approve creative)",
       guarantee:
-        "First-Peak Lead Guarantee: If we don't generate 2x your total ad spend in qualified lead value by the end of your peak window, we work for free until we do.",
+        "The 2x Lead Value Guarantee: If we don't generate at least 2x your ad spend in vetted appointment value in your first window, we work for free until we do.",
     },
     {
       title: "PHASE 3 · DATA-DRIVEN HANDOVER & SCALE PLAN (5–10 days)",

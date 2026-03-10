@@ -66,13 +66,12 @@ const Hero = () => {
                   onClick={scrollToContact}
                   className="group w-full sm:w-auto transition-transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)]"
                 >
-                  Schedule Free Phase 1 Audit
-                  <ArrowRight className="ml-1 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <span className="text-xs text-muted-foreground mt-2 text-center sm:text-left">
-                  15-minute Loom breakdown · No obligation · Reveal exactly how
-                  much you're leaving on the table
-                </span>
+                   Schedule Phase 1 Growth Call
+                   <ArrowRight className="ml-1 transition-transform group-hover:translate-x-1" />
+                 </Button>
+                 <span className="text-xs text-muted-foreground mt-2 text-center sm:text-left">
+                   A 15-minute strategy call to audit your current lead-to-revenue bucket. No pitch, just a plan.
+                 </span>
               </div>
               <Button
                 variant="outline"

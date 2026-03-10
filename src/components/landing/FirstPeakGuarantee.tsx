@@ -25,7 +25,7 @@ const FirstPeakGuarantee = () => {
                   FIRST-PEAK LEAD GUARANTEE
                 </h2>
                 <p className="text-accent-foreground/90 font-body text-lg">
-                  2x Ad Spend in Qualified Lead Value — Guaranteed
+                   2x Ad Spend in Vetted Appointment Value — Guaranteed
                 </p>
               </div>
             </div>
