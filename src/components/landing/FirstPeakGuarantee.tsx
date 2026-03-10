@@ -44,7 +44,7 @@ const FirstPeakGuarantee = () => {
 
               <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
                 <p className="font-display text-base text-foreground mb-3 tracking-wider">
-                  WHAT DOES "2X YOUR AD SPEND IN LEAD VALUE" MEAN?
+                  WHAT DOES "2X YOUR AD SPEND IN VETTED APPOINTMENT VALUE" MEAN?
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
