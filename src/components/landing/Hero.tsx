@@ -31,7 +31,10 @@ const Hero = () => {
                 NOT A LEAD-GENERATION GAMBLE.
               </span>
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-full animate-fade-in [animation-delay:200ms] opacity-0">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-2 max-w-full animate-fade-in [animation-delay:200ms] opacity-0">
+              Then we install the SMS &amp; CRM engine that turns your "Emergency Repairs" into $15K+ "Planned Replacements" all year round.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-full animate-fade-in [animation-delay:220ms] opacity-0">
               Most HVAC/Roofing/Solar companies waste 40–50% of their ad budget
               running campaigns in off-season windows. We flip the timing,
               capture peak-demand buyers, and guarantee you 2x return on every ad
