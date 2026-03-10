@@ -29,6 +29,7 @@ const CoreOffer = () => {
         "A/B test headlines, CTAs, form fields on landing page",
         "Launch 3 ad angles, kill the losers by Day 5",
         "Daily budget reallocation to top-performing angles",
+        "Non-pitch SMS vetting to prove lead quality before you call",
         "Lead quality scoring to separate real buyers from tire-kickers",
         "Daily performance dashboard (CPC, CVR, ROAS)",
       ],
