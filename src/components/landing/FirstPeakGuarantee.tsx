@@ -25,7 +25,7 @@ const FirstPeakGuarantee = () => {
                   FIRST-PEAK LEAD GUARANTEE
                 </h2>
                 <p className="text-accent-foreground/90 font-body text-lg">
-                  2x Ad Spend in Qualified Lead Value — Guaranteed
+                   2x Ad Spend in Vetted Appointment Value — Guaranteed
                 </p>
               </div>
             </div>
@@ -37,14 +37,14 @@ const FirstPeakGuarantee = () => {
               </p>
 
               <p className="text-foreground leading-relaxed font-semibold">
-                If during your first peak demand window, we don't generate at
-                least 2x your total ad spend in qualified lead value, we work
-                for free until we do.
+                The 2x Lead Value Guarantee: If we don't generate at least 2x
+                your ad spend in vetted appointment value in your first window,
+                we work for free until we do.
               </p>
 
               <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
                 <p className="font-display text-base text-foreground mb-3 tracking-wider">
-                  WHAT DOES "2X YOUR AD SPEND IN LEAD VALUE" MEAN?
+                  WHAT DOES "2X YOUR AD SPEND IN VETTED APPOINTMENT VALUE" MEAN?
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">

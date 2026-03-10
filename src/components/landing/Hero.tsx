@@ -31,7 +31,10 @@ const Hero = () => {
                 NOT A LEAD-GENERATION GAMBLE.
               </span>
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-full animate-fade-in [animation-delay:200ms] opacity-0">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-2 max-w-full animate-fade-in [animation-delay:200ms] opacity-0">
+              Then we install the SMS &amp; CRM engine that turns your "Emergency Repairs" into $15K+ "Planned Replacements" all year round.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-full animate-fade-in [animation-delay:220ms] opacity-0">
               Most HVAC/Roofing/Solar companies waste 40–50% of their ad budget
               running campaigns in off-season windows. We flip the timing,
               capture peak-demand buyers, and guarantee you 2x return on every ad
@@ -63,13 +66,12 @@ const Hero = () => {
                   onClick={scrollToContact}
                   className="group w-full sm:w-auto transition-transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.3)]"
                 >
-                  Schedule Free Phase 1 Audit
-                  <ArrowRight className="ml-1 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <span className="text-xs text-muted-foreground mt-2 text-center sm:text-left">
-                  15-minute Loom breakdown · No obligation · Reveal exactly how
-                  much you're leaving on the table
-                </span>
+                   Schedule Phase 1 Growth Call
+                   <ArrowRight className="ml-1 transition-transform group-hover:translate-x-1" />
+                 </Button>
+                 <span className="text-xs text-muted-foreground mt-2 text-center sm:text-left">
+                   A 15-minute strategy call to audit your current lead-to-revenue bucket. No pitch, just a plan.
+                 </span>
               </div>
               <Button
                 variant="outline"

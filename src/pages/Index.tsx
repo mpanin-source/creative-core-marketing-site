@@ -6,6 +6,8 @@ import TestimonialSection from "@/components/landing/TestimonialSection";
 import CompetitivePositioning from "@/components/landing/CompetitivePositioning";
 import QuoteSection from "@/components/landing/QuoteSection";
 import CoreOffer from "@/components/landing/CoreOffer";
+import RevenueLifecycle from "@/components/landing/RevenueLifecycle";
+import TransparencyStack from "@/components/landing/TransparencyStack";
 import UpfrontFeeBreakdown from "@/components/landing/UpfrontFeeBreakdown";
 import ProofLayer from "@/components/landing/ProofLayer";
 import WhatYouBring from "@/components/landing/WhatYouBring";
@@ -18,6 +20,7 @@ import AIReceptionist from "@/components/landing/AIReceptionist";
 import FirstPeakGuarantee from "@/components/landing/FirstPeakGuarantee";
 import FitSection from "@/components/landing/FitSection";
 import AlaCarteSection from "@/components/landing/AlaCarteSection";
+import WindowClosing from "@/components/landing/WindowClosing";
 import ContactForm from "@/components/landing/ContactForm";
 import Footer from "@/components/landing/Footer";
 import MouseGlowEffect from "@/components/MouseGlowEffect";
@@ -30,43 +33,49 @@ const Index = () => {
       <main className="pt-16">
         {/* 1. Hero — Dream Outcome */}
         <Hero />
-        {/* 2. Opportunity Map — Seasonal Context */}
+        {/* 2. Revenue Lifecycle — Dual-Threat Emotional Hook */}
+        <RevenueLifecycle />
+        {/* 3. Opportunity Map — Seasonal Context */}
         <OpportunityMap />
-        {/* 3. Problem — Pain Amplification */}
+        {/* 4. Problem — Pain Amplification */}
         <Problem />
-        {/* 4. Testimonials — Early Proof */}
+        {/* 5. Testimonials — Early Proof */}
         <TestimonialSection />
-        {/* 5. Competitive Positioning — 3 Pain Points */}
+        {/* 6. Competitive Positioning — 3 Pain Points */}
         <CompetitivePositioning />
-        {/* 6. ROAS Quote — Sequential Animation */}
+        {/* 7. ROAS Quote — Sequential Animation */}
         <QuoteSection variant="guarantee" />
-        {/* 7. Core Offer — Grand Slam Architecture */}
+        {/* 8. Core Offer — Grand Slam Architecture */}
         <CoreOffer />
-        {/* 8. Upfront Fee Breakdown — Transparency */}
+        {/* 9. Transparency Stack — Dollar-Value Justification */}
+        <TransparencyStack />
+        {/* 10. Upfront Fee Breakdown — Transparency */}
         <UpfrontFeeBreakdown />
-        {/* 9. Proof Layer — Google Trends + Competitive Data */}
+        {/* 11. Proof Layer — Google Trends + Competitive Data */}
         <ProofLayer />
-        {/* 10. What You Bring — Effort & Sacrifice */}
+        {/* 12. What You Bring — Effort & Sacrifice */}
         <WhatYouBring />
-        {/* 11. Qualified Lead Definition — Transparency */}
+        {/* 13. Qualified Lead Definition — Transparency */}
         <QualifiedLeadDefinition />
-        {/* 12. Lead Philosophy — Old Way vs Core Way */}
+        {/* 14. Lead Philosophy — Old Way vs Core Way */}
         <LeadPhilosophy />
-        {/* 13. Why It Works — Science of Momentum */}
+        {/* 15. Why It Works — Science of Momentum */}
         <WhyItWorks />
-        {/* 14. LSA vs PPC — Educational */}
+        {/* 16. LSA vs PPC — Educational */}
         <LSAvsPPC />
-        {/* 15. Seasonal Tiers — Red/Green Pricing */}
+        {/* 17. Seasonal Tiers — Red/Green Pricing */}
         <SeasonalTiers />
-        {/* 16. AI Receptionist — Coming Soon FOMO */}
+        {/* 18. AI Receptionist — Coming Soon FOMO */}
         <AIReceptionist />
-        {/* 17. First-Peak Guarantee — Risk Reversal */}
+        {/* 19. First-Peak Guarantee — Risk Reversal */}
         <FirstPeakGuarantee />
-        {/* 18. Qualification — Solo-Pro vs Scaling */}
+        {/* 20. Qualification — Solo-Pro vs Scaling */}
         <FitSection />
-        {/* 19. À La Carte */}
+        {/* 21. À La Carte */}
         <AlaCarteSection />
-        {/* 20. Contact Form — Scarcity + Qualification */}
+        {/* 22. The Window Is Closing — Urgency */}
+        <WindowClosing />
+        {/* 23. Contact Form — Scarcity + Qualification */}
         <ContactForm />
       </main>
       <Footer />
