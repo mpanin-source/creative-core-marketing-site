@@ -37,9 +37,9 @@ const FirstPeakGuarantee = () => {
               </p>
 
               <p className="text-foreground leading-relaxed font-semibold">
-                If during your first peak demand window, we don't generate at
-                least 2x your total ad spend in qualified lead value, we work
-                for free until we do.
+                The 2x Lead Value Guarantee: If we don't generate at least 2x
+                your ad spend in vetted appointment value in your first window,
+                we work for free until we do.
               </p>
 
               <div className="bg-accent/5 border border-accent/20 rounded-lg p-6">
