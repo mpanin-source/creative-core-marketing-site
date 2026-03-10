@@ -35,7 +35,7 @@ const QualifiedLeadDefinition = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="p-8 bg-card rounded-xl border border-border mb-6"
+            className="p-6 md:p-8 bg-card rounded-xl border border-border mb-6"
           >
             <p className="text-sm text-muted-foreground mb-6">
               A homeowner in <span className="text-foreground font-semibold">YOUR specific zip codes</span> who:

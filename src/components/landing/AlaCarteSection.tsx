@@ -160,7 +160,7 @@ const AlaCarteSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl p-6 md:p-8 text-tier-purple-foreground"
+            className="rounded-2xl p-6 md:p-8 lg:p-10 text-tier-purple-foreground"
             style={{ background: "hsl(var(--tier-purple))" }}
           >
             <div className="grid md:grid-cols-[1fr_1.2fr] gap-6">

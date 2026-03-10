@@ -71,7 +71,7 @@ const UpfrontFeeBreakdown = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="p-6 bg-card rounded-xl border border-border"
+              className="p-6 md:p-8 bg-card rounded-xl border border-border"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">

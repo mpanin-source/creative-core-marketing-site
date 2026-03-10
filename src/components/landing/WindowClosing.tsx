@@ -45,11 +45,11 @@ const WindowClosing = () => {
                 <p className="text-3xl font-display text-accent">3</p>
                 <p className="text-sm text-background/70 mt-1">HVAC contractors</p>
               </div>
-              <div className="bg-background/5 rounded-lg p-4">
+              <div className="bg-background/5 rounded-lg p-5">
                 <p className="text-3xl font-display text-accent">3</p>
                 <p className="text-sm text-background/70 mt-1">Roofing contractors</p>
               </div>
-              <div className="bg-background/5 rounded-lg p-4">
+              <div className="bg-background/5 rounded-lg p-5">
                 <p className="text-3xl font-display text-accent">3</p>
                 <p className="text-sm text-background/70 mt-1">Solar contractors</p>
               </div>

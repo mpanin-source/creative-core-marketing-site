@@ -85,8 +85,8 @@ const Hero = () => {
           </div>
 
           {/* Right Column - HVAC-Specific Dashboard */}
-          <div className="hidden lg:block animate-fade-in [animation-delay:400ms] opacity-0">
-            <div className="bg-card border border-border rounded-xl p-6 shadow-elevated">
+          <div className="hidden lg:block animate-fade-in [animation-delay:400ms] opacity-0 max-w-md ml-auto">
+            <div className="bg-card border border-border rounded-xl p-8 shadow-elevated">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                   HVAC Seasonal Campaign Snapshot

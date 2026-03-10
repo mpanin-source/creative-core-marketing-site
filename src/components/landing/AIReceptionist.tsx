@@ -25,7 +25,7 @@ const AIReceptionist = () => {
   };
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: "hsl(220, 20%, 8%)" }}>
+    <section className="relative section-padding overflow-hidden" style={{ background: "hsl(220, 20%, 8%)" }}>
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"

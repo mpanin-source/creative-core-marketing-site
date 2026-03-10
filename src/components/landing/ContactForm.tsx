@@ -58,11 +58,11 @@ const ContactForm = () => {
   if (showSuccess) {
     return (
       <section
-        className="relative py-20 md:py-28 bg-[hsl(220,20%,8%)]"
+        className="relative section-padding bg-[hsl(220,20%,8%)]"
         id="contact"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(217,91%,53%,0.1),transparent_70%)]" />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
           <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
             <Shield className="w-10 h-10 text-primary" />
           </div>
