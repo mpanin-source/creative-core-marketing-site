@@ -41,7 +41,7 @@ const WindowClosing = () => {
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="bg-background/5 rounded-lg p-4">
+              <div className="bg-background/5 rounded-lg p-5">
                 <p className="text-3xl font-display text-accent">3</p>
                 <p className="text-sm text-background/70 mt-1">HVAC contractors</p>
               </div>
