@@ -81,7 +81,7 @@ const TransparencyStack = () => {
                   <span className="text-xs font-body text-muted-foreground ml-1">value</span>
                 </p>
               </div>
-              <div className="p-6 space-y-4">
+              <div className="p-6 md:p-8 space-y-4">
                 {pillar.items.map((item, j) => (
                   <div key={j} className="flex justify-between items-baseline">
                     <span className="text-sm text-foreground">{item.name}</span>

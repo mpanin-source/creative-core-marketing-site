@@ -102,7 +102,7 @@ const AlaCarteSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`rounded-2xl ${card.colorClass} ${card.textClass} p-6 md:p-8`}
+              className={`rounded-2xl ${card.colorClass} ${card.textClass} p-6 md:p-8 lg:p-10`}
             >
               <div className="grid md:grid-cols-[1fr_1.2fr] gap-6">
                 {/* Left: Info */}
@@ -160,7 +160,7 @@ const AlaCarteSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl p-6 md:p-8 text-tier-purple-foreground"
+            className="rounded-2xl p-6 md:p-8 lg:p-10 text-tier-purple-foreground"
             style={{ background: "hsl(var(--tier-purple))" }}
           >
             <div className="grid md:grid-cols-[1fr_1.2fr] gap-6">

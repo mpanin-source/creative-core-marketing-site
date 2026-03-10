@@ -40,7 +40,7 @@ const LeadPhilosophy = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* The Old Way - Revenue Leak */}
             <div className="bg-destructive/5 border border-destructive/10 p-8 md:p-10 rounded-xl">
               <h3 className="text-xl font-display font-bold text-foreground mb-2 tracking-widest uppercase">
