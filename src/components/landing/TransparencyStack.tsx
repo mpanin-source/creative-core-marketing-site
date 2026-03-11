@@ -18,7 +18,6 @@ const TransparencyStack = () => {
         { name: "Lead Scoring Automation", value: "$3,000" },
       ],
       note: "You own these assets forever. They generate value long after our engagement ends.",
-      color: "accent",
     },
     {
       icon: Rocket,
@@ -31,7 +30,6 @@ const TransparencyStack = () => {
         { name: "Daily Optimization & Reporting", value: "Included" },
       ],
       note: "We manage this. You control the access. Full transparency on every dollar spent.",
-      color: "accent",
     },
     {
       icon: Handshake,
@@ -44,18 +42,17 @@ const TransparencyStack = () => {
         { name: "Performance Guarantee", value: "Included" },
       ],
       note: "We're accountable to results, not retainer hours. If we don't perform, we work for free.",
-      color: "accent",
     },
   ];
 
   return (
     <section className="section-padding" id="transparency-stack">
-      <div className="container-wide">
+      <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-12">
-          <p className="text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+          <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
             THE TRANSPARENCY STACK
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground tracking-wider mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-foreground mb-4">
             DOLLAR-VALUE JUSTIFICATION
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -63,7 +60,7 @@ const TransparencyStack = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-12">
           {pillars.map((pillar, i) => (
             <motion.div
               key={i}
@@ -71,14 +68,14 @@ const TransparencyStack = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-card border border-border rounded-xl overflow-hidden"
+              className="glass-card rounded-xl overflow-hidden"
             >
-              <div className="bg-accent/10 p-6 border-b border-border">
+              <div className="bg-accent/5 p-6 border-b border-border">
                 <pillar.icon className="w-8 h-8 text-accent mb-3" />
-                <h3 className="font-display text-lg text-foreground tracking-wider">{pillar.label}</h3>
+                <h3 className="font-display text-lg font-bold text-foreground">{pillar.label}</h3>
                 <p className="text-xs text-muted-foreground mt-1">{pillar.sublabel}</p>
-                <p className="text-2xl font-display text-accent mt-2 tracking-wider">{pillar.totalValue}
-                  <span className="text-xs font-body text-muted-foreground ml-1">value</span>
+                <p className="text-2xl font-display font-black text-accent mt-2">{pillar.totalValue}
+                  <span className="text-xs font-body font-normal text-muted-foreground ml-1">value</span>
                 </p>
               </div>
               <div className="p-6 md:p-8 space-y-4">
@@ -104,9 +101,9 @@ const TransparencyStack = () => {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <div className="bg-accent/5 border-2 border-accent/30 rounded-xl p-8">
+          <div className="glass-card border-accent/30 rounded-xl p-8">
             <p className="text-sm text-muted-foreground uppercase tracking-wider mb-2">Total Value If Purchased Separately</p>
-            <p className="text-4xl md:text-5xl font-display text-foreground tracking-wider mb-4">
+            <p className="text-4xl md:text-5xl font-display font-black text-foreground mb-4">
               $20K–$40K
             </p>
             <p className="text-lg text-muted-foreground mb-6">
@@ -114,7 +111,7 @@ const TransparencyStack = () => {
             </p>
             <button
               onClick={scrollToTiers}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-display text-lg tracking-wider rounded-lg hover:bg-accent/90 transition-colors shadow-[0_0_20px_hsl(var(--accent)/0.3)]"
+              className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-lg transition-all hover:scale-105"
             >
               SEE PRICING
               <ArrowRight size={18} />
