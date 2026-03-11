@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { X, Menu, Zap } from "lucide-react";
+import { X, Menu } from "lucide-react";
 import AnimatedLogo from "./AnimatedLogo";
 
 const Header = () => {
@@ -14,9 +13,10 @@ const Header = () => {
   };
 
   const navLinks = [
-    { label: "How It Works", id: "offer" },
+    { label: "How It Works", id: "engine" },
     { label: "Proof", id: "testimonials" },
-    { label: "Services", id: "opportunity-map" },
+    { label: "Investment", id: "investment" },
+    { label: "FAQ", id: "faq" },
   ];
 
   return (
@@ -35,13 +35,6 @@ const Header = () => {
                   {link.label}
                 </button>
               ))}
-              <button
-                onClick={() => scrollTo("ala-carte")}
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-medium hover:bg-accent/10 transition-colors"
-              >
-                <Zap className="w-3.5 h-3.5" />
-                Just The Website
-              </button>
               <button
                 onClick={() => scrollTo("contact")}
                 className="btn-gold px-5 py-2 rounded-lg text-sm transition-all hover:scale-105"
@@ -78,13 +71,8 @@ const Header = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-5">
-              <h3 className="font-display text-xl text-foreground font-bold">
-                MENU
-              </h3>
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="p-1 rounded-full hover:bg-muted transition-colors"
-              >
+              <h3 className="font-display text-xl text-foreground font-bold">MENU</h3>
+              <button onClick={() => setMobileOpen(false)} className="p-1 rounded-full hover:bg-muted transition-colors">
                 <X size={20} className="text-muted-foreground" />
               </button>
             </div>
@@ -98,13 +86,6 @@ const Header = () => {
                   {link.label}
                 </button>
               ))}
-              <button
-                onClick={() => scrollTo("ala-carte")}
-                className="w-full text-left px-4 py-3 rounded-xl font-display text-base font-semibold text-accent bg-accent/10 hover:bg-accent/15 transition-colors flex items-center gap-2"
-              >
-                <Zap className="w-4 h-4" />
-                Just The Website
-              </button>
               <button
                 onClick={() => scrollTo("contact")}
                 className="w-full text-left px-4 py-3 rounded-xl font-display text-base font-bold btn-gold"
