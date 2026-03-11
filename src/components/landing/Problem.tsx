@@ -29,10 +29,10 @@ const problems = [
 
 const Problem = () => {
   return (
-    <section className="section-padding bg-card">
-      <div className="container-wide">
+    <section className="section-padding">
+      <div className="max-w-[1200px] mx-auto">
         <div className="container-narrow text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6 tracking-wider">
+          <h2 className="text-3xl md:text-4xl font-display font-black text-foreground mb-6">
             WHY YOUR ADS ARE BLEEDING MONEY
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
@@ -40,7 +40,7 @@ const Problem = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-[1100px] mx-auto">
           {problems.map((p, i) => (
             <motion.div
               key={i}
@@ -48,12 +48,12 @@ const Problem = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.4 }}
-              className="p-8 bg-background rounded-lg border border-border"
+              className="p-8 glass-card rounded-lg"
             >
               <div className="w-10 h-10 rounded-full bg-destructive/10 flex items-center justify-center mb-5">
-                <span className="text-destructive font-display text-lg">{p.num}</span>
+                <span className="text-destructive font-display text-lg font-bold">{p.num}</span>
               </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-3 tracking-wider">
+              <h3 className="text-xl font-display font-bold text-foreground mb-3">
                 {p.title}
               </h3>
               <p className="text-muted-foreground leading-relaxed text-sm">

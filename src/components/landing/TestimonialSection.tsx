@@ -15,8 +15,6 @@ const testimonials = [
       { label: "Revenue Booked", value: "$187,000" },
       { label: "ROI", value: "8.5:1" },
     ],
-    color: "border-tier-blue",
-    bg: "bg-tier-blue/5",
   },
   {
     name: "Sarah Chen",
@@ -30,25 +28,23 @@ const testimonials = [
       { label: "Ad Spend", value: "$18,500" },
       { label: "ROI", value: "6.5:1" },
     ],
-    color: "border-tier-teal",
-    bg: "bg-tier-teal/5",
   },
 ];
 
 const TestimonialSection = () => {
   return (
-    <section id="testimonials" className="section-padding bg-background">
-      <div className="container-wide">
+    <section id="testimonials" className="section-padding">
+      <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-12">
-          <p className="text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+          <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
             REAL RESULTS · REAL CLIENTS
           </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-wider">
+          <h2 className="text-3xl md:text-4xl font-display font-black text-foreground">
             PROOF THIS WORKS FOR COMPANIES LIKE YOURS
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 max-w-[1100px] mx-auto">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
@@ -56,7 +52,7 @@ const TestimonialSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
-              className={`rounded-xl border-2 ${t.color} ${t.bg} p-8`}
+              className="glass-card rounded-xl border-accent/10 p-8"
             >
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(5)].map((_, s) => (
@@ -71,17 +67,17 @@ const TestimonialSection = () => {
                 </span>
               </div>
 
-              <blockquote className="text-foreground leading-relaxed mb-6 italic">
+              <blockquote className="text-foreground/80 leading-relaxed mb-6 italic">
                 "{t.quote}"
               </blockquote>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
                 {t.metrics.map((m, j) => (
-                  <div key={j} className="bg-background/80 rounded-lg p-3 border border-border">
+                  <div key={j} className="bg-secondary rounded-lg p-3 border border-border">
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">
                       {m.label}
                     </p>
-                    <p className="font-display text-lg text-foreground">{m.value}</p>
+                    <p className="font-display text-lg font-bold text-foreground">{m.value}</p>
                     {"note" in m && m.note && (
                       <p className="text-[10px] text-destructive">{m.note}</p>
                     )}

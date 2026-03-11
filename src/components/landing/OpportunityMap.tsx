@@ -11,8 +11,6 @@ const seasons = [
     peak: "Feb 1 – Mar 15",
     mistake: "Bleeding money on summer AC ads",
     smart: "Capture homeowners panicking about heat",
-    color: "border-tier-blue bg-tier-blue/5",
-    iconColor: "text-tier-blue",
   },
   {
     id: "q2",
@@ -22,8 +20,6 @@ const seasons = [
     peak: "Apr 15 – May 30",
     mistake: 'Running generic "roof replacement" ads',
     smart: "Position before spring storms, tax incentives kick in",
-    color: "border-tier-teal bg-tier-teal/5",
-    iconColor: "text-tier-teal",
   },
   {
     id: "q3",
@@ -33,8 +29,6 @@ const seasons = [
     peak: "Jul 1 – Aug 31",
     mistake: "Ad fatigue, budget depletion",
     smart: "Seasonal positioning + targeting homeowners suffering",
-    color: "border-tier-gold bg-tier-gold/5",
-    iconColor: "text-tier-gold",
   },
 ];
 
@@ -48,8 +42,8 @@ export default function OpportunityMap() {
   };
 
   return (
-    <section id="opportunity-map" className="section-padding bg-background">
-      <div className="container-wide">
+    <section id="opportunity-map" className="section-padding">
+      <div className="max-w-[1200px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,10 +51,10 @@ export default function OpportunityMap() {
           transition={{ duration: 0.5 }}
         >
           <div className="text-center mb-10">
-            <p className="text-xs font-medium tracking-[0.2em] text-accent uppercase mb-4">
+            <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
               FOR HVAC / ROOFING / SOLAR
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-foreground mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-4">
               THE SEASONAL DEMAND CALENDAR
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -75,9 +69,9 @@ export default function OpportunityMap() {
               <button
                 key={s.id}
                 onClick={() => setActiveQ(s.id)}
-                className={`px-5 py-2.5 rounded-lg border-2 font-body font-medium transition-all ${
+                className={`px-5 py-2.5 rounded-lg border font-display font-bold text-sm transition-all ${
                   activeQ === s.id
-                    ? "border-accent bg-accent/20 text-accent"
+                    ? "border-accent bg-accent/10 text-accent"
                     : "border-border hover:border-accent/50 text-muted-foreground"
                 }`}
               >
@@ -94,21 +88,21 @@ export default function OpportunityMap() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className={`max-w-3xl mx-auto rounded-2xl border-2 ${active.color} p-8 md:p-12`}
+              className="max-w-3xl mx-auto glass-card rounded-2xl border-accent/20 p-8 md:p-12"
             >
               <div className="flex items-center gap-3 mb-6">
-                <ActiveIcon className={`w-8 h-8 ${active.iconColor}`} />
-                <h3 className="font-display text-2xl md:text-3xl text-foreground tracking-wider">
+                <ActiveIcon className="w-8 h-8 text-accent" />
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground">
                   {active.title}
                 </h3>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-background/80 rounded-lg p-5 border border-border">
+                <div className="bg-secondary rounded-lg p-5 border border-border">
                   <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2 font-bold">
                     Peak Demand Window
                   </p>
-                  <p className="font-display text-lg text-accent">{active.peak}</p>
+                  <p className="font-display text-lg font-bold text-accent">{active.peak}</p>
                 </div>
 
                 <div className="bg-destructive/5 rounded-lg p-5 border border-destructive/20">
@@ -130,7 +124,7 @@ export default function OpportunityMap() {
                 onClick={scrollToContact}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-accent-foreground font-bold text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors"
+                className="mt-8 btn-gold inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm uppercase tracking-wider transition-all"
               >
                 Capture This Window
                 <ArrowRight className="w-4 h-4" />

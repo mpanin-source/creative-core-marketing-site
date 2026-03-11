@@ -25,7 +25,8 @@ const AIReceptionist = () => {
   };
 
   return (
-    <section className="relative section-padding overflow-hidden" style={{ background: "hsl(220, 20%, 8%)" }}>
+    <section className="relative section-padding overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38,92%,55%,0.04),transparent_60%)]" />
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
@@ -36,7 +37,7 @@ const AIReceptionist = () => {
         />
       </div>
 
-      <div className="container-wide px-6 md:px-8 relative z-10">
+      <div className="max-w-[1200px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,17 +51,16 @@ const AIReceptionist = () => {
             </span>
           </div>
 
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-wider mb-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-4">
             AI RECEPTIONIST: THE 24/7 APPOINTMENT ENGINE
           </h2>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             While your seasonal ads bring in leads, your AI receptionist answers calls,
             qualifies prospects, and books appointments—automatically, 24/7.
           </p>
         </motion.div>
 
-        {/* Three Pillars */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-12">
           {pillars.map((pillar, i) => (
             <motion.div
               key={pillar.title}
@@ -68,51 +68,49 @@ const AIReceptionist = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-accent/40 transition-colors"
+              className="glass-card rounded-xl p-6 hover:border-accent/40 transition-colors"
             >
               <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4">
                 <pillar.icon className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="font-display text-xl text-white tracking-wider mb-2">
+              <h3 className="font-display text-xl font-bold text-foreground mb-2">
                 {pillar.title}
               </h3>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {pillar.description}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Why It Changes Everything */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-3xl mx-auto mb-10"
         >
-          <div className="bg-white/5 border border-white/10 rounded-xl p-8 text-center">
-            <p className="text-white/80 leading-relaxed mb-4">
+          <div className="glass-card rounded-xl p-8 text-center">
+            <p className="text-foreground/80 leading-relaxed mb-4">
               Right now, you're capturing peak-season buyers but losing them
               to slow response times. The AI receptionist closes that gap.
             </p>
-            <p className="text-white/50 text-sm">
+            <p className="text-muted-foreground text-sm">
               Estimated upgrade: Tier 2 → +$599/mo | Tier 3 → +$799/mo | Tier 4 → Included
             </p>
           </div>
         </motion.div>
 
-        {/* Scarcity + CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="inline-block rounded-xl border border-amber-500/30 bg-amber-500/5 px-6 py-4 mb-6">
-            <p className="text-amber-400 text-sm font-semibold mb-1">
+          <div className="inline-block rounded-xl border border-accent/30 glass-card px-6 py-4 mb-6">
+            <p className="text-accent text-sm font-semibold mb-1">
               🔒 Founding Member Pricing — Limited to First 50 Signups
             </p>
-            <p className="text-white/60 text-xs">
+            <p className="text-muted-foreground text-xs">
               Lock in 50% lifetime discount on AI Receptionist when it launches Q2 2026.
             </p>
           </div>
@@ -121,7 +119,7 @@ const AIReceptionist = () => {
               onClick={scrollToContact}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 rounded-lg bg-accent text-accent-foreground font-display text-lg tracking-wider hover:bg-accent/90 transition-colors flex items-center gap-2 mx-auto shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+              className="btn-gold px-8 py-4 rounded-lg text-lg flex items-center gap-2 mx-auto transition-all"
             >
               JOIN WAITLIST FOR FOUNDING MEMBER PRICING
               <ArrowRight size={18} />
