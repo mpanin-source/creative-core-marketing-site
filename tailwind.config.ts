@@ -12,14 +12,14 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "2.5rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1200px",
       },
     },
     extend: {
       fontFamily: {
-        display: ["Bebas Neue", "Impact", "sans-serif"],
+        display: ["Montserrat", "Inter", "sans-serif"],
         body: ["Inter", "-apple-system", "sans-serif"],
       },
       colors: {
@@ -108,12 +108,12 @@ export default {
           to: { height: "0" },
         },
         "fade-in": {
-          from: { opacity: "0", transform: "translateY(8px)" },
+          from: { opacity: "0", transform: "translateY(12px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "slide-up": {
-          from: { opacity: "0", transform: "translateY(20px) skewX(-5deg)" },
-          to: { opacity: "1", transform: "translateY(0) skewX(-5deg)" },
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
         },
         "ghost-in": {
           from: { opacity: "0", transform: "translateY(8px)" },
@@ -131,7 +131,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.5s ease-out forwards",
+        "fade-in": "fade-in 0.6s ease-out forwards",
         "slide-up": "slide-up 0.5s ease-out forwards",
         "pulse-glow": "pulseGlow 0.5s cubic-bezier(0.36, 0, 0.66, -0.56) forwards",
         "ghost-in": "ghost-in 0.4s cubic-bezier(0.32, 0.72, 0.3, 1)",
