@@ -29,7 +29,7 @@ const tiers = [
       "Email/SMS Sequences",
     ],
     guarantee: true,
-    cta: "Start Growth Sprint",
+    cta: "Book Sprint Audit",
     highlight: true,
   },
   {
