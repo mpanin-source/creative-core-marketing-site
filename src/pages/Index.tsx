@@ -3,9 +3,8 @@ import Hero from "@/components/landing/Hero";
 import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import Problem from "@/components/landing/Problem";
-import TestimonialSection from "@/components/landing/TestimonialSection";
 import InvestmentTransparency from "@/components/landing/InvestmentTransparency";
-import GuaranteeBanner from "@/components/landing/GuaranteeBanner";
+import PostPricingCTA from "@/components/landing/PostPricingCTA";
 import LeadPhilosophy from "@/components/landing/LeadPhilosophy";
 import FAQSection from "@/components/landing/FAQSection";
 import WindowClosing from "@/components/landing/WindowClosing";
@@ -27,19 +26,17 @@ const Index = () => {
         <ComparisonTable />
         {/* 4. Where Your Funnel Is Losing Money */}
         <Problem />
-        {/* 5. Results-Driven Guarantee */}
-        <TestimonialSection />
-        {/* 6. Sprint Pricing */}
+        {/* 5. Sprint Pricing */}
         <InvestmentTransparency />
-        {/* 7. Guarantee Banner */}
-        <GuaranteeBanner />
-        {/* 8. Why Sprints Beat Retainers */}
+        {/* 6. Post-Pricing CTA */}
+        <PostPricingCTA />
+        {/* 7. Why Sprints Beat Retainers */}
         <LeadPhilosophy />
-        {/* 9. FAQ */}
+        {/* 8. FAQ */}
         <FAQSection />
-        {/* 10. Urgency */}
+        {/* 9. Urgency */}
         <WindowClosing />
-        {/* 11. Contact Form */}
+        {/* 10. Contact Form */}
         <ContactForm />
       </main>
       <Footer />

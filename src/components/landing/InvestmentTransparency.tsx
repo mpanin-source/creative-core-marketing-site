@@ -14,7 +14,7 @@ const tiers = [
       "Basic CRM Setup",
     ],
     guarantee: false,
-    cta: "Start Foundation Sprint",
+    cta: "Book Sprint Audit",
     highlight: false,
   },
   {
@@ -29,7 +29,7 @@ const tiers = [
       "Email/SMS Sequences",
     ],
     guarantee: true,
-    cta: "Start Growth Sprint",
+    cta: "Book Sprint Audit",
     highlight: true,
   },
   {
@@ -44,7 +44,7 @@ const tiers = [
       "Dedicated account manager",
     ],
     guarantee: true,
-    cta: "Start Scale Sprint",
+    cta: "Book Sprint Audit",
     highlight: false,
   },
 ];
@@ -73,7 +73,7 @@ const InvestmentTransparency = () => {
         <div className="flex justify-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full">
             <Zap className="w-4 h-4 text-accent" />
-            <span className="text-sm font-bold text-accent">Limited to 5 new sprint clients per month</span>
+            <span className="text-sm font-bold text-accent">Limited to 3 new sprint clients per month</span>
           </div>
         </div>
 

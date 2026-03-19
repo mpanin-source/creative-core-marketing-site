@@ -24,7 +24,7 @@ const Hero = () => {
               SPEED TO DECISION IS THE ONLY DESIGN METRIC THAT MATTERS.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4 animate-fade-in [animation-delay:200ms] opacity-0">
-              We take what you have — offer, ads, funnel, sales process — and make the entire journey faster. Better leads. Lower cost. Real results in 30-45 days.
+              We build intensive 30-day campaigns that capture your peak season before your competitors do. More qualified calls. Lower cost per lead. 15+ calls in 45 days or 50% refund.
             </p>
             <div className="text-sm text-muted-foreground leading-relaxed mb-6 animate-fade-in [animation-delay:220ms] opacity-0 space-y-1">
               <p className="text-foreground font-semibold mb-2">We're not just an agency. We're a creative design studio obsessed with user experience through your entire funnel:</p>
@@ -60,6 +60,10 @@ const Hero = () => {
               ))}
             </div>
 
+            <p className="text-xs text-muted-foreground/70 mb-8 animate-fade-in [animation-delay:290ms] opacity-0">
+              *Qualified call = showed up for appointment, matches your ICP (budget fit, service area fit, intent confirmed). No bullshit.
+            </p>
+
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in [animation-delay:300ms] opacity-0">
               <div className="flex flex-col">
@@ -67,7 +71,7 @@ const Hero = () => {
                   onClick={scrollToContact}
                   className="btn-gold px-8 py-4 rounded-lg text-base group flex items-center gap-2 transition-all hover:scale-105"
                 >
-                  Schedule Your 15-Min Sprint Audit
+                  Schedule Your Sprint Audit
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </button>
                 <span className="text-xs text-muted-foreground mt-2 max-w-[320px]">
