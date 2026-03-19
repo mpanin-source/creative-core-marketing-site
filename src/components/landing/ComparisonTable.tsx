@@ -22,15 +22,24 @@ const reasons = [
   },
 ];
 
+const sectionFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
 const ComparisonTable = () => {
   const scrollToPricing = () => {
     document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="section-padding" id="comparison">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-16">
+    <section className="section-padding section-funnel" id="comparison">
+      <div className="max-w-[1000px] mx-auto">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center mb-16"
+        >
           <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
             WHY US
           </p>
@@ -40,16 +49,16 @@ const ComparisonTable = () => {
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
             We're specialists. We do one thing better than anyone: seasonal sprint campaigns for local service businesses.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-16">
           {reasons.map((reason, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="bg-card rounded-xl p-6 md:p-8 border border-border shadow-card hover:-translate-y-1 transition-all duration-200"
             >
               <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
@@ -72,7 +81,11 @@ const ComparisonTable = () => {
           ))}
         </div>
 
-        <div className="text-center">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center"
+        >
           <button
             onClick={scrollToPricing}
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
@@ -80,7 +93,7 @@ const ComparisonTable = () => {
             See Sprint Pricing
             <ArrowRight size={18} />
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

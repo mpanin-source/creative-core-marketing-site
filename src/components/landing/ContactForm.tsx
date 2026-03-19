@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -10,6 +11,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
+const sectionFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -50,15 +56,15 @@ const ContactForm = () => {
 
   if (showSuccess) {
     return (
-      <section className="relative section-padding" id="contact">
+      <section className="relative section-padding section-funnel section-dark" id="contact">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-success/15 border-2 border-success flex items-center justify-center">
             <Shield className="w-10 h-10 text-success" />
           </div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-cta uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground uppercase mb-4">
             SPRINT AUDIT SCHEDULED
           </h2>
-          <p className="text-xl text-foreground mb-6">
+          <p className="text-xl text-primary-foreground/80 mb-6">
             We'll be in touch within 24 hours with your funnel breakdown.
           </p>
         </div>
@@ -67,18 +73,28 @@ const ContactForm = () => {
   }
 
   return (
-    <section className="relative section-padding section-alt" id="contact">
-      <div className="relative z-10 max-w-[1200px] mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="font-display text-cta uppercase text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+    <section className="relative section-padding section-funnel section-dark" id="contact">
+      <div className="relative z-10 max-w-[1000px] mx-auto">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center mb-12"
+        >
+          <h2 className="font-display text-primary-foreground uppercase text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             SCHEDULE YOUR 15-MIN SPRINT AUDIT
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto">
             We'll analyze your funnel, identify friction points, and show you exactly what a 30-day sprint would look like for your business. No pitch. No obligation.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="max-w-xl mx-auto"
+        >
           <div className="bg-card rounded-xl p-6 sm:p-8 border border-border shadow-elevated">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
@@ -131,7 +147,7 @@ const ContactForm = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

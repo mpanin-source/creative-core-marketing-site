@@ -41,13 +41,22 @@ const faqs = [
   },
 ];
 
+const sectionFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="section-padding" id="faq">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-16">
+    <section className="section-padding section-funnel" id="faq">
+      <div className="max-w-[1000px] mx-auto">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full mb-6">
             <HelpCircle className="w-4 h-4 text-accent" />
             <span className="text-xs font-bold tracking-widest text-accent uppercase">FAQ</span>
@@ -55,11 +64,18 @@ const FAQSection = () => {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
             COMMON QUESTIONS
           </h2>
-        </div>
+        </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-card rounded-xl border border-border overflow-hidden hover:shadow-card transition-all duration-200">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: i * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="bg-card rounded-xl border border-border overflow-hidden hover:shadow-card transition-all duration-200"
+            >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 text-left"
@@ -87,7 +103,7 @@ const FAQSection = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
