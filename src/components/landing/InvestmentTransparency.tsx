@@ -14,7 +14,7 @@ const tiers = [
       "Basic CRM Setup",
     ],
     guarantee: false,
-    cta: "Start Foundation Sprint",
+    cta: "Book Sprint Audit",
     highlight: false,
   },
   {
