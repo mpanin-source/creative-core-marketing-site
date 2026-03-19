@@ -48,23 +48,23 @@ const FAQSection = () => {
     <section className="section-padding" id="faq">
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full mb-6">
             <HelpCircle className="w-4 h-4 text-accent" />
             <span className="text-xs font-bold tracking-widest text-accent uppercase">FAQ</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-black text-foreground">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
             COMMON QUESTIONS
           </h2>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((faq, i) => (
-            <div key={i} className="glass-card rounded-lg overflow-hidden">
+            <div key={i} className="glass-card rounded-lg overflow-hidden hover:border-accent/20 transition-colors duration-200">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 text-left"
               >
-                <span className="font-display text-base font-bold text-foreground pr-4">{faq.q}</span>
+                <span className="font-display text-base font-semibold text-foreground pr-4">{faq.q}</span>
                 <motion.div
                   animate={{ rotate: openIndex === i ? 180 : 0 }}
                   transition={{ duration: 0.2 }}

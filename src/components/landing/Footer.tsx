@@ -7,7 +7,7 @@ const Footer = () => {
           <p className="text-lg text-muted-foreground mb-4">Still reading? You're our ideal client.</p>
           <button
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
+            className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             Schedule Your Sprint Audit
           </button>
@@ -32,8 +32,8 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground mt-1">Seasonal Marketing Sprints</p>
           </div>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms</a>
+            <a href="#" className="hover:text-accent transition-colors duration-200">Privacy</a>
+            <a href="#" className="hover:text-accent transition-colors duration-200">Terms</a>
           </div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Creative Core. Built with OpenClaw.

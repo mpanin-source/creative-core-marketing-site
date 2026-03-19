@@ -44,7 +44,7 @@ const ContactForm = () => {
   const canSubmit = formData.name && formData.email && formData.serviceType;
 
   const inputClasses =
-    "bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/40 focus:ring-2 h-12 transition-all duration-200";
+    "bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/30 focus:ring-2 h-12 transition-all duration-200";
   const labelClasses =
     "block text-foreground/90 text-xs uppercase tracking-wider mb-2 font-semibold";
 
@@ -52,10 +52,10 @@ const ContactForm = () => {
     return (
       <section className="relative section-padding" id="contact">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-accent/20 border-2 border-accent flex items-center justify-center">
-            <Shield className="w-10 h-10 text-accent" />
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-success/20 border-2 border-success flex items-center justify-center">
+            <Shield className="w-10 h-10 text-success" />
           </div>
-          <h2 className="font-display text-3xl md:text-5xl font-black text-accent uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-accent uppercase mb-4">
             SPRINT AUDIT SCHEDULED
           </h2>
           <p className="text-xl text-foreground/90 mb-6">
@@ -68,10 +68,10 @@ const ContactForm = () => {
 
   return (
     <section className="relative section-padding" id="contact">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(38,92%,55%,0.06),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(239,84%,67%,0.04),transparent_70%)]" />
       <div className="relative z-10 max-w-[1200px] mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-display text-accent uppercase text-3xl sm:text-4xl md:text-5xl font-black mb-4">
+          <h2 className="font-display text-accent uppercase text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             SCHEDULE YOUR 15-MIN SPRINT AUDIT
           </h2>
           <p className="text-lg text-foreground/90 max-w-2xl mx-auto">
@@ -110,10 +110,10 @@ const ContactForm = () => {
               <div>
                 <label className={labelClasses}>Message (optional)</label>
                 <Textarea name="message" placeholder="Anything else we should know?" value={formData.message} onChange={handleChange}
-                  className="bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/40 focus:ring-2 transition-all duration-200 min-h-[80px]" />
+                  className="bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/30 focus:ring-2 transition-all duration-200 min-h-[80px]" />
               </div>
               <button type="submit" disabled={!canSubmit || isSubmitting}
-                className="w-full h-14 btn-gold rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
+                className="w-full h-14 btn-primary rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
                 {isSubmitting ? "SUBMITTING..." : "SCHEDULE AUDIT"}
                 {!isSubmitting && <ArrowRight className="w-5 h-5" />}
               </button>
@@ -125,9 +125,9 @@ const ContactForm = () => {
                 <span>15-minute strategy session — no pitch, no obligation.</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <Clock className="w-4 h-4 text-accent shrink-0" />
+                <Clock className="w-4 h-4 text-warning shrink-0" />
                 <span className="text-muted-foreground">
-                  <span className="text-accent font-semibold">3 spots left</span> this month.
+                  <span className="text-warning font-semibold">3 spots left</span> this month.
                 </span>
               </div>
             </div>

@@ -61,7 +61,7 @@ const InvestmentTransparency = () => {
           <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
             NO HIDDEN FEES
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
             TRANSPARENT SPRINT PRICING
           </h2>
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
@@ -71,9 +71,9 @@ const InvestmentTransparency = () => {
 
         {/* Scarcity badge */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full">
-            <Zap className="w-4 h-4 text-accent" />
-            <span className="text-sm font-bold text-accent">Limited to 3 new sprint clients per month</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-warning/10 border border-warning/30 rounded-full">
+            <Zap className="w-4 h-4 text-warning" />
+            <span className="text-sm font-bold text-warning">Limited to 3 new sprint clients per month</span>
           </div>
         </div>
 
@@ -85,27 +85,27 @@ const InvestmentTransparency = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`glass-card rounded-xl p-6 md:p-8 flex flex-col ${tier.highlight ? "border-accent/40 shadow-[0_0_30px_-5px_hsl(var(--accent)/0.15)]" : ""}`}
+              className={`glass-card rounded-xl p-6 md:p-8 flex flex-col transition-all duration-200 hover:-translate-y-1 ${tier.highlight ? "border-accent/40 shadow-[0_0_30px_-5px_hsl(var(--accent)/0.15)]" : ""}`}
             >
               {tier.highlight && (
-                <div className="text-xs font-bold text-accent uppercase tracking-wider mb-2">Most Popular</div>
+                <div className="text-xs font-bold text-success uppercase tracking-wider mb-2">Most Popular</div>
               )}
               <h3 className="font-display text-lg font-bold text-foreground mb-1">
                 TIER {i + 1}: {tier.name}
               </h3>
-              <p className="text-3xl font-display font-black text-accent mb-1">{tier.price}</p>
+              <p className="text-3xl font-display font-bold text-accent mb-1">{tier.price}</p>
               <p className="text-xs text-muted-foreground mb-6">{tier.retainer}</p>
 
               <div className="flex-1 space-y-3 mb-6">
                 {tier.items.map((item, j) => (
                   <div key={j} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                     <span className="text-sm text-foreground">{item}</span>
                   </div>
                 ))}
                 {tier.guarantee && (
                   <div className="flex items-start gap-2 mt-2">
-                    <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
                     <span className="text-sm text-accent font-semibold">15+ Qualified Calls in 45 Days or 50% Refund</span>
                   </div>
                 )}
@@ -113,7 +113,7 @@ const InvestmentTransparency = () => {
 
               <button
                 onClick={scrollToContact}
-                className={`w-full py-3 rounded-lg font-display font-bold text-sm transition-all hover:scale-105 ${tier.highlight ? "btn-gold" : "border border-border text-foreground hover:bg-secondary"}`}
+                className={`w-full py-3 rounded-lg font-display font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 ${tier.highlight ? "btn-primary" : "border border-border text-foreground hover:bg-secondary"}`}
               >
                 {tier.cta}
               </button>
@@ -134,7 +134,7 @@ const InvestmentTransparency = () => {
 
         <div className="text-center">
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Sprint Value If Purchased Separately</p>
-          <p className="text-3xl font-display font-black text-foreground">$8K–$20K</p>
+          <p className="text-3xl font-display font-bold text-foreground">$8K–$20K</p>
         </div>
       </div>
     </section>

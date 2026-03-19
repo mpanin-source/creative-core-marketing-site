@@ -43,7 +43,7 @@ const ThreePillarEngine = () => {
           <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
             THE SEASONAL SPRINT METHOD
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
             HOW 30-DAY SEASONAL SPRINTS WORK
           </h2>
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
@@ -59,7 +59,7 @@ const ThreePillarEngine = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass-card rounded-xl p-6 md:p-8 hover:border-accent/30 transition-colors"
+              className="glass-card rounded-xl p-6 md:p-8 hover:border-accent/30 transition-all duration-200 hover:-translate-y-1"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
@@ -77,7 +77,7 @@ const ThreePillarEngine = () => {
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 {phase.description}
               </p>
-              <div className="p-3 bg-accent/5 border border-accent/20 rounded-lg">
+              <div className="p-3 bg-accent/5 border border-accent/15 rounded-lg">
                 <p className="text-xs font-semibold text-accent">{phase.stat}</p>
               </div>
             </motion.div>
@@ -88,14 +88,14 @@ const ThreePillarEngine = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             {["Meta Ads", "Google Search + LSA", "Higgsfield (UGC)", "GoHighLevel CRM"].map((tool) => (
-              <span key={tool} className="px-4 py-2 glass-card rounded-lg text-sm font-semibold text-foreground">
+              <span key={tool} className="px-4 py-2 glass-card rounded-lg text-sm font-medium text-foreground">
                 {tool}
               </span>
             ))}
           </div>
           <button
             onClick={scrollToContact}
-            className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
+            className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             Schedule Your Sprint Audit
             <ArrowRight size={18} />
