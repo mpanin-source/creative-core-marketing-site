@@ -66,6 +66,8 @@
     /* Section alternating backgrounds */
     --section-alt: 210 20% 96%;
     --section-warm: 35 25% 96%;
+    --section-blue: 213 100% 97%;
+    --section-green: 140 25% 95%;
 
     /* Typography */
     --font-display: 'Bebas Neue', sans-serif;
@@ -130,7 +132,11 @@
 
 @layer components {
   .section-padding {
-    @apply px-6 py-24 md:px-8 md:py-32 lg:px-12 lg:py-40;
+    @apply px-6 py-28 md:px-8 md:py-36 lg:px-12 lg:py-44;
+  }
+
+  .section-funnel {
+    @apply min-h-[80vh] flex flex-col justify-center;
   }
 
   .container-narrow {
@@ -149,7 +155,6 @@
     @apply italic text-accent font-bold;
   }
 
-  /* Soft card */
   .glass-card {
     background: hsl(var(--card));
     border: 1px solid hsl(var(--border));
@@ -157,7 +162,6 @@
     border-radius: 0.75rem;
   }
 
-  /* Primary CTA button (deep purple) */
   .btn-primary {
     background: hsl(var(--cta));
     color: hsl(var(--cta-foreground));
@@ -172,12 +176,10 @@
     filter: brightness(1.05);
   }
 
-  /* Legacy alias */
   .btn-gold {
     @apply btn-primary;
   }
 
-  /* Alternating section backgrounds */
   .section-alt {
     background: hsl(var(--section-alt));
   }
@@ -185,23 +187,38 @@
   .section-warm {
     background: hsl(var(--section-warm));
   }
+
+  .section-blue {
+    background: hsl(var(--section-blue));
+  }
+
+  .section-green {
+    background: hsl(var(--section-green));
+  }
+
+  .section-dark {
+    background: hsl(var(--charcoal));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .section-divider {
+    @apply w-16 h-px mx-auto;
+    background: hsl(var(--border));
+  }
 }
 
-@keyframes pulseGlow {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.2;
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow: 0 4px 14px hsl(var(--cta) / 0.25), 0 0 0 0 hsl(var(--cta) / 0.3);
   }
-  30% {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.3;
+  50% {
+    box-shadow: 0 6px 20px hsl(var(--cta) / 0.35), 0 0 0 8px hsl(var(--cta) / 0);
   }
-  60% {
-    opacity: 0.15;
-  }
-  100% {
-    opacity: 0;
-  }
+}
+
+@keyframes scrollDown {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
 }
 
 @keyframes ghostIn {
@@ -243,6 +260,14 @@
   margin-bottom: 16px;
 }
 
+.cta-pulse {
+  animation: ctaPulse 2.5s ease-in-out infinite;
+}
+
+.scroll-indicator {
+  animation: scrollDown 1.5s ease-in-out infinite;
+}
+
 /* Focus states */
 button:focus-visible,
 a:focus-visible,
@@ -262,5 +287,9 @@ button, a, [role="button"] {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .scroll-indicator,
+  .cta-pulse {
+    animation: none !important;
   }
 }

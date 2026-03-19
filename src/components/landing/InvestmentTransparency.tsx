@@ -49,15 +49,24 @@ const tiers = [
   },
 ];
 
+const sectionFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 const InvestmentTransparency = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="section-padding" id="pricing">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-8">
+    <section className="section-padding section-funnel section-blue" id="pricing">
+      <div className="max-w-[1000px] mx-auto">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center mb-8"
+        >
           <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
             NO HIDDEN FEES
           </p>
@@ -67,24 +76,28 @@ const InvestmentTransparency = () => {
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
             Every dollar mapped to a deliverable. No hidden fees. No ad spend markups. You pay Meta and Google directly.
           </p>
-        </div>
+        </motion.div>
 
         {/* Scarcity badge */}
-        <div className="flex justify-center mb-12">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="flex justify-center mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-warning/10 border border-warning/30 rounded-full">
             <Zap className="w-4 h-4 text-warning" />
             <span className="text-sm font-bold text-warning">Limited to 3 new sprint clients per month</span>
           </div>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-12">
           {tiers.map((tier, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
               className={`bg-card rounded-xl p-6 md:p-8 flex flex-col border transition-all duration-200 hover:-translate-y-1 hover:shadow-card ${
                 tier.highlight
                   ? "border-cta/30 shadow-[0_0_24px_-4px_hsl(var(--cta)/0.12)]"
@@ -130,7 +143,11 @@ const InvestmentTransparency = () => {
         </div>
 
         {/* Key notes */}
-        <div className="max-w-3xl mx-auto text-center space-y-2 mb-8">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="max-w-3xl mx-auto text-center space-y-2 mb-8"
+        >
           {[
             "You pay Meta/Google ad spend directly — we don't mark it up",
             "Monthly retainer is optional after sprint completes",
@@ -138,12 +155,16 @@ const InvestmentTransparency = () => {
           ].map((note, i) => (
             <p key={i} className="text-sm text-muted-foreground">• {note}</p>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="text-center">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center"
+        >
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Sprint Value If Purchased Separately</p>
           <p className="text-3xl font-display font-bold text-foreground">$8K–$20K</p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

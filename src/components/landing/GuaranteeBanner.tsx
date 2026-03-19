@@ -1,9 +1,19 @@
+import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
+
+const sectionFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const GuaranteeBanner = () => {
   return (
-    <section className="px-6 py-12 md:px-8 md:py-16" id="guarantee">
-      <div className="max-w-[1200px] mx-auto">
+    <section className="px-6 py-16 md:px-8 md:py-20" id="guarantee">
+      <motion.div
+        initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+        variants={sectionFade}
+        className="max-w-[1000px] mx-auto"
+      >
         <div className="rounded-xl bg-cta p-8 md:p-12 text-center relative overflow-hidden">
           <div className="relative z-10">
             <Shield className="w-10 h-10 text-[hsl(var(--accent-secondary))] mx-auto mb-4" />
@@ -15,7 +25,7 @@ const GuaranteeBanner = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

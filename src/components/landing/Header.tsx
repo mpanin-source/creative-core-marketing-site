@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, Menu } from "lucide-react";
 import AnimatedLogo from "./AnimatedLogo";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
@@ -21,7 +28,13 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border shadow-subtle">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-subtle"
+            : "bg-transparent"
+        }`}
+      >
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">
           <div className="flex items-center justify-between h-16">
             <AnimatedLogo />

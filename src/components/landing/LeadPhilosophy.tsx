@@ -1,4 +1,10 @@
+import { motion } from "framer-motion";
 import { X, Check, ArrowRight } from "lucide-react";
+
+const sectionFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const LeadPhilosophy = () => {
   const oldWay = [
@@ -21,15 +27,26 @@ const LeadPhilosophy = () => {
   };
 
   return (
-    <section className="section-padding section-alt" id="why-sprints">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-16">
+    <section className="section-padding section-funnel section-warm" id="why-sprints">
+      <div className="max-w-[1000px] mx-auto">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             WHY SPRINTS BEAT RETAINERS
           </h2>
-        </div>
+        </motion.div>
+
         <div className="grid md:grid-cols-2 gap-8 max-w-[1100px] mx-auto mb-12">
-          <div className="bg-card border border-border p-6 md:p-8 rounded-xl shadow-subtle">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="bg-card border border-border p-6 md:p-8 rounded-xl shadow-subtle"
+          >
             <h3 className="text-xl font-display font-bold text-foreground mb-1">Traditional Agency</h3>
             <p className="text-xs text-muted-foreground mb-5 italic">The Revenue Leak</p>
             <ul className="space-y-3">
@@ -42,8 +59,15 @@ const LeadPhilosophy = () => {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="bg-card border border-[hsl(157,52%,65%,0.3)] p-6 md:p-8 rounded-xl shadow-card">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.12, ease: "easeOut" }}
+            className="bg-card border border-[hsl(157,52%,65%,0.3)] p-6 md:p-8 rounded-xl shadow-card"
+          >
             <h3 className="text-xl font-display font-bold text-foreground mb-1">Creative Core Sprint Model</h3>
             <p className="text-xs text-accent mb-5 italic">The Growth System</p>
             <ul className="space-y-3">
@@ -56,9 +80,14 @@ const LeadPhilosophy = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
-        <div className="text-center">
+
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center"
+        >
           <button
             onClick={scrollToPricing}
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
@@ -66,7 +95,7 @@ const LeadPhilosophy = () => {
             See Sprint Pricing
             <ArrowRight size={18} />
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

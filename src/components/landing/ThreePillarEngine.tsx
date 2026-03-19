@@ -34,15 +34,24 @@ const phases = [
   },
 ];
 
+const sectionFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 const ThreePillarEngine = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="section-padding section-alt" id="engine">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-16">
+    <section className="section-padding section-funnel section-blue" id="engine">
+      <div className="max-w-[1000px] mx-auto">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center mb-16"
+        >
           <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
             THE SEASONAL SPRINT METHOD
           </p>
@@ -52,16 +61,16 @@ const ThreePillarEngine = () => {
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
             We don't lock you into 12-month retainers. We build intensive 30-45 day campaigns designed to capture your peak season, then give you the option to continue monthly.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-16">
           {phases.map((phase, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
               className={`${phase.bgColor} rounded-xl p-6 md:p-8 border border-border hover:shadow-card transition-all duration-200 hover:-translate-y-1`}
             >
               <div className="flex items-center gap-3 mb-4">
@@ -88,7 +97,11 @@ const ThreePillarEngine = () => {
         </div>
 
         {/* Tool stack */}
-        <div className="max-w-3xl mx-auto text-center">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="max-w-3xl mx-auto text-center"
+        >
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             {["Meta Ads", "Google Search + LSA", "Higgsfield (UGC)", "GoHighLevel CRM"].map((tool) => (
               <span key={tool} className="px-4 py-2 bg-card border border-border rounded-lg text-sm font-medium text-foreground shadow-subtle">
@@ -103,7 +116,7 @@ const ThreePillarEngine = () => {
             Schedule Your Sprint Audit
             <ArrowRight size={18} />
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

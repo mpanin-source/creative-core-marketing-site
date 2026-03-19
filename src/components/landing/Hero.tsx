@@ -1,4 +1,14 @@
-import { ArrowRight, Check, Play } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Check, Play, ChevronDown } from "lucide-react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.12, ease: "easeOut" },
+  }),
+};
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -10,99 +20,104 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="section-padding min-h-[85vh] flex items-center -mt-16 pt-16 relative overflow-hidden">
-      <div className="max-w-[1200px] mx-auto w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Left: Copy + CTA */}
-          <div>
-            <p className="text-sm font-semibold tracking-widest text-accent uppercase mb-6 animate-fade-in">
-              SEASONAL MARKETING SPRINTS FOR LOCAL SERVICE BUSINESSES
-            </p>
-            <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] text-foreground mb-8 animate-fade-in [animation-delay:100ms] opacity-0 uppercase">
-              SPEED TO DECISION IS THE ONLY DESIGN METRIC THAT MATTERS.
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-5 animate-fade-in [animation-delay:200ms] opacity-0">
-              We build intensive 30-day campaigns that capture your peak season before your competitors do. More qualified calls. Lower cost per lead. 15+ calls in 45 days or 50% refund.
-            </p>
-            <div className="text-sm text-muted-foreground leading-relaxed mb-8 animate-fade-in [animation-delay:220ms] opacity-0 space-y-1">
-              <p className="text-foreground font-semibold mb-2">We're not just an agency. We're a creative design studio obsessed with user experience through your entire funnel:</p>
-              <ul className="space-y-1 ml-1">
-                <li>• The ad that stops the scroll</li>
-                <li>• The landing page that eliminates friction</li>
-                <li>• The CRM that scores and nurtures automatically</li>
-                <li>• The call script that closes faster</li>
-              </ul>
-              <p className="mt-3 text-muted-foreground italic">User experience generates sales. Not just the ad.</p>
-            </div>
+    <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-8 lg:px-12 -mt-16 pt-16 relative overflow-hidden">
+      <div className="max-w-[1000px] mx-auto w-full relative z-10 text-center">
+        <motion.p
+          variants={fadeUp} initial="hidden" animate="visible" custom={0}
+          className="text-sm font-semibold tracking-widest text-accent uppercase mb-6"
+        >
+          SEASONAL MARKETING SPRINTS FOR LOCAL SERVICE BUSINESSES
+        </motion.p>
 
-            {/* Niche badges */}
-            <div className="flex flex-wrap gap-2 mb-8 animate-fade-in [animation-delay:250ms] opacity-0">
-              {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services"].map((trade) => (
-                <span key={trade} className="px-3 py-1.5 rounded-full border border-border bg-card text-xs font-medium text-muted-foreground tracking-wider shadow-subtle">
-                  {trade}
-                </span>
-              ))}
-            </div>
+        <motion.h1
+          variants={fadeUp} initial="hidden" animate="visible" custom={1}
+          className="text-[2.8rem] md:text-6xl lg:text-7xl font-display font-bold leading-[1.02] text-foreground mb-8 uppercase"
+        >
+          SPEED TO DECISION IS THE ONLY DESIGN METRIC THAT MATTERS.
+        </motion.h1>
 
-            {/* Value props */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-6 animate-fade-in [animation-delay:280ms] opacity-0">
-              {[
-                "First qualified calls in 30 days",
-                "You own all infrastructure forever",
-                "15+ calls in 45 days or 50% refund",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-foreground">
-                  <Check className="w-4 h-4 text-success flex-shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
+        <motion.p
+          variants={fadeUp} initial="hidden" animate="visible" custom={2}
+          className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 max-w-[700px] mx-auto"
+        >
+          We build intensive 30-day campaigns that capture your peak season before your competitors do. More qualified calls. Lower cost per lead. 15+ calls in 45 days or 50% refund.
+        </motion.p>
 
-            <p className="text-xs text-muted-foreground/70 mb-8 animate-fade-in [animation-delay:290ms] opacity-0">
-              *Qualified call = showed up for appointment, matches your ICP (budget fit, service area fit, intent confirmed). No bullshit.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in [animation-delay:300ms] opacity-0">
-              <div className="flex flex-col">
-                <button
-                  onClick={scrollToContact}
-                  className="btn-primary px-8 py-4 rounded-lg text-base group flex items-center gap-2"
-                >
-                  Schedule Your Sprint Audit
-                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                </button>
-                <span className="text-xs text-muted-foreground mt-2 max-w-[320px]">
-                  No pitch. Just a breakdown of where your funnel is losing speed.
-                </span>
-              </div>
-              <button
-                onClick={scrollToEngine}
-                className="px-6 py-4 rounded-lg border border-border bg-card text-foreground font-body font-semibold text-sm hover:bg-secondary transition-all duration-200 hover:-translate-y-0.5 shadow-subtle"
-              >
-                Watch How It Works
-              </button>
+        {/* Value props */}
+        <motion.div
+          variants={fadeUp} initial="hidden" animate="visible" custom={3}
+          className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-6"
+        >
+          {[
+            "First qualified calls in 30 days",
+            "You own all infrastructure forever",
+            "15+ calls in 45 days or 50% refund",
+          ].map((item) => (
+            <div key={item} className="flex items-center gap-2 text-sm text-foreground">
+              <Check className="w-4 h-4 text-success flex-shrink-0" />
+              <span>{item}</span>
             </div>
-          </div>
+          ))}
+        </motion.div>
 
-          {/* Right: Video Placeholder */}
-          <div className="animate-fade-in [animation-delay:400ms] opacity-0">
-            <div className="rounded-xl overflow-hidden aspect-video relative group cursor-pointer bg-card border border-border shadow-card">
-              <div className="absolute inset-0 bg-secondary/50 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-cta/10 border-2 border-cta/40 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Play className="w-7 h-7 text-cta ml-1" />
-                  </div>
-                  <p className="text-muted-foreground text-sm font-medium">Coming Soon</p>
-                </div>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground mt-3 text-center">
-              Watch Max explain the seasonal sprint model (75 seconds)
-            </p>
-          </div>
-        </div>
+        <motion.p
+          variants={fadeUp} initial="hidden" animate="visible" custom={3.5}
+          className="text-xs text-muted-foreground/70 mb-10"
+        >
+          *Qualified call = showed up for appointment, matches your ICP (budget fit, service area fit, intent confirmed). No bullshit.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          variants={fadeUp} initial="hidden" animate="visible" custom={4}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4"
+        >
+          <button
+            onClick={scrollToContact}
+            className="btn-primary cta-pulse px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
+          >
+            Schedule Your Sprint Audit
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </button>
+          <button
+            onClick={scrollToEngine}
+            className="px-6 py-4 rounded-lg border border-border bg-card text-foreground font-body font-semibold text-sm hover:bg-secondary transition-all duration-200 hover:-translate-y-0.5 shadow-subtle"
+          >
+            Watch How It Works
+          </button>
+        </motion.div>
+
+        <motion.p
+          variants={fadeUp} initial="hidden" animate="visible" custom={4.5}
+          className="text-xs text-muted-foreground"
+        >
+          No pitch. Just a breakdown of where your funnel is losing speed.
+        </motion.p>
+
+        {/* Niche badges */}
+        <motion.div
+          variants={fadeUp} initial="hidden" animate="visible" custom={5}
+          className="flex flex-wrap justify-center gap-2 mt-10"
+        >
+          {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services"].map((trade) => (
+            <span key={trade} className="px-3 py-1.5 rounded-full border border-border bg-card text-xs font-medium text-muted-foreground tracking-wider shadow-subtle">
+              {trade}
+            </span>
+          ))}
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
+        onClick={scrollToEngine}
+      >
+        <span className="text-xs text-muted-foreground/60 uppercase tracking-widest">Scroll</span>
+        <ChevronDown className="w-5 h-5 text-muted-foreground/60 scroll-indicator" />
+      </motion.div>
     </section>
   );
 };

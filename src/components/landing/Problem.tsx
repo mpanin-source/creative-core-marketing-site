@@ -22,31 +22,40 @@ const problems = [
   },
 ];
 
+const sectionFade = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 const Problem = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="section-padding section-alt" id="problem">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-16">
+    <section className="section-padding section-funnel section-green" id="problem">
+      <div className="max-w-[1000px] mx-auto">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             WHERE YOUR FUNNEL IS LOSING MONEY
           </h2>
           <p className="text-lg text-muted-foreground">
             3 friction points we fix in every sprint.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-16">
           {problems.map((p, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.4 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: i * 0.12, duration: 0.5, ease: "easeOut" }}
               className={`p-6 md:p-8 ${p.bg} rounded-xl border border-border shadow-subtle hover:-translate-y-1 hover:shadow-card transition-all duration-200`}
             >
               <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-4">
@@ -58,7 +67,11 @@ const Problem = () => {
           ))}
         </div>
 
-        <div className="text-center">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center"
+        >
           <button
             onClick={scrollToContact}
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
@@ -66,7 +79,7 @@ const Problem = () => {
             Schedule Your Sprint Audit
             <ArrowRight size={18} />
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
