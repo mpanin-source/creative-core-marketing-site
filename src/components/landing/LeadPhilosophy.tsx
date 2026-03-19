@@ -21,36 +21,36 @@ const LeadPhilosophy = () => {
   };
 
   return (
-    <section className="section-padding" id="why-sprints">
+    <section className="section-padding section-alt" id="why-sprints">
       <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             WHY SPRINTS BEAT RETAINERS
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-8 max-w-[1100px] mx-auto mb-10">
-          <div className="glass-card p-6 md:p-8 rounded-xl">
-            <h3 className="text-lg font-display font-bold text-foreground mb-1">Traditional Agency</h3>
+        <div className="grid md:grid-cols-2 gap-8 max-w-[1100px] mx-auto mb-12">
+          <div className="bg-card border border-border p-6 md:p-8 rounded-xl shadow-subtle">
+            <h3 className="text-xl font-display font-bold text-foreground mb-1">Traditional Agency</h3>
             <p className="text-xs text-muted-foreground mb-5 italic">The Revenue Leak</p>
             <ul className="space-y-3">
               {oldWay.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-muted flex items-center justify-center mt-0.5">
-                    <X className="w-3 h-3 text-muted-foreground/60" />
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-destructive/10 flex items-center justify-center mt-0.5">
+                    <X className="w-3 h-3 text-destructive" />
                   </div>
                   <span className="text-sm text-muted-foreground">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="glass-card border-accent/20 p-6 md:p-8 rounded-xl shadow-[0_0_30px_-5px_hsl(var(--accent)/0.1)]">
-            <h3 className="text-lg font-display font-bold text-foreground mb-1">Creative Core Sprint Model</h3>
+          <div className="bg-card border border-[hsl(157,52%,65%,0.3)] p-6 md:p-8 rounded-xl shadow-card">
+            <h3 className="text-xl font-display font-bold text-foreground mb-1">Creative Core Sprint Model</h3>
             <p className="text-xs text-accent mb-5 italic">The Growth System</p>
             <ul className="space-y-3">
               {ourWay.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mt-0.5">
-                    <Check className="w-3 h-3 text-accent" />
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-success/10 flex items-center justify-center mt-0.5">
+                    <Check className="w-3 h-3 text-success" />
                   </div>
                   <span className="text-sm text-foreground">{item}</span>
                 </li>

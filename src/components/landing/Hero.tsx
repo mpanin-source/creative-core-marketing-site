@@ -11,23 +11,20 @@ const Hero = () => {
 
   return (
     <section id="hero" className="section-padding min-h-[85vh] flex items-center -mt-16 pt-16 relative overflow-hidden">
-      {/* Subtle indigo-to-purple gradient overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(239,84%,67%,0.06),hsl(258,90%,66%,0.03),transparent_60%)]" />
-
       <div className="max-w-[1200px] mx-auto w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left: Copy + CTA */}
           <div>
             <p className="text-sm font-semibold tracking-widest text-accent uppercase mb-6 animate-fade-in">
               SEASONAL MARKETING SPRINTS FOR LOCAL SERVICE BUSINESSES
             </p>
-            <h1 className="text-[2.2rem] md:text-5xl lg:text-[3.2rem] font-display font-bold leading-[1.08] text-foreground mb-6 animate-fade-in [animation-delay:100ms] opacity-0 uppercase">
+            <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.05] text-foreground mb-8 animate-fade-in [animation-delay:100ms] opacity-0 uppercase">
               SPEED TO DECISION IS THE ONLY DESIGN METRIC THAT MATTERS.
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-4 animate-fade-in [animation-delay:200ms] opacity-0">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-5 animate-fade-in [animation-delay:200ms] opacity-0">
               We build intensive 30-day campaigns that capture your peak season before your competitors do. More qualified calls. Lower cost per lead. 15+ calls in 45 days or 50% refund.
             </p>
-            <div className="text-sm text-muted-foreground leading-relaxed mb-6 animate-fade-in [animation-delay:220ms] opacity-0 space-y-1">
+            <div className="text-sm text-muted-foreground leading-relaxed mb-8 animate-fade-in [animation-delay:220ms] opacity-0 space-y-1">
               <p className="text-foreground font-semibold mb-2">We're not just an agency. We're a creative design studio obsessed with user experience through your entire funnel:</p>
               <ul className="space-y-1 ml-1">
                 <li>• The ad that stops the scroll</li>
@@ -35,20 +32,20 @@ const Hero = () => {
                 <li>• The CRM that scores and nurtures automatically</li>
                 <li>• The call script that closes faster</li>
               </ul>
-              <p className="mt-3 text-foreground/70 italic">User experience generates sales. Not just the ad.</p>
+              <p className="mt-3 text-muted-foreground italic">User experience generates sales. Not just the ad.</p>
             </div>
 
             {/* Niche badges */}
-            <div className="flex flex-wrap gap-2 mb-6 animate-fade-in [animation-delay:250ms] opacity-0">
+            <div className="flex flex-wrap gap-2 mb-8 animate-fade-in [animation-delay:250ms] opacity-0">
               {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services"].map((trade) => (
-                <span key={trade} className="px-3 py-1.5 rounded-full border border-border bg-secondary text-xs font-medium text-muted-foreground tracking-wider">
+                <span key={trade} className="px-3 py-1.5 rounded-full border border-border bg-card text-xs font-medium text-muted-foreground tracking-wider shadow-subtle">
                   {trade}
                 </span>
               ))}
             </div>
 
             {/* Value props */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-fade-in [animation-delay:280ms] opacity-0">
+            <div className="flex flex-col sm:flex-row gap-4 mb-6 animate-fade-in [animation-delay:280ms] opacity-0">
               {[
                 "First qualified calls in 30 days",
                 "You own all infrastructure forever",
@@ -61,7 +58,7 @@ const Hero = () => {
               ))}
             </div>
 
-            <p className="text-xs text-muted-foreground/60 mb-8 animate-fade-in [animation-delay:290ms] opacity-0">
+            <p className="text-xs text-muted-foreground/70 mb-8 animate-fade-in [animation-delay:290ms] opacity-0">
               *Qualified call = showed up for appointment, matches your ICP (budget fit, service area fit, intent confirmed). No bullshit.
             </p>
 
@@ -81,7 +78,7 @@ const Hero = () => {
               </div>
               <button
                 onClick={scrollToEngine}
-                className="px-6 py-4 rounded-lg border border-border text-foreground font-display font-semibold text-sm hover:bg-secondary transition-all duration-200 hover:-translate-y-0.5"
+                className="px-6 py-4 rounded-lg border border-border bg-card text-foreground font-body font-semibold text-sm hover:bg-secondary transition-all duration-200 hover:-translate-y-0.5 shadow-subtle"
               >
                 Watch How It Works
               </button>
@@ -90,11 +87,11 @@ const Hero = () => {
 
           {/* Right: Video Placeholder */}
           <div className="animate-fade-in [animation-delay:400ms] opacity-0">
-            <div className="glass-card rounded-xl overflow-hidden aspect-video relative group cursor-pointer shadow-[0_0_40px_-10px_hsl(var(--accent)/0.15)]">
-              <div className="absolute inset-0 bg-secondary flex items-center justify-center">
+            <div className="rounded-xl overflow-hidden aspect-video relative group cursor-pointer bg-card border border-border shadow-card">
+              <div className="absolute inset-0 bg-secondary/50 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-accent/15 border-2 border-accent/50 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform animate-pulse">
-                    <Play className="w-7 h-7 text-accent ml-1" />
+                  <div className="w-16 h-16 rounded-full bg-cta/10 border-2 border-cta/40 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <Play className="w-7 h-7 text-cta ml-1" />
                   </div>
                   <p className="text-muted-foreground text-sm font-medium">Coming Soon</p>
                 </div>

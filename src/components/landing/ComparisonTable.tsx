@@ -30,7 +30,7 @@ const ComparisonTable = () => {
   return (
     <section className="section-padding" id="comparison">
       <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
             WHY US
           </p>
@@ -42,7 +42,7 @@ const ComparisonTable = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-12">
+        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-16">
           {reasons.map((reason, i) => (
             <motion.div
               key={i}
@@ -50,20 +50,20 @@ const ComparisonTable = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass-card rounded-xl p-6 md:p-8 hover:-translate-y-1 transition-all duration-200"
+              className="bg-card rounded-xl p-6 md:p-8 border border-border shadow-card hover:-translate-y-1 transition-all duration-200"
             >
               <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
                 <reason.icon className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="font-display text-base font-bold text-foreground mb-5">
+              <h3 className="font-display text-lg font-bold text-foreground mb-5">
                 {reason.title}
               </h3>
               <div className="space-y-4">
-                <div className="p-4 bg-muted/50 border border-border rounded-lg">
+                <div className="p-4 bg-secondary border border-border rounded-lg">
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">What They Do</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{reason.them}</p>
                 </div>
-                <div className="p-4 bg-accent/5 border border-accent/15 rounded-lg">
+                <div className="p-4 bg-[hsl(157,52%,65%,0.06)] border border-[hsl(157,52%,65%,0.2)] rounded-lg">
                   <p className="text-xs font-bold text-accent uppercase tracking-wider mb-2">What We Do</p>
                   <p className="text-sm text-foreground leading-relaxed">{reason.us}</p>
                 </div>

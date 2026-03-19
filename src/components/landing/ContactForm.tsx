@@ -44,21 +44,21 @@ const ContactForm = () => {
   const canSubmit = formData.name && formData.email && formData.serviceType;
 
   const inputClasses =
-    "bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/30 focus:ring-2 h-12 transition-all duration-200";
+    "bg-card border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/20 focus:ring-2 h-12 transition-all duration-200 rounded-lg";
   const labelClasses =
-    "block text-foreground/90 text-xs uppercase tracking-wider mb-2 font-semibold";
+    "block text-foreground text-xs uppercase tracking-wider mb-2 font-semibold";
 
   if (showSuccess) {
     return (
       <section className="relative section-padding" id="contact">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-success/20 border-2 border-success flex items-center justify-center">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-success/15 border-2 border-success flex items-center justify-center">
             <Shield className="w-10 h-10 text-success" />
           </div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-accent uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-cta uppercase mb-4">
             SPRINT AUDIT SCHEDULED
           </h2>
-          <p className="text-xl text-foreground/90 mb-6">
+          <p className="text-xl text-foreground mb-6">
             We'll be in touch within 24 hours with your funnel breakdown.
           </p>
         </div>
@@ -67,20 +67,19 @@ const ContactForm = () => {
   }
 
   return (
-    <section className="relative section-padding" id="contact">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(239,84%,67%,0.04),transparent_70%)]" />
+    <section className="relative section-padding section-alt" id="contact">
       <div className="relative z-10 max-w-[1200px] mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-display text-accent uppercase text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="font-display text-cta uppercase text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             SCHEDULE YOUR 15-MIN SPRINT AUDIT
           </h2>
-          <p className="text-lg text-foreground/90 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             We'll analyze your funnel, identify friction points, and show you exactly what a 30-day sprint would look like for your business. No pitch. No obligation.
           </p>
         </div>
 
         <div className="max-w-xl mx-auto">
-          <div className="glass-card rounded-xl p-6 sm:p-8 shadow-elevated">
+          <div className="bg-card rounded-xl p-6 sm:p-8 border border-border shadow-elevated">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className={labelClasses}>Name *</label>
@@ -102,7 +101,7 @@ const ContactForm = () => {
                   </SelectTrigger>
                   <SelectContent className="bg-card border-border">
                     {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services", "Other"].map((t) => (
-                      <SelectItem key={t} value={t.toLowerCase()} className="text-foreground focus:bg-accent/20 focus:text-foreground">{t}</SelectItem>
+                      <SelectItem key={t} value={t.toLowerCase()} className="text-foreground focus:bg-accent/10 focus:text-foreground">{t}</SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
@@ -110,7 +109,7 @@ const ContactForm = () => {
               <div>
                 <label className={labelClasses}>Message (optional)</label>
                 <Textarea name="message" placeholder="Anything else we should know?" value={formData.message} onChange={handleChange}
-                  className="bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/30 focus:ring-2 transition-all duration-200 min-h-[80px]" />
+                  className="bg-card border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/20 focus:ring-2 transition-all duration-200 min-h-[80px] rounded-lg" />
               </div>
               <button type="submit" disabled={!canSubmit || isSubmitting}
                 className="w-full h-14 btn-primary rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">

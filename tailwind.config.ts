@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Inter", "sans-serif"],
+        display: ["'Bebas Neue'", "sans-serif"],
         body: ["Inter", "-apple-system", "sans-serif"],
       },
       colors: {
@@ -48,6 +48,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
           secondary: "hsl(var(--accent-secondary))",
+        },
+        cta: {
+          DEFAULT: "hsl(var(--cta))",
+          foreground: "hsl(var(--cta-foreground))",
         },
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",

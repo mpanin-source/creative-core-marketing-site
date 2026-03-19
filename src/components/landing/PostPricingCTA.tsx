@@ -6,7 +6,7 @@ const PostPricingCTA = () => {
   };
 
   return (
-    <section className="section-padding">
+    <section className="section-padding section-warm">
       <div className="max-w-[1200px] mx-auto">
         <div className="max-w-[700px] mx-auto text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">

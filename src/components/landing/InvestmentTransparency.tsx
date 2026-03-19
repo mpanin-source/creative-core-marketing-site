@@ -70,14 +70,14 @@ const InvestmentTransparency = () => {
         </div>
 
         {/* Scarcity badge */}
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-warning/10 border border-warning/30 rounded-full">
             <Zap className="w-4 h-4 text-warning" />
             <span className="text-sm font-bold text-warning">Limited to 3 new sprint clients per month</span>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-[1100px] mx-auto mb-10">
+        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-12">
           {tiers.map((tier, i) => (
             <motion.div
               key={i}
@@ -85,15 +85,19 @@ const InvestmentTransparency = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`glass-card rounded-xl p-6 md:p-8 flex flex-col transition-all duration-200 hover:-translate-y-1 ${tier.highlight ? "border-accent/40 shadow-[0_0_30px_-5px_hsl(var(--accent)/0.15)]" : ""}`}
+              className={`bg-card rounded-xl p-6 md:p-8 flex flex-col border transition-all duration-200 hover:-translate-y-1 hover:shadow-card ${
+                tier.highlight
+                  ? "border-cta/30 shadow-[0_0_24px_-4px_hsl(var(--cta)/0.12)]"
+                  : "border-border shadow-subtle"
+              }`}
             >
               {tier.highlight && (
                 <div className="text-xs font-bold text-success uppercase tracking-wider mb-2">Most Popular</div>
               )}
-              <h3 className="font-display text-lg font-bold text-foreground mb-1">
+              <h3 className="font-display text-xl font-bold text-foreground mb-1">
                 TIER {i + 1}: {tier.name}
               </h3>
-              <p className="text-3xl font-display font-bold text-accent mb-1">{tier.price}</p>
+              <p className="text-3xl font-display font-bold text-cta mb-1">{tier.price}</p>
               <p className="text-xs text-muted-foreground mb-6">{tier.retainer}</p>
 
               <div className="flex-1 space-y-3 mb-6">
@@ -106,14 +110,18 @@ const InvestmentTransparency = () => {
                 {tier.guarantee && (
                   <div className="flex items-start gap-2 mt-2">
                     <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-accent font-semibold">15+ Qualified Calls in 45 Days or 50% Refund</span>
+                    <span className="text-sm text-cta font-semibold">15+ Qualified Calls in 45 Days or 50% Refund</span>
                   </div>
                 )}
               </div>
 
               <button
                 onClick={scrollToContact}
-                className={`w-full py-3 rounded-lg font-display font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 ${tier.highlight ? "btn-primary" : "border border-border text-foreground hover:bg-secondary"}`}
+                className={`w-full py-3 rounded-lg font-body font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 ${
+                  tier.highlight
+                    ? "btn-primary"
+                    : "border border-border text-foreground bg-card hover:bg-secondary"
+                }`}
               >
                 {tier.cta}
               </button>
