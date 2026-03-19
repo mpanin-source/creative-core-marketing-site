@@ -44,7 +44,7 @@ const tiers = [
       "Dedicated account manager",
     ],
     guarantee: true,
-    cta: "Start Scale Sprint",
+    cta: "Book Sprint Audit",
     highlight: false,
   },
 ];
