@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Play, ChevronDown } from "lucide-react";
+import { ArrowRight, Check, ChevronDown } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.12, ease: "easeOut" },
+    transition: { duration: 0.6, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
   }),
-};
+} as const;
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -24,14 +24,15 @@ const Hero = () => {
       <div className="max-w-[1000px] mx-auto w-full relative z-10 text-center">
         <motion.p
           variants={fadeUp} initial="hidden" animate="visible" custom={0}
-          className="text-sm font-semibold tracking-widest text-accent uppercase mb-6"
+          className="text-sm font-semibold tracking-widest uppercase mb-6"
+          style={{ color: "hsl(96, 15%, 43%)" }}
         >
           SEASONAL MARKETING SPRINTS FOR LOCAL SERVICE BUSINESSES
         </motion.p>
 
         <motion.h1
           variants={fadeUp} initial="hidden" animate="visible" custom={1}
-          className="text-[2.8rem] md:text-6xl lg:text-7xl font-display font-bold leading-[1.02] text-foreground mb-8 uppercase"
+          className="text-[2.8rem] md:text-6xl lg:text-7xl font-display font-extrabold leading-[1.02] text-foreground mb-8"
         >
           SPEED TO DECISION IS THE ONLY DESIGN METRIC THAT MATTERS.
         </motion.h1>
@@ -77,11 +78,11 @@ const Hero = () => {
             className="btn-primary cta-pulse px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
           >
             Schedule Your Sprint Audit
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />
           </button>
           <button
             onClick={scrollToEngine}
-            className="px-6 py-4 rounded-lg border border-border bg-card text-foreground font-body font-semibold text-sm hover:bg-secondary transition-all duration-200 hover:-translate-y-0.5 shadow-subtle"
+            className="px-6 py-4 rounded-lg border border-accent bg-card text-foreground font-body font-semibold text-sm glass-hover shadow-subtle"
           >
             Watch How It Works
           </button>
@@ -100,7 +101,7 @@ const Hero = () => {
           className="flex flex-wrap justify-center gap-2 mt-10"
         >
           {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services"].map((trade) => (
-            <span key={trade} className="px-3 py-1.5 rounded-full border border-border bg-card text-xs font-medium text-muted-foreground tracking-wider shadow-subtle">
+            <span key={trade} className="px-3 py-1.5 rounded-full border border-accent/40 bg-card text-xs font-medium text-muted-foreground tracking-wider shadow-subtle">
               {trade}
             </span>
           ))}

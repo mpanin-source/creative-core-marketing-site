@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Target, DollarSign, Zap, ArrowRight } from "lucide-react";
 
 const reasons = [
@@ -22,9 +22,9 @@ const reasons = [
   },
 ];
 
-const sectionFade = {
+const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
 };
 
 const ComparisonTable = () => {
@@ -40,10 +40,10 @@ const ComparisonTable = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "hsl(96, 15%, 43%)" }}>
             WHY US
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold text-foreground mb-4">
             CREATIVE CORE VS GENERIC AGENCY
           </h2>
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
@@ -58,11 +58,11 @@ const ComparisonTable = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
-              className="bg-card rounded-xl p-6 md:p-8 border border-border shadow-card hover:-translate-y-1 transition-all duration-200"
+              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+              className="bg-card rounded-xl p-6 md:p-8 border border-accent/30 shadow-card glass-hover"
             >
-              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
-                <reason.icon className="w-6 h-6 text-accent" />
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-5 feature-icon" style={{ background: "hsla(207, 38%, 76%, 0.15)" }}>
+                <reason.icon className="w-6 h-6" style={{ color: "hsl(96, 15%, 43%)" }} />
               </div>
               <h3 className="font-display text-lg font-bold text-foreground mb-5">
                 {reason.title}
@@ -72,8 +72,8 @@ const ComparisonTable = () => {
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">What They Do</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{reason.them}</p>
                 </div>
-                <div className="p-4 bg-[hsl(157,52%,65%,0.06)] border border-[hsl(157,52%,65%,0.2)] rounded-lg">
-                  <p className="text-xs font-bold text-accent uppercase tracking-wider mb-2">What We Do</p>
+                <div className="p-4 rounded-lg" style={{ background: "hsla(96, 15%, 43%, 0.06)", border: "1px solid hsla(96, 15%, 43%, 0.2)" }}>
+                  <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "hsl(96, 15%, 43%)" }}>What We Do</p>
                   <p className="text-sm text-foreground leading-relaxed">{reason.us}</p>
                 </div>
               </div>
@@ -91,7 +91,7 @@ const ComparisonTable = () => {
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             See Sprint Pricing
-            <ArrowRight size={18} />
+            <ArrowRight size={18} className="arrow-icon transition-transform" />
           </button>
         </motion.div>
       </div>

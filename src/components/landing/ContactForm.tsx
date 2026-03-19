@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -12,9 +12,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const sectionFade = {
+const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
 };
 
 const ContactForm = () => {
@@ -61,7 +61,7 @@ const ContactForm = () => {
           <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-success/15 border-2 border-success flex items-center justify-center">
             <Shield className="w-10 h-10 text-success" />
           </div>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground uppercase mb-4">
+          <h2 className="font-display text-3xl md:text-5xl font-extrabold text-primary-foreground uppercase mb-4">
             SPRINT AUDIT SCHEDULED
           </h2>
           <p className="text-xl text-primary-foreground/80 mb-6">
@@ -80,7 +80,7 @@ const ContactForm = () => {
           variants={sectionFade}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-primary-foreground uppercase text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="font-display text-primary-foreground uppercase text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
             SCHEDULE YOUR 15-MIN SPRINT AUDIT
           </h2>
           <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto">
@@ -92,7 +92,7 @@ const ContactForm = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           className="max-w-xl mx-auto"
         >
           <div className="bg-card rounded-xl p-6 sm:p-8 border border-border shadow-elevated">
@@ -130,13 +130,13 @@ const ContactForm = () => {
               <button type="submit" disabled={!canSubmit || isSubmitting}
                 className="w-full h-14 btn-primary rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
                 {isSubmitting ? "SUBMITTING..." : "SCHEDULE AUDIT"}
-                {!isSubmitting && <ArrowRight className="w-5 h-5" />}
+                {!isSubmitting && <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />}
               </button>
             </form>
 
             <div className="mt-6 pt-6 border-t border-border space-y-3">
               <div className="flex items-center gap-3 text-muted-foreground text-sm">
-                <Shield className="w-4 h-4 text-accent shrink-0" />
+                <Shield className="w-4 h-4 shrink-0" style={{ color: "hsl(207, 38%, 76%)" }} />
                 <span>15-minute strategy session — no pitch, no obligation.</span>
               </div>
               <div className="flex items-center gap-3 text-sm">

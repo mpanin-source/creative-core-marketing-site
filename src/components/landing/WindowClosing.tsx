@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Clock, ArrowRight } from "lucide-react";
 
-const sectionFade = {
+const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
 };
 
 const WindowClosing = () => {
@@ -19,7 +19,7 @@ const WindowClosing = () => {
         className="max-w-[700px] mx-auto text-center"
       >
         <Clock className="w-8 h-8 text-warning mx-auto mb-4" />
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-6">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-extrabold text-foreground mb-6">
           PEAK SEASON WAITS FOR NO ONE
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
@@ -43,7 +43,7 @@ const WindowClosing = () => {
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             Schedule Your Sprint Audit
-            <ArrowRight size={18} />
+            <ArrowRight size={18} className="arrow-icon transition-transform" />
           </button>
         </div>
       </motion.div>

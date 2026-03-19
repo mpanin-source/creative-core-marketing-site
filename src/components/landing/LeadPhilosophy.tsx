@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { X, Check, ArrowRight } from "lucide-react";
 
-const sectionFade = {
+const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
 };
 
 const LeadPhilosophy = () => {
@@ -34,7 +34,7 @@ const LeadPhilosophy = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4">
             WHY SPRINTS BEAT RETAINERS
           </h2>
         </motion.div>
@@ -44,8 +44,8 @@ const LeadPhilosophy = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="bg-card border border-border p-6 md:p-8 rounded-xl shadow-subtle"
+            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+            className="bg-card border border-border p-6 md:p-8 rounded-xl shadow-subtle glass-hover"
           >
             <h3 className="text-xl font-display font-bold text-foreground mb-1">Traditional Agency</h3>
             <p className="text-xs text-muted-foreground mb-5 italic">The Revenue Leak</p>
@@ -65,11 +65,12 @@ const LeadPhilosophy = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.12, ease: "easeOut" }}
-            className="bg-card border border-[hsl(157,52%,65%,0.3)] p-6 md:p-8 rounded-xl shadow-card"
+            transition={{ duration: 0.5, delay: 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+            className="bg-card border p-6 md:p-8 rounded-xl shadow-card glass-hover"
+            style={{ borderColor: "hsla(96, 15%, 43%, 0.3)" }}
           >
             <h3 className="text-xl font-display font-bold text-foreground mb-1">Creative Core Sprint Model</h3>
-            <p className="text-xs text-accent mb-5 italic">The Growth System</p>
+            <p className="text-xs mb-5 italic" style={{ color: "hsl(96, 15%, 43%)" }}>The Growth System</p>
             <ul className="space-y-3">
               {ourWay.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -93,7 +94,7 @@ const LeadPhilosophy = () => {
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             See Sprint Pricing
-            <ArrowRight size={18} />
+            <ArrowRight size={18} className="arrow-icon transition-transform" />
           </button>
         </motion.div>
       </div>
