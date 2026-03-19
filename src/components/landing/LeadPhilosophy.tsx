@@ -3,7 +3,7 @@ import { X, Check, ArrowRight } from "lucide-react";
 
 const sectionFade = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const LeadPhilosophy = () => {
@@ -44,7 +44,7 @@ const LeadPhilosophy = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="bg-card border border-border p-6 md:p-8 rounded-xl shadow-subtle"
           >
             <h3 className="text-xl font-display font-bold text-foreground mb-1">Traditional Agency</h3>
@@ -65,7 +65,7 @@ const LeadPhilosophy = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.5, delay: 0.12, ease: "easeOut" }}
             className="bg-card border border-[hsl(157,52%,65%,0.3)] p-6 md:p-8 rounded-xl shadow-card"
           >
             <h3 className="text-xl font-display font-bold text-foreground mb-1">Creative Core Sprint Model</h3>

@@ -43,7 +43,7 @@ const faqs = [
 
 const sectionFade = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const FAQSection = () => {
@@ -73,7 +73,7 @@ const FAQSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: i * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.4, delay: i * 0.05, ease: "easeOut" }}
               className="bg-card rounded-xl border border-border overflow-hidden hover:shadow-card transition-all duration-200"
             >
               <button

@@ -24,7 +24,7 @@ const problems = [
 
 const sectionFade = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const Problem = () => {
@@ -55,7 +55,7 @@ const Problem = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: i * 0.12, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ delay: i * 0.12, duration: 0.5, ease: "easeOut" }}
               className={`p-6 md:p-8 ${p.bg} rounded-xl border border-border shadow-subtle hover:-translate-y-1 hover:shadow-card transition-all duration-200`}
             >
               <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-4">

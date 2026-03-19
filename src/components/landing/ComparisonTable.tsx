@@ -24,7 +24,7 @@ const reasons = [
 
 const sectionFade = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const ComparisonTable = () => {
@@ -58,7 +58,7 @@ const ComparisonTable = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
               className="bg-card rounded-xl p-6 md:p-8 border border-border shadow-card hover:-translate-y-1 transition-all duration-200"
             >
               <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">

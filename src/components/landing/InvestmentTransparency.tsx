@@ -51,7 +51,7 @@ const tiers = [
 
 const sectionFade = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const InvestmentTransparency = () => {
@@ -97,7 +97,7 @@ const InvestmentTransparency = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
               className={`bg-card rounded-xl p-6 md:p-8 flex flex-col border transition-all duration-200 hover:-translate-y-1 hover:shadow-card ${
                 tier.highlight
                   ? "border-cta/30 shadow-[0_0_24px_-4px_hsl(var(--cta)/0.12)]"

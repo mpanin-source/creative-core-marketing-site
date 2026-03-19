@@ -36,7 +36,7 @@ const phases = [
 
 const sectionFade = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 const ThreePillarEngine = () => {
@@ -70,7 +70,7 @@ const ThreePillarEngine = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
               className={`${phase.bgColor} rounded-xl p-6 md:p-8 border border-border hover:shadow-card transition-all duration-200 hover:-translate-y-1`}
             >
               <div className="flex items-center gap-3 mb-4">
