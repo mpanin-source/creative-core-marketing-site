@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Bebas Neue'", "sans-serif"],
+        display: ["'Montserrat'", "sans-serif"],
         body: ["Inter", "-apple-system", "sans-serif"],
       },
       colors: {
@@ -52,6 +52,7 @@ export default {
         cta: {
           DEFAULT: "hsl(var(--cta))",
           foreground: "hsl(var(--cta-foreground))",
+          alt: "hsl(var(--cta-alt))",
         },
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
@@ -71,6 +72,10 @@ export default {
           DEFAULT: "hsl(var(--sage))",
           light: "hsl(var(--sage-light))",
         },
+        army: {
+          DEFAULT: "hsl(var(--army))",
+          dark: "hsl(var(--army-dark))",
+        },
         charcoal: "hsl(var(--charcoal))",
         slate: "hsl(var(--slate))",
         "warm-white": "hsl(var(--warm-white))",
@@ -79,8 +84,8 @@ export default {
           "blue-foreground": "hsl(var(--tier-blue-foreground))",
           teal: "hsl(var(--tier-teal))",
           "teal-foreground": "hsl(var(--tier-teal-foreground))",
-          purple: "hsl(var(--tier-purple))",
-          "purple-foreground": "hsl(var(--tier-purple-foreground))",
+          green: "hsl(var(--tier-green))",
+          "green-foreground": "hsl(var(--tier-green-foreground))",
           gold: "hsl(var(--tier-gold))",
           "gold-foreground": "hsl(var(--tier-gold-foreground))",
         },
@@ -134,16 +139,20 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out forwards",
         "slide-up": "slide-up 0.5s ease-out forwards",
-        "pulse-glow": "pulseGlow 0.5s cubic-bezier(0.36, 0, 0.66, -0.56) forwards",
         "ghost-in": "ghost-in 0.4s cubic-bezier(0.32, 0.72, 0.3, 1)",
         "ghost-out": "ghost-out 0.3s cubic-bezier(0.32, 0.72, 0.3, 1)",
         "trigger-pulse": "trigger-pulse 2s ease-in-out infinite",
+        marquee: "marquee 40s linear infinite",
       },
     },
   },

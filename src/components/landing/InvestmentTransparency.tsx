@@ -1,10 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Check, ArrowRight, Zap } from "lucide-react";
+import CountUp from "react-countup";
 
 const tiers = [
   {
     name: "FOUNDATION",
-    price: "$2,500",
+    price: 2500,
+    priceDisplay: "$2,500",
     retainer: "$0/month retainer",
     items: [
       "Core Funnel Audit (15-min Loom)",
@@ -19,7 +21,8 @@ const tiers = [
   },
   {
     name: "GROWTH",
-    price: "$4,500",
+    price: 4500,
+    priceDisplay: "$4,500",
     retainer: "$299/month retainer (optional)",
     items: [
       "Everything in Foundation",
@@ -34,7 +37,8 @@ const tiers = [
   },
   {
     name: "SCALE",
-    price: "$7,500",
+    price: 7500,
+    priceDisplay: "$7,500",
     retainer: "$399/month retainer (optional)",
     items: [
       "Everything in Growth",
@@ -49,9 +53,9 @@ const tiers = [
   },
 ];
 
-const sectionFade = {
+const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
 };
 
 const InvestmentTransparency = () => {
@@ -67,10 +71,10 @@ const InvestmentTransparency = () => {
           variants={sectionFade}
           className="text-center mb-8"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-4">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "hsl(96, 15%, 43%)" }}>
             NO HIDDEN FEES
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold text-foreground mb-4">
             TRANSPARENT SPRINT PRICING
           </h2>
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
@@ -97,11 +101,11 @@ const InvestmentTransparency = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
-              className={`bg-card rounded-xl p-6 md:p-8 flex flex-col border transition-all duration-200 hover:-translate-y-1 hover:shadow-card ${
+              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+              className={`bg-card rounded-xl p-6 md:p-8 flex flex-col border glass-hover ${
                 tier.highlight
                   ? "border-cta/30 shadow-[0_0_24px_-4px_hsl(var(--cta)/0.12)]"
-                  : "border-border shadow-subtle"
+                  : "border-accent/30 shadow-subtle"
               }`}
             >
               {tier.highlight && (
@@ -110,7 +114,15 @@ const InvestmentTransparency = () => {
               <h3 className="font-display text-xl font-bold text-foreground mb-1">
                 TIER {i + 1}: {tier.name}
               </h3>
-              <p className="text-3xl font-display font-bold text-cta mb-1">{tier.price}</p>
+              <motion.p
+                className="text-3xl font-display font-extrabold mb-1"
+                style={{ color: "hsl(100, 15%, 31%)" }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                $<CountUp end={tier.price} duration={1.5} separator="," enableScrollSpy scrollSpyOnce />
+              </motion.p>
               <p className="text-xs text-muted-foreground mb-6">{tier.retainer}</p>
 
               <div className="flex-1 space-y-3 mb-6">
@@ -123,7 +135,7 @@ const InvestmentTransparency = () => {
                 {tier.guarantee && (
                   <div className="flex items-start gap-2 mt-2">
                     <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-cta font-semibold">15+ Qualified Calls in 45 Days or 50% Refund</span>
+                    <span className="text-sm font-semibold" style={{ color: "hsl(100, 15%, 31%)" }}>15+ Qualified Calls in 45 Days or 50% Refund</span>
                   </div>
                 )}
               </div>
@@ -133,7 +145,7 @@ const InvestmentTransparency = () => {
                 className={`w-full py-3 rounded-lg font-body font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 ${
                   tier.highlight
                     ? "btn-primary"
-                    : "border border-border text-foreground bg-card hover:bg-secondary"
+                    : "border border-accent/30 text-foreground bg-card glass-hover"
                 }`}
               >
                 {tier.cta}
@@ -163,7 +175,7 @@ const InvestmentTransparency = () => {
           className="text-center"
         >
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Sprint Value If Purchased Separately</p>
-          <p className="text-3xl font-display font-bold text-foreground">$8K–$20K</p>
+          <p className="text-3xl font-display font-extrabold text-foreground">$8K–$20K</p>
         </motion.div>
       </div>
     </section>

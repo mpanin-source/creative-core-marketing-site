@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const sectionFade = {
+const sectionFade: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
 };
 
 const Footer = () => {
@@ -22,7 +22,7 @@ const Footer = () => {
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             Schedule Your Sprint Audit
-            <ArrowRight size={18} />
+            <ArrowRight size={18} className="arrow-icon transition-transform" />
           </button>
         </motion.div>
 

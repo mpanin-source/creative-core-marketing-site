@@ -1,9 +1,11 @@
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
+import MarqueeStrip from "@/components/landing/MarqueeStrip";
 import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import Problem from "@/components/landing/Problem";
 import InvestmentTransparency from "@/components/landing/InvestmentTransparency";
+import GuaranteeBanner from "@/components/landing/GuaranteeBanner";
 import PostPricingCTA from "@/components/landing/PostPricingCTA";
 import LeadPhilosophy from "@/components/landing/LeadPhilosophy";
 import FAQSection from "@/components/landing/FAQSection";
@@ -20,8 +22,8 @@ const Index = () => {
       <main className="pt-16">
         {/* 1. Hero — full viewport, centered */}
         <Hero />
-        {/* Divider */}
-        <div className="section-divider" />
+        {/* Scrolling marquee */}
+        <MarqueeStrip />
         {/* 2. How 30-Day Sprints Work */}
         <ThreePillarEngine />
         <div className="section-divider" />
@@ -33,6 +35,8 @@ const Index = () => {
         <div className="section-divider" />
         {/* 5. Sprint Pricing */}
         <InvestmentTransparency />
+        {/* Guarantee */}
+        <GuaranteeBanner />
         {/* 6. Post-Pricing CTA — dark, bold */}
         <PostPricingCTA />
         <div className="section-divider" />
