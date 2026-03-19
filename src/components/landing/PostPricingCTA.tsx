@@ -9,7 +9,7 @@ const PostPricingCTA = () => {
     <section className="section-padding">
       <div className="max-w-[1200px] mx-auto">
         <div className="max-w-[700px] mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-foreground mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
             READY TO LOCK IN YOUR SPOT?
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-8">
@@ -17,7 +17,7 @@ const PostPricingCTA = () => {
           </p>
           <button
             onClick={scrollToContact}
-            className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
+            className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             Schedule Your Sprint Audit
             <ArrowRight size={18} />

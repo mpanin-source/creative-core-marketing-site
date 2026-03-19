@@ -30,14 +30,14 @@ const Header = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
                 >
                   {link.label}
                 </button>
               ))}
               <button
                 onClick={() => scrollTo("contact")}
-                className="btn-gold px-5 py-2 rounded-lg text-sm transition-all hover:scale-105"
+                className="btn-primary px-5 py-2 rounded-lg text-sm"
               >
                 Schedule Sprint Audit
               </button>
@@ -45,7 +45,7 @@ const Header = () => {
             <div className="flex md:hidden items-center gap-2">
               <button
                 onClick={() => scrollTo("contact")}
-                className="btn-gold px-4 py-2 rounded-lg text-sm"
+                className="btn-primary px-4 py-2 rounded-lg text-sm"
               >
                 Sprint Audit
               </button>
@@ -88,7 +88,7 @@ const Header = () => {
               ))}
               <button
                 onClick={() => scrollTo("contact")}
-                className="w-full text-left px-4 py-3 rounded-xl font-display text-base font-bold btn-gold"
+                className="w-full text-left px-4 py-3 rounded-xl font-display text-base font-bold btn-primary"
               >
                 Schedule Sprint Audit
               </button>

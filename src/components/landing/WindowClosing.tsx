@@ -15,8 +15,8 @@ const WindowClosing = () => {
           viewport={{ once: true }}
           className="max-w-[700px] mx-auto text-center"
         >
-          <Clock className="w-8 h-8 text-accent mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-foreground mb-6">
+          <Clock className="w-8 h-8 text-warning mx-auto mb-4" />
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-foreground mb-6">
             PEAK SEASON WAITS FOR NO ONE
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
@@ -29,15 +29,15 @@ const WindowClosing = () => {
             Book your Sprint Audit now. Lock in your spot before your competitors do.
           </p>
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6">
-            <Clock className="w-4 h-4 text-accent" />
-            <span className="text-sm font-bold text-accent">3 spots left this month</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-warning/10 border border-warning/30 rounded-full mb-6">
+            <Clock className="w-4 h-4 text-warning" />
+            <span className="text-sm font-bold text-warning">3 spots left this month</span>
           </div>
 
           <div className="block">
             <button
               onClick={scrollToContact}
-              className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
+              className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
             >
               Schedule Your Sprint Audit
               <ArrowRight size={18} />

@@ -11,7 +11,8 @@ const Hero = () => {
 
   return (
     <section id="hero" className="section-padding min-h-[85vh] flex items-center -mt-16 pt-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(38,92%,55%,0.06),transparent_60%)]" />
+      {/* Subtle indigo-to-purple gradient overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(239,84%,67%,0.06),hsl(258,90%,66%,0.03),transparent_60%)]" />
 
       <div className="max-w-[1200px] mx-auto w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -20,7 +21,7 @@ const Hero = () => {
             <p className="text-sm font-semibold tracking-widest text-accent uppercase mb-6 animate-fade-in">
               SEASONAL MARKETING SPRINTS FOR LOCAL SERVICE BUSINESSES
             </p>
-            <h1 className="text-[2.2rem] md:text-5xl lg:text-[3.2rem] font-display font-black leading-[1.05] text-foreground mb-6 animate-fade-in [animation-delay:100ms] opacity-0 uppercase">
+            <h1 className="text-[2.2rem] md:text-5xl lg:text-[3.2rem] font-display font-bold leading-[1.08] text-foreground mb-6 animate-fade-in [animation-delay:100ms] opacity-0 uppercase">
               SPEED TO DECISION IS THE ONLY DESIGN METRIC THAT MATTERS.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4 animate-fade-in [animation-delay:200ms] opacity-0">
@@ -34,13 +35,13 @@ const Hero = () => {
                 <li>• The CRM that scores and nurtures automatically</li>
                 <li>• The call script that closes faster</li>
               </ul>
-              <p className="mt-3 text-foreground/80 italic">User experience generates sales. Not just the ad.</p>
+              <p className="mt-3 text-foreground/70 italic">User experience generates sales. Not just the ad.</p>
             </div>
 
             {/* Niche badges */}
             <div className="flex flex-wrap gap-2 mb-6 animate-fade-in [animation-delay:250ms] opacity-0">
               {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services"].map((trade) => (
-                <span key={trade} className="px-3 py-1.5 rounded-full border border-border bg-secondary text-xs font-semibold text-muted-foreground tracking-wider">
+                <span key={trade} className="px-3 py-1.5 rounded-full border border-border bg-secondary text-xs font-medium text-muted-foreground tracking-wider">
                   {trade}
                 </span>
               ))}
@@ -54,13 +55,13 @@ const Hero = () => {
                 "15+ calls in 45 days or 50% refund",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm text-foreground">
-                  <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                  <Check className="w-4 h-4 text-success flex-shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
             </div>
 
-            <p className="text-xs text-muted-foreground/70 mb-8 animate-fade-in [animation-delay:290ms] opacity-0">
+            <p className="text-xs text-muted-foreground/60 mb-8 animate-fade-in [animation-delay:290ms] opacity-0">
               *Qualified call = showed up for appointment, matches your ICP (budget fit, service area fit, intent confirmed). No bullshit.
             </p>
 
@@ -69,7 +70,7 @@ const Hero = () => {
               <div className="flex flex-col">
                 <button
                   onClick={scrollToContact}
-                  className="btn-gold px-8 py-4 rounded-lg text-base group flex items-center gap-2 transition-all hover:scale-105"
+                  className="btn-primary px-8 py-4 rounded-lg text-base group flex items-center gap-2"
                 >
                   Schedule Your Sprint Audit
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -80,7 +81,7 @@ const Hero = () => {
               </div>
               <button
                 onClick={scrollToEngine}
-                className="px-6 py-4 rounded-lg border border-border text-foreground font-display font-bold text-sm hover:bg-secondary transition-all hover:scale-105"
+                className="px-6 py-4 rounded-lg border border-border text-foreground font-display font-semibold text-sm hover:bg-secondary transition-all duration-200 hover:-translate-y-0.5"
               >
                 Watch How It Works
               </button>
@@ -89,10 +90,10 @@ const Hero = () => {
 
           {/* Right: Video Placeholder */}
           <div className="animate-fade-in [animation-delay:400ms] opacity-0">
-            <div className="glass-card rounded-xl overflow-hidden aspect-video relative group cursor-pointer">
+            <div className="glass-card rounded-xl overflow-hidden aspect-video relative group cursor-pointer shadow-[0_0_40px_-10px_hsl(var(--accent)/0.15)]">
               <div className="absolute inset-0 bg-secondary flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-accent/20 border-2 border-accent flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-full bg-accent/15 border-2 border-accent/50 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform animate-pulse">
                     <Play className="w-7 h-7 text-accent ml-1" />
                   </div>
                   <p className="text-muted-foreground text-sm font-medium">Coming Soon</p>

@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Montserrat", "Inter", "sans-serif"],
+        display: ["Inter", "sans-serif"],
         body: ["Inter", "-apple-system", "sans-serif"],
       },
       colors: {
@@ -47,7 +47,10 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          secondary: "hsl(var(--accent-secondary))",
         },
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

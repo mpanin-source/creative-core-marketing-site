@@ -28,7 +28,7 @@ const Problem = () => {
     <section className="section-padding" id="problem">
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-black text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             WHERE YOUR FUNNEL IS LOSING MONEY
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -44,10 +44,10 @@ const Problem = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="p-6 md:p-8 glass-card rounded-xl"
+              className="p-6 md:p-8 glass-card rounded-xl hover:-translate-y-1 transition-all duration-200"
             >
-              <div className="w-10 h-10 rounded-full bg-destructive/10 flex items-center justify-center mb-4">
-                <span className="text-destructive font-display text-lg font-bold">{p.num}</span>
+              <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                <span className="text-accent font-display text-lg font-bold">{p.num}</span>
               </div>
               <h3 className="text-lg font-display font-bold text-foreground mb-3">{p.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{p.description}</p>
@@ -58,7 +58,7 @@ const Problem = () => {
         <div className="text-center">
           <button
             onClick={scrollToContact}
-            className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
+            className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             Schedule Your Sprint Audit
             <ArrowRight size={18} />

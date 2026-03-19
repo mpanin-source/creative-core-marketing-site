@@ -24,12 +24,12 @@ const LeadPhilosophy = () => {
     <section className="section-padding" id="why-sprints">
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-black text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             WHY SPRINTS BEAT RETAINERS
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-[1100px] mx-auto mb-10">
-          <div className="glass-card border-destructive/10 p-6 md:p-8 rounded-xl">
+          <div className="glass-card p-6 md:p-8 rounded-xl">
             <h3 className="text-lg font-display font-bold text-foreground mb-1">Traditional Agency</h3>
             <p className="text-xs text-muted-foreground mb-5 italic">The Revenue Leak</p>
             <ul className="space-y-3">
@@ -61,7 +61,7 @@ const LeadPhilosophy = () => {
         <div className="text-center">
           <button
             onClick={scrollToPricing}
-            className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
+            className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
             See Sprint Pricing
             <ArrowRight size={18} />
