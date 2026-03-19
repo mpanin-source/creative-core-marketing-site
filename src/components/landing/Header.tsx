@@ -14,8 +14,8 @@ const Header = () => {
 
   const navLinks = [
     { label: "How It Works", id: "engine" },
-    { label: "Proof", id: "testimonials" },
-    { label: "Investment", id: "investment" },
+    { label: "Why Us", id: "comparison" },
+    { label: "Pricing", id: "pricing" },
     { label: "FAQ", id: "faq" },
   ];
 
@@ -39,7 +39,7 @@ const Header = () => {
                 onClick={() => scrollTo("contact")}
                 className="btn-gold px-5 py-2 rounded-lg text-sm transition-all hover:scale-105"
               >
-                Schedule Growth Audit
+                Schedule Sprint Audit
               </button>
             </nav>
             <div className="flex md:hidden items-center gap-2">
@@ -47,7 +47,7 @@ const Header = () => {
                 onClick={() => scrollTo("contact")}
                 className="btn-gold px-4 py-2 rounded-lg text-sm"
               >
-                Growth Audit
+                Sprint Audit
               </button>
               <button
                 onClick={() => setMobileOpen(true)}
@@ -90,7 +90,7 @@ const Header = () => {
                 onClick={() => scrollTo("contact")}
                 className="w-full text-left px-4 py-3 rounded-xl font-display text-base font-bold btn-gold"
               >
-                Schedule Growth Audit
+                Schedule Sprint Audit
               </button>
             </div>
           </div>

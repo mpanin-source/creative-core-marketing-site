@@ -1,6 +1,7 @@
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
+import ComparisonTable from "@/components/landing/ComparisonTable";
 import Problem from "@/components/landing/Problem";
 import TestimonialSection from "@/components/landing/TestimonialSection";
 import InvestmentTransparency from "@/components/landing/InvestmentTransparency";
@@ -18,25 +19,27 @@ const Index = () => {
       <MouseGlowEffect />
       <Header />
       <main className="pt-16">
-        {/* 1. Hero — Generalist Home Services */}
+        {/* 1. Hero */}
         <Hero />
-        {/* 2. 3-Pillar Growth Engine — How It Works */}
+        {/* 2. How 30-Day Sprints Work */}
         <ThreePillarEngine />
-        {/* 3. Problem — Pain Amplification */}
+        {/* 3. Creative Core vs Generic Agency */}
+        <ComparisonTable />
+        {/* 4. Where Your Funnel Is Losing Money */}
         <Problem />
-        {/* 4. Social Proof */}
+        {/* 5. Results-Driven Guarantee */}
         <TestimonialSection />
-        {/* 5. Old Way vs Our Way */}
-        <LeadPhilosophy />
-        {/* 6. Investment & Transparency (Consolidated) */}
+        {/* 6. Sprint Pricing */}
         <InvestmentTransparency />
-        {/* 7. Guarantee Banner (Compact) */}
+        {/* 7. Guarantee Banner */}
         <GuaranteeBanner />
-        {/* 8. FAQ */}
+        {/* 8. Why Sprints Beat Retainers */}
+        <LeadPhilosophy />
+        {/* 9. FAQ */}
         <FAQSection />
-        {/* 9. Urgency */}
+        {/* 10. Urgency */}
         <WindowClosing />
-        {/* 10. Contact Form */}
+        {/* 11. Contact Form */}
         <ContactForm />
       </main>
       <Footer />

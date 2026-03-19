@@ -1,42 +1,42 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const problems = [
   {
     num: "1",
-    title: "You're running ads in the wrong season",
-    description: "Most home service companies run year-round campaigns because their agency said \"consistency matters.\" Result: 70% of budget wasted on off-season clicks when nobody needs your service.",
+    title: "The Ad",
+    description: "Your ad looks like an ad. It gets scrolled past. We build UGC-style creative that looks native (real customer testimonials, before/after iPhone videos). Native creative outperforms 'ad-looking ads' by 3x.",
   },
   {
     num: "2",
-    title: "Your peak-season windows are unplanned",
-    description: "When demand spikes, your competitors already have campaigns live. You scramble to launch ads, make mistakes, and miss the revenue window.",
+    title: "The Landing Page",
+    description: "Your landing page asks too many questions. Too many form fields. No social proof. No urgency. We redesign for one goal: speed to decision. Fewer fields, stronger proof, clear next step.",
   },
   {
     num: "3",
-    title: "You have no follow-up system",
-    description: "You're getting leads but losing them. No CRM, no SMS follow-up, no nurture sequence. That $15K replacement job walks out the door because nobody followed up at month 6.",
-  },
-  {
-    num: "4",
-    title: "Your old leads are dying on the vine",
-    description: "Your database is full of past customers and old leads. Every month they get colder. Without reactivation, you're leaving tens of thousands in revenue on the table.",
+    title: "The Follow-Up",
+    description: "Lead comes in. You call 2 hours later. They've already called 3 competitors. We automate 5-minute SMS response + lead scoring so you only call high-intent prospects when they're hot.",
   },
 ];
 
 const Problem = () => {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="section-padding">
+    <section className="section-padding" id="problem">
       <div className="max-w-[1200px] mx-auto">
-        <div className="container-narrow text-center mb-12">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-black text-foreground mb-4">
-            WHY YOUR ADS ARE BLEEDING MONEY
+            WHERE YOUR FUNNEL IS LOSING MONEY
           </h2>
           <p className="text-lg text-muted-foreground">
-            4 growth killers we see in every home service business.
+            3 friction points we fix in every sprint.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-[1100px] mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-12">
           {problems.map((p, i) => (
             <motion.div
               key={i}
@@ -44,7 +44,7 @@ const Problem = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="p-6 md:p-8 glass-card rounded-lg"
+              className="p-6 md:p-8 glass-card rounded-xl"
             >
               <div className="w-10 h-10 rounded-full bg-destructive/10 flex items-center justify-center mb-4">
                 <span className="text-destructive font-display text-lg font-bold">{p.num}</span>
@@ -53,6 +53,16 @@ const Problem = () => {
               <p className="text-muted-foreground leading-relaxed text-sm">{p.description}</p>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <button
+            onClick={scrollToContact}
+            className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
+          >
+            Get Your Funnel Audited
+            <ArrowRight size={18} />
+          </button>
         </div>
       </div>
     </section>

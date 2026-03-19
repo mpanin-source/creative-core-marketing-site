@@ -7,37 +7,41 @@ const WindowClosing = () => {
   };
 
   return (
-    <section className="px-6 py-12 md:px-8 md:py-16" id="urgency">
+    <section className="section-padding" id="urgency">
       <div className="max-w-[1200px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-[700px] mx-auto text-center"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Clock className="w-6 h-6 text-accent" />
-            <h2 className="text-2xl md:text-3xl font-display font-black text-foreground">
-              THE WINDOW IS CLOSING
-            </h2>
-          </div>
-          <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl mx-auto">
-            Your seasonal window is closing. The contractors who move first win for the next 3 years. Those who wait chase volume while others enjoy margin.
+          <Clock className="w-8 h-8 text-accent mx-auto mb-4" />
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-black text-foreground mb-6">
+            PEAK SEASON WAITS FOR NO ONE
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            If you're in HVAC, your summer window is May-July. If you're in landscaping, it's March-May. If you're in pest control, it's May-August.
           </p>
-          <div className="glass-card rounded-xl p-5 mb-8 inline-block">
-            <p className="text-sm text-foreground font-semibold">
-              Now accepting <span className="text-accent">3 new partners</span> for the Spring 2026 rollout.
-            </p>
+          <p className="text-muted-foreground leading-relaxed mb-8">
+            We can only take 3 new sprint clients per month (our team is small by design). If you wait until your peak season hits, you'll miss 50% of the window while we build your funnel.
+          </p>
+          <p className="text-foreground font-semibold mb-8">
+            Book your Sprint Audit now. Lock in your spot before your competitors do.
+          </p>
+
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6">
+            <Clock className="w-4 h-4 text-accent" />
+            <span className="text-sm font-bold text-accent">3 spots left this month</span>
           </div>
-          <div>
+
+          <div className="block">
             <button
               onClick={scrollToContact}
               className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
             >
-              Schedule Your Growth Audit
+              Schedule Your Sprint Audit
               <ArrowRight size={18} />
             </button>
-            <p className="text-xs text-muted-foreground mt-2">15-min strategy session.</p>
           </div>
         </motion.div>
       </div>
