@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border shadow-subtle">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">
           <div className="flex items-center justify-between h-16">
             <AnimatedLogo />
@@ -37,7 +37,7 @@ const Header = () => {
               ))}
               <button
                 onClick={() => scrollTo("contact")}
-                className="btn-primary px-5 py-2 rounded-lg text-sm"
+                className="btn-primary px-5 py-2.5 rounded-lg text-sm"
               >
                 Schedule Sprint Audit
               </button>
@@ -51,7 +51,7 @@ const Header = () => {
               </button>
               <button
                 onClick={() => setMobileOpen(true)}
-                className="p-2 rounded-lg hover:bg-muted transition-colors"
+                className="p-2 rounded-lg hover:bg-secondary transition-colors"
                 aria-label="Open menu"
               >
                 <Menu size={20} className="text-foreground" />
@@ -63,16 +63,16 @@ const Header = () => {
 
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-[60] flex items-end justify-center bg-background/80 backdrop-blur-sm"
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-foreground/20 backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
         >
           <div
-            className="w-full max-w-lg glass-card rounded-t-2xl p-6 pb-8 shadow-elevated animate-in slide-in-from-bottom duration-300"
+            className="w-full max-w-lg bg-card rounded-t-2xl p-6 pb-8 shadow-elevated border border-border animate-in slide-in-from-bottom duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-5">
               <h3 className="font-display text-xl text-foreground font-bold">MENU</h3>
-              <button onClick={() => setMobileOpen(false)} className="p-1 rounded-full hover:bg-muted transition-colors">
+              <button onClick={() => setMobileOpen(false)} className="p-1 rounded-full hover:bg-secondary transition-colors">
                 <X size={20} className="text-muted-foreground" />
               </button>
             </div>
@@ -81,14 +81,14 @@ const Header = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="w-full text-left px-4 py-3 rounded-xl font-display text-base font-semibold text-foreground bg-muted hover:bg-muted/80 transition-colors"
+                  className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors"
                 >
                   {link.label}
                 </button>
               ))}
               <button
                 onClick={() => scrollTo("contact")}
-                className="w-full text-left px-4 py-3 rounded-xl font-display text-base font-bold btn-primary"
+                className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-bold btn-primary"
               >
                 Schedule Sprint Audit
               </button>

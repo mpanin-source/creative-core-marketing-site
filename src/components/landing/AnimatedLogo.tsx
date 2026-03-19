@@ -32,8 +32,7 @@ const AnimatedLogo = () => {
       {/* Mobile: Logo with bullseye as the O in CORE */}
       <div className="md:hidden flex items-center">
         <span 
-          className="text-lg font-bold text-foreground whitespace-nowrap tracking-wide flex items-center"
-          style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+          className="text-lg font-bold text-foreground whitespace-nowrap tracking-wide flex items-center font-display"
         >
           CREATIVE C
           <BullseyeIcon className="text-foreground w-4 h-4 mx-[-1px] inline-block" />
@@ -43,7 +42,6 @@ const AnimatedLogo = () => {
 
       {/* Desktop: Animated bullseye that transforms to text on hover */}
       <div className="hidden md:block">
-        {/* Bullseye SVG - Rotates and fades out on hover */}
         <div
           className={`
             transition-all duration-500 ease-in-out
@@ -53,7 +51,6 @@ const AnimatedLogo = () => {
           <BullseyeIcon className="text-foreground w-10 h-10" />
         </div>
 
-        {/* Text Logo - Fades in on hover */}
         <div
           className={`
             absolute left-0 top-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out
@@ -64,8 +61,7 @@ const AnimatedLogo = () => {
           style={{ transitionDelay: isHovered ? "200ms" : "0ms" }}
         >
           <span
-            className="text-2xl font-bold text-foreground whitespace-nowrap tracking-wider flex items-center"
-            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+            className="text-2xl font-bold text-foreground whitespace-nowrap tracking-wider flex items-center font-display"
           >
             CREATIVE C
             <BullseyeIcon className="text-foreground w-5 h-5 mx-[-1px] inline-block" />

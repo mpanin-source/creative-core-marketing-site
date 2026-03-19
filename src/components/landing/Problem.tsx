@@ -6,16 +6,19 @@ const problems = [
     num: "1",
     title: "The Ad",
     description: "Your ad looks like an ad. It gets scrolled past. We build UGC-style creative that looks native (real customer testimonials, before/after iPhone videos). Native creative outperforms 'ad-looking ads' by 3x.",
+    bg: "bg-[hsl(213,68%,58%,0.05)]",
   },
   {
     num: "2",
     title: "The Landing Page",
     description: "Your landing page asks too many questions. Too many form fields. No social proof. No urgency. We redesign for one goal: speed to decision. Fewer fields, stronger proof, clear next step.",
+    bg: "bg-[hsl(157,52%,65%,0.05)]",
   },
   {
     num: "3",
     title: "The Follow-Up",
     description: "Lead comes in. You call 2 hours later. They've already called 3 competitors. We automate 5-minute SMS response + lead scoring so you only call high-intent prospects when they're hot.",
+    bg: "bg-[hsl(35,25%,94%)]",
   },
 ];
 
@@ -25,9 +28,9 @@ const Problem = () => {
   };
 
   return (
-    <section className="section-padding" id="problem">
+    <section className="section-padding section-alt" id="problem">
       <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             WHERE YOUR FUNNEL IS LOSING MONEY
           </h2>
@@ -36,7 +39,7 @@ const Problem = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-12">
+        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-16">
           {problems.map((p, i) => (
             <motion.div
               key={i}
@@ -44,12 +47,12 @@ const Problem = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="p-6 md:p-8 glass-card rounded-xl hover:-translate-y-1 transition-all duration-200"
+              className={`p-6 md:p-8 ${p.bg} rounded-xl border border-border shadow-subtle hover:-translate-y-1 hover:shadow-card transition-all duration-200`}
             >
               <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-4">
                 <span className="text-accent font-display text-lg font-bold">{p.num}</span>
               </div>
-              <h3 className="text-lg font-display font-bold text-foreground mb-3">{p.title}</h3>
+              <h3 className="text-xl font-display font-bold text-foreground mb-3">{p.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{p.description}</p>
             </motion.div>
           ))}
