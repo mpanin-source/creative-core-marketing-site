@@ -60,6 +60,10 @@ const Hero = () => {
               ))}
             </div>
 
+            <p className="text-xs text-muted-foreground/70 mb-8 animate-fade-in [animation-delay:290ms] opacity-0">
+              *Qualified call = showed up for appointment, matches your ICP (budget fit, service area fit, intent confirmed). No bullshit.
+            </p>
+
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in [animation-delay:300ms] opacity-0">
               <div className="flex flex-col">
