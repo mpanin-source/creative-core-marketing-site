@@ -4,28 +4,28 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-8 pb-8 border-b border-border">
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Creative Core · Home Service Growth Systems.
-            No hype—just data, timing, and ads that convert.
+            Creative Core · Seasonal Marketing Sprints for Local Service Businesses.
+            Speed to decision is the only design metric that matters.
           </p>
         </div>
 
         <div className="text-center mb-6">
           <p className="text-sm text-accent font-semibold">
-            Now accepting 3 new partners for the Spring 2026 rollout. Currently serving HVAC, Roofing, Plumbing, Electrical, Solar & more.
+            Now accepting 3-5 new sprint clients per month. Currently serving HVAC, Landscaping, Pest Control, Wellness & Home Services.
           </p>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-center md:text-left">
             <p className="font-display text-lg font-bold text-foreground">Creative Core</p>
-            <p className="text-sm text-muted-foreground mt-1">Home Service Growth Systems</p>
+            <p className="text-sm text-muted-foreground mt-1">Seasonal Marketing Sprints</p>
           </div>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
             <a href="#" className="hover:text-foreground transition-colors">Terms</a>
           </div>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Creative Core. All rights reserved.
+            © {new Date().getFullYear()} Creative Core. Built with OpenClaw.
           </p>
         </div>
       </div>

@@ -4,28 +4,36 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
+    q: "What's the difference between a sprint and a retainer?",
+    a: "A sprint is a 30-45 day intensive campaign designed to capture your peak season. After the sprint, you can choose to continue with an optional monthly retainer ($299-$399/month depending on tier), but it's not required. Retainers are for ongoing optimization, not mandatory.",
+  },
+  {
+    q: "What if I don't have a 'peak season'?",
+    a: "Most local service businesses have seasonal demand spikes (HVAC in summer, landscaping in spring, pest control May-August). If your business is truly evergreen, we adjust the sprint model to focus on funnel optimization + database reactivation instead of seasonal urgency.",
+  },
+  {
+    q: "Do you charge a markup on ad spend?",
+    a: "No. You pay Meta and Google directly through your own ad accounts (which you own). We only charge for strategy, creative, and optimization.",
+  },
+  {
+    q: "What happens to my landing pages and CRM after the sprint?",
+    a: "You own them forever. We build everything in your accounts (GoHighLevel CRM, your domain for landing pages). Even if you don't continue with us, you keep all the infrastructure.",
+  },
+  {
+    q: "How is this different from hiring a full-time marketer?",
+    a: "A full-time marketer costs $60K-$100K/year + benefits. Our Tier 2 sprint ($4,500) + optional $299/month retainer = $8,088/year. You get a full team (strategist, designer, media buyer, copywriter) for 1/10th the cost.",
+  },
+  {
+    q: "Why should I trust you if you're new?",
+    a: "We're new, which means we have to prove ourselves. That's why we offer the most aggressive guarantee in the industry: 15+ qualified calls in 45 days or 50% refund. We can't afford to fail — which means you win.",
+  },
+  {
     q: "Who pays for ads?",
     a: "The client, always. You pay Meta and Google directly. No hidden markups, no middleman fees on your ad spend. Full transparency.",
   },
   {
-    q: "Who owns the ad account?",
-    a: "You do. You own 100% of your business portfolio—ad accounts, landing pages, CRM data. We use managed access. If we part ways, everything stays with you.",
-  },
-  {
     q: "What is the recommended budget?",
     a: "We recommend starting at $30–$50/day to find your winning creative. This gives us enough data to optimize within the first 5–7 days and scale what works.",
-  },
-  {
-    q: "How fast will I see results?",
-    a: "First leads typically arrive within 7 days. By day 14, we have enough data to optimize aggressively. By day 30, you'll have clear ROI metrics.",
-  },
-  {
-    q: "What if it doesn't work?",
-    a: "Our 2x Lead Value Guarantee: if we don't generate at least 2x your ad spend in vetted appointment value during your first peak window, we work for free until we do.",
-  },
-  {
-    q: "What trades do you work with?",
-    a: "Any home service trade—HVAC, Plumbing, Roofing, Electrical, Landscaping, Cleaning, Solar, and more. Our system adapts to your seasonal demand cycle.",
   },
 ];
 
@@ -47,10 +55,7 @@ const FAQSection = () => {
 
         <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="glass-card rounded-lg overflow-hidden"
-            >
+            <div key={i} className="glass-card rounded-lg overflow-hidden">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 text-left"

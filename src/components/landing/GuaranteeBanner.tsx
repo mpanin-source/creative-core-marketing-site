@@ -1,30 +1,17 @@
-import { Shield, ArrowRight } from "lucide-react";
+import { Shield } from "lucide-react";
 
 const GuaranteeBanner = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="px-6 py-10 md:px-8 md:py-14">
+    <section className="px-6 py-10 md:px-8 md:py-14" id="guarantee">
       <div className="max-w-[1200px] mx-auto">
-        <div className="rounded-xl border border-accent/30 bg-accent/5 p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
-          <Shield className="w-12 h-12 text-accent flex-shrink-0" />
-          <div className="flex-1 text-center md:text-left">
-            <h3 className="font-display text-xl md:text-2xl font-black text-foreground mb-1">
-              THE 2x LEAD VALUE GUARANTEE
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              If we don't generate at least 2x your ad spend in vetted appointment value during your first peak window, we work for free until we do.
-            </p>
-          </div>
-          <button
-            onClick={scrollToContact}
-            className="btn-gold px-6 py-3 rounded-lg text-sm flex items-center gap-2 transition-all hover:scale-105 whitespace-nowrap"
-          >
-            Claim Your Guarantee
-            <ArrowRight size={16} />
-          </button>
+        <div className="rounded-xl border border-accent/30 bg-accent/5 p-8 md:p-12 text-center">
+          <Shield className="w-10 h-10 text-accent mx-auto mb-4" />
+          <h3 className="font-display text-2xl md:text-3xl font-black text-foreground mb-4">
+            15+ QUALIFIED CALLS IN 45 DAYS OR 50% REFUND
+          </h3>
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            We define 'qualified' as: showed up for call, matches your ICP (budget fit, service area fit, intent confirmed). If we don't deliver 15 qualified calls in 45 days, we refund 50% of your sprint investment. No bullshit.
+          </p>
         </div>
       </div>
     </section>

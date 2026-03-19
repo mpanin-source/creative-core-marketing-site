@@ -18,12 +18,10 @@ const ContactForm = () => {
 
   const [formData, setFormData] = useState({
     name: "",
-    company: "",
-    serviceType: "",
-    adSpend: "",
-    challenge: "",
     email: "",
     phone: "",
+    serviceType: "",
+    message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -33,8 +31,8 @@ const ContactForm = () => {
     setIsSubmitting(false);
     setShowSuccess(true);
     toast({
-      title: "Audit Request Received!",
-      description: "Your personalized Growth Audit will be delivered within 48 hours.",
+      title: "Sprint Audit Scheduled!",
+      description: "We'll be in touch within 24 hours.",
     });
   };
 
@@ -43,7 +41,7 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const canSubmit = formData.name && formData.email && formData.serviceType && formData.adSpend;
+  const canSubmit = formData.name && formData.email && formData.serviceType;
 
   const inputClasses =
     "bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/40 focus:ring-2 h-12 transition-all duration-200";
@@ -58,10 +56,10 @@ const ContactForm = () => {
             <Shield className="w-10 h-10 text-accent" />
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-black text-accent uppercase mb-4">
-            AUDIT REQUEST RECEIVED
+            SPRINT AUDIT SCHEDULED
           </h2>
           <p className="text-xl text-foreground/90 mb-6">
-            Your personalized Growth Audit will be delivered within 48 hours.
+            We'll be in touch within 24 hours with your funnel breakdown.
           </p>
         </div>
       </section>
@@ -74,10 +72,10 @@ const ContactForm = () => {
       <div className="relative z-10 max-w-[1200px] mx-auto">
         <div className="text-center mb-12">
           <h2 className="font-display text-accent uppercase text-3xl sm:text-4xl md:text-5xl font-black mb-4">
-            SCHEDULE YOUR GROWTH AUDIT
+            SCHEDULE YOUR 15-MIN SPRINT AUDIT
           </h2>
           <p className="text-lg text-foreground/90 max-w-2xl mx-auto">
-            A 15-minute strategy session to identify your revenue leaks. No pitch, just a plan.
+            We'll analyze your funnel, identify friction points, and show you exactly what a 30-day sprint would look like for your business. No pitch. No obligation.
           </p>
         </div>
 
@@ -89,42 +87,6 @@ const ContactForm = () => {
                 <Input type="text" name="name" placeholder="Full name" value={formData.name} onChange={handleChange} required className={inputClasses} />
               </div>
               <div>
-                <label className={labelClasses}>Company Name</label>
-                <Input type="text" name="company" placeholder="Your company" value={formData.company} onChange={handleChange} className={inputClasses} />
-              </div>
-              <div>
-                <label className={labelClasses}>Service Type *</label>
-                <Select value={formData.serviceType} onValueChange={(v) => setFormData((prev) => ({ ...prev, serviceType: v }))}>
-                  <SelectTrigger className={inputClasses}>
-                    <SelectValue placeholder="Select your trade" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border-border">
-                    {["HVAC", "Plumbing", "Roofing", "Electrical", "Landscaping", "Cleaning", "Solar", "Other"].map((t) => (
-                      <SelectItem key={t} value={t.toLowerCase()} className="text-foreground focus:bg-accent/20 focus:text-foreground">{t}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <label className={labelClasses}>Current Monthly Ad Spend *</label>
-                <Select value={formData.adSpend} onValueChange={(v) => setFormData((prev) => ({ ...prev, adSpend: v }))}>
-                  <SelectTrigger className={inputClasses}>
-                    <SelectValue placeholder="Select your ad spend" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border-border">
-                    <SelectItem value="under-1k" className="text-foreground focus:bg-accent/20 focus:text-foreground">Under $1K/month</SelectItem>
-                    <SelectItem value="1k-5k" className="text-foreground focus:bg-accent/20 focus:text-foreground">$1K – $5K/month</SelectItem>
-                    <SelectItem value="5k-10k" className="text-foreground focus:bg-accent/20 focus:text-foreground">$5K – $10K/month</SelectItem>
-                    <SelectItem value="10k-plus" className="text-foreground focus:bg-accent/20 focus:text-foreground">$10K+/month</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <label className={labelClasses}>Biggest Challenge Right Now</label>
-                <Textarea name="challenge" placeholder="What's your biggest pain point?" value={formData.challenge} onChange={handleChange}
-                  className="bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/40 focus:ring-2 transition-all duration-200 min-h-[80px]" />
-              </div>
-              <div>
                 <label className={labelClasses}>Email *</label>
                 <Input type="email" name="email" placeholder="you@company.com" value={formData.email} onChange={handleChange} required className={inputClasses} />
               </div>
@@ -132,9 +94,27 @@ const ContactForm = () => {
                 <label className={labelClasses}>Phone</label>
                 <Input type="tel" name="phone" placeholder="(555) 123-4567" value={formData.phone} onChange={handleChange} className={inputClasses} />
               </div>
+              <div>
+                <label className={labelClasses}>Business Type *</label>
+                <Select value={formData.serviceType} onValueChange={(v) => setFormData((prev) => ({ ...prev, serviceType: v }))}>
+                  <SelectTrigger className={inputClasses}>
+                    <SelectValue placeholder="Select your trade" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-border">
+                    {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services", "Other"].map((t) => (
+                      <SelectItem key={t} value={t.toLowerCase()} className="text-foreground focus:bg-accent/20 focus:text-foreground">{t}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className={labelClasses}>Message (optional)</label>
+                <Textarea name="message" placeholder="Anything else we should know?" value={formData.message} onChange={handleChange}
+                  className="bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-accent focus:ring-accent/40 focus:ring-2 transition-all duration-200 min-h-[80px]" />
+              </div>
               <button type="submit" disabled={!canSubmit || isSubmitting}
                 className="w-full h-14 btn-gold rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
-                {isSubmitting ? "SUBMITTING..." : "SCHEDULE MY GROWTH AUDIT"}
+                {isSubmitting ? "SUBMITTING..." : "SCHEDULE AUDIT"}
                 {!isSubmitting && <ArrowRight className="w-5 h-5" />}
               </button>
             </form>
@@ -142,12 +122,12 @@ const ContactForm = () => {
             <div className="mt-6 pt-6 border-t border-border space-y-3">
               <div className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Shield className="w-4 h-4 text-accent shrink-0" />
-                <span>15-minute strategy session—no pitch, just a plan.</span>
+                <span>15-minute strategy session — no pitch, no obligation.</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Clock className="w-4 h-4 text-accent shrink-0" />
                 <span className="text-muted-foreground">
-                  Now accepting <span className="text-accent font-semibold">3 new partners</span> for Spring 2026.
+                  <span className="text-accent font-semibold">3 spots left</span> this month.
                 </span>
               </div>
             </div>
