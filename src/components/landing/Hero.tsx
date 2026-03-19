@@ -71,7 +71,7 @@ const Hero = () => {
                   onClick={scrollToContact}
                   className="btn-gold px-8 py-4 rounded-lg text-base group flex items-center gap-2 transition-all hover:scale-105"
                 >
-                  Schedule Your 15-Min Sprint Audit
+                  Schedule Your Sprint Audit
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </button>
                 <span className="text-xs text-muted-foreground mt-2 max-w-[320px]">

@@ -28,6 +28,10 @@ const faqs = [
     a: "We're new, which means we have to prove ourselves. That's why we offer the most aggressive guarantee in the industry: 15+ qualified calls in 45 days or 50% refund. We can't afford to fail — which means you win.",
   },
   {
+    q: "What happens if we don't hit 15 qualified calls?",
+    a: "We refund 50% of your sprint investment. No questions asked. We define \"qualified\" as: showed up for call, matches your ICP (budget fit, service area fit, intent confirmed). No weasel words.",
+  },
+  {
     q: "Who pays for ads?",
     a: "The client, always. You pay Meta and Google directly. No hidden markups, no middleman fees on your ad spend. Full transparency.",
   },

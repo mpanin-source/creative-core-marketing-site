@@ -60,7 +60,7 @@ const Problem = () => {
             onClick={scrollToContact}
             className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base transition-all hover:scale-105"
           >
-            Get Your Funnel Audited
+            Schedule Your Sprint Audit
             <ArrowRight size={18} />
           </button>
         </div>
