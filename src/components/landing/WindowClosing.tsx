@@ -32,9 +32,9 @@ const WindowClosing = () => {
           Book your Sprint Audit now. Lock in your spot before your competitors do.
         </p>
 
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-warning/10 border border-warning/30 rounded-full mb-6">
-          <Clock className="w-4 h-4 text-warning" />
-          <span className="text-sm font-bold text-warning">3 spots left this month</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-safety/10 border border-safety/30 rounded-full mb-6">
+          <Clock className="w-4 h-4 text-safety" />
+          <span className="text-sm font-bold text-safety">3 spots left this month</span>
         </div>
 
         <div className="block">

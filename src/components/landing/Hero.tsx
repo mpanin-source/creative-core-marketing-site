@@ -36,8 +36,8 @@ const Hero = () => {
           {/* Headline — Bebas Neue */}
           <motion.h1
             variants={fadeUp} initial="hidden" animate="visible" custom={1}
-            className="text-5xl md:text-6xl lg:text-7xl font-display leading-[1.04] text-foreground mb-8"
-            style={{ fontWeight: 700 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-display leading-[1.15] text-foreground uppercase mb-8"
+            style={{ fontWeight: 900 }}
           >
             SPEED TO DECISION IS THE ONLY
             <br />
@@ -47,7 +47,7 @@ const Hero = () => {
           {/* Video with Scanning Line */}
           <motion.div
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="w-full max-w-[800px] mb-8"
+            className="w-full max-w-[800px] mb-12"
           >
             <AspectRatio ratio={16 / 9}>
               <div className="w-full h-full rounded-xl bg-secondary border border-border flex flex-col items-center justify-center gap-3 relative overflow-hidden">
