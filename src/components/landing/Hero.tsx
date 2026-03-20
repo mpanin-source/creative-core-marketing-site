@@ -1,6 +1,8 @@
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, ChevronDown, Play } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import useEmblaCarousel from "embla-carousel-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
