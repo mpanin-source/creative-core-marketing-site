@@ -9,67 +9,40 @@ const sectionFade: Variants = {
 
 const tiers = [
   {
-    name: "STARTER",
-    subtitle: "Test the waters",
+    name: "TRIAL SPRINT",
+    subtitle: "Test the waters — see if we're a good fit",
     price: 1500,
-    retainer: "No retainer required",
+    priceSuffix: "/month (First 60 Days)",
+    badge: null,
     items: [
-      "Funnel Audit (15-min Loom)",
-      "Seasonal Sprint Plan",
-      "5 Ad Creative Variations",
-      "1 Landing Page",
-      "Basic CRM Setup",
+      "Complete ad account audit (15-min Loom)",
+      "60-day campaign setup (Google + Meta)",
+      "5 ad creative variations",
+      "1 landing page",
+      "Basic CRM setup",
+      "Weekly optimization",
+      "Transparent reporting",
     ],
-    guarantee: false,
-    popular: false,
+    cta: "Book Free Audit Call",
+    highlighted: true,
   },
   {
-    name: "GROWTH",
-    subtitle: "Most common starting point",
-    price: 3500,
-    retainer: "$299/mo retainer (optional)",
+    name: "ONGOING PARTNERSHIP",
+    subtitle: "After the trial, if you're happy with results",
+    price: 2500,
+    priceSuffix: "/month",
+    badge: "AVAILABLE AFTER TRIAL",
     items: [
-      "Everything in Starter",
-      "10 Ad Creative Variations",
-      "2 Landing Page Variants",
-      "Lead Scoring Automation",
-      "Email + SMS Sequences",
-      "Pixel Tracking Setup",
+      "Everything in Trial Sprint",
+      "10 ad creative variations per month",
+      "2 landing page variants",
+      "Lead scoring automation",
+      "Email + SMS sequences",
+      "Pixel tracking setup",
+      "Bi-weekly optimization calls",
     ],
-    guarantee: true,
-    popular: false,
-  },
-  {
-    name: "MARKET DOMINANCE",
-    subtitle: "Own your zip code",
-    price: 6000,
-    retainer: "$349/mo retainer (optional)",
-    items: [
-      "Everything in Growth",
-      "Exclusive Territory Lock",
-      "UGC Creative Suite",
-      "Lead Vault (Full CRM)",
-      "Authority Content Package",
-      "Dedicated Account Manager",
-    ],
-    guarantee: true,
-    popular: true,
-  },
-  {
-    name: "FULL TAKEOVER",
-    subtitle: "We become your marketing dept",
-    price: 10000,
-    retainer: "$499/mo retainer (optional)",
-    items: [
-      "Everything in Market Dominance",
-      "Wake-Up Agent (Off-Season)",
-      "Multi-Platform Campaigns",
-      "Weekly Strategy Calls",
-      "Predictive Lead Reactivation",
-      "Priority Support & Scaling",
-    ],
-    guarantee: true,
-    popular: false,
+    cta: "Start With Trial Sprint",
+    highlighted: false,
   },
 ];
 
@@ -80,7 +53,7 @@ const PricingTiers = () => {
 
   return (
     <section className="px-6 py-32 md:px-8 section-warm" id="pricing">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
@@ -90,10 +63,10 @@ const PricingTiers = () => {
             TRANSPARENT PRICING
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
-            CHOOSE YOUR <span className="italic text-shimmer-blue">SPRINT TIER</span>
+            SIMPLE, <span className="italic text-shimmer-blue">HONEST PRICING</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-[600px] mx-auto">
-            Every dollar mapped to a deliverable. No hidden fees. You pay Meta and Google directly.
+            No hidden fees. No ad spend markup. You pay Meta and Google directly.
           </p>
         </motion.div>
 
@@ -105,11 +78,11 @@ const PricingTiers = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-safety/10 border border-safety/30 rounded-full">
             <Zap className="w-4 h-4 text-safety" />
-            <span className="text-sm font-bold text-safety">Limited to 3 new sprint clients per month</span>
+            <span className="text-sm font-bold text-safety">Limited to 8 clients total — 3 spots remaining</span>
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
@@ -118,55 +91,51 @@ const PricingTiers = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className={`bg-card rounded-xl p-6 md:p-8 flex flex-col relative ${
-                tier.popular
-                  ? "border-2 border-safety shadow-[0_0_28px_hsla(25,100%,50%,0.25)] lg:scale-105 z-10"
+                tier.highlighted
+                  ? "border-2 border-safety shadow-[0_0_28px_hsla(25,100%,50%,0.25)]"
                   : "border border-border shadow-subtle"
               }`}
             >
-              {tier.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-safety text-black whitespace-nowrap">
-                  MOST POPULAR
+              {tier.badge && (
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-electric/20 text-electric border border-electric/30 whitespace-nowrap">
+                  {tier.badge}
                 </div>
               )}
-              <h3 className="font-display text-lg text-foreground mt-1" style={{ fontWeight: 700 }}>
+              <h3 className="font-display text-xl text-foreground mt-1" style={{ fontWeight: 700 }}>
                 {tier.name}
               </h3>
               <p className="text-xs text-muted-foreground mb-4">{tier.subtitle}</p>
-              <motion.p
-                className="text-3xl font-display text-electric mb-1"
-                style={{ fontWeight: 700 }}
+              <motion.div
+                className="mb-1"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
               >
-                $<CountUp end={tier.price} duration={1.5} separator="," enableScrollSpy scrollSpyOnce />
-              </motion.p>
-              <p className="text-[11px] text-muted-foreground mb-6">{tier.retainer}</p>
+                <span className="text-4xl font-display text-electric" style={{ fontWeight: 700 }}>
+                  $<CountUp end={tier.price} duration={1.5} separator="," enableScrollSpy scrollSpyOnce />
+                </span>
+                <span className="text-sm text-muted-foreground ml-1">{tier.priceSuffix}</span>
+              </motion.div>
 
-              <div className="flex-1 space-y-2.5 mb-6">
+              <div className="flex-1 space-y-2.5 mb-6 mt-4">
                 {tier.items.map((item, j) => (
                   <div key={j} className="flex items-start gap-2">
-                    <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.popular ? "text-safety" : "text-electric"}`} />
+                    <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.highlighted ? "text-safety" : "text-electric"}`} />
                     <span className="text-sm text-foreground">{item}</span>
                   </div>
                 ))}
-                {tier.guarantee && (
-                  <div className="flex items-start gap-2 mt-1 pt-2 border-t border-border">
-                    <Shield className="w-4 h-4 text-safety flex-shrink-0 mt-0.5" />
-                    <span className="text-sm font-semibold text-safety">15+ Calls / 45 Days or 50% Refund</span>
-                  </div>
-                )}
               </div>
 
               <button
                 onClick={scrollToContact}
-                className={`w-full py-3 rounded-lg font-body font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] ${
-                  tier.popular
+                className={`w-full py-3 rounded-lg font-body font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] flex items-center justify-center gap-2 ${
+                  tier.highlighted
                     ? "btn-safety"
                     : "border border-border text-foreground bg-card glass-hover"
                 }`}
               >
-                Book Discovery Call
+                {tier.cta}
+                <ArrowRight className="w-4 h-4" />
               </button>
             </motion.div>
           ))}
@@ -182,12 +151,14 @@ const PricingTiers = () => {
             style={{ background: "hsla(25, 100%, 50%, 0.04)", boxShadow: "0 0 40px rgba(255,107,0,0.1)" }}
           >
             <Shield className="w-8 h-8 text-safety mx-auto mb-3" />
-            <h3 className="font-display text-2xl text-foreground uppercase mb-2" style={{ fontWeight: 900 }}>
-              THE 50% REFUND GUARANTEE
+            <h3 className="font-display text-2xl text-foreground uppercase mb-3" style={{ fontWeight: 900 }}>
+              THE NO-BS GUARANTEE
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
-              If we don't deliver 15+ qualified calls within 45 days of campaign launch, you get 50% of your sprint
-              investment back. A "qualified call" means they showed up, matched your ICP, and had real intent. No weasel words.
+              If after 60 days you're not seeing improvement in your ad performance, we'll part ways — no long-term contracts, no complicated refund process, no hard feelings.
+            </p>
+            <p className="text-sm text-foreground font-semibold mt-3">
+              You're either getting better results or you're not working with us. Simple as that.
             </p>
           </div>
         </motion.div>

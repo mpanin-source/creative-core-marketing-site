@@ -4,40 +4,28 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    q: "How is this different from SEO?",
-    a: "SEO is a long-term play — it takes 6-12 months to rank. Our sprints are designed for immediate demand capture using paid ads (Meta + Google). SEO builds organic traffic over time; we fill your calendar in 30-45 days. They're complementary, but if you need leads NOW, ads are the move.",
+    q: "What if I'm not currently running ads?",
+    a: "Even better. We'll start fresh with a proven testing framework. Same pricing applies — $1,500/month for the 60-day trial.",
   },
   {
-    q: "Should I wait until June to start my summer campaign?",
-    a: "No — that's the biggest mistake we see. If your peak is June, you need to build NOW. Our 'Build Now' option constructs your entire funnel, creative, and automations today so everything is tested and ready to go live the moment demand spikes. Waiting until June means 2-3 weeks of ramping while competitors are already booking jobs.",
+    q: "What if I don't have an ad budget of $2,000/month?",
+    a: "You'll need at least $1,500-$2,000/month for ad spend (separate from our $1,500 management fee). If you're not ready to invest in ads yet, we're not the right fit.",
   },
   {
-    q: "What's the difference between a sprint and a retainer?",
-    a: "A sprint is a 30-45 day intensive designed to capture your peak season. After the sprint, you can choose an optional monthly retainer ($299-$499/month depending on tier) for ongoing optimization — but it's not required. Retainers keep the engine running; sprints build the engine.",
+    q: "Do you guarantee results?",
+    a: "We guarantee effort and expertise, not results — marketing is testing, and some things work while others don't. But if we're not outperforming your current situation after 60 days, you can walk away. No long-term contracts.",
   },
   {
-    q: "Do you charge a markup on ad spend?",
-    a: "Never. You pay Meta and Google directly through your own ad accounts. We only charge for strategy, creative, and optimization. Full transparency — you see every dollar.",
+    q: "What platforms do you run ads on?",
+    a: "Primarily Google Ads (search & display) and Meta (Facebook/Instagram). We focus on what works best for local service businesses.",
   },
   {
-    q: "What happens to my landing pages and CRM after the sprint?",
-    a: "You own them forever. We build everything in your accounts. Even if you don't continue with us, you keep all the infrastructure, creative assets, and lead data.",
+    q: "How many clients do you take on?",
+    a: "We're capping at 8 clients total to ensure quality service. Once we hit 8, the discounted trial pricing goes away and we go to market rate.",
   },
   {
-    q: "What if I don't have a 'peak season'?",
-    a: "Most local service businesses have seasonal demand spikes. If yours is truly evergreen, we adjust the sprint model to focus on funnel optimization + database reactivation instead of seasonal urgency.",
-  },
-  {
-    q: "What happens if we don't hit 15 qualified calls?",
-    a: "We refund 50% of your sprint investment. No questions asked. 'Qualified' means: showed up for call, matches your ICP, had real intent. No weasel words.",
-  },
-  {
-    q: "What is the recommended ad budget?",
-    a: "We recommend $30-$50/day to start. This gives us enough data to find winning creative within 5-7 days and scale what works. You pay this directly to Meta/Google — not to us.",
-  },
-  {
-    q: "Why should I trust you if you're new?",
-    a: "Because we have the most aggressive guarantee in the industry. 15+ qualified calls in 45 days or 50% refund. We can't afford to fail — which means you win.",
+    q: "What makes you different from other agencies?",
+    a: "Honesty. I'm building this from the ground up, so I'm offering premium service at a discount to build case studies. You get expert ad management for half the price. Once I have 10+ clients and proven results, my prices will match the market. Get in now while spots are available.",
   },
 ];
 

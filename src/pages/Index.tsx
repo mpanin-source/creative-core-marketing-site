@@ -4,9 +4,10 @@ import MarqueeStrip from "@/components/landing/MarqueeStrip";
 import WhoThisIsFor from "@/components/landing/WhoThisIsFor";
 import SprintEngine from "@/components/landing/SprintEngine";
 import WhyDifferent from "@/components/landing/WhyDifferent";
-import PricingTiers from "@/components/landing/PricingTiers";
 import Deliverables from "@/components/landing/Deliverables";
 import LeadPhilosophy from "@/components/landing/LeadPhilosophy";
+import PricingTiers from "@/components/landing/PricingTiers";
+import WhyOffering from "@/components/landing/WhyOffering";
 import FAQSection from "@/components/landing/FAQSection";
 import WindowClosing from "@/components/landing/WindowClosing";
 import ContactForm from "@/components/landing/ContactForm";
@@ -30,9 +31,11 @@ const Index = () => {
         <div className="section-divider" />
         <Deliverables />
         <div className="section-divider" />
+        <LeadPhilosophy />
+        <div className="section-divider" />
         <PricingTiers />
         <div className="section-divider" />
-        <LeadPhilosophy />
+        <WhyOffering />
         <div className="section-divider" />
         <FAQSection />
         <div className="section-divider" />
