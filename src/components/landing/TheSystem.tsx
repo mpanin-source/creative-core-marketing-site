@@ -97,23 +97,23 @@ const TheSystem = () => {
               <CountdownInline target={APRIL_15} color="safety" />
             </div>
 
-            <p className="text-sm font-semibold text-foreground mb-2">Your peak season is here or imminent.</p>
+            <p className="text-sm font-semibold text-foreground mb-2">Your peak season is here. Your competitors are already spending.</p>
             <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed flex-1">
               <li className="flex items-start gap-2">
                 <span className="text-safety mt-0.5">▸</span>
-                <span>Sprint launches within 7 days of onboarding</span>
+                <span>Sprint launches within 7 days — ads live, funnel active, leads flowing</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-safety mt-0.5">▸</span>
-                <span>Maximum ad spend + creative aggression from Day 1</span>
+                <span>While others are "planning," you're capturing 80% of high-intent demand</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-safety mt-0.5">▸</span>
-                <span>Goal: 15+ qualified calls in 45 days</span>
+                <span>Daily optimization means your cost-per-lead drops while volume climbs</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-safety mt-0.5">▸</span>
-                <span>Daily optimization, real-time pivots</span>
+                <span>Wait 2 more weeks? You're fighting over scraps with every other business in your zip code</span>
               </li>
             </ul>
             <p className="text-xs text-safety/80 font-semibold mt-6 tracking-wide uppercase">
