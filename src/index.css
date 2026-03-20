@@ -252,6 +252,31 @@
     background: hsl(var(--border));
   }
 
+  /* Gradient section divider */
+  .section-divider-gradient {
+    height: 1px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, hsl(var(--electric) / 0.4), transparent);
+  }
+
+  /* Outcome cards hover */
+  .outcome-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .outcome-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 209, 255, 0.15);
+    border-color: hsl(var(--electric) / 0.4);
+  }
+  .outcome-card:hover .outcome-icon {
+    transform: scale(1.15);
+    transition: transform 0.3s ease;
+  }
+  .outcome-icon {
+    transition: transform 0.3s ease;
+  }
+
   /* Marquee */
   .marquee-track {
     display: flex;
