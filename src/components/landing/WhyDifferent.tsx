@@ -58,7 +58,7 @@ const WhyDifferent = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)]"
+              className="p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm outcome-card"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center">
