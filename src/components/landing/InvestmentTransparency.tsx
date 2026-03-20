@@ -102,7 +102,7 @@ const InvestmentTransparency = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className={`bg-card rounded-xl p-6 md:p-8 flex flex-col border glass-hover ${
+              className={`bg-card rounded-xl p-8 md:p-10 flex flex-col border glass-hover ${
                 tier.highlight
                   ? "border-electric/40 shadow-neon"
                   : "border-border shadow-subtle"
