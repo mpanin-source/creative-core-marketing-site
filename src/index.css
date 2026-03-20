@@ -359,6 +359,15 @@
   }
 }
 
+@keyframes ctaPulseOrange {
+  0%, 100% {
+    box-shadow: 0 4px 14px hsla(25, 100%, 50%, 0.3), 0 0 0 0 hsla(25, 100%, 50%, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 20px hsla(25, 100%, 50%, 0.4), 0 0 0 8px hsla(25, 100%, 50%, 0);
+  }
+}
+
 @keyframes scrollDown {
   0%, 100% { transform: translateY(0); opacity: 0.6; }
   50% { transform: translateY(6px); opacity: 1; }
