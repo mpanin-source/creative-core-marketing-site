@@ -44,6 +44,7 @@ const Index = () => {
         <ContactForm />
       </main>
       <Footer />
+      <StickyUrgencyBanner />
     </>
   );
 };

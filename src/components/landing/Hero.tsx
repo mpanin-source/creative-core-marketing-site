@@ -125,7 +125,7 @@ const Hero = () => {
             >
               <button
                 onClick={scrollToContact}
-                className="btn-primary cta-pulse px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
+                className="btn-safety cta-pulse-orange px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
               >
                 Schedule Your Sprint Audit
                 <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />
