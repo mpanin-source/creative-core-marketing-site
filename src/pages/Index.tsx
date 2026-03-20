@@ -25,7 +25,7 @@ const Index = () => {
         <Hero />
         <MarqueeStrip />
         <ThreePillarEngine />
-        <div className="section-divider" />
+        <div className="py-14" />
         <ComparisonTable />
         <div className="section-divider" />
         <Problem />
