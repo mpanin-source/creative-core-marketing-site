@@ -9,10 +9,11 @@ const sectionFade: Variants = {
 const outcomes = [
   {
     icon: TrendingDown,
-    title: "YOUR ADS GET CHEAPER",
+    title: "YOUR COST PER LEAD DROPS 30-50%",
     description: "We test 10+ creative variations and optimize daily. Most clients see a",
     highlight: "30-50%",
-    suffix: "reduction in cost-per-lead within the first 3 weeks.",
+    suffix: "reduction in cost-per-lead within 3 weeks — which means you get more leads for the same ad budget.",
+    extra: "Plus, our automated follow-up ensures more of those leads actually convert into customers.",
   },
   {
     icon: Zap,
@@ -20,13 +21,15 @@ const outcomes = [
     description: "From ad click to booked call in under",
     highlight: "10 clicks",
     suffix: ". We strip out every unnecessary step, question, and page load that slows your prospect down.",
+    extra: null,
   },
   {
     icon: UserCheck,
-    title: "YOUR LEADS GET FOLLOWED UP",
+    title: "YOUR LEADS GET FOLLOWED UP (And Convert Better)",
     description: "Automated SMS + email sequences fire within 60 seconds of opt-in. No lead sits untouched. No opportunity dies in your inbox.",
     highlight: null,
     suffix: "",
+    extra: "Why this matters: Responding in 60 seconds instead of 5 minutes makes you 100x more likely to convert that lead into a customer. Our automation ensures you're always first to respond — while they're hot.",
   },
 ];
 
@@ -55,9 +58,9 @@ const Deliverables = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-              className="p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)] flex items-start gap-5"
+              className="outcome-card p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm flex items-start gap-5"
             >
-              <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <div className="outcome-icon w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center flex-shrink-0 mt-1">
                 <item.icon className="w-6 h-6 text-electric" />
               </div>
               <div>
@@ -77,6 +80,11 @@ const Deliverables = () => {
                   )}
                   {item.suffix}
                 </p>
+                {item.extra && (
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-3 italic">
+                    {item.extra}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}

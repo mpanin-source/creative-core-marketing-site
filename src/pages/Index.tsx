@@ -5,6 +5,7 @@ import WhoThisIsFor from "@/components/landing/WhoThisIsFor";
 import SprintEngine from "@/components/landing/SprintEngine";
 import WhyDifferent from "@/components/landing/WhyDifferent";
 import Deliverables from "@/components/landing/Deliverables";
+import BottomLine from "@/components/landing/BottomLine";
 import LeadPhilosophy from "@/components/landing/LeadPhilosophy";
 import PricingTiers from "@/components/landing/PricingTiers";
 import WhyOffering from "@/components/landing/WhyOffering";
@@ -24,21 +25,22 @@ const Index = () => {
         <Hero />
         <MarqueeStrip />
         <WhoThisIsFor />
-        <div className="section-divider" />
+        <div className="section-divider-gradient" />
         <SprintEngine />
-        <div className="section-divider" />
+        <div className="section-divider-gradient" />
         <WhyDifferent />
-        <div className="section-divider" />
+        <div className="section-divider-gradient" />
         <Deliverables />
-        <div className="section-divider" />
+        <BottomLine />
+        <div className="section-divider-gradient" />
         <LeadPhilosophy />
-        <div className="section-divider" />
+        <div className="section-divider-gradient" />
         <PricingTiers />
-        <div className="section-divider" />
+        <div className="section-divider-gradient" />
         <WhyOffering />
-        <div className="section-divider" />
+        <div className="section-divider-gradient" />
         <FAQSection />
-        <div className="section-divider" />
+        <div className="section-divider-gradient" />
         <WindowClosing />
         <ContactForm />
       </main>
