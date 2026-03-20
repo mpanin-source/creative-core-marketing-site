@@ -11,6 +11,14 @@ const fadeUp = {
   }),
 } as const;
 
+const nicheBadges = [
+  { label: "HVAC", sub: "June-Aug peak · Build now, launch June 1" },
+  { label: "Landscaping", sub: "April-June peak · Launch in 7 days" },
+  { label: "Pest Control", sub: "April-Aug · Execute now OR prep for summer" },
+  { label: "Wellness", sub: "Spring/Fall peaks · Launch by April 15" },
+  { label: "Home Services", sub: "Year-round + seasonal · Always ready" },
+];
+
 const Hero = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -67,24 +75,25 @@ const Hero = () => {
               </AspectRatio>
             </motion.div>
 
-            {/* Niche badges — increased margin */}
+            {/* Niche badges with timing subtext */}
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible" custom={2.5}
-              className="flex flex-wrap justify-center gap-2 my-12"
+              className="flex flex-wrap justify-center gap-3 my-12"
             >
-              {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services"].map((trade) => (
-                <span key={trade} className="px-3 py-1.5 rounded-full border border-electric/20 bg-card text-xs font-medium text-muted-foreground tracking-wider shadow-subtle">
-                  {trade}
-                </span>
+              {nicheBadges.map((badge) => (
+                <div key={badge.label} className="flex flex-col items-center px-4 py-2.5 rounded-xl border border-electric/20 bg-card text-center shadow-subtle min-w-[140px]">
+                  <span className="text-xs font-bold text-foreground tracking-wider">{badge.label}</span>
+                  <span className="text-[10px] text-muted-foreground/70 leading-tight mt-1">{badge.sub}</span>
+                </div>
               ))}
             </motion.div>
 
-            {/* Subtitle */}
+            {/* Subtitle — UPDATED */}
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={3}
-              className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-[560px]"
+              className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-[620px]"
             >
-              We build intensive 30-day campaigns that capture your peak season before your competitors do. More qualified calls. Lower cost per lead. 15+ calls in 45 days or 50% refund.
+              We build intensive 30-day campaigns that capture your peak season — or prep you for the next one. April-June sprints launch in 7 days. June-August sprints build now, go live when demand spikes. <span className="text-safety font-semibold">15+ qualified calls in 45 days or 50% refund.</span>
             </motion.p>
 
             {/* Value props */}

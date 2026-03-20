@@ -12,6 +12,10 @@ const faqs = [
     a: "Most local service businesses have seasonal demand spikes (HVAC in summer, landscaping in spring, pest control May-August). If your business is truly evergreen, we adjust the sprint model to focus on funnel optimization + database reactivation instead of seasonal urgency.",
   },
   {
+    q: "Should I wait to book if my season is June?",
+    a: "No — that's exactly when you should book now. Our 'Build Now' option means we construct your entire funnel, creative assets, and CRM automations today so everything is tested, loaded, and ready to go live the moment demand spikes. Waiting until June means you'll spend 2-3 weeks ramping up while your competitors are already booking jobs. Build now, launch on day one of peak season.",
+  },
+  {
     q: "Do you charge a markup on ad spend?",
     a: "No. You pay Meta and Google directly through your own ad accounts (which you own). We only charge for strategy, creative, and optimization.",
   },
