@@ -569,3 +569,14 @@ button, a, [role="button"] {
   initial-value: 0deg;
   inherits: false;
 }
+
+/* Sticky banner border pulse */
+@keyframes borderPulse {
+  0%, 100% { border-color: hsla(25, 100%, 50%, 0.4); box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 12px rgba(255,107,0,0.15); }
+  50% { border-color: hsla(25, 100%, 50%, 0.8); box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 20px rgba(255,107,0,0.35); }
+}
+
+/* Sprint card orange hover glow */
+#engine .bg-card:hover {
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+}
