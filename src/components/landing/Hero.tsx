@@ -18,11 +18,11 @@ const fadeUp = {
 } as const;
 
 const nicheBadges = [
-  { label: "HVAC", tip: "June-Aug peak · Build now, launch June 1" },
-  { label: "Landscaping", tip: "April-June peak · Launch in 7 days" },
-  { label: "Pest Control", tip: "April-Aug · Execute now OR prep for summer" },
-  { label: "Wellness", tip: "Spring/Fall peaks · Launch by April 15" },
-  { label: "Home Services", tip: "Year-round + seasonal · Always ready" },
+  { label: "HVAC", quote: "My peak season starts June 1. If I'm building my funnel in June, I'm losing $20K in the first 3 weeks." },
+  { label: "Landscaping", quote: "April hits and everyone wants their yard done yesterday. If I'm not already running ads, I'm invisible." },
+  { label: "Pest Control", quote: "Termite season doesn't wait. By the time I 'get around to marketing,' my competitors have booked my zip code." },
+  { label: "Wellness", quote: "New Year and Spring are my money months. If I'm not prepped by mid-March, I'm chasing leads all summer." },
+  { label: "Home Services", quote: "I get busy, I stop marketing. Then it dries up and I panic. I need a system that runs whether I'm on a job or not." },
 ];
 
 const Hero = () => {
