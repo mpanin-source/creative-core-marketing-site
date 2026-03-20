@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent, type Variants } from "framer-motion";
 import { Activity, Shield, Lock, Eye } from "lucide-react";
 
@@ -58,6 +58,8 @@ const moats = [
   },
 ];
 
+const STEP_COUNT = moats.length;
+
 const WhyDifferent = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -68,11 +70,28 @@ const WhyDifferent = () => {
   const [activeIdx, setActiveIdx] = useState(0);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const idx = Math.min(moats.length - 1, Math.floor(v * moats.length));
+    const idx = Math.min(STEP_COUNT - 1, Math.floor(v * STEP_COUNT));
     setActiveIdx(idx);
   });
 
-  const active = moats[activeIdx];
+  // Per-step opacity transforms: each step owns a 1/N band of scroll progress
+  const band = 1 / STEP_COUNT;
+  const stepOpacities = moats.map((_, i) => {
+    const start = i * band;
+    const mid1 = start + band * 0.15;
+    const mid2 = start + band * 0.85;
+    const end = start + band;
+    return useTransform(scrollYProgress, [start, mid1, mid2, end], [0, 1, 1, 0]);
+  });
+
+  // Nav progress per step (fills within its own band)
+  const stepProgresses = moats.map((_, i) => {
+    const start = i * band;
+    const end = start + band;
+    return useTransform(scrollYProgress, [start, end], ["0%", "100%"]);
+  });
+
+  const progressBarWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section id="why-different">
@@ -117,8 +136,8 @@ const WhyDifferent = () => {
         </div>
       </div>
 
-      {/* Desktop: scroll-driven step navigation */}
-      <div ref={containerRef} className="hidden md:block relative" style={{ height: `${moats.length * 100}vh` }}>
+      {/* Desktop: scroll-pinned sticky with cross-fade */}
+      <div ref={containerRef} className="hidden md:block relative" style={{ height: `${STEP_COUNT * 100}vh` }}>
         <div className="sticky top-0 h-screen flex items-center">
           <div className="max-w-5xl mx-auto w-full px-8 flex gap-10">
             {/* Left nav */}
@@ -128,18 +147,23 @@ const WhyDifferent = () => {
                 return (
                   <div
                     key={item.title}
-                    className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-500 flex items-center gap-3 ${
+                    className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-500 flex items-center gap-3 relative overflow-hidden ${
                       isActive
                         ? "bg-electric/10 border-electric/40 shadow-[0_0_20px_rgba(0,209,255,0.1)]"
                         : "bg-card/40 border-border"
                     }`}
                   >
-                    <div className="relative flex items-center">
+                    {/* Per-step progress fill */}
+                    <motion.div
+                      className="absolute inset-0 bg-electric/5 origin-left"
+                      style={{ scaleX: stepProgresses[i], transformOrigin: "left" }}
+                    />
+                    <div className="relative flex items-center z-10">
                       {isActive && (
                         <motion.span
                           layoutId="why-dot"
                           className="absolute -left-[22px] w-2 h-2 rounded-full bg-electric shadow-[0_0_8px_rgba(0,209,255,0.6)]"
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          transition={{ type: "spring", stiffness: 100, damping: 30 }}
                         />
                       )}
                       <div className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-300 ${
@@ -148,7 +172,7 @@ const WhyDifferent = () => {
                         <item.icon className={`w-4 h-4 transition-colors duration-300 ${isActive ? "text-electric" : "text-muted-foreground"}`} />
                       </div>
                     </div>
-                    <span className={`font-display text-sm uppercase transition-colors duration-300 ${
+                    <span className={`relative z-10 font-display text-sm uppercase transition-colors duration-300 ${
                       isActive ? "text-electric" : "text-muted-foreground"
                     }`} style={{ fontWeight: 700 }}>
                       {item.shortTitle}
@@ -157,50 +181,45 @@ const WhyDifferent = () => {
                 );
               })}
 
-              {/* Progress bar */}
+              {/* Global progress bar */}
               <div className="mt-4 h-1 rounded-full bg-border overflow-hidden">
                 <motion.div
                   className="h-full bg-electric rounded-full"
-                  style={{ width: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
+                  style={{ width: progressBarWidth }}
                 />
               </div>
             </div>
 
-            {/* Right content */}
-            <div className="flex-1 min-h-[320px] flex items-start">
-              <motion.div
-                key={activeIdx}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm w-full"
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center">
-                    <active.icon className="w-6 h-6 text-electric" />
+            {/* Right content – all cards stacked absolutely, cross-faded via scroll */}
+            <div className="flex-1 relative min-h-[360px]">
+              {moats.map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  className="absolute inset-0 p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm"
+                  style={{ opacity: stepOpacities[i] }}
+                  transition={{ type: "spring", stiffness: 100, damping: 30 }}
+                >
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center">
+                      <item.icon className="w-6 h-6 text-electric" />
+                    </div>
+                    <h3 className="font-display text-2xl text-foreground uppercase" style={{ fontWeight: 700 }}>
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="font-display text-2xl text-foreground uppercase" style={{ fontWeight: 700 }}>
-                    {active.title}
-                  </h3>
-                </div>
-                <p className="text-base text-muted-foreground leading-relaxed mb-6">
-                  {active.description}
-                </p>
-                <div className="space-y-3">
-                  {active.bullets.map((b, j) => (
-                    <motion.div
-                      key={`${activeIdx}-${j}`}
-                      initial={{ opacity: 0, x: -8 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: j * 0.08 }}
-                      className="flex items-center gap-3"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
-                      <span className="text-sm text-foreground/80">{b}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                  <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                    {item.description}
+                  </p>
+                  <div className="space-y-3">
+                    {item.bullets.map((b, j) => (
+                      <div key={j} className="flex items-center gap-3">
+                        <span className="w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
+                        <span className="text-sm text-foreground/80">{b}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
