@@ -3,7 +3,7 @@ import { ShieldCheck } from "lucide-react";
 
 const GuaranteeBanner = () => {
   return (
-    <section className="px-6 py-24 md:px-8 md:py-28" id="guarantee">
+    <section className="px-6 py-32 md:px-8" id="guarantee">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
