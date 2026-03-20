@@ -35,7 +35,7 @@ const LeadPhilosophy = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-display text-foreground mb-4" style={{ fontWeight: 700 }}>
-            WHY SPRINTS BEAT RETAINERS
+            WHY SPRINTS <span className="italic text-shimmer-blue">BEAT RETAINERS</span>
           </h2>
         </motion.div>
 

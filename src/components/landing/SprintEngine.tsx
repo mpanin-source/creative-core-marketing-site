@@ -34,7 +34,7 @@ const SprintEngine = () => {
           >
             30-45 DAY SEASONAL SPRINTS
             <br />
-            <span className="text-electric">THAT DELIVER RESULTS, FAST</span>
+            <span className="italic text-shimmer-blue">THAT DELIVER RESULTS, FAST</span>
           </h2>
         </motion.div>
 

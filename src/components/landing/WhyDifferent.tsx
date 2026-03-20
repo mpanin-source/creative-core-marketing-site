@@ -46,7 +46,7 @@ const WhyDifferent = () => {
             THE TECHNICAL MOAT
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground" style={{ fontWeight: 900 }}>
-            WHY WE'RE <span className="text-electric">DIFFERENT</span>
+            WHY WE'RE <span className="italic text-shimmer-blue">DIFFERENT</span>
           </h2>
         </motion.div>
 

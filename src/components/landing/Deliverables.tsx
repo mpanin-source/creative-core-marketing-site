@@ -43,7 +43,7 @@ const Deliverables = () => {
             OUTCOMES, NOT FEATURES
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground" style={{ fontWeight: 900 }}>
-            HERE'S WHAT CHANGES
+            HERE'S WHAT <span className="italic text-shimmer-blue">CHANGES</span>
           </h2>
         </motion.div>
 
