@@ -1,32 +1,75 @@
 import { motion } from "framer-motion";
-import { KeyRound, Clock, Users, Target, FlaskConical } from "lucide-react";
+import { Image, KeyRound, ThumbsUp, Clock } from "lucide-react";
 
-const requirements = [
-  { icon: KeyRound, title: "ACCESS TO YOUR ADS ACCOUNT", description: "You keep all passwords. We use read-only access. You see every change in real-time." },
-  { icon: Clock, title: "30 MINUTES PER WEEK", description: "You review performance, approve creative, answer clarifying questions. We handle the heavy lifting." },
-  { icon: Users, title: "SALES TEAM BUY-IN", description: "Your team needs to know new ads are live + understand the new positioning. We provide scripts + training." },
-  { icon: Target, title: "REALISTIC EXPECTATIONS", description: "We fix the funnel + timing. We can't fix a fundamentally broken offer. (Screened in Phase 1.)" },
-  { icon: FlaskConical, title: "WILLINGNESS TO TEST", description: "Some ads will lose. That's how we find winners. You need to be comfortable killing underperformers fast." },
+const items = [
+  {
+    icon: Image,
+    title: "Brand Assets",
+    description: "Logo, colors, existing photos",
+    time: "15 min",
+  },
+  {
+    icon: KeyRound,
+    title: "Ad Account Access",
+    description: "Facebook / Google — read-only is fine",
+    time: "10 min",
+  },
+  {
+    icon: ThumbsUp,
+    title: "Final Approval on Creative",
+    description: "We show, you approve — that's it",
+    time: "5 min",
+  },
 ];
 
+const sectionFade = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+};
+
 const WhatYouBring = () => (
-  <section className="section-padding">
-    <div className="max-w-[1200px] mx-auto">
-      <div className="container-narrow text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-display font-black text-foreground mb-4">SUCCESS REQUIRES THESE 5 THINGS FROM YOU</h2>
-        <p className="text-lg text-muted-foreground">We're transparent about what you must bring to make this work.</p>
-      </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1100px] mx-auto">
-        {requirements.map((req, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }}
-            className={`p-6 glass-card rounded-lg hover:border-accent/30 transition-colors ${i === 4 ? "sm:col-span-2 lg:col-span-1" : ""}`}>
-            <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4"><req.icon className="w-6 h-6 text-accent" /></div>
-            <h3 className="font-display text-base font-bold text-foreground mb-2">{req.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{req.description}</p>
+  <section className="section-padding" style={{ background: "hsl(40, 20%, 97%)" }}>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={sectionFade}
+      className="max-w-[800px] mx-auto text-center"
+    >
+      <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-3">
+        WHAT WE NEED FROM YOU
+      </h2>
+      <p className="text-muted-foreground mb-10">
+        We handle execution. You provide three things.
+      </p>
+
+      <div className="grid sm:grid-cols-3 gap-5 mb-10">
+        {items.map((item, i) => (
+          <motion.div
+            key={item.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
+            className="bg-card rounded-xl border border-border p-6 glass-hover text-center"
+          >
+            <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-4">
+              <item.icon className="w-5 h-5 text-accent" />
+            </div>
+            <h3 className="font-display text-sm font-bold text-foreground mb-1">{item.title}</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-3">{item.description}</p>
+            <span className="inline-flex items-center gap-1 text-xs font-semibold text-success">
+              <Clock className="w-3.5 h-3.5" />
+              {item.time}
+            </span>
           </motion.div>
         ))}
       </div>
-    </div>
+
+      <p className="text-sm font-semibold text-foreground">
+        Total time investment: <span className="text-accent">~30 minutes</span> to launch your sprint.
+      </p>
+    </motion.div>
   </section>
 );
 
