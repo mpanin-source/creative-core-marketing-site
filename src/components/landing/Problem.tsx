@@ -64,6 +64,24 @@ const Problem = () => {
           ))}
         </div>
 
+        {/* $40K High-Contrast Callout */}
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="mb-16 max-w-3xl mx-auto"
+        >
+          <div className="p-8 rounded-xl border border-safety/30 bg-safety/5 text-center"
+            style={{ boxShadow: "0 0 30px rgba(255, 107, 0, 0.1)" }}
+          >
+            <p className="font-display text-2xl md:text-3xl text-safety uppercase" style={{ fontWeight: 900 }}>
+              THE AVERAGE HVAC BUSINESS LOSES $40K/YEAR
+            </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              to slow follow-ups, bad creative, and leaky funnels. We fix all three in 30 days.
+            </p>
+          </div>
+        </motion.div>
+
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}

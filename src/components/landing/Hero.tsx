@@ -48,7 +48,7 @@ const Hero = () => {
             {/* Video with Scanning Line */}
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible" custom={2}
-              className="w-full max-w-[800px] mb-12"
+              className="w-full max-w-[800px] mt-16 mb-16"
             >
               <AspectRatio ratio={16 / 9}>
                 <div className="w-full h-full rounded-xl bg-secondary border border-border flex flex-col items-center justify-center gap-3 relative overflow-hidden">
@@ -57,9 +57,11 @@ const Hero = () => {
                   <div className="w-14 h-14 rounded-full bg-electric/10 flex items-center justify-center border border-electric/30">
                     <Play className="w-6 h-6 text-electric ml-0.5" />
                   </div>
-                  <span className="text-sm font-medium text-muted-foreground tracking-wide">Video Coming Soon</span>
-                  <p className="text-xs text-muted-foreground/60 max-w-[220px] text-center leading-relaxed">
-                    75-second explainer: seasonal sprints, speed-to-decision, 50% refund guarantee
+                  <span className="text-sm font-medium text-foreground tracking-wide text-center px-6 leading-snug">
+                    See How HVAC Companies Are Filling Their Summer Calendar in 30 Days
+                  </span>
+                  <p className="text-xs text-muted-foreground/60 max-w-[280px] text-center leading-relaxed">
+                    (45-second explainer — no pitch, just the system)
                   </p>
                 </div>
               </AspectRatio>

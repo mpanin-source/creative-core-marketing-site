@@ -2,6 +2,7 @@ import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import MarqueeStrip from "@/components/landing/MarqueeStrip";
 import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
+import TheSystem from "@/components/landing/TheSystem";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import Problem from "@/components/landing/Problem";
 import InvestmentTransparency from "@/components/landing/InvestmentTransparency";
@@ -25,6 +26,7 @@ const Index = () => {
         <Hero />
         <MarqueeStrip />
         <ThreePillarEngine />
+        <TheSystem />
         <div className="section-divider" />
         <Problem />
         <div className="section-divider" />
