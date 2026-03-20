@@ -33,8 +33,6 @@ const differentiators = [
   },
 ];
 
-// Need to import Target separately since it's used above
-import { Target } from "lucide-react";
 
 const WhyDifferent = () => {
   return (
