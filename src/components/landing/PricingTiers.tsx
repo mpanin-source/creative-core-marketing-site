@@ -90,7 +90,7 @@ const PricingTiers = () => {
             TRANSPARENT PRICING
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
-            CHOOSE YOUR SPRINT TIER
+            CHOOSE YOUR <span className="italic text-shimmer-blue">SPRINT TIER</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-[600px] mx-auto">
             Every dollar mapped to a deliverable. No hidden fees. You pay Meta and Google directly.

@@ -40,7 +40,7 @@ const WhoThisIsFor = () => {
           >
             THIS IS FOR LOCAL SERVICE BUSINESSES
             <br />
-            <span className="text-electric">WHO WANT TO OWN THEIR MARKET</span>
+            <span className="italic text-shimmer-blue">WHO WANT TO OWN THEIR MARKET</span>
           </h2>
         </motion.div>
 
