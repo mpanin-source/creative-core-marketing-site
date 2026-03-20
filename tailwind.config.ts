@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Montserrat'", "sans-serif"],
+        display: ["'Bebas Neue'", "sans-serif"],
         body: ["Inter", "-apple-system", "sans-serif"],
       },
       colors: {
@@ -54,6 +54,7 @@ export default {
           foreground: "hsl(var(--cta-foreground))",
           alt: "hsl(var(--cta-alt))",
         },
+        electric: "hsl(var(--electric))",
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
         popover: {
@@ -104,6 +105,7 @@ export default {
         subtle: "var(--shadow-subtle)",
         card: "var(--shadow-card)",
         elevated: "var(--shadow-elevated)",
+        neon: "0 0 15px rgba(0, 209, 255, 0.5)",
       },
       borderRadius: {
         lg: "var(--radius)",

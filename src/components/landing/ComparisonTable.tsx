@@ -40,10 +40,10 @@ const ComparisonTable = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "hsl(96, 15%, 43%)" }}>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
             WHY US
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 700 }}>
             CREATIVE CORE VS GENERIC AGENCY
           </h2>
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
@@ -59,12 +59,12 @@ const ComparisonTable = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className="bg-card rounded-xl p-6 md:p-8 border border-accent/30 shadow-card glass-hover"
+              className="bg-card rounded-xl p-6 md:p-8 border border-border shadow-card glass-hover"
             >
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-5 feature-icon" style={{ background: "hsla(207, 38%, 76%, 0.15)" }}>
-                <reason.icon className="w-6 h-6" style={{ color: "hsl(96, 15%, 43%)" }} />
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-5 feature-icon bg-electric/10">
+                <reason.icon className="w-6 h-6 text-electric" />
               </div>
-              <h3 className="font-display text-lg font-bold text-foreground mb-5">
+              <h3 className="font-display text-lg text-foreground mb-5" style={{ fontWeight: 700 }}>
                 {reason.title}
               </h3>
               <div className="space-y-4">
@@ -72,8 +72,8 @@ const ComparisonTable = () => {
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">What They Do</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{reason.them}</p>
                 </div>
-                <div className="p-4 rounded-lg" style={{ background: "hsla(96, 15%, 43%, 0.06)", border: "1px solid hsla(96, 15%, 43%, 0.2)" }}>
-                  <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "hsl(96, 15%, 43%)" }}>What We Do</p>
+                <div className="p-4 rounded-lg bg-electric/5 border border-electric/20">
+                  <p className="text-xs font-bold uppercase tracking-wider mb-2 text-electric">What We Do</p>
                   <p className="text-sm text-foreground leading-relaxed">{reason.us}</p>
                 </div>
               </div>

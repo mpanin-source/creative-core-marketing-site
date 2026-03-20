@@ -57,11 +57,11 @@ const FAQSection = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "hsla(207, 38%, 76%, 0.15)", border: "1px solid hsla(207, 38%, 76%, 0.3)" }}>
-            <HelpCircle className="w-4 h-4" style={{ color: "hsl(96, 15%, 43%)" }} />
-            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "hsl(96, 15%, 43%)" }}>FAQ</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-electric/10 border border-electric/20">
+            <HelpCircle className="w-4 h-4 text-electric" />
+            <span className="text-xs font-bold tracking-widest uppercase text-electric">FAQ</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground">
+          <h2 className="text-3xl md:text-4xl font-display text-foreground" style={{ fontWeight: 700 }}>
             COMMON QUESTIONS
           </h2>
         </motion.div>
@@ -74,7 +74,7 @@ const FAQSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: i * 0.05, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className="bg-card rounded-xl border border-accent/30 overflow-hidden glass-hover"
+              className="bg-card rounded-xl border border-border overflow-hidden glass-hover"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
@@ -86,7 +86,7 @@ const FAQSection = () => {
                   transition={{ duration: 0.2 }}
                   className="shrink-0"
                 >
-                  <ChevronDown className="w-5 h-5" style={{ color: "hsl(96, 15%, 43%)" }} />
+                  <ChevronDown className="w-5 h-5 text-electric" />
                 </motion.div>
               </button>
               <AnimatePresence>

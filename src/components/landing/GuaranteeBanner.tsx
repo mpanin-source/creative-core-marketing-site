@@ -12,17 +12,17 @@ const GuaranteeBanner = () => {
         className="max-w-[1000px] mx-auto"
       >
         <div
-          className="rounded-xl p-8 md:p-12 text-center relative overflow-hidden border border-success/20"
+          className="rounded-xl p-8 md:p-12 text-center relative overflow-hidden border border-electric/30 circuit-trace"
           style={{
-            background: "linear-gradient(135deg, hsl(100, 15%, 31%) 0%, hsl(100, 18%, 26%) 100%)",
-            boxShadow: "0 8px 32px rgba(107, 127, 94, 0.25), 0 0 0 1px rgba(126, 212, 173, 0.1)",
+            background: "linear-gradient(135deg, hsl(213, 35%, 10%) 0%, hsl(213, 40%, 8%) 100%)",
+            boxShadow: "0 0 30px rgba(0, 209, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.4)",
           }}
         >
           {/* Subtle radial glow */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse at center, rgba(126, 212, 173, 0.08) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse at center, rgba(0, 209, 255, 0.06) 0%, transparent 70%)",
             }}
           />
 
@@ -33,12 +33,12 @@ const GuaranteeBanner = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
             >
-              <ShieldCheck className="w-12 h-12 mx-auto mb-5 text-success" />
+              <ShieldCheck className="w-12 h-12 mx-auto mb-5 text-electric" />
             </motion.div>
-            <h3 className="font-display text-2xl md:text-3xl font-extrabold text-white mb-4">
+            <h3 className="font-display text-2xl md:text-3xl text-foreground mb-4" style={{ fontWeight: 700 }}>
               15+ QUALIFIED CALLS IN 45 DAYS OR 50% REFUND
             </h3>
-            <p className="text-sm text-white/85 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               We define 'qualified' as: showed up for call, matches your ICP (budget fit, service area fit, intent confirmed). If we don't deliver 15 qualified calls in 45 days, we refund 50% of your sprint investment. No bullshit.
             </p>
           </div>

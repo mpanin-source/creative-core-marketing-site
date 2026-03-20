@@ -18,10 +18,10 @@ const PostPricingCTA = () => {
         variants={sectionFade}
         className="max-w-[700px] mx-auto text-center"
       >
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-extrabold text-primary-foreground mb-4">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-display text-foreground mb-4" style={{ fontWeight: 700 }}>
           READY TO LOCK IN YOUR SPOT?
         </h2>
-        <p className="text-primary-foreground/70 leading-relaxed mb-8">
+        <p className="text-muted-foreground leading-relaxed mb-8">
           We can only take 3 new sprint clients per month. Book your Sprint Audit now before your competitors do.
         </p>
         <button

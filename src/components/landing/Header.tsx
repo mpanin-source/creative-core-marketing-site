@@ -31,7 +31,7 @@ const Header = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-subtle"
+            ? "bg-background/90 backdrop-blur-md border-b border-border shadow-subtle"
             : "bg-transparent"
         }`}
       >
@@ -43,7 +43,7 @@ const Header = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+                  className="text-sm text-muted-foreground bracket-hover transition-colors duration-200 font-medium"
                 >
                   {link.label}
                 </button>
@@ -76,7 +76,7 @@ const Header = () => {
 
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-[60] flex items-end justify-center bg-foreground/20 backdrop-blur-sm"
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-background/60 backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
         >
           <div
@@ -84,7 +84,7 @@ const Header = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-5">
-              <h3 className="font-display text-xl text-foreground font-bold">MENU</h3>
+              <h3 className="font-display text-xl text-foreground" style={{ fontWeight: 700 }}>MENU</h3>
               <button onClick={() => setMobileOpen(false)} className="p-1 rounded-full hover:bg-secondary transition-colors">
                 <X size={20} className="text-muted-foreground" />
               </button>
