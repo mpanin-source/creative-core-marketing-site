@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { Search, Map, Palette, Layout, Database, Activity, BellRing } from "lucide-react";
+import { Search, Map, Palette, Layout, Database, Activity } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -7,13 +7,12 @@ const sectionFade: Variants = {
 };
 
 const deliverables = [
-  { icon: Search, title: "FUNNEL AUDIT", desc: "15-min Loom video breakdown of where your current funnel is losing money. Free before you spend a dime.", tier: null },
-  { icon: Map, title: "SPRINT PLAN", desc: "30-day campaign roadmap synced to your peak season — every milestone mapped, every deliverable dated.", tier: null },
-  { icon: Palette, title: "CREATIVE SUITE", desc: "10+ ad variations across Meta & Google — UGC-style content that looks native and outperforms polished ads 3x.", tier: null },
-  { icon: Layout, title: "LANDING PAGES", desc: "High-converting pages built for one goal: speed to decision. Fewer fields, stronger proof, clear next step.", tier: null },
-  { icon: Database, title: "LEAD VAULT", desc: "Your own CRM with every lead tagged, scored, and auto-followed-up. You own these contacts forever.", tier: null },
-  { icon: Activity, title: "PIXEL TRACKING", desc: "Behavioral tracking that scores visitors by engagement — 80% scroll depth = warm lead flagged for follow-up.", tier: null },
-  { icon: BellRing, title: "WAKE-UP AGENT", desc: "Off-season reactivation campaigns that turn dormant leads into booked jobs before next peak season.", tier: "TIER 3-4" },
+  { icon: Search, title: "FUNNEL AUDIT", desc: "15-min Loom video breakdown of where your current funnel is losing money. Free before you spend a dime." },
+  { icon: Map, title: "CAMPAIGN ROADMAP", desc: "60-day campaign plan with every milestone mapped, every deliverable dated, and clear performance benchmarks." },
+  { icon: Palette, title: "AD CREATIVE", desc: "5-10 ad variations across Meta & Google — tested weekly, losers killed, winners scaled." },
+  { icon: Layout, title: "LANDING PAGES", desc: "High-converting pages built for one goal: speed to decision. Fewer fields, stronger proof, clear next step." },
+  { icon: Database, title: "CRM + LEAD SCORING", desc: "Basic CRM setup with lead scoring automation. Every lead tagged, scored, and auto-followed-up." },
+  { icon: Activity, title: "PIXEL TRACKING", desc: "Behavioral tracking that scores visitors by engagement — so your sales team calls the hottest leads first." },
 ];
 
 const SprintEngine = () => {
@@ -26,15 +25,15 @@ const SprintEngine = () => {
           className="text-center mb-16"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
-            THE SPRINT ENGINE
+            WHAT YOU GET
           </p>
           <h2
             className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground"
             style={{ fontWeight: 900 }}
           >
-            30-45 DAY SEASONAL SPRINTS
+            60-DAY AD MANAGEMENT TRIAL
             <br />
-            <span className="italic text-shimmer-blue">THAT DELIVER RESULTS, FAST</span>
+            <span className="italic text-shimmer-blue">THAT DELIVERS RESULTS, FAST</span>
           </h2>
         </motion.div>
 
@@ -46,21 +45,11 @@ const SprintEngine = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className={`p-6 rounded-2xl border bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)] relative ${
-                d.tier ? "border-safety/30 md:col-span-2 md:max-w-lg md:mx-auto" : "border-border"
-              }`}
-              style={d.tier ? { boxShadow: "0 0 20px rgba(255,107,0,0.08)" } : undefined}
+              className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)]"
             >
-              {d.tier && (
-                <span className="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-safety/15 text-safety border border-safety/30">
-                  {d.tier}
-                </span>
-              )}
               <div className="flex items-start gap-4">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                  d.tier ? "bg-safety/15" : "bg-electric/10"
-                }`}>
-                  <d.icon className={`w-5 h-5 ${d.tier ? "text-safety" : "text-electric"}`} />
+                <div className="w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center flex-shrink-0">
+                  <d.icon className="w-5 h-5 text-electric" />
                 </div>
                 <div>
                   <h3 className="font-display text-base text-foreground uppercase mb-1" style={{ fontWeight: 700 }}>
