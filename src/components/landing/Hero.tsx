@@ -22,15 +22,6 @@ const Hero = () => {
 
   return (
     <>
-      {/* Safety Orange Urgency Banner */}
-      <div className="urgency-banner w-full py-2.5 text-center z-[60] relative">
-        <p className="text-sm font-bold tracking-wide flex items-center justify-center gap-2">
-          <Zap className="w-4 h-4" />
-          ONLY 3 SPRINT SLOTS REMAINING FOR SPRING 2026 ROLLOUT
-          <Zap className="w-4 h-4" />
-        </p>
-      </div>
-
       <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-8 lg:px-12 -mt-16 pt-16 relative overflow-hidden">
         <div className="max-w-[1000px] mx-auto w-full relative z-10">
           {/* Center-Flow Funnel: Headline → Video → CTA */}
