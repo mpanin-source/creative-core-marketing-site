@@ -14,6 +14,7 @@ import WindowClosing from "@/components/landing/WindowClosing";
 import ContactForm from "@/components/landing/ContactForm";
 import Footer from "@/components/landing/Footer";
 import MouseGlowEffect from "@/components/MouseGlowEffect";
+import StickyUrgencyBanner from "@/components/landing/StickyUrgencyBanner";
 
 const Index = () => {
   return (
@@ -24,7 +25,7 @@ const Index = () => {
         <Hero />
         <MarqueeStrip />
         <ThreePillarEngine />
-        <div className="section-divider" />
+        <div className="py-14" />
         <ComparisonTable />
         <div className="section-divider" />
         <Problem />
@@ -43,6 +44,7 @@ const Index = () => {
         <ContactForm />
       </main>
       <Footer />
+      <StickyUrgencyBanner />
     </>
   );
 };

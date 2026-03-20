@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check, ChevronDown, Play, Zap } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Play } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const fadeUp = {
@@ -22,15 +22,6 @@ const Hero = () => {
 
   return (
     <>
-      {/* Safety Orange Urgency Banner */}
-      <div className="urgency-banner w-full py-2.5 text-center z-[60] relative">
-        <p className="text-sm font-bold tracking-wide flex items-center justify-center gap-2">
-          <Zap className="w-4 h-4" />
-          ONLY 3 SPRINT SLOTS REMAINING FOR SPRING 2026 ROLLOUT
-          <Zap className="w-4 h-4" />
-        </p>
-      </div>
-
       <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-8 lg:px-12 -mt-16 pt-16 relative overflow-hidden">
         <div className="max-w-[1000px] mx-auto w-full relative z-10">
           {/* Center-Flow Funnel: Headline → Video → CTA */}
@@ -51,7 +42,7 @@ const Hero = () => {
             >
               SPEED TO DECISION IS THE ONLY
               <br />
-              <span className="text-shimmer">DESIGN METRIC</span> THAT MATTERS.
+              <span className="text-shimmer-blue">DESIGN METRIC</span> THAT MATTERS.
             </motion.h1>
 
             {/* Video with Scanning Line */}
@@ -125,7 +116,7 @@ const Hero = () => {
             >
               <button
                 onClick={scrollToContact}
-                className="btn-primary cta-pulse px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
+                className="btn-safety cta-pulse-orange px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
               >
                 Schedule Your Sprint Audit
                 <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />

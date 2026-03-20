@@ -359,6 +359,15 @@
   }
 }
 
+@keyframes ctaPulseOrange {
+  0%, 100% {
+    box-shadow: 0 4px 14px hsla(25, 100%, 50%, 0.3), 0 0 0 0 hsla(25, 100%, 50%, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 20px hsla(25, 100%, 50%, 0.4), 0 0 0 8px hsla(25, 100%, 50%, 0);
+  }
+}
+
 @keyframes scrollDown {
   0%, 100% { transform: translateY(0); opacity: 0.6; }
   50% { transform: translateY(6px); opacity: 1; }
@@ -436,20 +445,59 @@
   animation: ctaPulse 2.5s ease-in-out infinite;
 }
 
-/* Text shimmer effect — Safety Orange sweep */
-.text-shimmer {
+.cta-pulse-orange {
+  animation: ctaPulseOrange 2.5s ease-in-out infinite;
+}
+
+/* Text shimmer effect — Electric Blue sweep with glow */
+.text-shimmer-blue {
   background: linear-gradient(
     90deg,
-    hsl(var(--safety)) 0%,
-    hsl(25, 100%, 70%) 40%,
-    hsl(var(--safety)) 60%,
-    hsl(25, 100%, 70%) 100%
+    hsl(var(--electric)) 0%,
+    hsl(191, 80%, 70%) 40%,
+    hsl(var(--electric)) 60%,
+    hsl(191, 80%, 70%) 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textShimmer 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px hsla(191, 100%, 50%, 0.35));
+}
+
+/* Orange glow hover for high-value zones */
+.glass-hover-orange {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-hover-orange:hover {
+  background: hsla(25, 100%, 50%, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: hsla(25, 100%, 50%, 0.4) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Circuit-trace orange variant */
+.circuit-trace-orange {
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-trace-orange::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from var(--circuit-angle, 0deg), transparent 60%, hsl(var(--safety)) 80%, transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: circuitRotate 3s linear infinite;
 }
 
 @keyframes textShimmer {
@@ -457,11 +505,6 @@
   100% { background-position: -200% 0; }
 }
 
-/* Urgency banner pulse */
-.urgency-banner {
-  background: hsl(var(--safety));
-  color: hsl(0 0% 0%);
-}
 
 /* Safety Orange button variant */
 .btn-safety {

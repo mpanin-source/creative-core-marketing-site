@@ -102,10 +102,12 @@ const InvestmentTransparency = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className={`bg-card rounded-xl p-8 md:p-10 flex flex-col glass-hover relative ${
+              className={`bg-card rounded-xl p-8 md:p-10 flex flex-col relative ${
                 tier.highlight
-                  ? "border-2 border-safety shadow-[0_0_20px_hsla(25,100%,50%,0.3)]"
-                  : "border border-border shadow-subtle"
+                  ? "border-2 border-safety shadow-[0_0_20px_hsla(25,100%,50%,0.3)] glass-hover-orange"
+                  : tier.name === "SCALE"
+                    ? "border border-border shadow-subtle glass-hover-orange"
+                    : "border border-border shadow-subtle glass-hover"
               }`}
             >
               {tier.highlight && (
