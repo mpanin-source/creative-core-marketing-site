@@ -48,7 +48,7 @@ const SprintEngine = () => {
               className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm outcome-card"
             >
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center flex-shrink-0">
+                <div className="outcome-icon w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center flex-shrink-0">
                   <d.icon className="w-5 h-5 text-electric" />
                 </div>
                 <div>
