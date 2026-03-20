@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform, useMotionValueEvent, type Variants } from "framer-motion";
 import { Activity, Shield, Lock, Eye } from "lucide-react";
 
 const sectionFade: Variants = {
@@ -59,16 +59,28 @@ const moats = [
 ];
 
 const WhyDifferent = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
   const [activeIdx, setActiveIdx] = useState(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const idx = Math.min(moats.length - 1, Math.floor(v * moats.length));
+    setActiveIdx(idx);
+  });
+
   const active = moats[activeIdx];
 
   return (
-    <section className="px-6 py-32 md:px-8" id="why-different">
-      <div className="max-w-5xl mx-auto">
+    <section id="why-different">
+      <div className="px-6 md:px-8 py-16">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
             THE TECHNICAL MOAT
@@ -77,9 +89,11 @@ const WhyDifferent = () => {
             WHY WE'RE <span className="italic text-shimmer-blue">DIFFERENT</span>
           </h2>
         </motion.div>
+      </div>
 
-        {/* Mobile: stacked cards */}
-        <div className="md:hidden flex flex-col gap-4">
+      {/* Mobile: stacked cards (no scroll-lock) */}
+      <div className="md:hidden px-6 pb-20">
+        <div className="flex flex-col gap-4">
           {moats.map((item, i) => (
             <motion.div
               key={item.title}
@@ -101,59 +115,65 @@ const WhyDifferent = () => {
             </motion.div>
           ))}
         </div>
+      </div>
 
-        {/* Desktop: step navigation */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="hidden md:flex gap-10"
-        >
-          {/* Left nav */}
-          <div className="w-[280px] flex-shrink-0 space-y-2 sticky top-28 self-start">
-            {moats.map((item, i) => {
-              const isActive = i === activeIdx;
-              return (
-                <button
-                  key={item.title}
-                  onClick={() => setActiveIdx(i)}
-                  className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-300 flex items-center gap-3 group ${
-                    isActive
-                      ? "bg-electric/10 border-electric/40 shadow-[0_0_20px_rgba(0,209,255,0.1)]"
-                      : "bg-card/40 border-border hover:bg-card/70 hover:border-border"
-                  }`}
-                >
-                  <div className="relative flex items-center">
-                    {isActive && (
-                      <span className="absolute -left-[22px] w-2 h-2 rounded-full bg-electric shadow-[0_0_8px_rgba(0,209,255,0.6)]" />
-                    )}
-                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-300 ${
-                      isActive ? "bg-electric/20" : "bg-muted"
-                    }`}>
-                      <item.icon className={`w-4 h-4 transition-colors duration-300 ${isActive ? "text-electric" : "text-muted-foreground"}`} />
+      {/* Desktop: scroll-driven step navigation */}
+      <div ref={containerRef} className="hidden md:block relative" style={{ height: `${moats.length * 100}vh` }}>
+        <div className="sticky top-0 h-screen flex items-center">
+          <div className="max-w-5xl mx-auto w-full px-8 flex gap-10">
+            {/* Left nav */}
+            <div className="w-[280px] flex-shrink-0 space-y-2">
+              {moats.map((item, i) => {
+                const isActive = i === activeIdx;
+                return (
+                  <div
+                    key={item.title}
+                    className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-500 flex items-center gap-3 ${
+                      isActive
+                        ? "bg-electric/10 border-electric/40 shadow-[0_0_20px_rgba(0,209,255,0.1)]"
+                        : "bg-card/40 border-border"
+                    }`}
+                  >
+                    <div className="relative flex items-center">
+                      {isActive && (
+                        <motion.span
+                          layoutId="why-dot"
+                          className="absolute -left-[22px] w-2 h-2 rounded-full bg-electric shadow-[0_0_8px_rgba(0,209,255,0.6)]"
+                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        />
+                      )}
+                      <div className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-300 ${
+                        isActive ? "bg-electric/20" : "bg-muted"
+                      }`}>
+                        <item.icon className={`w-4 h-4 transition-colors duration-300 ${isActive ? "text-electric" : "text-muted-foreground"}`} />
+                      </div>
                     </div>
+                    <span className={`font-display text-sm uppercase transition-colors duration-300 ${
+                      isActive ? "text-electric" : "text-muted-foreground"
+                    }`} style={{ fontWeight: 700 }}>
+                      {item.shortTitle}
+                    </span>
                   </div>
-                  <span className={`font-display text-sm uppercase transition-colors duration-300 ${
-                    isActive ? "text-electric" : "text-muted-foreground group-hover:text-foreground"
-                  }`} style={{ fontWeight: 700 }}>
-                    {item.shortTitle}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+                );
+              })}
 
-          {/* Right content */}
-          <div className="flex-1 min-h-[320px]">
-            <AnimatePresence mode="wait">
+              {/* Progress bar */}
+              <div className="mt-4 h-1 rounded-full bg-border overflow-hidden">
+                <motion.div
+                  className="h-full bg-electric rounded-full"
+                  style={{ width: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
+                />
+              </div>
+            </div>
+
+            {/* Right content */}
+            <div className="flex-1 min-h-[320px] flex items-start">
               <motion.div
                 key={activeIdx}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm"
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm w-full"
               >
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center">
@@ -169,7 +189,7 @@ const WhyDifferent = () => {
                 <div className="space-y-3">
                   {active.bullets.map((b, j) => (
                     <motion.div
-                      key={j}
+                      key={`${activeIdx}-${j}`}
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3, delay: j * 0.08 }}
@@ -181,9 +201,9 @@ const WhyDifferent = () => {
                   ))}
                 </div>
               </motion.div>
-            </AnimatePresence>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
