@@ -20,7 +20,7 @@ const Index = () => {
     <>
       <MouseGlowEffect />
       <Header />
-      <main className="pt-16">
+      <main className="pt-14">
         <Hero />
         <MarqueeStrip />
         <ThreePillarEngine />

@@ -102,16 +102,18 @@ const InvestmentTransparency = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className={`bg-card rounded-xl p-8 md:p-10 flex flex-col border glass-hover ${
+              className={`bg-card rounded-xl p-8 md:p-10 flex flex-col glass-hover relative ${
                 tier.highlight
-                  ? "border-electric/40 shadow-neon"
-                  : "border-border shadow-subtle"
+                  ? "border-2 border-safety shadow-[0_0_20px_hsla(25,100%,50%,0.3)]"
+                  : "border border-border shadow-subtle"
               }`}
             >
               {tier.highlight && (
-                <div className="text-xs font-bold text-electric uppercase tracking-wider mb-2">Most Popular</div>
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-safety text-black whitespace-nowrap">
+                  MOST POPULAR FOR HVAC
+                </div>
               )}
-              <h3 className="font-display text-xl text-foreground mb-1" style={{ fontWeight: 700 }}>
+              <h3 className="font-display text-xl text-foreground mb-1 mt-2" style={{ fontWeight: 700 }}>
                 TIER {i + 1}: {tier.name}
               </h3>
               <motion.p
@@ -144,7 +146,7 @@ const InvestmentTransparency = () => {
                 onClick={scrollToContact}
                 className={`w-full py-3 rounded-lg font-body font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 ${
                   tier.highlight
-                    ? "btn-primary"
+                    ? "btn-safety"
                     : "border border-border text-foreground bg-card glass-hover"
                 }`}
               >
