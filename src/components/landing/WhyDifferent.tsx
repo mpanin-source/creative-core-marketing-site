@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { Check, Shield, TrendingDown, Video } from "lucide-react";
+import { Check, Shield, TrendingDown, Video, Target } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
