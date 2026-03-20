@@ -79,25 +79,20 @@ const Hero = () => {
               </AspectRatio>
             </motion.div>
 
-            {/* Niche badges — title only, tooltip on hover */}
+            {/* Niche badges — title + first-person quote */}
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible" custom={2.5}
-              className="flex flex-wrap justify-center gap-3 mt-24 mb-12"
+              className="flex flex-col items-center gap-4 mt-24 mb-12 w-full max-w-3xl"
             >
-              <TooltipProvider delayDuration={200}>
-                {nicheBadges.map((badge) => (
-                  <Tooltip key={badge.label}>
-                    <TooltipTrigger asChild>
-                      <div className="px-5 py-2.5 rounded-xl border border-electric/20 bg-card text-center shadow-subtle cursor-default transition-all duration-300 hover:border-safety/60 hover:shadow-[0_0_16px_rgba(255,107,0,0.2)]">
-                        <span className="text-xs font-bold text-foreground tracking-wider font-display uppercase">{badge.label}</span>
-                      </div>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom" className="bg-card border-safety/30 text-xs text-muted-foreground">
-                      {badge.tip}
-                    </TooltipContent>
-                  </Tooltip>
-                ))}
-              </TooltipProvider>
+              {nicheBadges.map((badge) => (
+                <div
+                  key={badge.label}
+                  className="w-full px-6 py-4 rounded-xl border border-electric/20 bg-card shadow-subtle transition-all duration-300 hover:border-safety/60 hover:shadow-[0_0_16px_rgba(255,107,0,0.2)]"
+                >
+                  <span className="text-xs font-bold text-foreground tracking-wider font-display uppercase">{badge.label}</span>
+                  <p className="text-xs italic text-foreground/50 mt-1.5 leading-relaxed">"{badge.quote}"</p>
+                </div>
+              ))}
             </motion.div>
 
             {/* Subtitle */}
