@@ -37,7 +37,7 @@ const Header = () => {
       >
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">
           <div className="flex items-center justify-between h-14">
-            <AnimatedLogo />
+            <AnimatedLogo size="md" />
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
