@@ -143,7 +143,7 @@ const Hero = () => {
 
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={5}
-              className="text-xs text-muted-foreground"
+              className="text-xs text-muted-foreground pb-16"
             >
               No pitch. Just a breakdown of where your funnel is losing speed.
             </motion.p>
