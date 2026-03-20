@@ -47,7 +47,7 @@ const SprintEngine = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className={`p-6 rounded-2xl border bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)] relative ${
-                d.tier ? "border-safety/30" : "border-border"
+                d.tier ? "border-safety/30 md:col-span-2 md:max-w-lg md:mx-auto" : "border-border"
               }`}
               style={d.tier ? { boxShadow: "0 0 20px rgba(255,107,0,0.08)" } : undefined}
             >
