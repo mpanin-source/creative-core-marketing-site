@@ -21,7 +21,7 @@ const Header = () => {
 
   const navLinks = [
     { label: "How It Works", id: "engine" },
-    { label: "Why Us", id: "comparison" },
+    { label: "Why Us", id: "why-different" },
     { label: "Pricing", id: "pricing" },
     { label: "FAQ", id: "faq" },
   ];
