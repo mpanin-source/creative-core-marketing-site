@@ -3,7 +3,7 @@ import { ShieldCheck } from "lucide-react";
 
 const GuaranteeBanner = () => {
   return (
-    <section className="px-6 py-16 md:px-8 md:py-20" id="guarantee">
+    <section className="px-6 py-24 md:px-8 md:py-28" id="guarantee">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -12,10 +12,10 @@ const GuaranteeBanner = () => {
         className="max-w-[1000px] mx-auto"
       >
         <div
-          className="rounded-xl p-8 md:p-12 text-center relative overflow-hidden border border-electric/30 circuit-trace"
+          className="rounded-xl p-8 md:p-12 text-center relative overflow-hidden border border-safety circuit-trace"
           style={{
             background: "linear-gradient(135deg, hsl(213, 35%, 10%) 0%, hsl(213, 40%, 8%) 100%)",
-            boxShadow: "0 0 30px rgba(0, 209, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.4)",
+            boxShadow: "0 0 40px rgba(255, 107, 0, 0.2), 0 8px 32px rgba(0, 0, 0, 0.4)",
           }}
         >
           {/* Subtle radial glow */}
