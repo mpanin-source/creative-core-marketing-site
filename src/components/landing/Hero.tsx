@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check, ChevronDown, Play } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -12,11 +18,11 @@ const fadeUp = {
 } as const;
 
 const nicheBadges = [
-  { label: "HVAC", sub: "June-Aug peak · Build now, launch June 1" },
-  { label: "Landscaping", sub: "April-June peak · Launch in 7 days" },
-  { label: "Pest Control", sub: "April-Aug · Execute now OR prep for summer" },
-  { label: "Wellness", sub: "Spring/Fall peaks · Launch by April 15" },
-  { label: "Home Services", sub: "Year-round + seasonal · Always ready" },
+  { label: "HVAC", tip: "June-Aug peak · Build now, launch June 1" },
+  { label: "Landscaping", tip: "April-June peak · Launch in 7 days" },
+  { label: "Pest Control", tip: "April-Aug · Execute now OR prep for summer" },
+  { label: "Wellness", tip: "Spring/Fall peaks · Launch by April 15" },
+  { label: "Home Services", tip: "Year-round + seasonal · Always ready" },
 ];
 
 const Hero = () => {
@@ -32,7 +38,6 @@ const Hero = () => {
     <>
       <section id="hero" className="min-h-screen flex items-center justify-center px-6 md:px-8 lg:px-12 -mt-16 pt-16 relative overflow-hidden">
         <div className="max-w-[1000px] mx-auto w-full relative z-10">
-          {/* Center-Flow Funnel: Headline → Video → CTA */}
           <div className="flex flex-col items-center text-center">
             {/* Eyebrow */}
             <motion.p
@@ -50,17 +55,16 @@ const Hero = () => {
             >
               SPEED TO DECISION IS THE ONLY
               <br />
-              <span className="text-shimmer-blue">DESIGN METRIC</span> THAT MATTERS.
+              <span className="text-shimmer-blue opacity-70">DESIGN METRIC</span> THAT MATTERS.
             </motion.h1>
 
             {/* Video with Scanning Line */}
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible" custom={2}
-              className="w-full max-w-[800px] mt-16 mb-16"
+              className="w-full max-w-[800px] mt-16 mb-0"
             >
               <AspectRatio ratio={16 / 9}>
                 <div className="w-full h-full rounded-xl bg-secondary border border-border flex flex-col items-center justify-center gap-3 relative overflow-hidden">
-                  {/* Scanning diagnostic line */}
                   <div className="scan-line" />
                   <div className="w-14 h-14 rounded-full bg-electric/10 flex items-center justify-center border border-electric/30">
                     <Play className="w-6 h-6 text-electric ml-0.5" />
@@ -75,20 +79,28 @@ const Hero = () => {
               </AspectRatio>
             </motion.div>
 
-            {/* Niche badges with timing subtext */}
+            {/* Niche badges — title only, tooltip on hover */}
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible" custom={2.5}
-              className="flex flex-wrap justify-center gap-3 my-12"
+              className="flex flex-wrap justify-center gap-3 mt-24 mb-12"
             >
-              {nicheBadges.map((badge) => (
-                <div key={badge.label} className="flex flex-col items-center px-4 py-2.5 rounded-xl border border-electric/20 bg-card text-center shadow-subtle min-w-[140px]">
-                  <span className="text-xs font-bold text-foreground tracking-wider">{badge.label}</span>
-                  <span className="text-[10px] text-muted-foreground/70 leading-tight mt-1">{badge.sub}</span>
-                </div>
-              ))}
+              <TooltipProvider delayDuration={200}>
+                {nicheBadges.map((badge) => (
+                  <Tooltip key={badge.label}>
+                    <TooltipTrigger asChild>
+                      <div className="px-5 py-2.5 rounded-xl border border-electric/20 bg-card text-center shadow-subtle cursor-default transition-all duration-300 hover:border-safety/60 hover:shadow-[0_0_16px_rgba(255,107,0,0.2)]">
+                        <span className="text-xs font-bold text-foreground tracking-wider font-display uppercase">{badge.label}</span>
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent side="bottom" className="bg-card border-safety/30 text-xs text-muted-foreground">
+                      {badge.tip}
+                    </TooltipContent>
+                  </Tooltip>
+                ))}
+              </TooltipProvider>
             </motion.div>
 
-            {/* Subtitle — UPDATED */}
+            {/* Subtitle */}
             <motion.p
               variants={fadeUp} initial="hidden" animate="visible" custom={3}
               className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-[620px]"
