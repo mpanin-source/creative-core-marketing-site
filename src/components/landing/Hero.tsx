@@ -21,6 +21,96 @@ const nicheBadges = [
   { label: "Home Services", quote: "I get busy, I stop marketing. Then it dries up and I panic. I need a system that runs whether I'm on a job or not." },
 ];
 
+const IsThisYouCarousel = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  // Attach select listener when emblaApi is ready
+  useState(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    onSelect();
+  });
+
+  // Use effect-like pattern for embla event binding
+  if (emblaApi && !((emblaApi as any).__bound)) {
+    (emblaApi as any).__bound = true;
+    emblaApi.on("select", onSelect);
+  }
+
+  return (
+    <motion.div
+      variants={fadeUp} initial="hidden" animate="visible" custom={2.5}
+      className="w-full max-w-3xl mt-24 mb-12"
+    >
+      <p className="text-center font-display text-xl md:text-2xl text-foreground uppercase mb-6" style={{ fontWeight: 900 }}>
+        IS THIS YOU?
+      </p>
+
+      <div className="relative">
+        <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
+          <div className="flex">
+            {nicheBadges.map((badge, i) => (
+              <div key={badge.label} className="flex-[0_0_100%] min-w-0 px-2">
+                <div className={`p-8 md:p-10 rounded-2xl border bg-card/60 backdrop-blur-sm transition-all duration-500 ${
+                  selectedIndex === i
+                    ? "border-safety/50 shadow-[0_0_24px_rgba(255,107,0,0.15)]"
+                    : "border-electric/20"
+                }`}>
+                  <span className="font-display text-lg md:text-xl text-safety tracking-wider uppercase" style={{ fontWeight: 700 }}>
+                    {badge.label}
+                  </span>
+                  <p className="text-sm md:text-base italic text-foreground/60 mt-4 leading-relaxed">
+                    "{badge.quote}"
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <button
+          onClick={scrollPrev}
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 hidden md:flex w-10 h-10 rounded-full bg-card border border-border items-center justify-center transition-all hover:border-electric/50 hover:shadow-[0_0_12px_rgba(0,209,255,0.15)] active:scale-95"
+          aria-label="Previous"
+        >
+          <ChevronLeft className="w-5 h-5 text-foreground" />
+        </button>
+        <button
+          onClick={scrollNext}
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 hidden md:flex w-10 h-10 rounded-full bg-card border border-border items-center justify-center transition-all hover:border-electric/50 hover:shadow-[0_0_12px_rgba(0,209,255,0.15)] active:scale-95"
+          aria-label="Next"
+        >
+          <ChevronRight className="w-5 h-5 text-foreground" />
+        </button>
+      </div>
+
+      <div className="flex justify-center gap-2 mt-5">
+        {nicheBadges.map((badge, i) => (
+          <button
+            key={badge.label}
+            onClick={() => emblaApi?.scrollTo(i)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              selectedIndex === i
+                ? "bg-safety w-6"
+                : "bg-foreground/20 hover:bg-foreground/40"
+            }`}
+            aria-label={`Go to ${badge.label}`}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
 const Hero = () => {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
