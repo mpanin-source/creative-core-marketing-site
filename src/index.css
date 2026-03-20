@@ -445,6 +445,10 @@
   animation: ctaPulse 2.5s ease-in-out infinite;
 }
 
+.cta-pulse-orange {
+  animation: ctaPulseOrange 2.5s ease-in-out infinite;
+}
+
 /* Text shimmer effect — Electric Blue sweep with glow */
 .text-shimmer-blue {
   background: linear-gradient(
