@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check, ChevronDown, Play } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },

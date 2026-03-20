@@ -144,23 +144,23 @@ const TheSystem = () => {
               <CountdownInline target={JUNE_1} color="electric" />
             </div>
 
-            <p className="text-sm font-semibold text-foreground mb-2">Your peak season is 30-90 days away.</p>
+            <p className="text-sm font-semibold text-foreground mb-2">Your peak season is 30-90 days away. Build now, dominate later.</p>
             <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed flex-1">
               <li className="flex items-start gap-2">
                 <span className="text-electric mt-0.5">▸</span>
-                <span>We build your entire funnel, creative, and CRM now</span>
+                <span>We build your entire funnel, creative, CRM, and automation stack now</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-electric mt-0.5">▸</span>
-                <span>Everything tested and loaded — ready to flip the switch</span>
+                <span>Everything tested, loaded, and ready — flip the switch when demand spikes</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-electric mt-0.5">▸</span>
-                <span>Pre-season warm-up campaigns build pipeline momentum</span>
+                <span>Pre-season warm-up campaigns build pipeline so you launch with momentum, not from zero</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-electric mt-0.5">▸</span>
-                <span>Go live the day demand spikes — zero ramp-up delay</span>
+                <span>Capture 80% of early-season demand while competitors are still setting up</span>
               </li>
             </ul>
             <p className="text-xs text-electric/80 font-semibold mt-6 tracking-wide uppercase">
