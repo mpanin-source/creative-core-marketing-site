@@ -36,8 +36,8 @@ const Hero = () => {
           {/* Headline — Bebas Neue */}
           <motion.h1
             variants={fadeUp} initial="hidden" animate="visible" custom={1}
-            className="text-5xl md:text-6xl lg:text-7xl font-display leading-[1.04] text-foreground mb-8"
-            style={{ fontWeight: 700 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-display leading-[1.15] text-foreground uppercase mb-8"
+            style={{ fontWeight: 900 }}
           >
             SPEED TO DECISION IS THE ONLY
             <br />
