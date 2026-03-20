@@ -3,6 +3,8 @@ import Hero from "@/components/landing/Hero";
 import MarqueeStrip from "@/components/landing/MarqueeStrip";
 import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
 import TheSystem from "@/components/landing/TheSystem";
+import WhyDifferent from "@/components/landing/WhyDifferent";
+import Deliverables from "@/components/landing/Deliverables";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import Problem from "@/components/landing/Problem";
 import InvestmentTransparency from "@/components/landing/InvestmentTransparency";
@@ -27,6 +29,10 @@ const Index = () => {
         <MarqueeStrip />
         <ThreePillarEngine />
         <TheSystem />
+        <div className="section-divider" />
+        <WhyDifferent />
+        <div className="section-divider" />
+        <Deliverables />
         <div className="section-divider" />
         <Problem />
         <div className="section-divider" />
