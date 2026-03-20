@@ -1,38 +1,37 @@
 import { motion, type Variants } from "framer-motion";
-import { Check, Shield, TrendingDown, Video, Target } from "lucide-react";
+import { Activity, Shield, Lock, Eye } from "lucide-react";
 
 const sectionFade: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
+  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
-const differentiators = [
+const moats = [
   {
-    icon: TrendingDown,
-    title: "No Ad Markup",
-    description: "Most agencies take 15-20% of your ad spend as a hidden fee. We charge zero markup. Your ad budget goes 100% to ads.",
-    highlight: false,
+    icon: Activity,
+    title: "PIXEL TRACKING INTELLIGENCE",
+    description: "We install behavioral tracking on your landing pages. A visitor who scrolls 80% of your page, watches your video, and clicks your CTA twice is flagged as a warm lead — before they even submit a form. Your sales team calls the hottest leads first.",
+    accent: "electric" as const,
   },
   {
-    icon: Target,
-    title: "Funnel Optimization, Not Just Traffic",
-    description: "We don't just send clicks. We rebuild your entire offer → ad → landing page → follow-up flow so every dollar works harder.",
-    highlight: false,
+    icon: Lock,
+    title: "ONE CLIENT PER NICHE PER AREA",
+    description: "We don't work with your competitors. If we sign an HVAC company in Phoenix, no other HVAC company in Phoenix can hire us. Your territory is locked. Your campaigns, creative, and data stay exclusive.",
+    accent: "electric" as const,
   },
   {
     icon: Shield,
-    title: "You Get a Lead Vault, Not a Spreadsheet",
-    description: "Every qualified lead is stored in your own CRM system — tagged, scored, and ready for follow-up. You own these contacts forever.",
-    highlight: true,
+    title: "YOU OWN EVERYTHING",
+    description: "Your ad accounts. Your landing pages. Your CRM data. Your creative assets. If you leave tomorrow, you take it all. We build in YOUR accounts, not ours. No hostage situations.",
+    accent: "electric" as const,
   },
   {
-    icon: Video,
-    title: "15-Min Loom Audit Before You Spend a Dime",
-    description: "Before you sign anything, we record a personalized video breakdown of where your current funnel is losing money. Free. No strings.",
-    highlight: false,
+    icon: Eye,
+    title: "FULL TRANSPARENCY, ZERO MARKUP",
+    description: "You pay Meta and Google directly. We never touch your ad spend. You see every dollar, every click, every conversion in real-time dashboards. Our only revenue is the sprint fee.",
+    accent: "electric" as const,
   },
 ];
-
 
 const WhyDifferent = () => {
   return (
@@ -44,34 +43,26 @@ const WhyDifferent = () => {
           className="text-center mb-16"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
-            WHY WE'RE DIFFERENT
+            THE TECHNICAL MOAT
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
-            MOST AGENCIES CHARGE $10K AND HOPE IT WORKS.
-            <br />
-            <span className="text-electric">HERE'S HOW WE'RE DIFFERENT.</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground" style={{ fontWeight: 900 }}>
+            WHY WE'RE <span className="text-electric">DIFFERENT</span>
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {differentiators.map((item, i) => (
+          {moats.map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`p-8 rounded-2xl border bg-card/60 backdrop-blur-sm transition-all duration-300 flex flex-col ${
-                item.highlight
-                  ? "border-safety/50 shadow-[0_0_24px_rgba(255,107,0,0.15)] hover:shadow-[0_0_36px_rgba(255,107,0,0.25)] hover:border-safety/70"
-                  : "border-border hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)]"
-              }`}
+              className="p-8 rounded-2xl border border-border bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.1)]"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                  item.highlight ? "bg-safety/15" : "bg-electric/10"
-                }`}>
-                  <item.icon className={`w-5 h-5 ${item.highlight ? "text-safety" : "text-electric"}`} />
+                <div className="w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center">
+                  <item.icon className="w-5 h-5 text-electric" />
                 </div>
                 <h3 className="font-display text-lg text-foreground uppercase" style={{ fontWeight: 700 }}>
                   {item.title}
@@ -80,13 +71,6 @@ const WhyDifferent = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {item.description}
               </p>
-              {item.highlight && (
-                <div className="mt-4 px-3 py-2 rounded-lg bg-safety/5 border border-safety/20">
-                  <p className="text-[11px] text-safety font-semibold uppercase tracking-wider">
-                    Proprietary Lead Vault Technology
-                  </p>
-                </div>
-              )}
             </motion.div>
           ))}
         </div>

@@ -1,16 +1,11 @@
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import MarqueeStrip from "@/components/landing/MarqueeStrip";
-import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
-import TheSystem from "@/components/landing/TheSystem";
+import WhoThisIsFor from "@/components/landing/WhoThisIsFor";
+import SprintEngine from "@/components/landing/SprintEngine";
 import WhyDifferent from "@/components/landing/WhyDifferent";
+import PricingTiers from "@/components/landing/PricingTiers";
 import Deliverables from "@/components/landing/Deliverables";
-import ComparisonTable from "@/components/landing/ComparisonTable";
-import Problem from "@/components/landing/Problem";
-import InvestmentTransparency from "@/components/landing/InvestmentTransparency";
-import WhatYouBring from "@/components/landing/WhatYouBring";
-import GuaranteeBanner from "@/components/landing/GuaranteeBanner";
-import PostPricingCTA from "@/components/landing/PostPricingCTA";
 import LeadPhilosophy from "@/components/landing/LeadPhilosophy";
 import FAQSection from "@/components/landing/FAQSection";
 import WindowClosing from "@/components/landing/WindowClosing";
@@ -27,22 +22,15 @@ const Index = () => {
       <main className="pt-14">
         <Hero />
         <MarqueeStrip />
-        <ThreePillarEngine />
-        <TheSystem />
+        <WhoThisIsFor />
+        <div className="section-divider" />
+        <SprintEngine />
         <div className="section-divider" />
         <WhyDifferent />
         <div className="section-divider" />
         <Deliverables />
         <div className="section-divider" />
-        <Problem />
-        <div className="section-divider" />
-        <InvestmentTransparency />
-        {/* Comparison Table — value justification after investment ask */}
-        <ComparisonTable />
-        {/* What We Need From You — after pricing, before guarantee */}
-        <WhatYouBring />
-        <GuaranteeBanner />
-        <PostPricingCTA />
+        <PricingTiers />
         <div className="section-divider" />
         <LeadPhilosophy />
         <div className="section-divider" />
