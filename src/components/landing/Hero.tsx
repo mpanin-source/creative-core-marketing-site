@@ -1,12 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check, ChevronDown, Play } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -18,11 +12,11 @@ const fadeUp = {
 } as const;
 
 const nicheBadges = [
-  { label: "HVAC", tip: "June-Aug peak · Build now, launch June 1" },
-  { label: "Landscaping", tip: "April-June peak · Launch in 7 days" },
-  { label: "Pest Control", tip: "April-Aug · Execute now OR prep for summer" },
-  { label: "Wellness", tip: "Spring/Fall peaks · Launch by April 15" },
-  { label: "Home Services", tip: "Year-round + seasonal · Always ready" },
+  { label: "HVAC", quote: "My peak season starts June 1. If I'm building my funnel in June, I'm losing $20K in the first 3 weeks." },
+  { label: "Landscaping", quote: "April hits and everyone wants their yard done yesterday. If I'm not already running ads, I'm invisible." },
+  { label: "Pest Control", quote: "Termite season doesn't wait. By the time I 'get around to marketing,' my competitors have booked my zip code." },
+  { label: "Wellness", quote: "New Year and Spring are my money months. If I'm not prepped by mid-March, I'm chasing leads all summer." },
+  { label: "Home Services", quote: "I get busy, I stop marketing. Then it dries up and I panic. I need a system that runs whether I'm on a job or not." },
 ];
 
 const Hero = () => {
@@ -79,25 +73,20 @@ const Hero = () => {
               </AspectRatio>
             </motion.div>
 
-            {/* Niche badges — title only, tooltip on hover */}
+            {/* Niche badges — title + first-person quote */}
             <motion.div
               variants={fadeUp} initial="hidden" animate="visible" custom={2.5}
-              className="flex flex-wrap justify-center gap-3 mt-24 mb-12"
+              className="flex flex-col items-center gap-4 mt-24 mb-12 w-full max-w-3xl"
             >
-              <TooltipProvider delayDuration={200}>
-                {nicheBadges.map((badge) => (
-                  <Tooltip key={badge.label}>
-                    <TooltipTrigger asChild>
-                      <div className="px-5 py-2.5 rounded-xl border border-electric/20 bg-card text-center shadow-subtle cursor-default transition-all duration-300 hover:border-safety/60 hover:shadow-[0_0_16px_rgba(255,107,0,0.2)]">
-                        <span className="text-xs font-bold text-foreground tracking-wider font-display uppercase">{badge.label}</span>
-                      </div>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom" className="bg-card border-safety/30 text-xs text-muted-foreground">
-                      {badge.tip}
-                    </TooltipContent>
-                  </Tooltip>
-                ))}
-              </TooltipProvider>
+              {nicheBadges.map((badge) => (
+                <div
+                  key={badge.label}
+                  className="w-full px-6 py-4 rounded-xl border border-electric/20 bg-card shadow-subtle transition-all duration-300 hover:border-safety/60 hover:shadow-[0_0_16px_rgba(255,107,0,0.2)]"
+                >
+                  <span className="text-xs font-bold text-foreground tracking-wider font-display uppercase">{badge.label}</span>
+                  <p className="text-xs italic text-foreground/50 mt-1.5 leading-relaxed">"{badge.quote}"</p>
+                </div>
+              ))}
             </motion.div>
 
             {/* Subtitle */}
@@ -105,7 +94,7 @@ const Hero = () => {
               variants={fadeUp} initial="hidden" animate="visible" custom={3}
               className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-[620px]"
             >
-              We build intensive 30-day campaigns that capture your peak season — or prep you for the next one. April-June sprints launch in 7 days. June-August sprints build now, go live when demand spikes. <span className="text-safety font-semibold">15+ qualified calls in 45 days or 50% refund.</span>
+              We build intensive 30-day campaigns that capture your peak season — or prep you for the next one. April-June sprints launch in 7 days. June-August sprints build now, go live when demand spikes. <span className="text-safety font-semibold">15+ calls in 45 days or 50% refund.</span>
             </motion.p>
 
             {/* Value props */}
