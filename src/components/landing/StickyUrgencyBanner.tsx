@@ -24,7 +24,7 @@ const StickyUrgencyBanner = () => {
               boxShadow: "0 4px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(255, 107, 0, 0.15)",
             }}
           >
-            <p className="text-sm font-bold tracking-wide text-foreground flex items-center gap-2">
+            <p className="text-xs font-bold tracking-wide text-foreground flex items-center gap-2">
               <Zap className="w-4 h-4 text-safety flex-shrink-0" />
               <span>
                 SPRING 2026 ROLLOUT:{" "}
