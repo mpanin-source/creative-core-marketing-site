@@ -129,7 +129,7 @@ const Deliverables = () => {
       </div>
 
       {/* Desktop: scroll-pinned sticky with cross-fade */}
-      <div ref={containerRef} className="hidden md:block relative" style={{ height: `${STEP_COUNT * 133}vh` }}>
+      <div ref={containerRef} className="hidden md:block relative" style={{ height: `${STEP_COUNT * 70}vh` }}>
         <div className="sticky top-0 h-screen flex items-center">
           <div className="max-w-5xl mx-auto w-full px-8 flex gap-10">
             {/* Left nav */}
