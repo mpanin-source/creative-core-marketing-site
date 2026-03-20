@@ -576,6 +576,12 @@ button, a, [role="button"] {
   50% { border-color: hsla(25, 100%, 50%, 0.8); box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 20px rgba(255,107,0,0.35); }
 }
 
+/* Countdown digit pulse */
+@keyframes digitPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 /* Sprint card orange hover glow */
 #engine .bg-card:hover {
   box-shadow: 0 0 20px rgba(255, 107, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);

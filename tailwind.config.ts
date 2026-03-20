@@ -21,6 +21,7 @@ export default {
       fontFamily: {
         display: ["'Bebas Neue'", "sans-serif"],
         body: ["Inter", "-apple-system", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
