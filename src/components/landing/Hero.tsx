@@ -105,7 +105,7 @@ const Hero = () => {
               variants={fadeUp} initial="hidden" animate="visible" custom={3}
               className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-[620px]"
             >
-              We build intensive 30-day campaigns that capture your peak season — or prep you for the next one. April-June sprints launch in 7 days. June-August sprints build now, go live when demand spikes. <span className="text-safety font-semibold">15+ qualified calls in 45 days or 50% refund.</span>
+              We build intensive 30-day campaigns that capture your peak season — or prep you for the next one. April-June sprints launch in 7 days. June-August sprints build now, go live when demand spikes. <span className="text-safety font-semibold">15+ calls in 45 days or 50% refund.</span>
             </motion.p>
 
             {/* Value props */}
