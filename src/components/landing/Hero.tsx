@@ -141,7 +141,13 @@ const Hero = () => {
             >
               SPEED TO DECISION IS THE ONLY
               <br />
-              <span className="text-shimmer-blue opacity-70">DESIGN METRIC</span> THAT MATTERS.
+              <motion.span
+                initial={{ opacity: 0, filter: "blur(8px)" }}
+                animate={{ opacity: 1, filter: "blur(0px)" }}
+                transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+                className="text-electric italic inline-block"
+                style={{ textShadow: "0 0 20px hsla(191, 100%, 50%, 0.3)" }}
+              >DESIGN METRIC</motion.span> THAT MATTERS.
             </motion.h1>
 
             {/* Video with Scanning Line */}
