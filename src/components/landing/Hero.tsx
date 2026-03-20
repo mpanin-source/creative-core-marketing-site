@@ -47,7 +47,7 @@ const Hero = () => {
           {/* Video with Scanning Line */}
           <motion.div
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="w-full max-w-[800px] mb-8"
+            className="w-full max-w-[800px] mb-12"
           >
             <AspectRatio ratio={16 / 9}>
               <div className="w-full h-full rounded-xl bg-secondary border border-border flex flex-col items-center justify-center gap-3 relative overflow-hidden">

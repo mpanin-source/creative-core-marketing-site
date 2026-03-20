@@ -68,7 +68,7 @@ const ThreePillarEngine = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className="bg-card rounded-xl p-6 md:p-8 border border-border glass-hover"
+              className="bg-card rounded-xl p-8 md:p-10 border border-border glass-hover"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center feature-icon bg-electric/10">

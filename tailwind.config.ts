@@ -55,6 +55,7 @@ export default {
           alt: "hsl(var(--cta-alt))",
         },
         electric: "hsl(var(--electric))",
+        safety: "hsl(var(--safety))",
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
         popover: {

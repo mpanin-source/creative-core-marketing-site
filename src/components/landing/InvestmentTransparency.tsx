@@ -88,9 +88,9 @@ const InvestmentTransparency = () => {
           variants={sectionFade}
           className="flex justify-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-warning/10 border border-warning/30 rounded-full">
-            <Zap className="w-4 h-4 text-warning" />
-            <span className="text-sm font-bold text-warning">Limited to 3 new sprint clients per month</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-safety/10 border border-safety/30 rounded-full">
+            <Zap className="w-4 h-4 text-safety" />
+            <span className="text-sm font-bold text-safety">Limited to 3 new sprint clients per month</span>
           </div>
         </motion.div>
 

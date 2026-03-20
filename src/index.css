@@ -33,6 +33,7 @@
     /* Functional */
     --success: 191 100% 50%;
     --warning: 38 92% 50%;
+    --safety: 25 100% 50%;
 
     --destructive: 0 65% 55%;
     --destructive-foreground: 0 0% 100%;
