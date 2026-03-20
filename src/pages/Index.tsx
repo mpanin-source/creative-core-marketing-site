@@ -25,12 +25,12 @@ const Index = () => {
         <Hero />
         <MarqueeStrip />
         <ThreePillarEngine />
-        <div className="py-14" />
-        <ComparisonTable />
         <div className="section-divider" />
         <Problem />
         <div className="section-divider" />
         <InvestmentTransparency />
+        {/* Comparison Table — value justification after investment ask */}
+        <ComparisonTable />
         {/* What We Need From You — after pricing, before guarantee */}
         <WhatYouBring />
         <GuaranteeBanner />

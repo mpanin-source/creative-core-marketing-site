@@ -26,7 +26,7 @@ const phases = [
     days: "Days 15-45",
     title: "Launch & Scale",
     subtitle: "We run, test, improve daily",
-    description: "Ads go live. We monitor daily, A/B test creative, optimize for qualified call volume (not just clicks). You get 15+ qualified calls in 45 days, or we refund 50% of your sprint investment.",
+    description: "Ads go live. We monitor daily, A/B test creative, optimize for qualified call volume (not just clicks). You get <span class='text-safety font-bold'>15+ qualified calls</span> in 45 days, or we <span class='text-safety font-bold'>refund</span> 50% of your sprint investment.",
     stat: "$15-$40 cost per qualified lead (Meta) vs $75+ industry avg",
   },
 ];
@@ -42,8 +42,8 @@ const ThreePillarEngine = () => {
   };
 
   return (
-    <section className="section-padding section-funnel section-alt" id="engine">
-      <div className="max-w-[1000px] mx-auto">
+    <section className="px-6 py-32 md:px-8" id="engine">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
@@ -60,37 +60,58 @@ const ThreePillarEngine = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto mb-16">
-          {phases.map((phase, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className="bg-card rounded-xl p-8 md:p-10 border border-border glass-hover"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center feature-icon bg-electric/10">
-                  <phase.icon className="w-5 h-5 text-electric" />
+        {/* Vertical Stack with Connecting Line */}
+        <div className="relative mb-16">
+          {/* Electric Blue connecting line */}
+          <div
+            className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px hidden md:block"
+            style={{
+              background: "linear-gradient(to bottom, transparent, hsl(191, 100%, 50%) 10%, hsl(191, 100%, 50%) 90%, transparent)",
+              opacity: 0.3,
+            }}
+          />
+
+          <div className="flex flex-col gap-8">
+            {phases.map((phase, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+                className="relative z-10 bg-card rounded-xl p-8 md:p-10 border border-border transition-all duration-300 hover:border-safety/60 glass-hover"
+                style={{
+                  // Override the default blue glow with orange on hover via CSS below
+                }}
+              >
+                {/* Phase connector dot on the line */}
+                <div className="absolute left-1/2 -translate-x-1/2 -top-3 w-6 h-6 rounded-full bg-background border-2 border-electric flex items-center justify-center hidden md:flex">
+                  <div className="w-2 h-2 rounded-full bg-electric" />
                 </div>
-                <div>
-                  <p className="text-xs font-bold tracking-wider text-electric">{phase.phase}</p>
-                  <p className="text-xs text-muted-foreground">{phase.days}</p>
+
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center feature-icon bg-electric/10">
+                    <phase.icon className="w-5 h-5 text-electric" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold tracking-wider text-electric">{phase.phase}</p>
+                    <p className="text-xs text-muted-foreground">{phase.days}</p>
+                  </div>
                 </div>
-              </div>
-              <h3 className="font-display text-xl text-foreground mb-1" style={{ fontWeight: 700 }}>
-                {phase.title}
-              </h3>
-              <p className="text-xs font-semibold mb-4 text-electric/70">{phase.subtitle}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                {phase.description}
-              </p>
-              <div className="p-3 bg-secondary border border-border rounded-lg">
-                <p className="text-xs font-semibold text-electric">{phase.stat}</p>
-              </div>
-            </motion.div>
-          ))}
+                <h3 className="font-display text-xl text-foreground mb-1" style={{ fontWeight: 700 }}>
+                  {phase.title}
+                </h3>
+                <p className="text-xs font-semibold mb-4 text-electric/70">{phase.subtitle}</p>
+                <p
+                  className="text-sm text-muted-foreground leading-relaxed mb-4"
+                  dangerouslySetInnerHTML={{ __html: phase.description }}
+                />
+                <div className="p-3 bg-secondary border border-border rounded-lg">
+                  <p className="text-xs font-semibold text-electric">{phase.stat}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <motion.div
