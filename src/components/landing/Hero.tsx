@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check, ChevronDown, Play, Zap } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Play } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const fadeUp = {
