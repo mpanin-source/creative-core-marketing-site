@@ -28,7 +28,7 @@ const sectionFade = {
 };
 
 const WhatYouBring = () => (
-  <section className="section-padding" style={{ background: "hsl(40, 20%, 97%)" }}>
+  <section className="section-padding section-warm">
     <motion.div
       initial="hidden"
       whileInView="visible"
@@ -36,7 +36,7 @@ const WhatYouBring = () => (
       variants={sectionFade}
       className="max-w-[800px] mx-auto text-center"
     >
-      <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-3">
+      <h2 className="text-3xl md:text-4xl font-display text-foreground mb-3" style={{ fontWeight: 700 }}>
         WHAT WE NEED FROM YOU
       </h2>
       <p className="text-muted-foreground mb-10">
@@ -53,12 +53,12 @@ const WhatYouBring = () => (
             transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
             className="bg-card rounded-xl border border-border p-6 glass-hover text-center"
           >
-            <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-4">
-              <item.icon className="w-5 h-5 text-accent" />
+            <div className="w-11 h-11 rounded-lg bg-electric/10 flex items-center justify-center mx-auto mb-4">
+              <item.icon className="w-5 h-5 text-electric" />
             </div>
-            <h3 className="font-display text-sm font-bold text-foreground mb-1">{item.title}</h3>
+            <h3 className="font-display text-sm text-foreground mb-1" style={{ fontWeight: 700 }}>{item.title}</h3>
             <p className="text-xs text-muted-foreground leading-relaxed mb-3">{item.description}</p>
-            <span className="inline-flex items-center gap-1 text-xs font-semibold text-success">
+            <span className="inline-flex items-center gap-1 text-xs font-semibold text-electric">
               <Clock className="w-3.5 h-3.5" />
               {item.time}
             </span>
@@ -67,7 +67,7 @@ const WhatYouBring = () => (
       </div>
 
       <p className="text-sm font-semibold text-foreground">
-        Total time investment: <span className="text-accent">~30 minutes</span> to launch your sprint.
+        Total time investment: <span className="text-electric">~30 minutes</span> to launch your sprint.
       </p>
     </motion.div>
   </section>

@@ -6,19 +6,16 @@ const problems = [
     num: "1",
     title: "The Ad",
     description: "Your ad looks like an ad. It gets scrolled past. We build UGC-style creative that looks native (real customer testimonials, before/after iPhone videos). Native creative outperforms 'ad-looking ads' by 3x.",
-    bg: "bg-[hsla(207,38%,76%,0.08)]",
   },
   {
     num: "2",
     title: "The Landing Page",
     description: "Your landing page asks too many questions. Too many form fields. No social proof. No urgency. We redesign for one goal: speed to decision. Fewer fields, stronger proof, clear next step.",
-    bg: "bg-[hsla(96,15%,43%,0.08)]",
   },
   {
     num: "3",
     title: "The Follow-Up",
     description: "Lead comes in. You call 2 hours later. They've already called 3 competitors. We automate 5-minute SMS response + lead scoring so you only call high-intent prospects when they're hot.",
-    bg: "bg-[hsl(35,25%,94%)]",
   },
 ];
 
@@ -33,14 +30,14 @@ const Problem = () => {
   };
 
   return (
-    <section className="section-padding section-funnel section-green" id="problem">
+    <section className="section-padding section-funnel section-warm" id="problem">
       <div className="max-w-[1000px] mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-display text-foreground mb-4" style={{ fontWeight: 700 }}>
             WHERE YOUR FUNNEL IS LOSING MONEY
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -56,12 +53,12 @@ const Problem = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.12, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className={`p-6 md:p-8 ${p.bg} rounded-xl border border-accent/30 shadow-subtle glass-hover`}
+              className="p-6 md:p-8 bg-card rounded-xl border border-border shadow-subtle glass-hover"
             >
-              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4" style={{ background: "hsla(207, 38%, 76%, 0.15)" }}>
-                <span className="font-display text-lg font-bold" style={{ color: "hsl(96, 15%, 43%)" }}>{p.num}</span>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 bg-electric/10">
+                <span className="font-display text-lg text-electric" style={{ fontWeight: 700 }}>{p.num}</span>
               </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-3">{p.title}</h3>
+              <h3 className="text-xl font-display text-foreground mb-3" style={{ fontWeight: 700 }}>{p.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{p.description}</p>
             </motion.div>
           ))}

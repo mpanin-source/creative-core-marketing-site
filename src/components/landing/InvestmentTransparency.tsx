@@ -64,17 +64,17 @@ const InvestmentTransparency = () => {
   };
 
   return (
-    <section className="section-padding section-funnel section-blue" id="pricing">
+    <section className="section-padding section-funnel section-alt" id="pricing">
       <div className="max-w-[1000px] mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
           className="text-center mb-8"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "hsl(96, 15%, 43%)" }}>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
             NO HIDDEN FEES
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 700 }}>
             TRANSPARENT SPRINT PRICING
           </h2>
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
@@ -104,19 +104,19 @@ const InvestmentTransparency = () => {
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
               className={`bg-card rounded-xl p-6 md:p-8 flex flex-col border glass-hover ${
                 tier.highlight
-                  ? "border-cta/30 shadow-[0_0_24px_-4px_hsl(var(--cta)/0.12)]"
-                  : "border-accent/30 shadow-subtle"
+                  ? "border-electric/40 shadow-neon"
+                  : "border-border shadow-subtle"
               }`}
             >
               {tier.highlight && (
-                <div className="text-xs font-bold text-success uppercase tracking-wider mb-2">Most Popular</div>
+                <div className="text-xs font-bold text-electric uppercase tracking-wider mb-2">Most Popular</div>
               )}
-              <h3 className="font-display text-xl font-bold text-foreground mb-1">
+              <h3 className="font-display text-xl text-foreground mb-1" style={{ fontWeight: 700 }}>
                 TIER {i + 1}: {tier.name}
               </h3>
               <motion.p
-                className="text-3xl font-display font-extrabold mb-1"
-                style={{ color: "hsl(100, 15%, 31%)" }}
+                className="text-3xl font-display text-electric"
+                style={{ fontWeight: 700 }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -128,14 +128,14 @@ const InvestmentTransparency = () => {
               <div className="flex-1 space-y-3 mb-6">
                 {tier.items.map((item, j) => (
                   <div key={j} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
                     <span className="text-sm text-foreground">{item}</span>
                   </div>
                 ))}
                 {tier.guarantee && (
                   <div className="flex items-start gap-2 mt-2">
-                    <Check className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-                    <span className="text-sm font-semibold" style={{ color: "hsl(100, 15%, 31%)" }}>15+ Qualified Calls in 45 Days or 50% Refund</span>
+                    <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
+                    <span className="text-sm font-semibold text-electric">15+ Qualified Calls in 45 Days or 50% Refund</span>
                   </div>
                 )}
               </div>
@@ -145,7 +145,7 @@ const InvestmentTransparency = () => {
                 className={`w-full py-3 rounded-lg font-body font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 ${
                   tier.highlight
                     ? "btn-primary"
-                    : "border border-accent/30 text-foreground bg-card glass-hover"
+                    : "border border-border text-foreground bg-card glass-hover"
                 }`}
               >
                 {tier.cta}
@@ -175,7 +175,7 @@ const InvestmentTransparency = () => {
           className="text-center"
         >
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Sprint Value If Purchased Separately</p>
-          <p className="text-3xl font-display font-extrabold text-foreground">$8K–$20K</p>
+          <p className="text-3xl font-display text-foreground" style={{ fontWeight: 700 }}>$8K–$20K</p>
         </motion.div>
       </div>
     </section>

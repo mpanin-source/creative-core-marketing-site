@@ -12,14 +12,14 @@ const WindowClosing = () => {
   };
 
   return (
-    <section className="section-padding section-funnel section-green" id="urgency">
+    <section className="section-padding section-funnel section-warm" id="urgency">
       <motion.div
         initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
         variants={sectionFade}
         className="max-w-[700px] mx-auto text-center"
       >
         <Clock className="w-8 h-8 text-warning mx-auto mb-4" />
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-extrabold text-foreground mb-6">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-display text-foreground mb-6" style={{ fontWeight: 700 }}>
           PEAK SEASON WAITS FOR NO ONE
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">

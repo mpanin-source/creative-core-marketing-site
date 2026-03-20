@@ -34,7 +34,7 @@ const LeadPhilosophy = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-display text-foreground mb-4" style={{ fontWeight: 700 }}>
             WHY SPRINTS BEAT RETAINERS
           </h2>
         </motion.div>
@@ -47,7 +47,7 @@ const LeadPhilosophy = () => {
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
             className="bg-card border border-border p-6 md:p-8 rounded-xl shadow-subtle glass-hover"
           >
-            <h3 className="text-xl font-display font-bold text-foreground mb-1">Traditional Agency</h3>
+            <h3 className="text-xl font-display text-foreground mb-1" style={{ fontWeight: 700 }}>Traditional Agency</h3>
             <p className="text-xs text-muted-foreground mb-5 italic">The Revenue Leak</p>
             <ul className="space-y-3">
               {oldWay.map((item, i) => (
@@ -66,16 +66,15 @@ const LeadPhilosophy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="bg-card border p-6 md:p-8 rounded-xl shadow-card glass-hover"
-            style={{ borderColor: "hsla(96, 15%, 43%, 0.3)" }}
+            className="bg-card border border-electric/30 p-6 md:p-8 rounded-xl shadow-card glass-hover"
           >
-            <h3 className="text-xl font-display font-bold text-foreground mb-1">Creative Core Sprint Model</h3>
-            <p className="text-xs mb-5 italic" style={{ color: "hsl(96, 15%, 43%)" }}>The Growth System</p>
+            <h3 className="text-xl font-display text-foreground mb-1" style={{ fontWeight: 700 }}>Creative Core Sprint Model</h3>
+            <p className="text-xs mb-5 italic text-electric">The Growth System</p>
             <ul className="space-y-3">
               {ourWay.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-success/10 flex items-center justify-center mt-0.5">
-                    <Check className="w-3 h-3 text-success" />
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-electric/10 flex items-center justify-center mt-0.5">
+                    <Check className="w-3 h-3 text-electric" />
                   </div>
                   <span className="text-sm text-foreground">{item}</span>
                 </li>

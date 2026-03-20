@@ -16,10 +16,10 @@ const MarqueeStrip = () => {
         {repeated.map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center mx-8 text-sm font-display font-bold tracking-widest"
-            style={{ color: "hsl(96, 15%, 43%)" }}
+            className="inline-flex items-center mx-8 text-sm font-display tracking-widest text-electric"
+            style={{ fontWeight: 700 }}
           >
-            <span className="w-2 h-2 rounded-full mr-4" style={{ background: "hsl(207, 38%, 76%)" }} />
+            <span className="w-2 h-2 rounded-full mr-4 bg-electric" />
             {item}
           </span>
         ))}

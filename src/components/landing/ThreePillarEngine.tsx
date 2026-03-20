@@ -10,7 +10,6 @@ const phases = [
     subtitle: "We find friction in your funnel",
     description: "We analyze your current offer → ad → landing page → call flow and identify where prospects drop off. You get a 15-min Loom breakdown showing exactly where you're losing money.",
     stat: "Most businesses lose 60% of leads to funnel friction",
-    bgColor: "bg-[hsla(207,38%,76%,0.08)]",
   },
   {
     icon: Hammer,
@@ -20,7 +19,6 @@ const phases = [
     subtitle: "We rebuild for speed",
     description: "10+ ad creative variations (Meta + Google). 2-3 high-converting landing pages. CRM setup with lead scoring automation. All designed to eliminate friction and accelerate decisions.",
     stat: "Average 40% improvement in landing page conversion",
-    bgColor: "bg-[hsla(96,15%,43%,0.08)]",
   },
   {
     icon: Target,
@@ -30,7 +28,6 @@ const phases = [
     subtitle: "We run, test, improve daily",
     description: "Ads go live. We monitor daily, A/B test creative, optimize for qualified call volume (not just clicks). You get 15+ qualified calls in 45 days, or we refund 50% of your sprint investment.",
     stat: "$15-$40 cost per qualified lead (Meta) vs $75+ industry avg",
-    bgColor: "bg-[hsla(202,35%,45%,0.08)]",
   },
 ];
 
@@ -45,17 +42,17 @@ const ThreePillarEngine = () => {
   };
 
   return (
-    <section className="section-padding section-funnel section-blue" id="engine">
+    <section className="section-padding section-funnel section-alt" id="engine">
       <div className="max-w-[1000px] mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: "hsl(96, 15%, 43%)" }}>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
             THE SEASONAL SPRINT METHOD
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 700 }}>
             HOW 30-DAY SEASONAL SPRINTS WORK
           </h2>
           <p className="text-lg text-muted-foreground max-w-[700px] mx-auto">
@@ -71,32 +68,31 @@ const ThreePillarEngine = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-              className={`${phase.bgColor} rounded-xl p-6 md:p-8 border border-accent/30 glass-hover`}
+              className="bg-card rounded-xl p-6 md:p-8 border border-border glass-hover"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center feature-icon" style={{ background: "hsla(207, 38%, 76%, 0.15)" }}>
-                  <phase.icon className="w-5 h-5" style={{ color: "hsl(96, 15%, 43%)" }} />
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center feature-icon bg-electric/10">
+                  <phase.icon className="w-5 h-5 text-electric" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-wider" style={{ color: "hsl(96, 15%, 43%)" }}>{phase.phase}</p>
+                  <p className="text-xs font-bold tracking-wider text-electric">{phase.phase}</p>
                   <p className="text-xs text-muted-foreground">{phase.days}</p>
                 </div>
               </div>
-              <h3 className="font-display text-xl font-bold text-foreground mb-1">
+              <h3 className="font-display text-xl text-foreground mb-1" style={{ fontWeight: 700 }}>
                 {phase.title}
               </h3>
-              <p className="text-xs font-semibold mb-4" style={{ color: "hsl(207, 38%, 76%)" }}>{phase.subtitle}</p>
+              <p className="text-xs font-semibold mb-4 text-electric/70">{phase.subtitle}</p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 {phase.description}
               </p>
-              <div className="p-3 bg-card border border-border rounded-lg">
-                <p className="text-xs font-semibold" style={{ color: "hsl(96, 15%, 43%)" }}>{phase.stat}</p>
+              <div className="p-3 bg-secondary border border-border rounded-lg">
+                <p className="text-xs font-semibold text-electric">{phase.stat}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Tool stack */}
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
@@ -104,7 +100,7 @@ const ThreePillarEngine = () => {
         >
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             {["Meta Ads", "Google Search + LSA", "Higgsfield (UGC)", "GoHighLevel CRM"].map((tool) => (
-              <span key={tool} className="px-4 py-2 bg-card border border-accent/30 rounded-lg text-sm font-medium text-foreground shadow-subtle glass-hover">
+              <span key={tool} className="px-4 py-2 bg-card border border-border rounded-lg text-sm font-medium text-foreground shadow-subtle glass-hover">
                 {tool}
               </span>
             ))}

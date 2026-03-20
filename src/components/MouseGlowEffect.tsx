@@ -43,7 +43,7 @@ export default function MouseGlowEffect() {
       <div className={isPulsing ? "animate-pulse-glow" : ""} style={{
         position: "absolute", left: displayPos.x, top: displayPos.y, width: 300, height: 300,
         transform: "translate(-50%, -50%)", borderRadius: "50%",
-        background: `radial-gradient(circle, hsl(38 92% 55% / ${isMoving ? 0.08 : 0.04}) 0%, transparent 70%)`,
+        background: `radial-gradient(circle, hsla(191, 100%, 50%, ${isMoving ? 0.06 : 0.03}) 0%, transparent 70%)`,
         filter: "blur(40px)", transition: "background 0.3s ease",
       }} />
     </div>
