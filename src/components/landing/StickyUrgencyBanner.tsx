@@ -16,7 +16,7 @@ const StickyUrgencyBanner = () => {
           className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-2rem)] max-w-md"
         >
           <div
-            className="flex items-center justify-between gap-3 px-5 py-3 rounded-lg border border-safety/40 animate-[borderPulse_2s_ease-in-out_infinite]"
+            className="flex items-center justify-between gap-2 px-4 py-2.5 rounded-lg border border-safety/40 animate-[borderPulse_2s_ease-in-out_infinite]"
             style={{
               background: "hsla(213, 40%, 6%, 0.85)",
               backdropFilter: "blur(12px)",
