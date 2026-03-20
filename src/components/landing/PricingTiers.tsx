@@ -90,10 +90,10 @@ const PricingTiers = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`bg-card rounded-xl p-6 md:p-8 flex flex-col relative ${
+              className={`bg-card rounded-xl p-6 md:p-8 flex flex-col relative transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] ${
                 tier.highlighted
-                  ? "border-2 border-safety shadow-[0_0_28px_hsla(25,100%,50%,0.25)]"
-                  : "border border-border shadow-subtle"
+                  ? "border-2 border-safety shadow-[0_0_28px_hsla(25,100%,50%,0.25)] pricing-pulse-border"
+                  : "border border-border shadow-subtle hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.15)]"
               }`}
             >
               {tier.badge && (

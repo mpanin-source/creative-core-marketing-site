@@ -25,6 +25,13 @@ const Hero = () => {
       id="hero"
       className="min-h-screen flex items-center justify-center px-6 md:px-8 lg:px-12 -mt-16 pt-16 relative overflow-hidden"
     >
+      {/* Floating gradient orbs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+        <div className="hero-orb hero-orb-3" />
+      </div>
+
       <div className="max-w-[900px] mx-auto w-full relative z-10">
         <div className="flex flex-col items-center text-center">
           {/* Eyebrow */}
@@ -46,7 +53,7 @@ const Hero = () => {
             BETTER THAN YOUR
             <br />
             CURRENT AGENCY —{" "}
-            <span className="italic text-shimmer-blue">FOR HALF THE PRICE</span>
+            <span className="hero-gradient-text">FOR HALF THE PRICE</span>
           </motion.h1>
 
           {/* Subhead */}
