@@ -51,7 +51,7 @@ const Hero = () => {
             >
               SPEED TO DECISION IS THE ONLY
               <br />
-              <span className="text-shimmer">DESIGN METRIC</span> THAT MATTERS.
+              <span className="text-shimmer-blue">DESIGN METRIC</span> THAT MATTERS.
             </motion.h1>
 
             {/* Video with Scanning Line */}
