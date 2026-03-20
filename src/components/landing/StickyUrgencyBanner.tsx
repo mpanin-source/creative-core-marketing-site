@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Zap } from "lucide-react";
+import { X } from "lucide-react";
 
 const StickyUrgencyBanner = () => {
   const [dismissed, setDismissed] = useState(false);
 
   const tickerText = "⚡ LIMITED TO 8 CLIENTS — 3 SPOTS REMAINING AT TRIAL PRICING • $1,500/MO FOR 60 DAYS";
+
+  // Repeat enough times to guarantee seamless fill
+  const copies = Array.from({ length: 8 }, (_, i) => i);
 
   return (
     <AnimatePresence>
@@ -28,8 +31,8 @@ const StickyUrgencyBanner = () => {
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-safety/60 animate-[borderPulse_2s_ease-in-out_infinite]" />
 
             <div className="flex-1 overflow-hidden whitespace-nowrap">
-              <div className="inline-flex animate-[tickerScroll_20s_linear_infinite]">
-                {[0, 1, 2].map((i) => (
+              <div className="ticker-seamless">
+                {copies.map((i) => (
                   <span
                     key={i}
                     className="inline-flex items-center gap-1 font-mono text-xs tracking-wider text-safety/90 mx-8"

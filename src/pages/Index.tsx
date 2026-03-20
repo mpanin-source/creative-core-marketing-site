@@ -24,6 +24,7 @@ const Index = () => {
       <main className="pt-14">
         <Hero />
         <MarqueeStrip />
+        <div className="section-divider-gradient" />
         <WhoThisIsFor />
         <div className="section-divider-gradient" />
         <SprintEngine />
