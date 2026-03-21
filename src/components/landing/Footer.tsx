@@ -16,6 +16,21 @@ const letterItem: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
+// Last letter of CREATIVE reacts to CORE's taps
+const lastCreativeItem: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (totalDelay: number) => ({
+    opacity: 1,
+    y: [20, 0, 0, -4, 0, 0, -3, 0],
+    transition: {
+      duration: 2,
+      delay: totalDelay,
+      times: [0, 0.2, 0.45, 0.52, 0.6, 0.75, 0.82, 0.9],
+      ease: "easeOut",
+    },
+  }),
+};
+
 // "CORE" letters: reveal → first tap → pause → second tap + turn blue
 const coreLetterItem: Variants = {
   hidden: { opacity: 0, y: 20, color: "hsl(0, 0%, 95%)" },
