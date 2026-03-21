@@ -708,3 +708,9 @@ button, a, [role="button"] {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* Logo pulse glow */
+@keyframes logoPulse {
+  0%, 100% { filter: drop-shadow(0 0 18px rgba(0,209,255,0.4)); }
+  50% { filter: drop-shadow(0 0 28px rgba(0,209,255,0.7)); }
+}

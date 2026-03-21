@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 interface AnimatedLogoProps {
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
 }
 
 const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
@@ -10,11 +10,13 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
 
   const sizeClasses = {
     sm: { desktop: "text-2xl", mobile: "text-lg", glow: "0 0 12px" },
-    md: { desktop: "text-[2.15rem]", mobile: "text-xl", glow: "0 0 16px" },
+    md: { desktop: "text-[2.6rem]", mobile: "text-xl", glow: "0 0 18px" },
     lg: { desktop: "text-5xl", mobile: "text-3xl", glow: "0 0 24px" },
+    xl: { desktop: "text-7xl", mobile: "text-4xl", glow: "0 0 32px" },
   };
 
   const s = sizeClasses[size];
+  const hasPulse = size === "md";
 
   return (
     <a href="/" className="flex items-center gap-1 group relative chrome-shine">
@@ -59,6 +61,9 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
             style={{
               fontWeight: 700,
               filter: `drop-shadow(${s.glow} rgba(0,209,255,0.4))`,
+              ...(hasPulse ? {
+                animation: 'logoPulse 3s ease-in-out infinite',
+              } : {}),
             }}
           >
             {letter}
