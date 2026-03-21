@@ -83,7 +83,7 @@ const Footer = () => {
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 className="btn-primary inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-base font-semibold"
               >
-                Schedule Your Sprint Audit
+                Schedule Your Free Funnel Audit
                 <ArrowRight size={18} className="arrow-icon transition-transform" />
               </button>
               <button
