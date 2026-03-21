@@ -48,7 +48,7 @@ const Header = () => {
                 onClick={() => scrollTo("contact")}
                 className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold"
               >
-                Free Ad Audit
+                Free Funnel Audit
               </button>
             </div>
             <div className="flex md:hidden items-center gap-2">
@@ -99,7 +99,7 @@ const Header = () => {
                 onClick={() => scrollTo("contact")}
                 className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-bold btn-primary"
               >
-                Get Free Ad Audit
+                Get Free Funnel Audit
               </button>
             </div>
           </div>

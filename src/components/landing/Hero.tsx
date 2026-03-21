@@ -73,7 +73,7 @@ const Hero = () => {
               onClick={scrollToContact}
               className="btn-safety cta-pulse-orange px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
             >
-              GET YOUR FREE AD AUDIT
+              GET YOUR FREE FUNNEL AUDIT
               <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />
             </button>
           </motion.div>
@@ -82,7 +82,7 @@ const Hero = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={3.5}
             className="text-xs text-muted-foreground/70 pb-16"
           >
-            15 Minutes — No Pitch, Just a Plan
+            15-minute breakdown of where your funnel is losing money
           </motion.p>
         </div>
       </div>
