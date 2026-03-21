@@ -21,7 +21,7 @@ const Index = () => {
     <>
       <MouseGlowEffect />
       <Header />
-      <main className="pt-14">
+      <main className="pt-16">
         <Hero />
         <MarqueeStrip />
         <div className="section-divider-gradient" />
@@ -30,7 +30,6 @@ const Index = () => {
         <SprintEngine />
         <div className="section-divider-gradient" />
         <WhyDifferent />
-        <div className="section-divider-gradient" />
         <Deliverables />
         <BottomLine />
         <div className="section-divider-gradient" />

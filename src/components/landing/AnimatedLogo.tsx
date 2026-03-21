@@ -10,7 +10,7 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
 
   const sizeClasses = {
     sm: { desktop: "text-2xl", mobile: "text-lg", glow: "0 0 12px" },
-    md: { desktop: "text-3xl", mobile: "text-xl", glow: "0 0 16px" },
+    md: { desktop: "text-[2.15rem]", mobile: "text-xl", glow: "0 0 16px" },
     lg: { desktop: "text-5xl", mobile: "text-3xl", glow: "0 0 24px" },
   };
 
