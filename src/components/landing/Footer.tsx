@@ -16,6 +16,21 @@ const letterItem: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
+// Last letter of CREATIVE reacts to CORE's taps
+const lastCreativeItem: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (totalDelay: number) => ({
+    opacity: 1,
+    y: [20, 0, 0, -4, 0, 0, -3, 0],
+    transition: {
+      duration: 2,
+      delay: totalDelay,
+      times: [0, 0.2, 0.45, 0.52, 0.6, 0.75, 0.82, 0.9],
+      ease: "easeOut",
+    },
+  }),
+};
+
 // "CORE" letters: reveal → first tap → pause → second tap + turn blue
 const coreLetterItem: Variants = {
   hidden: { opacity: 0, y: 20, color: "hsl(0, 0%, 95%)" },
@@ -80,26 +95,30 @@ const Footer = () => {
               variants={letterReveal}
               className="flex items-center justify-center gap-[0.15em] md:gap-[0.2em] mb-10 md:mb-14 flex-wrap"
             >
-              {/* CREATIVE letters — standard reveal */}
-              {creativeText.split("").map((char, i) => (
-                <motion.span
-                  key={`c-${i}`}
-                  variants={letterItem}
-                  className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
-                  style={{ fontWeight: 800, color: "hsl(var(--foreground))" }}
-                >
-                  {char}
-                </motion.span>
-              ))}
+              {/* CREATIVE letters — last letter bounces on CORE taps */}
+              {creativeText.split("").map((char, i) => {
+                const isLast = i === creativeText.length - 1;
+                return (
+                  <motion.span
+                    key={`c-${i}`}
+                    custom={i * 0.04}
+                    variants={isLast ? lastCreativeItem : letterItem}
+                    className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
+                    style={{ fontWeight: 800, color: "hsl(var(--foreground))" }}
+                  >
+                    {char}
+                  </motion.span>
+                );
+              })}
               {/* Space */}
               <span className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ width: "0.4em" }} />
-              {/* CORE letters — double tap, turns blue */}
+              {/* CORE letters — double tap, turns blue, then pulses */}
               {coreText.split("").map((char, i) => (
                 <motion.span
                   key={`o-${i}`}
                   custom={(creativeText.length + 1 + i) * 0.04}
                   variants={coreLetterItem}
-                  className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
+                  className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight footer-core-glow"
                   style={{ fontWeight: 800 }}
                 >
                   {char}
