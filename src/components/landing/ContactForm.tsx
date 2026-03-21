@@ -60,8 +60,7 @@ const ContactForm = () => {
     formData.website &&
     formData.serviceType &&
     formData.adSpend &&
-    formData.currentSetup &&
-    formData.monthlyRevenue;
+    formData.currentSetup;
 
   const inputClasses =
     "bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-electric focus:ring-electric/20 focus:ring-2 h-12 transition-all duration-200 rounded-lg";
@@ -195,7 +194,7 @@ const ContactForm = () => {
               </div>
               {/* Monthly Revenue */}
               <div>
-                <label className={labelClasses}>Current Monthly Revenue *</label>
+                <label className={labelClasses}>Current Monthly Revenue</label>
                 <Select value={formData.monthlyRevenue} onValueChange={(v) => handleSelect("monthlyRevenue", v)}>
                   <SelectTrigger className={inputClasses}>
                     <SelectValue placeholder="Select your revenue range" />
