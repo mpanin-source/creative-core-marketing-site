@@ -15,9 +15,9 @@ const goodFit = [
 
 const notFit = [
   "You don't have an ad budget of at least $2K/month",
-  "You're looking for overnight miracles (ads take 30-60 days to optimize)",
-  "You're not willing to give feedback and communicate",
-  "You want a \"set it and forget it\" solution (we optimize weekly, which requires your input)",
+  "You've never run ads before (we're not a good first agency)",
+  "You're looking for overnight results (ads take 30-60 days to optimize)",
+  "You're not willing to share data (we need access to track performance)",
 ];
 
 const WhoThisIsFor = () => {

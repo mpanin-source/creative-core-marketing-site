@@ -39,7 +39,7 @@ const Hero = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-electric"
           >
-            BETTER ADS, BETTER RESULTS — FOR HALF THE PRICE
+            60-DAY PERFORMANCE GUARANTEE
           </motion.p>
 
           {/* Headline */}
