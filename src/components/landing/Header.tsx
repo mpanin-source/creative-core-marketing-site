@@ -29,21 +29,21 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/90 backdrop-blur-md border-b border-border shadow-subtle"
-            : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
+        style={{
+          backgroundColor: 'rgba(10, 14, 20, 0.8)',
+          borderBottom: '1px solid rgba(0, 209, 255, 0.15)',
+        }}
       >
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">
-          <div className="flex items-center justify-between h-14">
+          <div className="flex items-center justify-between" style={{ height: '64px' }}>
             <AnimatedLogo size="md" />
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-sm text-muted-foreground bracket-hover transition-colors duration-200 font-medium"
+                  className="relative text-sm text-muted-foreground hover:text-electric transition-colors duration-150 font-medium after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left"
                 >
                   {link.label}
                 </button>

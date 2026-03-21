@@ -115,7 +115,7 @@ const WhyDifferent = () => {
       </div>
 
       {/* Desktop: LangChain-style horizontal tabs with sticky pinning */}
-      <div ref={containerRef} className="hidden md:block relative" style={{ height: `${STEP_COUNT * 70}vh` }}>
+      <div ref={containerRef} className="hidden md:block relative" style={{ height: '250vh' }}>
         <div className="sticky top-0 h-screen flex flex-col justify-center">
           {/* Header inside sticky area */}
           <div className="text-center mb-10 px-8">
