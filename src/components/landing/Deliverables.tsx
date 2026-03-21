@@ -61,9 +61,10 @@ const Deliverables = () => {
   });
 
   const band = 1 / STEP_COUNT;
-  const opacity0 = useTransform(scrollYProgress, [0, band * 0.15, band * 0.85, band], [0, 1, 1, 0]);
-  const opacity1 = useTransform(scrollYProgress, [band, band + band * 0.15, band + band * 0.85, band * 2], [0, 1, 1, 0]);
-  const opacity2 = useTransform(scrollYProgress, [band * 2, band * 2 + band * 0.15, band * 2 + band * 0.85, 1], [0, 1, 1, 0]);
+  // First card starts fully visible immediately, fades out near end of its band
+  const opacity0 = useTransform(scrollYProgress, [0, band * 0.75, band], [1, 1, 0]);
+  const opacity1 = useTransform(scrollYProgress, [band * 0.85, band, band + band * 0.85, band * 2], [0, 1, 1, 0]);
+  const opacity2 = useTransform(scrollYProgress, [band * 1.85, band * 2, band * 2 + band * 0.85, 1], [0, 1, 1, 0]);
   const stepOpacities = [opacity0, opacity1, opacity2];
 
   const progressBarWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
