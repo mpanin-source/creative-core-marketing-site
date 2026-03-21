@@ -194,7 +194,7 @@ const ContactForm = () => {
               </div>
               {/* Monthly Revenue */}
               <div>
-                <label className={labelClasses}>Current Monthly Revenue *</label>
+                <label className={labelClasses}>Current Monthly Revenue</label>
                 <Select value={formData.monthlyRevenue} onValueChange={(v) => handleSelect("monthlyRevenue", v)}>
                   <SelectTrigger className={inputClasses}>
                     <SelectValue placeholder="Select your revenue range" />
