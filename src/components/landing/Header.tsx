@@ -22,10 +22,10 @@ const Header = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl"
         style={{
-          backgroundColor: 'rgba(10, 14, 20, 0.8)',
-          borderBottom: '1px solid rgba(0, 209, 255, 0.15)',
+          backgroundColor: 'rgba(10, 14, 20, 0.7)',
+          borderBottom: '1px solid rgba(0, 255, 255, 0.1)',
         }}
       >
         <div className="max-w-[1200px] mx-auto px-6 md:px-10">
@@ -36,14 +36,16 @@ const Header = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="relative text-sm text-muted-foreground hover:text-electric transition-colors duration-150 font-medium after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left"
+                  className="relative text-sm text-muted-foreground hover:text-electric transition-colors duration-100 font-display tracking-wide uppercase after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-150 after:origin-left"
+                  style={{ fontSize: '0.8rem', letterSpacing: '0.08em' }}
                 >
                   {link.label}
                 </button>
               ))}
               <button
                 onClick={() => scrollTo("contact")}
-                className="btn-primary px-5 py-2.5 rounded-lg text-sm"
+                className="btn-primary px-5 py-2 rounded-lg text-sm font-display tracking-wide uppercase"
+                style={{ fontSize: '0.8rem' }}
               >
                 Free Ad Audit
               </button>
