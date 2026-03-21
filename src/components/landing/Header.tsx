@@ -21,51 +21,54 @@ const Header = () => {
 
   return (
     <>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
-        style={{
-          backgroundColor: 'rgba(10, 14, 20, 0.8)',
-          borderBottom: '1px solid rgba(0, 209, 255, 0.15)',
-        }}
-      >
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10">
-          <div className="flex items-center justify-between" style={{ height: '64px' }}>
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-3 md:pt-4 pointer-events-none">
+        <header
+          className="pointer-events-auto w-full max-w-[1100px] rounded-2xl backdrop-blur-xl px-5 md:px-8"
+          style={{
+            backgroundColor: 'rgba(10, 14, 20, 0.65)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 209, 255, 0.06)',
+          }}
+        >
+          <div className="flex items-center justify-between" style={{ height: '56px' }}>
             <AnimatedLogo size="md" />
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-7">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="relative text-sm text-muted-foreground hover:text-electric transition-colors duration-150 font-medium after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left"
+                  className="relative text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 font-medium tracking-wide after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left"
                 >
                   {link.label}
                 </button>
               ))}
+            </nav>
+            <div className="hidden md:flex items-center gap-3">
               <button
                 onClick={() => scrollTo("contact")}
-                className="btn-primary px-5 py-2.5 rounded-lg text-sm"
+                className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold"
               >
                 Free Ad Audit
               </button>
-            </nav>
+            </div>
             <div className="flex md:hidden items-center gap-2">
               <button
                 onClick={() => scrollTo("contact")}
-                className="btn-primary px-4 py-2 rounded-lg text-sm"
+                className="btn-primary px-4 py-1.5 rounded-lg text-xs font-semibold"
               >
                 Free Audit
               </button>
               <button
                 onClick={() => setMobileOpen(true)}
-                className="p-2 rounded-lg hover:bg-secondary transition-colors"
+                className="p-2 rounded-lg hover:bg-secondary/50 transition-colors"
                 aria-label="Open menu"
               >
-                <Menu size={20} className="text-foreground" />
+                <Menu size={18} className="text-foreground" />
               </button>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
+      </div>
 
       {mobileOpen && (
         <div
