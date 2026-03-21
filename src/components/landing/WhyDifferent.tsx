@@ -4,22 +4,10 @@ import { Activity, Shield, Lock, Eye } from "lucide-react";
 
 const moats = [
   {
-    icon: Activity,
-    label: "Pixel Tracking",
-    title: "PIXEL TRACKING INTELLIGENCE",
-    description: "We install behavioral tracking on your landing pages. A visitor who scrolls 80% of your page, watches your video, and clicks your CTA twice is flagged as a warm lead — before they even submit a form. Your sales team calls the hottest leads first.",
-    bullets: [
-      "Behavioral tracking on all landing pages",
-      "Warm lead scoring before form submission",
-      "Sales team focuses on hottest prospects",
-      "Real-time visitor intent signals",
-    ],
-  },
-  {
     icon: Lock,
     label: "Territory Lock",
     title: "ONE CLIENT PER NICHE PER AREA",
-    description: "We don't work with your competitors. If we sign an HVAC company in Phoenix, no other HVAC company in Phoenix can hire us. Your territory is locked. Your campaigns, creative, and data stay exclusive.",
+    description: "We don't work with your competitors. If we sign an HVAC company in Phoenix, no other HVAC company in Phoenix can hire us — ever. Your campaigns, creative, and data stay exclusive to you. Your competition can't buy what you've already paid for.",
     bullets: [
       "Exclusive territory protection",
       "No competing clients in your niche/area",
@@ -49,6 +37,18 @@ const moats = [
       "We never touch your ad spend",
       "Real-time performance dashboards",
       "Our only fee is the management fee",
+    ],
+  },
+  {
+    icon: Activity,
+    label: "Pixel Tracking",
+    title: "PIXEL TRACKING INTELLIGENCE",
+    description: "We install behavioral tracking on your landing pages. A visitor who scrolls 80% of your page, watches your video, and clicks your CTA twice is flagged as a warm lead — before they even submit a form. Your sales team calls the hottest leads first.",
+    bullets: [
+      "Behavioral tracking on all landing pages",
+      "Warm lead scoring before form submission",
+      "Sales team focuses on hottest prospects",
+      "Real-time visitor intent signals",
     ],
   },
 ];
