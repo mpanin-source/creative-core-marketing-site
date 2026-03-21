@@ -26,8 +26,11 @@ const ContactForm = () => {
     name: "",
     email: "",
     phone: "",
+    website: "",
     serviceType: "",
-    message: "",
+    adSpend: "",
+    currentSetup: "",
+    monthlyRevenue: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,7 +50,18 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const canSubmit = formData.name && formData.email && formData.serviceType;
+  const handleSelect = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const canSubmit =
+    formData.name &&
+    formData.email &&
+    formData.website &&
+    formData.serviceType &&
+    formData.adSpend &&
+    formData.currentSetup &&
+    formData.monthlyRevenue;
 
   const inputClasses =
     "bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-electric focus:ring-electric/20 focus:ring-2 h-12 transition-all duration-200 rounded-lg";
@@ -97,39 +111,112 @@ const ContactForm = () => {
         >
           <div className="bg-card rounded-xl p-6 sm:p-8 border border-border shadow-elevated">
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Name */}
               <div>
-                <label className={labelClasses}>Name *</label>
+                <label className={labelClasses}>Your Name *</label>
                 <Input type="text" name="name" placeholder="Full name" value={formData.name} onChange={handleChange} required className={inputClasses} />
               </div>
+              {/* Email */}
               <div>
-                <label className={labelClasses}>Email *</label>
+                <label className={labelClasses}>Work Email *</label>
                 <Input type="email" name="email" placeholder="you@company.com" value={formData.email} onChange={handleChange} required className={inputClasses} />
               </div>
+              {/* Phone */}
               <div>
-                <label className={labelClasses}>Phone</label>
-                <Input type="tel" name="phone" placeholder="(555) 123-4567" value={formData.phone} onChange={handleChange} className={inputClasses} />
+                <label className={labelClasses}>Phone Number</label>
+                <Input type="tel" name="phone" placeholder="+1 (555) 123-4567" value={formData.phone} onChange={handleChange} className={inputClasses} />
+                <p className="text-muted-foreground text-xs mt-1.5">For faster scheduling (optional)</p>
               </div>
+              {/* Website */}
               <div>
-                <label className={labelClasses}>Business Type *</label>
-                <Select value={formData.serviceType} onValueChange={(v) => setFormData((prev) => ({ ...prev, serviceType: v }))}>
+                <label className={labelClasses}>Website URL *</label>
+                <Input type="url" name="website" placeholder="https://yourbusiness.com" value={formData.website} onChange={handleChange} required className={inputClasses} />
+              </div>
+              {/* Business Type */}
+              <div>
+                <label className={labelClasses}>What type of business are you? *</label>
+                <Select value={formData.serviceType} onValueChange={(v) => handleSelect("serviceType", v)}>
                   <SelectTrigger className={inputClasses}>
-                    <SelectValue placeholder="Select your trade" />
+                    <SelectValue placeholder="Select your business type" />
                   </SelectTrigger>
                   <SelectContent className="bg-card border-border">
-                    {["HVAC", "Landscaping", "Pest Control", "Wellness", "Home Services", "Other"].map((t) => (
-                      <SelectItem key={t} value={t.toLowerCase()} className="text-foreground focus:bg-electric/10 focus:text-foreground">{t}</SelectItem>
+                    {[
+                      { value: "hvac", label: "HVAC" },
+                      { value: "landscaping", label: "Landscaping" },
+                      { value: "pest-control", label: "Pest Control" },
+                      { value: "wellness", label: "Wellness/Med Spa" },
+                      { value: "home-services", label: "Home Services (plumbing, roofing, etc.)" },
+                      { value: "other-local", label: "Other Local Service Business" },
+                      { value: "not-local", label: "Not a local service business" },
+                    ].map((t) => (
+                      <SelectItem key={t.value} value={t.value} className="text-foreground focus:bg-electric/10 focus:text-foreground">{t.label}</SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
+              {/* Monthly Ad Spend */}
               <div>
-                <label className={labelClasses}>Message (optional)</label>
-                <Textarea name="message" placeholder="Anything else we should know?" value={formData.message} onChange={handleChange}
-                  className="bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:border-electric focus:ring-electric/20 focus:ring-2 transition-all duration-200 min-h-[80px] rounded-lg" />
+                <label className={labelClasses}>Current Monthly Ad Spend *</label>
+                <Select value={formData.adSpend} onValueChange={(v) => handleSelect("adSpend", v)}>
+                  <SelectTrigger className={inputClasses}>
+                    <SelectValue placeholder="Select your ad spend" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-border">
+                    {[
+                      { value: "under-1k", label: "Under $1,000/month" },
+                      { value: "1k-2k", label: "$1,000 – $2,000/month" },
+                      { value: "2k-5k", label: "$2,000 – $5,000/month" },
+                      { value: "5k-10k", label: "$5,000 – $10,000/month" },
+                      { value: "10k-plus", label: "$10,000+/month" },
+                    ].map((t) => (
+                      <SelectItem key={t.value} value={t.value} className="text-foreground focus:bg-electric/10 focus:text-foreground">{t.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
+              {/* Current Setup */}
+              <div>
+                <label className={labelClasses}>Who's running your ads right now? *</label>
+                <Select value={formData.currentSetup} onValueChange={(v) => handleSelect("currentSetup", v)}>
+                  <SelectTrigger className={inputClasses}>
+                    <SelectValue placeholder="Select current setup" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-border">
+                    {[
+                      { value: "agency", label: "I'm working with an agency" },
+                      { value: "myself", label: "I'm doing it myself" },
+                      { value: "in-house", label: "I have an in-house team" },
+                      { value: "not-running", label: "I'm not running ads yet" },
+                    ].map((t) => (
+                      <SelectItem key={t.value} value={t.value} className="text-foreground focus:bg-electric/10 focus:text-foreground">{t.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              {/* Monthly Revenue */}
+              <div>
+                <label className={labelClasses}>Current Monthly Revenue *</label>
+                <Select value={formData.monthlyRevenue} onValueChange={(v) => handleSelect("monthlyRevenue", v)}>
+                  <SelectTrigger className={inputClasses}>
+                    <SelectValue placeholder="Select your revenue range" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-border">
+                    {[
+                      { value: "under-50k", label: "Under $50k/month" },
+                      { value: "50k-100k", label: "$50k – $100k/month" },
+                      { value: "100k-250k", label: "$100k – $250k/month" },
+                      { value: "250k-500k", label: "$250k – $500k/month" },
+                      { value: "500k-plus", label: "$500k+/month" },
+                    ].map((t) => (
+                      <SelectItem key={t.value} value={t.value} className="text-foreground focus:bg-electric/10 focus:text-foreground">{t.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
               <button type="submit" disabled={!canSubmit || isSubmitting}
                 className="w-full h-14 btn-primary rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
-                {isSubmitting ? "SUBMITTING..." : "SCHEDULE AUDIT"}
+                {isSubmitting ? "SUBMITTING..." : "SEND MY FUNNEL AUDIT"}
                 {!isSubmitting && <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />}
               </button>
             </form>
