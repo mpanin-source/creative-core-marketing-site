@@ -16,8 +16,44 @@ const letterItem: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
+// "CORE" letters: reveal → first tap → pause → second tap + turn blue
+const coreLetterItem: Variants = {
+  hidden: { opacity: 0, y: 20, color: "hsl(0, 0%, 95%)" },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: [20, 0, 0, -8, 0, 0, -6, 0],
+    color: [
+      "hsl(0, 0%, 95%)",
+      "hsl(0, 0%, 95%)",
+      "hsl(0, 0%, 95%)",
+      "hsl(0, 0%, 95%)",
+      "hsl(0, 0%, 95%)",
+      "hsl(0, 0%, 95%)",
+      "hsl(190, 100%, 50%)",
+      "hsl(190, 100%, 50%)",
+    ],
+    filter: [
+      "drop-shadow(0 0 0px transparent)",
+      "drop-shadow(0 0 0px transparent)",
+      "drop-shadow(0 0 0px transparent)",
+      "drop-shadow(0 0 0px transparent)",
+      "drop-shadow(0 0 0px transparent)",
+      "drop-shadow(0 0 0px transparent)",
+      "drop-shadow(0 0 12px rgba(0,209,255,0.4))",
+      "drop-shadow(0 0 12px rgba(0,209,255,0.4))",
+    ],
+    transition: {
+      duration: 2,
+      delay,
+      times: [0, 0.2, 0.45, 0.55, 0.65, 0.75, 0.85, 1],
+      ease: "easeOut",
+    },
+  }),
+};
+
 const Footer = () => {
-  const brandText = "CREATIVE CORE";
+  const creativeText = "CREATIVE";
+  const coreText = "CORE";
 
   return (
     <footer className="border-t border-border">
@@ -36,7 +72,7 @@ const Footer = () => {
 
         <div className="relative z-10 px-6 py-24 md:py-32 lg:py-40">
           <div className="max-w-[1100px] mx-auto flex flex-col items-center">
-            {/* Large spaced-out brand name — LangChain style */}
+            {/* Large spaced-out brand name */}
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -44,16 +80,27 @@ const Footer = () => {
               variants={letterReveal}
               className="flex items-center justify-center gap-[0.15em] md:gap-[0.2em] mb-10 md:mb-14 flex-wrap"
             >
-              {brandText.split("").map((char, i) => (
+              {/* CREATIVE letters — standard reveal */}
+              {creativeText.split("").map((char, i) => (
                 <motion.span
-                  key={i}
+                  key={`c-${i}`}
                   variants={letterItem}
                   className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
-                  style={{
-                    fontWeight: 800,
-                    color: char === " " ? "transparent" : "hsl(var(--foreground))",
-                    width: char === " " ? "0.4em" : undefined,
-                  }}
+                  style={{ fontWeight: 800, color: "hsl(var(--foreground))" }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+              {/* Space */}
+              <span className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ width: "0.4em" }} />
+              {/* CORE letters — double tap, turns blue */}
+              {coreText.split("").map((char, i) => (
+                <motion.span
+                  key={`o-${i}`}
+                  custom={(creativeText.length + 1 + i) * 0.04}
+                  variants={coreLetterItem}
+                  className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
+                  style={{ fontWeight: 800 }}
                 >
                   {char}
                 </motion.span>
