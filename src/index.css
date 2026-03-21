@@ -708,3 +708,15 @@ button, a, [role="button"] {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* Footer CORE glow pulse — starts after 2.5s entrance animation */
+@keyframes coreGlowPulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(0,209,255,0.35)); }
+  50% { filter: drop-shadow(0 0 18px rgba(0,209,255,0.6)); }
+}
+
+.footer-core-glow {
+  animation: coreGlowPulse 2.5s ease-in-out infinite;
+  animation-delay: 3s;
+  animation-fill-mode: backwards;
+}
