@@ -30,7 +30,6 @@ const Index = () => {
         <SprintEngine />
         <div className="section-divider-gradient" />
         <WhyDifferent />
-        <div className="section-divider-gradient" />
         <Deliverables />
         <BottomLine />
         <div className="section-divider-gradient" />
