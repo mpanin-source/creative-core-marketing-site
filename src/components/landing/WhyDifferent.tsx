@@ -70,13 +70,11 @@ const WhyDifferent = () => {
   });
 
   const band = 1 / STEP_COUNT;
-  const stepOpacities = moats.map((_, i) => {
-    const start = i * band;
-    const mid1 = start + band * 0.15;
-    const mid2 = start + band * 0.85;
-    const end = start + band;
-    return useTransform(scrollYProgress, [start, mid1, mid2, end], [0, 1, 1, 0]);
-  });
+  const opacity0 = useTransform(scrollYProgress, [0, band * 0.15, band * 0.85, band], [0, 1, 1, 0]);
+  const opacity1 = useTransform(scrollYProgress, [band, band + band * 0.15, band + band * 0.85, band * 2], [0, 1, 1, 0]);
+  const opacity2 = useTransform(scrollYProgress, [band * 2, band * 2 + band * 0.15, band * 2 + band * 0.85, band * 3], [0, 1, 1, 0]);
+  const opacity3 = useTransform(scrollYProgress, [band * 3, band * 3 + band * 0.15, band * 3 + band * 0.85, 1], [0, 1, 1, 0]);
+  const stepOpacities = [opacity0, opacity1, opacity2, opacity3];
 
   const progressBarWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
