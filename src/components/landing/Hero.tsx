@@ -73,7 +73,7 @@ const Hero = () => {
               onClick={scrollToContact}
               className="btn-safety cta-pulse-orange px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
             >
-              GET YOUR FREE AD AUDIT
+              GET YOUR FREE FUNNEL AUDIT
               <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />
             </button>
           </motion.div>
