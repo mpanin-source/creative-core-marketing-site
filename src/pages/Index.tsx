@@ -34,7 +34,8 @@ const Index = () => {
         <Deliverables />
         <BottomLine />
         <div className="section-divider-gradient" />
-        <LeadPhilosophy />
+        <UntappedMarket />
+        <div className="section-divider-gradient" />
         <div className="section-divider-gradient" />
         <PricingTiers />
         <div className="section-divider-gradient" />
