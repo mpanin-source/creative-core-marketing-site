@@ -6,6 +6,7 @@ import SprintEngine from "@/components/landing/SprintEngine";
 import WhyDifferent from "@/components/landing/WhyDifferent";
 import Deliverables from "@/components/landing/Deliverables";
 import BottomLine from "@/components/landing/BottomLine";
+import UntappedMarket from "@/components/landing/UntappedMarket";
 import LeadPhilosophy from "@/components/landing/LeadPhilosophy";
 import PricingTiers from "@/components/landing/PricingTiers";
 import WhyOffering from "@/components/landing/WhyOffering";
