@@ -1,28 +1,44 @@
 
 
-## Plan: Rebuild CC Emblem with Proper Interlocking Arcs
+## Recommendations: Fixing & Simplifying the CC Emblem
 
-### Problem
-The current CC emblem uses thin CSS border circles that don't read as interlocking "C" shapes. The reference image shows two thick, wide arc segments that visually weave through each other — one cyan, one silver/white — creating a Chanel-style interlock.
+### Why It's Invisible
+The arc math using manual `A` (arc) commands with trigonometry is producing paths outside the viewBox or with zero-length segments. SVG arcs are notoriously tricky with angle calculations — one wrong sweep flag or coordinate and the path renders nothing.
 
-### Approach
+### My Recommendation: Simplify the Approach Completely
 
-**Replace the CSS border approach with an SVG** containing two thick "C" arcs that genuinely interlock:
+**Use `<circle>` elements with `stroke-dasharray` instead of manual arc paths.** This is the most reliable way to create "C" shapes:
 
-1. **SVG Structure** — Two thick arc paths (~270° each), offset horizontally so they overlap in the center. Use `clipPath` or layered rendering so the left C appears in front at the top and behind at the bottom (and vice versa for the right C), creating the woven/interlocking illusion.
+- A circle with `stroke-dasharray="212 71"` on a radius-18 circle shows exactly 75% of the stroke (a C shape) with a 25% gap
+- Rotate each circle to position the gap where you want the "C" opening
+- Two circles, offset horizontally by ~16px, overlapping in the center
 
-2. **Metallic Styling** — Apply `linearGradient` fills: silver-to-white for the left C, cyan-to-teal for the right C. Add inner edge highlights and a subtle cyan glow filter.
+**For the interlock weave**, use a simple `clipPath` rectangle:
+- Draw left C's bottom half first (clipped to bottom half)
+- Draw right C fully
+- Draw left C's top half on top (clipped to top half)
+- This creates the over-under weave with zero complex math
 
-3. **Hover Animation** — On hover, both C arcs translate outward (left C moves left ~8px, right C moves right ~8px) and slightly rotate apart (±15°), "unlocking" from the text. Scale up to 1.15x with intensified glow. On mouse leave, spring back into interlocked position.
+### Hover Animation Recommendation
 
-4. **Entrance** — Same as current: scale from 0.3 + rotate from -90° after text letters finish fading in.
+**Resting state (default):** The two C's sit interlocked, centered between the words. Subtle idle cyan glow pulse so it feels alive.
 
-5. **Responsive** — Scale the SVG viewBox proportionally for sm/md/lg sizes. Mobile gets a smaller static version with no hover.
+**On hover — "unlock and breathe" effect:**
+1. Both C's slide apart horizontally (left goes -6px, right goes +6px)
+2. Each rotates slightly outward (±10°) — subtle, not dramatic
+3. Glow intensifies on both rings
+4. Spring transition so it feels physical
 
-### Technical Detail
+This is simpler and more elegant than the current ±15° rotation which over-complicates it.
 
-The interlock effect is achieved by drawing both arcs in a single SVG but splitting each arc into two halves (top and bottom). The draw order alternates: left-C-top → right-C-top → right-C-bottom → left-C-bottom. This makes them appear to weave through each other without needing clipPath.
+### What Changes
 
-### Files Changed
-- `src/components/landing/AnimatedLogo.tsx` — Rebuild `CCEmblem` component with SVG-based interlocking arcs
+**File:** `src/components/landing/AnimatedLogo.tsx`
+
+1. Replace all the arc trigonometry (lines 26-77) with two `<circle>` elements using `stroke-dasharray` + rotation
+2. Add a `<clipPath>` with a simple rectangle split at the midpoint for the weave effect
+3. Draw 3 layers: left-C-bottom (clipped), right-C (full), left-C-top (clipped)
+4. Increase stroke width slightly for better visibility (6-8px range for md size)
+5. Keep the same entrance animation (scale + rotate spring) and metallic gradients
+6. Simplify hover to just `x` offset + glow — drop the rotation to keep it clean
 
