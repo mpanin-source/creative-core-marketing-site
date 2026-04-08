@@ -7,10 +7,14 @@ interface AnimatedLogoProps {
 
 const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => {
   const dims = {
-    sm: { w: 30, h: 30 },
+    sm: { w: 22, h: 22 },
     md: { w: 38, h: 38 },
     lg: { w: 52, h: 52 },
-  }[size] || { w: 30, h: 30 };
+  }[size] || { w: 22, h: 22 };
+
+  // Use smaller size on mobile
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const actualDims = isMobile ? { w: 18, h: 18 } : dims;
 
   const totalDelay = 0.78;
 
