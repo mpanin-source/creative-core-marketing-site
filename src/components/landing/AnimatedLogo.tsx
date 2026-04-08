@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useState, useId } from "react";
+import { motion, useAnimationControls } from "framer-motion";
+import { useState, useId, useEffect } from "react";
 
 interface AnimatedLogoProps {
   size?: "sm" | "md" | "lg";
@@ -7,6 +7,7 @@ interface AnimatedLogoProps {
 
 const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => {
   const uid = useId().replace(/:/g, '');
+  const shimmerControls = useAnimationControls();
   
   const dims = {
     sm: { w: 36, h: 36, stroke: 9 },
@@ -29,13 +30,20 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
   const rightCx = 21;
   const cy = 30;
 
-  // Hover offsets in viewBox units
-  const hoverX = 6;
+  // Trigger shimmer on hover
+  useEffect(() => {
+    if (isHovered) {
+      shimmerControls.start({
+        x: [-(vb + 20), vb + 20],
+        transition: { duration: 0.5, ease: "easeInOut" },
+      });
+    }
+  }, [isHovered, shimmerControls, vb]);
 
   return (
     <motion.div
       className="relative z-10 flex-shrink-0"
-      style={{ margin: "0 1px" }}
+      style={{ margin: "-2px 1px" }}
       initial={{ opacity: 0, scale: 0.3, rotate: -90 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
       transition={{ delay: totalDelay, duration: 0.5, type: "spring", stiffness: 200, damping: 15 }}
@@ -60,83 +68,147 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
+            {/* Silver gradient */}
             <linearGradient id={`sg-${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#e8e8e8" />
               <stop offset="40%" stopColor="#ffffff" />
               <stop offset="70%" stopColor="#c0c0c0" />
               <stop offset="100%" stopColor="#e0e0e0" />
             </linearGradient>
+            {/* Cyan gradient */}
             <linearGradient id={`cg-${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#00f0ff" />
               <stop offset="40%" stopColor="#00d9ff" />
               <stop offset="70%" stopColor="#0090b0" />
               <stop offset="100%" stopColor="#00d9ff" />
             </linearGradient>
+            {/* Shimmer gradient */}
+            <linearGradient id={`shimmer-${uid}`} x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="rgba(255,255,255,0)" />
+              <stop offset="30%" stopColor="rgba(255,255,255,0)" />
+              <stop offset="50%" stopColor="rgba(255,255,255,0.85)" />
+              <stop offset="70%" stopColor="rgba(255,255,255,0)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+            </linearGradient>
+
             <clipPath id={`ct-${uid}`}>
               <rect x="0" y="0" width={vb} height={cy} />
             </clipPath>
             <clipPath id={`cb-${uid}`}>
               <rect x="0" y={cy} width={vb} height={vb - cy} />
             </clipPath>
+
+            {/* Mask: only show shimmer where rings are drawn */}
+            <mask id={`ring-mask-${uid}`}>
+              <rect x="0" y="0" width={vb} height={vb} fill="black" />
+              <circle
+                cx={leftCx} cy={cy} r={r}
+                stroke="white" strokeWidth={actualDims.stroke}
+                strokeDasharray={`${arcLen} ${gapLen}`}
+                strokeLinecap="round" fill="none"
+                transform={`rotate(45 ${leftCx} ${cy})`}
+              />
+              <circle
+                cx={rightCx} cy={cy} r={r}
+                stroke="white" strokeWidth={actualDims.stroke}
+                strokeDasharray={`${arcLen} ${gapLen}`}
+                strokeLinecap="round" fill="none"
+                transform={`rotate(225 ${rightCx} ${cy})`}
+              />
+            </mask>
           </defs>
 
           {/* Layer 1: Left C bottom half (behind right C) */}
           <g clipPath={`url(#cb-${uid})`}>
-            <motion.g
-              animate={{ x: isHovered ? -hoverX : 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
+            <g>
+              {/* Original silver */}
               <circle
-                cx={leftCx}
-                cy={cy}
-                r={r}
+                cx={leftCx} cy={cy} r={r}
                 stroke={`url(#sg-${uid})`}
                 strokeWidth={actualDims.stroke}
                 strokeDasharray={`${arcLen} ${gapLen}`}
-                strokeLinecap="round"
-                fill="none"
+                strokeLinecap="round" fill="none"
                 transform={`rotate(45 ${leftCx} ${cy})`}
+                style={{ opacity: isHovered ? 0 : 1, transition: "opacity 0.35s ease" }}
               />
-            </motion.g>
+              {/* Swapped: cyan on hover */}
+              <circle
+                cx={leftCx} cy={cy} r={r}
+                stroke={`url(#cg-${uid})`}
+                strokeWidth={actualDims.stroke}
+                strokeDasharray={`${arcLen} ${gapLen}`}
+                strokeLinecap="round" fill="none"
+                transform={`rotate(45 ${leftCx} ${cy})`}
+                style={{ opacity: isHovered ? 1 : 0, transition: "opacity 0.35s ease" }}
+              />
+            </g>
           </g>
 
           {/* Layer 2: Right C full (middle layer) */}
-          <motion.g
-            animate={{ x: isHovered ? hoverX : 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
+          <g>
+            {/* Original cyan */}
             <circle
-              cx={rightCx}
-              cy={cy}
-              r={r}
+              cx={rightCx} cy={cy} r={r}
               stroke={`url(#cg-${uid})`}
               strokeWidth={actualDims.stroke}
               strokeDasharray={`${arcLen} ${gapLen}`}
-              strokeLinecap="round"
-              fill="none"
+              strokeLinecap="round" fill="none"
               transform={`rotate(225 ${rightCx} ${cy})`}
+              style={{ opacity: isHovered ? 0 : 1, transition: "opacity 0.35s ease" }}
             />
-          </motion.g>
+            {/* Swapped: silver on hover */}
+            <circle
+              cx={rightCx} cy={cy} r={r}
+              stroke={`url(#sg-${uid})`}
+              strokeWidth={actualDims.stroke}
+              strokeDasharray={`${arcLen} ${gapLen}`}
+              strokeLinecap="round" fill="none"
+              transform={`rotate(225 ${rightCx} ${cy})`}
+              style={{ opacity: isHovered ? 1 : 0, transition: "opacity 0.35s ease" }}
+            />
+          </g>
 
           {/* Layer 3: Left C top half (in front of right C — creates weave) */}
           <g clipPath={`url(#ct-${uid})`}>
-            <motion.g
-              animate={{ x: isHovered ? -hoverX : 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
+            <g>
+              {/* Original silver */}
               <circle
-                cx={leftCx}
-                cy={cy}
-                r={r}
+                cx={leftCx} cy={cy} r={r}
                 stroke={`url(#sg-${uid})`}
                 strokeWidth={actualDims.stroke}
                 strokeDasharray={`${arcLen} ${gapLen}`}
-                strokeLinecap="round"
-                fill="none"
+                strokeLinecap="round" fill="none"
                 transform={`rotate(45 ${leftCx} ${cy})`}
+                style={{ opacity: isHovered ? 0 : 1, transition: "opacity 0.35s ease" }}
               />
-            </motion.g>
+              {/* Swapped: cyan on hover */}
+              <circle
+                cx={leftCx} cy={cy} r={r}
+                stroke={`url(#cg-${uid})`}
+                strokeWidth={actualDims.stroke}
+                strokeDasharray={`${arcLen} ${gapLen}`}
+                strokeLinecap="round" fill="none"
+                transform={`rotate(45 ${leftCx} ${cy})`}
+                style={{ opacity: isHovered ? 1 : 0, transition: "opacity 0.35s ease" }}
+              />
+            </g>
           </g>
+
+          {/* Shimmer overlay — masked to ring shapes only */}
+          <motion.g
+            mask={`url(#ring-mask-${uid})`}
+            initial={{ x: -(vb + 20) }}
+            animate={shimmerControls}
+          >
+            <rect
+              x="-10"
+              y="0"
+              width="20"
+              height={vb}
+              fill={`url(#shimmer-${uid})`}
+              transform="skewX(-20)"
+            />
+          </motion.g>
         </svg>
       </motion.div>
 
