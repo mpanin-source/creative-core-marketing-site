@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 interface AnimatedLogoProps {
@@ -7,71 +7,62 @@ interface AnimatedLogoProps {
 
 const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => {
   const dims = {
-    sm: { w: 32, h: 32, stroke: 5 },
-    md: { w: 40, h: 40, stroke: 5 },
-    lg: { w: 56, h: 56, stroke: 6 },
-  }[size] || { w: 32, h: 32, stroke: 5 };
+    sm: { w: 30, h: 30 },
+    md: { w: 38, h: 38 },
+    lg: { w: 52, h: 52 },
+  }[size] || { w: 30, h: 30 };
 
   const totalDelay = 0.78;
 
   return (
     <motion.div
-      className="relative z-10 flex-shrink-0 mx-1"
+      className="relative z-10 flex-shrink-0"
+      style={{ margin: "0 2px" }}
       initial={{ opacity: 0, scale: 0.3, rotate: -90 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
       transition={{ delay: totalDelay, duration: 0.5, type: "spring", stiffness: 200, damping: 15 }}
     >
-      <motion.svg
-        width={dims.w}
-        height={dims.h}
-        viewBox="0 0 60 60"
-        fill="none"
+      <motion.div
+        className="relative"
         style={{
+          width: dims.w,
+          height: dims.h,
           filter: isHovered
-            ? "drop-shadow(0 0 12px rgba(0,209,255,0.7)) drop-shadow(0 0 24px rgba(0,209,255,0.3))"
-            : "drop-shadow(0 0 6px rgba(0,209,255,0.4))",
+            ? "drop-shadow(0 0 10px rgba(0,209,255,0.7)) drop-shadow(0 0 20px rgba(0,209,255,0.3))"
+            : "drop-shadow(0 0 4px rgba(0,209,255,0.35))",
         }}
-        animate={isHovered ? { scale: 1.25, y: -3 } : { scale: 1, y: 0 }}
+        animate={isHovered ? { scale: 1.2, y: -3 } : { scale: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        <defs>
-          <linearGradient id="silver-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#e8e8e8" />
-            <stop offset="40%" stopColor="#ffffff" />
-            <stop offset="60%" stopColor="#b0b0b0" />
-            <stop offset="100%" stopColor="#d4d4d4" />
-          </linearGradient>
-          <linearGradient id="cyan-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#00d9ff" />
-            <stop offset="40%" stopColor="#00f0ff" />
-            <stop offset="60%" stopColor="#0090b0" />
-            <stop offset="100%" stopColor="#00d9ff" />
-          </linearGradient>
-        </defs>
-        {/* Left C - silver/white, opens to the right */}
-        <motion.path
-          d="M 34 10 A 20 20 0 1 0 34 50"
-          stroke="url(#silver-grad)"
-          strokeWidth={dims.stroke}
-          strokeLinecap="round"
-          fill="none"
-          animate={isHovered ? { x: -4, rotate: -12 } : { x: 0, rotate: 0 }}
+        {/* Left C - silver/white */}
+        <motion.div
+          className="absolute inset-0 rounded-full"
+          style={{
+            border: "3px solid transparent",
+            borderLeftColor: "#d4d4d4",
+            borderTopColor: "#e8e8e8",
+            borderBottomColor: "#b0b0b0",
+            left: -4,
+          }}
+          animate={isHovered ? { rotate: -20, x: -3 } : { rotate: 0, x: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          style={{ transformOrigin: "center" }}
         />
-        {/* Right C - cyan, opens to the left */}
-        <motion.path
-          d="M 26 10 A 20 20 0 1 1 26 50"
-          stroke="url(#cyan-grad)"
-          strokeWidth={dims.stroke}
-          strokeLinecap="round"
-          fill="none"
-          animate={isHovered ? { x: 4, rotate: 12 } : { x: 0, rotate: 0 }}
+        {/* Right C - cyan */}
+        <motion.div
+          className="absolute inset-0 rounded-full"
+          style={{
+            border: "3px solid transparent",
+            borderRightColor: "#00d9ff",
+            borderTopColor: "#00f0ff",
+            borderBottomColor: "#0090b0",
+            right: -4,
+            left: 4,
+          }}
+          animate={isHovered ? { rotate: 20, x: 3 } : { rotate: 0, x: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          style={{ transformOrigin: "center" }}
         />
-      </motion.svg>
-      {/* Glow pulse on entrance */}
+      </motion.div>
+      {/* Entrance glow pulse */}
       <motion.div
         className="absolute inset-0 rounded-full pointer-events-none"
         initial={{ opacity: 0 }}
@@ -103,7 +94,7 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Mobile: static logo with small emblem */}
+      {/* Mobile */}
       <div className="md:hidden flex items-center">
         <span className={`${s.mobile} font-display tracking-tight`} style={{ fontWeight: 700 }}>
           <span className="text-foreground">CREATIVE</span>
@@ -114,7 +105,7 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
         </span>
       </div>
 
-      {/* Desktop: animated letter reveal with emblem between words */}
+      {/* Desktop */}
       <div className="hidden md:flex items-center">
         {creative.split("").map((letter, i) => (
           <motion.span
@@ -129,7 +120,6 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
           </motion.span>
         ))}
 
-        {/* CC Emblem sits between the words */}
         <CCEmblem size={size} isHovered={isHovered} />
 
         {core.split("").map((letter, i) => (
