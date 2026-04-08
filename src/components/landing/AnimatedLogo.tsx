@@ -25,8 +25,8 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
   const arcLen = circumference * 0.75;
   const gapLen = circumference * 0.25;
 
-  const leftCx = 25;
-  const rightCx = 35;
+  const leftCx = 27;
+  const rightCx = 33;
   const cy = 30;
 
   // Hover offsets in viewBox units
