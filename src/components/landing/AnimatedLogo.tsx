@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useId } from "react";
 
 interface AnimatedLogoProps {
   size?: "sm" | "md" | "lg";
