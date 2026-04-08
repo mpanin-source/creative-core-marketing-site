@@ -7,13 +7,13 @@ interface AnimatedLogoProps {
 
 const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => {
   const dims = {
-    sm: { w: 28, h: 28, stroke: 5 },
-    md: { w: 44, h: 44, stroke: 7 },
-    lg: { w: 60, h: 60, stroke: 8 },
-  }[size] || { w: 28, h: 28, stroke: 5 };
+    sm: { w: 36, h: 36, stroke: 7 },
+    md: { w: 52, h: 52, stroke: 8 },
+    lg: { w: 72, h: 72, stroke: 10 },
+  }[size] || { w: 36, h: 36, stroke: 7 };
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const actualDims = isMobile ? { w: 22, h: 22, stroke: 4 } : dims;
+  const actualDims = isMobile ? { w: 28, h: 28, stroke: 5 } : dims;
 
   const totalDelay = 0.78;
 
