@@ -6,6 +6,8 @@ interface AnimatedLogoProps {
 }
 
 const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => {
+  const uid = useId().replace(/:/g, '');
+  
   const dims = {
     sm: { w: 36, h: 36, stroke: 7 },
     md: { w: 52, h: 52, stroke: 8 },
@@ -17,17 +19,18 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
 
   const totalDelay = 0.78;
 
-  // Using circle + stroke-dasharray for reliable C shapes
   const vb = 60;
   const r = 16;
-  const circumference = 2 * Math.PI * r; // ~100.53
-  const arcLen = circumference * 0.75; // 75% visible = C shape
-  const gapLen = circumference * 0.25; // 25% gap
+  const circumference = 2 * Math.PI * r;
+  const arcLen = circumference * 0.75;
+  const gapLen = circumference * 0.25;
 
-  // Left C center, Right C center — offset for overlap
   const leftCx = 23;
   const rightCx = 37;
   const cy = 30;
+
+  // Hover offsets in viewBox units
+  const hoverX = 5;
 
   return (
     <motion.div
@@ -45,9 +48,8 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
           filter: isHovered
             ? "drop-shadow(0 0 14px rgba(0,209,255,0.7)) drop-shadow(0 0 28px rgba(0,209,255,0.3))"
             : "drop-shadow(0 0 6px rgba(0,209,255,0.35))",
+          transition: "filter 0.3s ease",
         }}
-        animate={isHovered ? { scale: 1.12, y: -1 } : { scale: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <svg
           viewBox={`0 0 ${vb} ${vb}`}
@@ -57,23 +59,72 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
           overflow="visible"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Debug: simple visible circles */}
+          <defs>
+            <linearGradient id={`sg-${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#e8e8e8" />
+              <stop offset="40%" stopColor="#ffffff" />
+              <stop offset="70%" stopColor="#c0c0c0" />
+              <stop offset="100%" stopColor="#e0e0e0" />
+            </linearGradient>
+            <linearGradient id={`cg-${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#00f0ff" />
+              <stop offset="40%" stopColor="#00d9ff" />
+              <stop offset="70%" stopColor="#0090b0" />
+              <stop offset="100%" stopColor="#00d9ff" />
+            </linearGradient>
+            <clipPath id={`ct-${uid}`}>
+              <rect x="0" y="0" width={vb} height={cy} />
+            </clipPath>
+            <clipPath id={`cb-${uid}`}>
+              <rect x="0" y={cy} width={vb} height={vb - cy} />
+            </clipPath>
+          </defs>
+
+          {/* Layer 1: Left C bottom half (behind right C) */}
+          <g clipPath={`url(#cb-${uid})`}>
+            <circle
+              cx={isHovered ? leftCx - hoverX : leftCx}
+              cy={cy}
+              r={r}
+              stroke={`url(#sg-${uid})`}
+              strokeWidth={actualDims.stroke}
+              strokeDasharray={`${arcLen} ${gapLen}`}
+              strokeLinecap="round"
+              fill="none"
+              transform={`rotate(45 ${isHovered ? leftCx - hoverX : leftCx} ${cy})`}
+              style={{ transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+            />
+          </g>
+
+          {/* Layer 2: Right C full (middle layer) */}
           <circle
-            cx={leftCx}
+            cx={isHovered ? rightCx + hoverX : rightCx}
             cy={cy}
             r={r}
-            stroke="#ffffff"
+            stroke={`url(#cg-${uid})`}
             strokeWidth={actualDims.stroke}
+            strokeDasharray={`${arcLen} ${gapLen}`}
+            strokeLinecap="round"
             fill="none"
+            transform={`rotate(225 ${isHovered ? rightCx + hoverX : rightCx} ${cy})`}
+            style={{ transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
           />
-          <circle
-            cx={rightCx}
-            cy={cy}
-            r={r}
-            stroke="#00d1ff"
-            strokeWidth={actualDims.stroke}
-            fill="none"
-          />
+
+          {/* Layer 3: Left C top half (in front of right C — creates weave) */}
+          <g clipPath={`url(#ct-${uid})`}>
+            <circle
+              cx={isHovered ? leftCx - hoverX : leftCx}
+              cy={cy}
+              r={r}
+              stroke={`url(#sg-${uid})`}
+              strokeWidth={actualDims.stroke}
+              strokeDasharray={`${arcLen} ${gapLen}`}
+              strokeLinecap="round"
+              fill="none"
+              transform={`rotate(45 ${isHovered ? leftCx - hoverX : leftCx} ${cy})`}
+              style={{ transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+            />
+          </g>
         </svg>
       </motion.div>
 
