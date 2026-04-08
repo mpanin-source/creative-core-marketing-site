@@ -96,7 +96,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
             strokeLinecap="round"
             fill="none"
             clipPath="url(#clip-bottom)"
-            transform={`rotate(135 ${leftCx} ${cy})`}
+            transform={`rotate(45 ${leftCx} ${cy})`}
             animate={isHovered ? { x: -6 } : { x: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           />
@@ -112,7 +112,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
             strokeLinecap="round"
             fill="none"
             filter="url(#cyan-glow)"
-            transform={`rotate(-45 ${rightCx} ${cy})`}
+            transform={`rotate(225 ${rightCx} ${cy})`}
             animate={isHovered ? { x: 6 } : { x: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           />
@@ -128,7 +128,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
             strokeLinecap="round"
             fill="none"
             clipPath="url(#clip-top)"
-            transform={`rotate(135 ${leftCx} ${cy})`}
+            transform={`rotate(45 ${leftCx} ${cy})`}
             animate={isHovered ? { x: -6 } : { x: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           />
