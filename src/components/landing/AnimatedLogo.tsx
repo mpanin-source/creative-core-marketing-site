@@ -7,74 +7,27 @@ interface AnimatedLogoProps {
 
 const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => {
   const dims = {
-    sm: { w: 28, h: 28, stroke: 4 },
-    md: { w: 44, h: 44, stroke: 5 },
-    lg: { w: 60, h: 60, stroke: 6 },
-  }[size] || { w: 28, h: 28, stroke: 4 };
+    sm: { w: 28, h: 28, stroke: 5 },
+    md: { w: 44, h: 44, stroke: 7 },
+    lg: { w: 60, h: 60, stroke: 8 },
+  }[size] || { w: 28, h: 28, stroke: 5 };
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const actualDims = isMobile ? { w: 22, h: 22, stroke: 3 } : dims;
+  const actualDims = isMobile ? { w: 22, h: 22, stroke: 4 } : dims;
 
   const totalDelay = 0.78;
 
-  // SVG viewBox is 60x60, we scale via width/height
-  // Two C arcs (~270° each), offset so they overlap in center
-  // Interlock achieved by layering: leftC-top, rightC-top, rightC-bottom, leftC-top (already drawn)
-  // Actually: draw left-C bottom half, right-C full, left-C top half
-
+  // Using circle + stroke-dasharray for reliable C shapes
   const vb = 60;
-  const r = 18; // radius
-  const sw = actualDims.stroke;
-  const leftCx = 22;
-  const rightCx = 38;
+  const r = 16;
+  const circumference = 2 * Math.PI * r; // ~100.53
+  const arcLen = circumference * 0.75; // 75% visible = C shape
+  const gapLen = circumference * 0.25; // 25% gap
+
+  // Left C center, Right C center — offset for overlap
+  const leftCx = 23;
+  const rightCx = 37;
   const cy = 30;
-
-  // Arc helper: create a ~270° C-shape arc (open on one side)
-  // Left C opens to the right, Right C opens to the left
-  // We split each into top half and bottom half for weaving
-
-  // Left C: center at (leftCx, cy), opens right (gap at 0°/east)
-  // Top half: from bottom (270°) counter-clockwise to top... let's use SVG arc commands
-  // Actually let's think in terms of start/end angles
-
-  // Left C (opens right, gap ~45° on each side of east):
-  //   Goes from 45° to 315° (CW) = 270° arc
-  //   Split at 180° (west/left point): top half 45°→180°, bottom half 180°→315°
-
-  // Right C (opens left, gap ~45° on each side of west/180°):
-  //   Goes from 225° to 135° (CW, crossing 0°) = 270° arc  
-  //   Split at 0°/360° (east/right point): top half 225°→360°, bottom half 0°→135°
-
-  const toRad = (deg: number) => (deg * Math.PI) / 180;
-  const px = (cx: number, angle: number) => cx + r * Math.cos(toRad(angle));
-  const py = (angle: number) => cy + r * Math.sin(toRad(angle));
-
-  // Left C paths (opens to right, gap around 0°)
-  // Full arc from 50° down to 310° going clockwise = but SVG arcs...
-  // Let's define with M and A commands
-  
-  // Left C - top half: from 310° (upper-right area) going CCW to 180° (left)
-  const leftTopStart = { x: px(leftCx, 310), y: py(310) };
-  const leftTopEnd = { x: px(leftCx, 180), y: py(180) };
-  const leftTopPath = `M ${leftTopStart.x} ${leftTopStart.y} A ${r} ${r} 0 0 0 ${leftTopEnd.x} ${leftTopEnd.y}`;
-
-  // Left C - bottom half: from 180° (left) going CCW to 50° (lower-right area)  
-  const leftBottomStart = { x: px(leftCx, 180), y: py(180) };
-  const leftBottomEnd = { x: px(leftCx, 50), y: py(50) };
-  const leftBottomPath = `M ${leftBottomStart.x} ${leftBottomStart.y} A ${r} ${r} 0 0 0 ${leftBottomEnd.x} ${leftBottomEnd.y}`;
-
-  // Right C - top half: from 180° going CW (sweep=1) to 230°... 
-  // Right C opens to the left (gap around 180°)
-  // Arc from 230° CW through 360°/0° to 130° = 260° arc
-  // Top half: 230° CW to 0° 
-  const rightTopStart = { x: px(rightCx, 230), y: py(230) };
-  const rightTopEnd = { x: px(rightCx, 360), y: py(360) };
-  const rightTopPath = `M ${rightTopStart.x} ${rightTopStart.y} A ${r} ${r} 0 0 1 ${rightTopEnd.x} ${rightTopEnd.y}`;
-
-  // Right C - bottom half: 0° CW to 130°
-  const rightBottomStart = { x: px(rightCx, 0), y: py(0) };
-  const rightBottomEnd = { x: px(rightCx, 130), y: py(130) };
-  const rightBottomPath = `M ${rightBottomStart.x} ${rightBottomStart.y} A ${r} ${r} 0 0 1 ${rightBottomEnd.x} ${rightBottomEnd.y}`;
 
   return (
     <motion.div
@@ -90,10 +43,10 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
           width: actualDims.w,
           height: actualDims.h,
           filter: isHovered
-            ? "drop-shadow(0 0 12px rgba(0,209,255,0.7)) drop-shadow(0 0 24px rgba(0,209,255,0.3))"
-            : "drop-shadow(0 0 5px rgba(0,209,255,0.35))",
+            ? "drop-shadow(0 0 14px rgba(0,209,255,0.7)) drop-shadow(0 0 28px rgba(0,209,255,0.3))"
+            : "drop-shadow(0 0 6px rgba(0,209,255,0.35))",
         }}
-        animate={isHovered ? { scale: 1.15, y: -2 } : { scale: 1, y: 0 }}
+        animate={isHovered ? { scale: 1.12, y: -1 } : { scale: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <svg
@@ -123,70 +76,71 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
+            {/* Clip paths for weaving effect */}
+            <clipPath id="clip-top">
+              <rect x="0" y="0" width={vb} height={cy} />
+            </clipPath>
+            <clipPath id="clip-bottom">
+              <rect x="0" y={cy} width={vb} height={cy} />
+            </clipPath>
           </defs>
 
-          {/* Layer order for weaving: left-bottom, right-full-top, left-top (on top) */}
-          {/* This creates the illusion: left C is in front at top, behind at bottom */}
-
-          {/* 1. Left C - bottom half (behind right C) */}
-          <motion.path
-            d={leftBottomPath}
+          {/* Layer 1: Left C bottom half (behind right C) */}
+          <motion.circle
+            cx={leftCx}
+            cy={cy}
+            r={r}
             stroke="url(#silver-grad)"
-            strokeWidth={sw}
+            strokeWidth={actualDims.stroke}
+            strokeDasharray={`${arcLen} ${gapLen}`}
             strokeLinecap="round"
             fill="none"
-            animate={isHovered ? { x: -8, rotate: -15 } : { x: 0, rotate: 0 }}
+            clipPath="url(#clip-bottom)"
+            transform={`rotate(135 ${leftCx} ${cy})`}
+            animate={isHovered ? { x: -6 } : { x: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            style={{ transformOrigin: `${leftCx}px ${cy}px` }}
           />
 
-          {/* 2. Right C - top half */}
-          <motion.path
-            d={rightTopPath}
+          {/* Layer 2: Right C full (middle layer) */}
+          <motion.circle
+            cx={rightCx}
+            cy={cy}
+            r={r}
             stroke="url(#cyan-grad)"
-            strokeWidth={sw}
+            strokeWidth={actualDims.stroke}
+            strokeDasharray={`${arcLen} ${gapLen}`}
             strokeLinecap="round"
             fill="none"
             filter="url(#cyan-glow)"
-            animate={isHovered ? { x: 8, rotate: 15 } : { x: 0, rotate: 0 }}
+            transform={`rotate(-45 ${rightCx} ${cy})`}
+            animate={isHovered ? { x: 6 } : { x: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            style={{ transformOrigin: `${rightCx}px ${cy}px` }}
           />
 
-          {/* 3. Right C - bottom half */}
-          <motion.path
-            d={rightBottomPath}
-            stroke="url(#cyan-grad)"
-            strokeWidth={sw}
-            strokeLinecap="round"
-            fill="none"
-            filter="url(#cyan-glow)"
-            animate={isHovered ? { x: 8, rotate: 15 } : { x: 0, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            style={{ transformOrigin: `${rightCx}px ${cy}px` }}
-          />
-
-          {/* 4. Left C - top half (in front of right C) */}
-          <motion.path
-            d={leftTopPath}
+          {/* Layer 3: Left C top half (in front of right C) */}
+          <motion.circle
+            cx={leftCx}
+            cy={cy}
+            r={r}
             stroke="url(#silver-grad)"
-            strokeWidth={sw}
+            strokeWidth={actualDims.stroke}
+            strokeDasharray={`${arcLen} ${gapLen}`}
             strokeLinecap="round"
             fill="none"
-            animate={isHovered ? { x: -8, rotate: -15 } : { x: 0, rotate: 0 }}
+            clipPath="url(#clip-top)"
+            transform={`rotate(135 ${leftCx} ${cy})`}
+            animate={isHovered ? { x: -6 } : { x: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            style={{ transformOrigin: `${leftCx}px ${cy}px` }}
           />
         </svg>
       </motion.div>
 
-      {/* Entrance glow pulse */}
+      {/* Idle glow pulse */}
       <motion.div
         className="absolute inset-0 rounded-full pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 0.6, 0] }}
-        transition={{ delay: totalDelay + 0.3, duration: 0.8, ease: "easeOut" }}
-        style={{ background: "radial-gradient(circle, rgba(0,209,255,0.4) 0%, transparent 70%)" }}
+        animate={{ opacity: [0.2, 0.5, 0.2] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        style={{ background: "radial-gradient(circle, rgba(0,209,255,0.25) 0%, transparent 70%)" }}
       />
     </motion.div>
   );
