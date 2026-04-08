@@ -82,48 +82,63 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
 
           {/* Layer 1: Left C bottom half (behind right C) */}
           <g clipPath={`url(#cb-${uid})`}>
-            <circle
-              cx={isHovered ? leftCx - hoverX : leftCx}
-              cy={cy}
-              r={r}
-              stroke={`url(#sg-${uid})`}
-              strokeWidth={actualDims.stroke}
-              strokeDasharray={`${arcLen} ${gapLen}`}
-              strokeLinecap="round"
-              fill="none"
-              transform={`rotate(45 ${isHovered ? leftCx - hoverX : leftCx} ${cy})`}
-              style={{ transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
-            />
+            <g style={{ 
+              transform: `translateX(${isHovered ? -hoverX : 0}px)`,
+              transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+              transformOrigin: `${leftCx}px ${cy}px`
+            }}>
+              <circle
+                cx={leftCx}
+                cy={cy}
+                r={r}
+                stroke={`url(#sg-${uid})`}
+                strokeWidth={actualDims.stroke}
+                strokeDasharray={`${arcLen} ${gapLen}`}
+                strokeLinecap="round"
+                fill="none"
+                transform={`rotate(45 ${leftCx} ${cy})`}
+              />
+            </g>
           </g>
 
           {/* Layer 2: Right C full (middle layer) */}
-          <circle
-            cx={isHovered ? rightCx + hoverX : rightCx}
-            cy={cy}
-            r={r}
-            stroke={`url(#cg-${uid})`}
-            strokeWidth={actualDims.stroke}
-            strokeDasharray={`${arcLen} ${gapLen}`}
-            strokeLinecap="round"
-            fill="none"
-            transform={`rotate(225 ${isHovered ? rightCx + hoverX : rightCx} ${cy})`}
-            style={{ transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
-          />
-
-          {/* Layer 3: Left C top half (in front of right C — creates weave) */}
-          <g clipPath={`url(#ct-${uid})`}>
+          <g style={{ 
+            transform: `translateX(${isHovered ? hoverX : 0}px)`,
+            transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+            transformOrigin: `${rightCx}px ${cy}px`
+          }}>
             <circle
-              cx={isHovered ? leftCx - hoverX : leftCx}
+              cx={rightCx}
               cy={cy}
               r={r}
-              stroke={`url(#sg-${uid})`}
+              stroke={`url(#cg-${uid})`}
               strokeWidth={actualDims.stroke}
               strokeDasharray={`${arcLen} ${gapLen}`}
               strokeLinecap="round"
               fill="none"
-              transform={`rotate(45 ${isHovered ? leftCx - hoverX : leftCx} ${cy})`}
-              style={{ transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+              transform={`rotate(225 ${rightCx} ${cy})`}
             />
+          </g>
+
+          {/* Layer 3: Left C top half (in front of right C — creates weave) */}
+          <g clipPath={`url(#ct-${uid})`}>
+            <g style={{ 
+              transform: `translateX(${isHovered ? -hoverX : 0}px)`,
+              transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+              transformOrigin: `${leftCx}px ${cy}px`
+            }}>
+              <circle
+                cx={leftCx}
+                cy={cy}
+                r={r}
+                stroke={`url(#sg-${uid})`}
+                strokeWidth={actualDims.stroke}
+                strokeDasharray={`${arcLen} ${gapLen}`}
+                strokeLinecap="round"
+                fill="none"
+                transform={`rotate(45 ${leftCx} ${cy})`}
+              />
+            </g>
           </g>
         </svg>
       </motion.div>
