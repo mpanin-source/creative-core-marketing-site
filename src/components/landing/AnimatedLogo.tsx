@@ -82,11 +82,10 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
 
           {/* Layer 1: Left C bottom half (behind right C) */}
           <g clipPath={`url(#cb-${uid})`}>
-            <g style={{ 
-              transform: `translateX(${isHovered ? -hoverX : 0}px)`,
-              transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
-              transformOrigin: `${leftCx}px ${cy}px`
-            }}>
+            <motion.g
+              animate={{ x: isHovered ? -hoverX : 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               <circle
                 cx={leftCx}
                 cy={cy}
@@ -98,15 +97,14 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
                 fill="none"
                 transform={`rotate(45 ${leftCx} ${cy})`}
               />
-            </g>
+            </motion.g>
           </g>
 
           {/* Layer 2: Right C full (middle layer) */}
-          <g style={{ 
-            transform: `translateX(${isHovered ? hoverX : 0}px)`,
-            transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
-            transformOrigin: `${rightCx}px ${cy}px`
-          }}>
+          <motion.g
+            animate={{ x: isHovered ? hoverX : 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
             <circle
               cx={rightCx}
               cy={cy}
@@ -118,15 +116,14 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
               fill="none"
               transform={`rotate(225 ${rightCx} ${cy})`}
             />
-          </g>
+          </motion.g>
 
           {/* Layer 3: Left C top half (in front of right C — creates weave) */}
           <g clipPath={`url(#ct-${uid})`}>
-            <g style={{ 
-              transform: `translateX(${isHovered ? -hoverX : 0}px)`,
-              transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
-              transformOrigin: `${leftCx}px ${cy}px`
-            }}>
+            <motion.g
+              animate={{ x: isHovered ? -hoverX : 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               <circle
                 cx={leftCx}
                 cy={cy}
@@ -138,7 +135,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
                 fill="none"
                 transform={`rotate(45 ${leftCx} ${cy})`}
               />
-            </g>
+            </motion.g>
           </g>
         </svg>
       </motion.div>
