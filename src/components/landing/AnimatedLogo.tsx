@@ -9,13 +9,13 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
   const uid = useId().replace(/:/g, '');
   
   const dims = {
-    sm: { w: 36, h: 36, stroke: 7 },
-    md: { w: 52, h: 52, stroke: 8 },
-    lg: { w: 72, h: 72, stroke: 10 },
-  }[size] || { w: 36, h: 36, stroke: 7 };
+    sm: { w: 36, h: 36, stroke: 9 },
+    md: { w: 52, h: 52, stroke: 10 },
+    lg: { w: 72, h: 72, stroke: 13 },
+  }[size] || { w: 36, h: 36, stroke: 9 };
 
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const actualDims = isMobile ? { w: 28, h: 28, stroke: 5 } : dims;
+  const actualDims = isMobile ? { w: 28, h: 28, stroke: 7 } : dims;
 
   const totalDelay = 0.78;
 
@@ -25,12 +25,12 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
   const arcLen = circumference * 0.75;
   const gapLen = circumference * 0.25;
 
-  const leftCx = 23;
-  const rightCx = 37;
+  const leftCx = 25;
+  const rightCx = 35;
   const cy = 30;
 
   // Hover offsets in viewBox units
-  const hoverX = 8;
+  const hoverX = 6;
 
   return (
     <motion.div
@@ -95,7 +95,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
                 strokeDasharray={`${arcLen} ${gapLen}`}
                 strokeLinecap="round"
                 fill="none"
-                transform={`rotate(45 ${leftCx} ${cy})`}
+                transform={`rotate(-45 ${leftCx} ${cy})`}
               />
             </motion.g>
           </g>
@@ -114,7 +114,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
               strokeDasharray={`${arcLen} ${gapLen}`}
               strokeLinecap="round"
               fill="none"
-              transform={`rotate(225 ${rightCx} ${cy})`}
+              transform={`rotate(135 ${rightCx} ${cy})`}
             />
           </motion.g>
 
@@ -133,7 +133,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
                 strokeDasharray={`${arcLen} ${gapLen}`}
                 strokeLinecap="round"
                 fill="none"
-                transform={`rotate(45 ${leftCx} ${cy})`}
+                transform={`rotate(-45 ${leftCx} ${cy})`}
               />
             </motion.g>
           </g>
