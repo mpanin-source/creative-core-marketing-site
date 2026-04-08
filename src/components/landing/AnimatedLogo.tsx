@@ -87,52 +87,53 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
           </defs>
 
           {/* Layer 1: Left C bottom half (behind right C) */}
-          <motion.circle
-            cx={leftCx}
-            cy={cy}
-            r={r}
-            stroke="url(#silver-grad)"
-            strokeWidth={actualDims.stroke}
-            strokeDasharray={`${arcLen} ${gapLen}`}
-            strokeLinecap="round"
-            fill="none"
-            clipPath="url(#clip-bottom)"
-            transform={`rotate(45 ${leftCx} ${cy})`}
-            animate={isHovered ? { x: -6 } : { x: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          />
+          <g clipPath="url(#clip-bottom)" transform={`rotate(45 ${leftCx} ${cy})`}>
+            <motion.circle
+              cx={leftCx}
+              cy={cy}
+              r={r}
+              stroke="url(#silver-grad)"
+              strokeWidth={actualDims.stroke}
+              strokeDasharray={`${arcLen} ${gapLen}`}
+              strokeLinecap="round"
+              fill="none"
+              animate={isHovered ? { translateX: -6 } : { translateX: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            />
+          </g>
 
           {/* Layer 2: Right C full (middle layer) */}
-          <motion.circle
-            cx={rightCx}
-            cy={cy}
-            r={r}
-            stroke="url(#cyan-grad)"
-            strokeWidth={actualDims.stroke}
-            strokeDasharray={`${arcLen} ${gapLen}`}
-            strokeLinecap="round"
-            fill="none"
-            filter="url(#cyan-glow)"
-            transform={`rotate(225 ${rightCx} ${cy})`}
-            animate={isHovered ? { x: 6 } : { x: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          />
+          <g transform={`rotate(225 ${rightCx} ${cy})`}>
+            <motion.circle
+              cx={rightCx}
+              cy={cy}
+              r={r}
+              stroke="url(#cyan-grad)"
+              strokeWidth={actualDims.stroke}
+              strokeDasharray={`${arcLen} ${gapLen}`}
+              strokeLinecap="round"
+              fill="none"
+              filter="url(#cyan-glow)"
+              animate={isHovered ? { translateX: 6 } : { translateX: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            />
+          </g>
 
           {/* Layer 3: Left C top half (in front of right C) */}
-          <motion.circle
-            cx={leftCx}
-            cy={cy}
-            r={r}
-            stroke="url(#silver-grad)"
-            strokeWidth={actualDims.stroke}
-            strokeDasharray={`${arcLen} ${gapLen}`}
-            strokeLinecap="round"
-            fill="none"
-            clipPath="url(#clip-top)"
-            transform={`rotate(45 ${leftCx} ${cy})`}
-            animate={isHovered ? { x: -6 } : { x: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          />
+          <g clipPath="url(#clip-top)" transform={`rotate(45 ${leftCx} ${cy})`}>
+            <motion.circle
+              cx={leftCx}
+              cy={cy}
+              r={r}
+              stroke="url(#silver-grad)"
+              strokeWidth={actualDims.stroke}
+              strokeDasharray={`${arcLen} ${gapLen}`}
+              strokeLinecap="round"
+              fill="none"
+              animate={isHovered ? { translateX: -6 } : { translateX: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            />
+          </g>
         </svg>
       </motion.div>
 
