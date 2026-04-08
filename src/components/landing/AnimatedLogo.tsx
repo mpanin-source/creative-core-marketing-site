@@ -43,7 +43,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
   return (
     <motion.div
       className="relative z-10 flex-shrink-0"
-      style={{ margin: "-4px 1px" }}
+      style={{ margin: "-8px 1px" }}
       initial={{ opacity: 0, scale: 0.3, rotate: -90 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
       transition={{ delay: totalDelay, duration: 0.5, type: "spring", stiffness: 200, damping: 15 }}
