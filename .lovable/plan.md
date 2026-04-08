@@ -1,26 +1,34 @@
 
 
-## Plan: Perfect the Chanel-Style Interlocking CC
+## Plan: Fix CC Interlocking — Correct Arc Orientations
 
-### Current State
-The CC emblem is now visible but the interlock isn't convincing. The two circles are too far apart (cx=23 vs cx=37, only 14px overlap on r=16 circles), and the "C" openings may not face each other correctly.
+### The Real Problem
+
+The rotation angles are wrong, causing the two C shapes to open **up and down** instead of **left and right** like a Chanel logo. Here's why:
+
+SVG `stroke-dasharray` on a circle starts drawing at 3 o'clock and goes clockwise. With 75% arc / 25% gap, the gap naturally sits from 12 o'clock to 3 o'clock (top-right quadrant).
+
+- **Current left C**: `rotate(-45)` → gap moves to ~10:30–1:30 → opens **upward**
+- **Current right C**: `rotate(135)` → gap moves to ~4:30–7:30 → opens **downward**
+
+Neither C opens sideways, so they don't interlock like Chanel at all.
+
+### The Fix
+
+Change rotations so each C opens toward the other:
+
+- **Left C**: `rotate(45)` → gap moves to 1:30–4:30, centered at 3 o'clock → **opens right** ✓
+- **Right C**: `rotate(225)` → gap moves to 7:30–10:30, centered at 9 o'clock → **opens left** ✓
+
+This makes the two C's face each other with the weave happening at the top and bottom crossing points — exactly like the Chanel reference.
 
 ### What Changes
 
-**File:** `src/components/landing/AnimatedLogo.tsx` — CCEmblem component only
+**File:** `src/components/landing/AnimatedLogo.tsx`
 
-1. **Tighter overlap**: Move circles closer together — left cx=22, right cx=38 → change to left cx=25, right cx=35 (10px apart instead of 14, creating much more overlap on r=16 circles)
+1. Line 98: Change `rotate(-45 ${leftCx} ${cy})` → `rotate(45 ${leftCx} ${cy})`
+2. Line 117: Change `rotate(135 ${rightCx} ${cy})` → `rotate(225 ${rightCx} ${cy})`
+3. Line 136: Change `rotate(-45 ${leftCx} ${cy})` → `rotate(45 ${leftCx} ${cy})` (same as line 98 — this is the clipped duplicate)
 
-2. **Correct C orientations**: Left C opening faces right, right C opening faces left (like Chanel). Adjust rotation angles:
-   - Left C: `rotate(-45, cx, cy)` — gap centered at 3 o'clock (opening right)
-   - Right C: `rotate(135, cx, cy)` — gap centered at 9 o'clock (opening left)
-
-3. **Thicker strokes**: Bump stroke widths up ~30% (sm: 9, md: 10, lg: 13) for the bold, chunky look in the reference
-
-4. **Better weave clip**: The clipPath split line stays at the vertical center. The draw order (bottom-left → full-right → top-left) already creates the over-under effect, but with tighter overlap it will read much more clearly
-
-5. **Keep everything else**: Same hover separation animation, same glow, same entrance spring, same responsive sizing
-
-### Why This Will Work
-The Chanel interlock illusion depends on three things: (a) significant overlap between the two arcs, (b) opposing openings, and (c) the over-under weave at the crossing points. Currently (a) is weak and (b) may be slightly off. Fixing both with simple number changes will make a dramatic difference.
+Three number changes. Everything else stays the same — hover animation, gradients, clip paths, sizing.
 
