@@ -54,6 +54,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
           width={actualDims.w}
           height={actualDims.h}
           fill="none"
+          overflow="visible"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
