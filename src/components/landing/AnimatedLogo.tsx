@@ -57,77 +57,23 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
           overflow="visible"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <defs>
-            <linearGradient id={`silver-grad-${size}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#e8e8e8" />
-              <stop offset="40%" stopColor="#ffffff" />
-              <stop offset="70%" stopColor="#c0c0c0" />
-              <stop offset="100%" stopColor="#e0e0e0" />
-            </linearGradient>
-            <linearGradient id={`cyan-grad-${size}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00f0ff" />
-              <stop offset="40%" stopColor="#00d9ff" />
-              <stop offset="70%" stopColor="#0090b0" />
-              <stop offset="100%" stopColor="#00d9ff" />
-            </linearGradient>
-            <filter id={`cyan-glow-${size}`}>
-              <feGaussianBlur stdDeviation="2" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <clipPath id={`clip-top-${size}`}>
-              <rect x="0" y="0" width={vb} height={cy} />
-            </clipPath>
-            <clipPath id={`clip-bottom-${size}`}>
-              <rect x="0" y={cy} width={vb} height={cy} />
-            </clipPath>
-          </defs>
-
-          {/* Layer 1: Left C bottom half (behind right C) */}
-          <g clipPath={`url(#clip-bottom-${size})`}>
-            <circle
-              cx={leftCx}
-              cy={cy}
-              r={r}
-              stroke={`url(#silver-grad-${size})`}
-              strokeWidth={actualDims.stroke}
-              strokeDasharray={`${arcLen} ${gapLen}`}
-              strokeLinecap="round"
-              fill="none"
-              transform={`rotate(45 ${leftCx} ${cy})`}
-            />
-          </g>
-
-          {/* Layer 2: Right C full (middle layer) */}
+          {/* Debug: simple visible circles */}
+          <circle
+            cx={leftCx}
+            cy={cy}
+            r={r}
+            stroke="#ffffff"
+            strokeWidth={actualDims.stroke}
+            fill="none"
+          />
           <circle
             cx={rightCx}
             cy={cy}
             r={r}
-            stroke={`url(#cyan-grad-${size})`}
+            stroke="#00d1ff"
             strokeWidth={actualDims.stroke}
-            strokeDasharray={`${arcLen} ${gapLen}`}
-            strokeLinecap="round"
             fill="none"
-            filter={`url(#cyan-glow-${size})`}
-            transform={`rotate(225 ${rightCx} ${cy})`}
           />
-
-          {/* Layer 3: Left C top half (in front of right C) */}
-          <g clipPath={`url(#clip-top-${size})`}>
-            <circle
-              cx={leftCx}
-              cy={cy}
-              r={r}
-              stroke={`url(#silver-grad-${size})`}
-              strokeWidth={actualDims.stroke}
-              strokeDasharray={`${arcLen} ${gapLen}`}
-              strokeLinecap="round"
-              fill="none"
-              transform={`rotate(45 ${leftCx} ${cy})`}
-            />
-          </g>
         </svg>
       </motion.div>
 
