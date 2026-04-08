@@ -7,10 +7,10 @@ interface AnimatedLogoProps {
 
 const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => {
   const dims = {
-    sm: { w: 24, h: 24, stroke: 2.5 },
-    md: { w: 30, h: 30, stroke: 3 },
-    lg: { w: 42, h: 42, stroke: 3.5 },
-  }[size] || { w: 24, h: 24, stroke: 2.5 };
+    sm: { w: 28, h: 28, stroke: 4 },
+    md: { w: 36, h: 36, stroke: 4.5 },
+    lg: { w: 50, h: 50, stroke: 5 },
+  }[size] || { w: 28, h: 28, stroke: 4 };
 
   const totalDelay = 0.78;
 
