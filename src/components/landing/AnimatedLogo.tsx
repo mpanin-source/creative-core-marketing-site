@@ -29,8 +29,8 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
       <motion.div
         className="relative"
         style={{
-          width: dims.w,
-          height: dims.h,
+          width: actualDims.w,
+          height: actualDims.h,
           filter: isHovered
             ? "drop-shadow(0 0 10px rgba(0,209,255,0.7)) drop-shadow(0 0 20px rgba(0,209,255,0.3))"
             : "drop-shadow(0 0 4px rgba(0,209,255,0.35))",
