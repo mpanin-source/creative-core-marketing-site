@@ -114,7 +114,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
               strokeDasharray={`${arcLen} ${gapLen}`}
               strokeLinecap="round"
               fill="none"
-              transform={`rotate(135 ${rightCx} ${cy})`}
+              transform={`rotate(225 ${rightCx} ${cy})`}
             />
           </motion.g>
 
