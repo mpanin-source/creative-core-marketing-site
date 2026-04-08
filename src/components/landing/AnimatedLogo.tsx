@@ -30,7 +30,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
   const cy = 30;
 
   // Hover offsets in viewBox units
-  const hoverX = 5;
+  const hoverX = 8;
 
   return (
     <motion.div
