@@ -145,7 +145,6 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
     </motion.div>
   );
 };
-};
 
 const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
   const [isHovered, setIsHovered] = useState(false);
