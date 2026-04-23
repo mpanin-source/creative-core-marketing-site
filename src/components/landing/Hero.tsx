@@ -39,7 +39,7 @@ const Hero = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-electric"
           >
-            60-DAY PERFORMANCE GUARANTEE
+            FLORIDA HOME SERVICES — PRE-SUMMER PUSH ACTIVE
           </motion.p>
 
           {/* Headline */}
@@ -48,12 +48,12 @@ const Hero = () => {
             className="text-4xl md:text-5xl lg:text-7xl font-display leading-[0.95] text-foreground uppercase mb-6"
             style={{ fontWeight: 900, lineHeight: 1 }}
           >
-            WE'LL RUN YOUR ADS
+            WE RUN GOOGLE LSA + META
             <br />
-            BETTER THAN YOUR
+            FOR FLORIDA HOME SERVICES —
             <br />
-            CURRENT AGENCY —{" "}
-            <span className="hero-gradient-text">FOR HALF THE PRICE</span>
+            BETTER RESULTS,{" "}
+            <span className="hero-gradient-text">HALF THE PRICE</span>
           </motion.h1>
 
           {/* Subhead */}
@@ -61,7 +61,7 @@ const Hero = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
             className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 max-w-[680px]"
           >
-            60-day trial at $1,500/month for local service businesses. If you're not seeing better results after 60 days, walk away — no hard feelings.
+            Right now we're signing residential window tinting companies ahead of their pre-summer push. 60-day trial at $1,500/month. If we don't beat your current numbers, you walk away and keep everything we built.
           </motion.p>
 
           {/* CTA */}
