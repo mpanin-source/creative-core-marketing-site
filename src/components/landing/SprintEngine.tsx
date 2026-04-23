@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { Search, Map, Palette, Layout, Database, Activity } from "lucide-react";
+import { ShieldCheck, Search, Palette, Layout, Database, PhoneCall } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -7,12 +7,12 @@ const sectionFade: Variants = {
 };
 
 const deliverables = [
-  { icon: Search, title: "FUNNEL AUDIT", desc: "15-min Loom video breakdown of where your current funnel is losing money. Free before you spend a dime." },
-  { icon: Map, title: "CAMPAIGN ROADMAP", desc: "60-day campaign plan with every milestone mapped, every deliverable dated, and clear performance benchmarks." },
-  { icon: Palette, title: "AD CREATIVE", desc: "5-10 ad variations across Meta & Google — tested weekly, losers killed, winners scaled." },
-  { icon: Layout, title: "LANDING PAGES", desc: "High-converting pages built for one goal: speed to decision. Fewer fields, stronger proof, clear next step." },
-  { icon: Database, title: "CRM + LEAD SCORING", desc: "Basic CRM setup with lead scoring automation. Every lead tagged, scored, and auto-followed-up." },
-  { icon: Activity, title: "PIXEL TRACKING", desc: "Behavioral tracking that scores visitors by engagement — so your sales team calls the hottest leads first." },
+  { icon: Search, title: "ATTRIBUTION AUDIT", desc: "15-min Loom breakdown of where your current marketing is leaking money. Free before you spend a dime." },
+  { icon: ShieldCheck, title: "LSA + GOOGLE GUARANTEED", desc: "We handle license upload, insurance verification, and background checks to get you on Local Services Ads — the #1 local search position." },
+  { icon: Palette, title: "AD CREATIVE SUITE", desc: "5-10 ad variations across Meta and Google. Tested weekly. Losers killed. Winners scaled." },
+  { icon: Layout, title: "LANDING PAGES", desc: "High-converting residential-focused pages built for speed to decision. Mobile-first. Trust-signaled. Clear CTA." },
+  { icon: Database, title: "CRM + LEAD SCORING", desc: "Every lead tagged, scored, and auto-followed-up. SMS + email drip sequences for dormant lead reactivation." },
+  { icon: PhoneCall, title: "CALL TRACKING + ATTRIBUTION", desc: "Every call recorded. Every lead source tagged. You finally know which dollar made which sale." },
 ];
 
 const SprintEngine = () => {
