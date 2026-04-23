@@ -7,8 +7,9 @@ import WhyDifferent from "@/components/landing/WhyDifferent";
 import Deliverables from "@/components/landing/Deliverables";
 import BottomLine from "@/components/landing/BottomLine";
 import UntappedMarket from "@/components/landing/UntappedMarket";
-import LeadPhilosophy from "@/components/landing/LeadPhilosophy";
 import PricingTiers from "@/components/landing/PricingTiers";
+import AIVoiceUpsells from "@/components/landing/AIVoiceUpsells";
+import Day60Transition from "@/components/landing/Day60Transition";
 import WhyOffering from "@/components/landing/WhyOffering";
 import FAQSection from "@/components/landing/FAQSection";
 import WindowClosing from "@/components/landing/WindowClosing";
@@ -36,8 +37,11 @@ const Index = () => {
         <div className="section-divider-gradient" />
         <UntappedMarket />
         <div className="section-divider-gradient" />
-        <div className="section-divider-gradient" />
         <PricingTiers />
+        <div className="section-divider-gradient" />
+        <AIVoiceUpsells />
+        <div className="section-divider-gradient" />
+        <Day60Transition />
         <div className="section-divider-gradient" />
         <WhyOffering />
         <div className="section-divider-gradient" />
