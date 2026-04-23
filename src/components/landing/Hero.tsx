@@ -82,7 +82,7 @@ const Hero = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={3.5}
             className="text-xs text-muted-foreground/70 pb-16"
           >
-            15-minute breakdown of where your funnel is losing money
+            15-minute attribution + funnel breakdown — no pitch, just a plan
           </motion.p>
         </div>
       </div>
