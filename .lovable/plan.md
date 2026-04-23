@@ -1,39 +1,47 @@
 
 
-## Plan: CC Emblem — Color Swap + Shimmer Hover Animation
+# Florida Home Services Rebuild — Implementation Plan
 
-### What Changes
+## Scope
+Rebuild Creative Core's site to lead with Florida home services positioning (residential window tinting), restructure pricing into 3 tiers, add AI Voice upsells, day-60 transition section, sharper differentiators, and a diagnostic field on the contact form. All existing styling conventions (framer-motion patterns, lucide icons, CSS tokens) preserved.
 
-**File:** `src/components/landing/AnimatedLogo.tsx` — CCEmblem component
+## Files Changed (Edits)
 
-### Current Behavior
-On hover, the two rings slide apart horizontally (±6px in viewBox units) with an intensified cyan glow.
+1. **`src/components/landing/Hero.tsx`** — eyebrow, H1 (3-line), subhead, CTA microcopy
+2. **`src/components/landing/SprintEngine.tsx`** — section heading + subhead, 6 card titles/descriptions
+3. **`src/components/landing/WhyDifferent.tsx`** — heading, subhead, 6 cards (LSA Badge, Neighborhood Cluster, Seasonal Push, Residential Microsite, AC Calculator, Utility Rebate)
+4. **`src/components/landing/BottomLine.tsx`** — rename visible heading to "REALITY CHECK", new eyebrow/H1, 6-KPI grid (3×2), closing line, CTA → #contact
+5. **`src/components/landing/PricingTiers.tsx`** — full rewrite to 3 tiers (Foundation Sprint highlighted, Growth Partner "MOST POPULAR", Scale Partner "QUALIFICATION REQUIRED" with lock icon)
+6. **`src/components/landing/ContactForm.tsx`** — add required diagnostic dropdown ("#1 thing holding business back") between ad spend and submit; gate submit on it
+7. **`src/pages/Index.tsx`** — reorder sections, insert two new sections + dividers
 
-### New Behavior
-On hover:
-1. **Color swap**: The left C (currently silver/white gradient) transitions to cyan, and the right C (currently cyan gradient) transitions to silver/white — they swap identities
-2. **Diagonal shimmer**: A bright white highlight sweeps diagonally across both rings (top-left to bottom-right) over ~0.4s, like light catching polished metal
-3. **Glow intensifies** as it does now
-4. **Remove the horizontal separation** — rings stay interlocked, the color swap IS the interaction
+## Files Created (New)
 
-### Also includes
-- Raise the CC vertically by -2px (the margin fix from the previous approved plan)
+8. **`src/components/landing/AIVoiceUpsells.tsx`** — section heading "SPEED-TO-LEAD IS A RANKING FACTOR", italic Google LSA callout, subhead, 3 cards (Voice $750+$500, SMS $1k+$750, Combo $1.5k+$750 with "SAVES $250/MONTH" badge)
+9. **`src/components/landing/Day60Transition.tsx`** — eyebrow "WHAT HAPPENS AT DAY 60", H1 "NO SURPRISES. NO LOCK-INS. JUST THE PLAN.", 3-step horizontal layout (FileText, Layers, CreditCard icons)
 
-### Implementation Details
+## Final Section Order (`Index.tsx`)
 
-1. **Replace static gradient references** with Framer Motion animated values. Each circle's `stroke` will transition between the two gradient IDs using CSS transition on `stroke` property, or more reliably, animate the gradient stop colors themselves using inline style overrides.
+```text
+Hero → MarqueeStrip → WhoThisIsFor → SprintEngine → WhyDifferent →
+Deliverables → BottomLine (Reality Check) → UntappedMarket →
+PricingTiers → AIVoiceUpsells (NEW) → Day60Transition (NEW) →
+WhyOffering → FAQSection → WindowClosing → ContactForm → Footer
+```
 
-2. **Shimmer effect**: Add an animated `<rect>` with a narrow white-to-transparent linear gradient, masked to only show over the rings, that translates diagonally across the viewBox on hover. Uses a `<mask>` referencing the ring shapes so the shimmer only appears on the strokes.
+`section-divider-gradient` placed between each major section (matching current pattern).
 
-3. **Framer Motion `animate`** keyed to `isHovered` drives the gradient stop color transitions (spring, ~0.3s) and the shimmer rect position (linear, 0.4s).
+## Design / Technical Notes
 
-4. Since SVG gradient stops can't be directly animated by Framer Motion, we'll use two sets of gradient definitions (one silver, one cyan per ring) and swap the `stroke` URL reference via a conditional — with CSS `transition` on opacity of overlapping circle pairs to create a smooth crossfade.
+- **Animations**: reuse existing `fadeUp` / `sectionFade` variants with `custom={i}` stagger (0.1s delays). Cast easing as `[number, number, number, number]` per project Framer Motion convention.
+- **Icons** (lucide-react): `ShieldCheck, MapPin, Thermometer, Globe, Calculator, DollarSign` (WhyDifferent); `FileText, Layers, CreditCard` (Day60); `Phone, MessageSquare, Sparkles` (AIVoiceUpsells); `Lock` (Tier 3 badge).
+- **Reused tokens only**: `text-electric`, `text-safety`, `text-shimmer-blue`, `hero-gradient-text`, `outcome-card`, `outcome-icon`, `pricing-pulse-border`, `cta-pulse-orange`, `btn-safety`, `btn-primary`, `section-alt`, `section-warm`. No new tokens.
+- **Spacing**: `py-32 px-6 md:px-8` on new sections.
+- **Responsive**: cards stack on mobile, `md:grid-cols-2 lg:grid-cols-3` on desktop; KPI grid `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`.
+- **CTAs**: every audit/booking CTA scrolls to `#contact` via `getElementById("contact")?.scrollIntoView`.
+- **PricingTiers**: keep existing card shell; Tier 1 keeps `pricing-pulse-border`, Tier 2 gets orange "MOST POPULAR" pill, Tier 3 gets a muted/locked variant with `Lock` icon and "QUALIFICATION REQUIRED" pill.
+- **ContactForm**: new field as a `<select>` matching existing field styling; added to required-fields validation that controls submit `disabled` state.
 
-### Approach (simplified)
-- Duplicate each circle with the opposite gradient
-- Crossfade opacity between original and duplicate on hover (0→1 / 1→0)
-- Overlay a diagonal shimmer `<rect>` clipped to ring shapes, animated left-to-right on hover
-
-### Files Changed
-- `src/components/landing/AnimatedLogo.tsx` — CCEmblem component rewrite of hover logic + vertical margin fix
+## Out of Scope (Untouched)
+MarqueeStrip, WhoThisIsFor, Deliverables, UntappedMarket, WhyOffering, FAQSection, WindowClosing, Footer, Header, StickyUrgencyBanner, MouseGlowEffect, global CSS, theme config, package.json.
 
