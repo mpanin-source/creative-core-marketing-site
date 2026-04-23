@@ -214,6 +214,26 @@ const ContactForm = () => {
                   </SelectContent>
                 </Select>
               </div>
+              {/* Holdback Diagnostic */}
+              <div>
+                <label className={labelClasses}>What's the #1 thing holding your business back? *</label>
+                <Select value={formData.holdback} onValueChange={(v) => handleSelect("holdback", v)}>
+                  <SelectTrigger className={inputClasses}>
+                    <SelectValue placeholder="Select what's holding you back" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-border">
+                    {[
+                      { value: "not-enough-leads", label: "Not enough leads" },
+                      { value: "leads-not-converting", label: "Leads aren't converting to customers" },
+                      { value: "low-customer-value", label: "Customers aren't spending enough / coming back" },
+                      { value: "capacity", label: "Can't handle the work we already have" },
+                      { value: "unsure", label: "Honestly not sure" },
+                    ].map((t) => (
+                      <SelectItem key={t.value} value={t.value} className="text-foreground focus:bg-electric/10 focus:text-foreground">{t.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
 
               <button type="submit" disabled={!canSubmit || isSubmitting}
                 className="w-full h-14 btn-primary rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
