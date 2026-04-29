@@ -91,10 +91,10 @@ const ContactForm = () => {
             <Shield className="w-10 h-10 text-electric" />
           </div>
           <h2 className="font-display text-3xl md:text-5xl text-foreground uppercase mb-4" style={{ fontWeight: 700 }}>
-            SPRINT AUDIT SCHEDULED
+            REDIRECTING TO CALENDLY…
           </h2>
           <p className="text-xl text-muted-foreground mb-6">
-            We'll be in touch within 24 hours with your funnel breakdown.
+            Pick a time that works for you. We'll see you there.
           </p>
         </div>
       </section>
@@ -110,10 +110,10 @@ const ContactForm = () => {
           className="text-center mb-12"
         >
           <h2 className="font-display text-foreground uppercase text-3xl sm:text-4xl md:text-5xl mb-4" style={{ fontWeight: 700 }}>
-            SCHEDULE YOUR 15-MIN SPRINT AUDIT
+            START HERE
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We'll analyze your funnel, identify friction points, and show you exactly what a 30-day sprint would look like for your business. No pitch. No obligation.
+            Whether you're starting with the $497 Launch-Ready Website or going straight to a full agency tier — start here. We'll review what you submit and get back to you within 24 hours.
           </p>
         </motion.div>
 
@@ -228,6 +228,26 @@ const ContactForm = () => {
                   </SelectContent>
                 </Select>
               </div>
+              {/* Timeline */}
+              <div>
+                <label className={labelClasses}>What timeline are you on? *</label>
+                <Select value={formData.timeline} onValueChange={(v) => handleSelect("timeline", v)}>
+                  <SelectTrigger className={inputClasses}>
+                    <SelectValue placeholder="Select your timeline" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-border">
+                    {[
+                      { value: "30-days", label: "Ready to start within 30 days" },
+                      { value: "60-days", label: "Within 60 days" },
+                      { value: "90-days", label: "Within 90 days" },
+                      { value: "exploring", label: "Just exploring options" },
+                    ].map((t) => (
+                      <SelectItem key={t.value} value={t.value} className="text-foreground focus:bg-electric/10 focus:text-foreground">{t.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <p className="text-muted-foreground text-xs mt-1.5">We prioritize businesses ready to start in the next 30 days.</p>
+              </div>
               {/* Holdback Diagnostic */}
               <div>
                 <label className={labelClasses}>What's the #1 thing holding your business back? *</label>
@@ -251,7 +271,7 @@ const ContactForm = () => {
 
               <button type="submit" disabled={!canSubmit || isSubmitting}
                 className="w-full h-14 btn-primary rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
-                {isSubmitting ? "SUBMITTING..." : "SEND MY FUNNEL AUDIT"}
+                {isSubmitting ? "SUBMITTING..." : "GET MY $497 WEBSITE OR BOOK MY AUDIT"}
                 {!isSubmitting && <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />}
               </button>
             </form>
