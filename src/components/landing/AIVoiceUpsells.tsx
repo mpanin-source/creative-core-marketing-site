@@ -9,21 +9,21 @@ const sectionFade: Variants = {
 const cards = [
   {
     icon: Phone,
-    name: "AI VOICE SPEED-TO-LEAD",
+    name: "GENERATIVE VOICE RESPONSE",
     price: "$750 setup + $500/month",
     desc: "AI agent answers inbound calls when you're on a job or off the clock. Qualifies lead, books appointment, syncs to your CRM.",
     badge: null as string | null,
   },
   {
     icon: MessageSquare,
-    name: "AI VOICE + SMS IN CRM",
+    name: "GENERATIVE VOICE + SMS",
     price: "$1,000 setup + $750/month",
     desc: "AI generates and sends contextual SMS responses inside your CRM. Qualifies leads, books appointments, nurtures cold leads via text.",
     badge: null,
   },
   {
     icon: Sparkles,
-    name: "COMBO (BEST VALUE)",
+    name: "FULL RESPONSE SUITE",
     price: "$1,500 setup + $750/month",
     desc: "Both AI Voice and SMS working together. Same monthly fee as SMS alone — saves $250/month vs. buying separately.",
     badge: "SAVES $250/MONTH",
@@ -43,10 +43,10 @@ const AIVoiceUpsells = () => {
             ADD-ONS
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
-            SPEED-TO-LEAD IS A <span className="italic text-shimmer-blue">RANKING FACTOR</span>
+            AUTOMATED VOICE & SMS — SPEED-TO-LEAD IS A <span className="italic text-shimmer-blue">RANKING FACTOR</span>
           </h2>
-          <p className="italic text-base md:text-lg text-muted-foreground max-w-[720px] mx-auto mb-3">
-            Google LSA boosts rankings for businesses that answer fast. Most contractors can't — they're on the job. Our AI Voice agents answer for them.
+          <p className="italic text-base md:text-lg text-muted-foreground max-w-[760px] mx-auto mb-3">
+            These aren't bots or template scripts. They're full generative AI that sounds like a real human, qualifies leads, and books appointments while you're on the job.
           </p>
           <p className="text-sm text-muted-foreground/80">
             Available add-ons for Foundation Sprint + Growth Partner clients

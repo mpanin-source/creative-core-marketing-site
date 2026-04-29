@@ -5,7 +5,7 @@ import { X } from "lucide-react";
 const StickyUrgencyBanner = () => {
   const [dismissed, setDismissed] = useState(false);
 
-  const tickerText = "⚡ LIMITED TO 8 CLIENTS — 3 SPOTS REMAINING AT TRIAL PRICING • $1,500/MO FOR 60 DAYS";
+  const tickerText = "⚡ NOW ACCEPTING: 3 FLORIDA HOME SERVICE CLIENTS • ONE CLIENT PER NICHE PER COUNTY • $497 LAUNCH-READY WEBSITE OR FULL AGENCY TIERS";
 
   // Repeat enough times to guarantee seamless fill
   const copies = Array.from({ length: 8 }, (_, i) => i);

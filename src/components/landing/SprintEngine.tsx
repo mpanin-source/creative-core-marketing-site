@@ -25,15 +25,13 @@ const SprintEngine = () => {
           className="text-center mb-16"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
-            FOUNDATION SPRINT DELIVERABLES — WEEK BY WEEK
+            FOUNDATION SPRINT — WHAT YOU GET
           </p>
           <h2
             className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground"
             style={{ fontWeight: 900 }}
           >
-            WHAT YOU GET IN THE
-            <br />
-            <span className="italic text-shimmer-blue">FIRST 60 DAYS</span>
+            EVERYTHING IN <span className="italic text-shimmer-blue">FOUNDATION SPRINT</span>
           </h2>
         </motion.div>
 

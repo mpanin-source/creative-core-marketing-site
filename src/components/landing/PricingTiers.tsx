@@ -100,7 +100,7 @@ const PricingTiers = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-safety/10 border border-safety/30 rounded-full">
             <Zap className="w-4 h-4 text-safety" />
-            <span className="text-sm font-bold text-safety">Limited to 8 clients total — 3 spots remaining</span>
+            <span className="text-sm font-bold text-safety">NOW ACCEPTING: 3 FLORIDA HOME SERVICE CLIENTS</span>
           </div>
         </motion.div>
 
@@ -174,6 +174,53 @@ const PricingTiers = () => {
             );
           })}
         </div>
+
+        {/* Tier 3 Add-On: Full Content Domination */}
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="max-w-3xl mx-auto mb-12"
+        >
+          <p className="text-center italic text-sm text-muted-foreground mb-4">
+            This is what 'AI Search Domination' actually looks like in practice. Built for businesses ready to own their county for the next 5 years.
+          </p>
+          <div className="bg-card rounded-xl p-6 md:p-8 border border-electric/30 relative shadow-[0_0_24px_rgba(0,209,255,0.1)]">
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap bg-electric/15 text-electric border border-electric/40 flex items-center gap-1.5">
+              <Lock className="w-3 h-3" />
+              TIER 3 EXCLUSIVE
+            </div>
+            <h3 className="font-display text-xl text-foreground mt-1" style={{ fontWeight: 800 }}>
+              FULL CONTENT DOMINATION
+            </h3>
+            <p className="text-xs text-muted-foreground mb-3">Add to Tier 3 — Scale Partner only</p>
+            <p className="font-display text-3xl text-electric mb-5" style={{ fontWeight: 700 }}>+$1,500/month</p>
+            <div className="grid sm:grid-cols-2 gap-2.5 mb-6">
+              {[
+                "YouTube channel management (4 videos/month)",
+                "IG + FB social media management (cross-posted from YouTube)",
+                "2 educational blog posts/month (ghostwritten)",
+                "Reddit presence building (local engagement, careful & slow)",
+                "AI search position monitoring (weekly tracking)",
+                "Meta Ray-Ban glasses included (first 5 quarterly clients) — content capture workflow",
+                "Schema markup across full site",
+                "Quarterly local backlink campaign",
+                "Active GBP Q&A monitoring + weekly posts",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-2">
+                  <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-electric" />
+                  <span className="text-sm text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={scrollToContact}
+              className="w-full py-3 rounded-lg font-body font-semibold text-sm border border-electric/40 text-electric hover:bg-electric/10 transition-colors flex items-center justify-center gap-2"
+            >
+              Talk to Us About This
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </motion.div>
 
         {/* Guarantee Box */}
         <motion.div

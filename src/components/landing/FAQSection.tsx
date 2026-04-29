@@ -5,27 +5,35 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 const faqs = [
   {
     q: "What if I'm not currently running ads?",
-    a: "Even better. We'll start fresh with a proven testing framework. Same pricing applies — $1,500/month for the 60-day trial.",
+    a: "Even better — we'll build the foundation right the first time instead of unwinding someone else's mess. Start with the $497 Launch-Ready Website to fix your conversion leak first, or jump straight into Foundation Sprint ($1,500/mo) once you're ready for $1,500–$2,000/mo in ad spend. If you want to talk through where to start, book the audit.",
   },
   {
-    q: "What if I don't have an ad budget of $2,000/month?",
-    a: "You'll need at least $1,500-$2,000/month for ad spend (separate from our $1,500 management fee). If you're not ready to invest in ads yet, we're not the right fit.",
+    q: "What if my budget is under $2,000/month?",
+    a: "Then start with the $497 Launch-Ready Website — it pays for itself by stopping the leads you're already losing on a broken website. Once you have $1,500–$2,000/mo in ad spend ready, we'll move you into Foundation Sprint. We'd rather you start small and win than overextend and quit.",
   },
   {
     q: "Do you guarantee results?",
-    a: "We guarantee effort and expertise, not results — marketing is testing, and some things work while others don't. But if we're not outperforming your current situation after 60 days, you can walk away. No long-term contracts.",
+    a: "We guarantee work, transparency, and the No-BS Guarantee on agency tiers: if after 60 days we haven't beaten your current numbers, you walk away and keep everything we built. Marketing is testing — anyone promising guaranteed leads is lying. If you want to talk through realistic expectations, book the audit.",
   },
   {
-    q: "What platforms do you run ads on?",
-    a: "Primarily Google Ads (search & display) and Meta (Facebook/Instagram). We focus on what works best for local service businesses.",
+    q: "How long until I see results?",
+    a: "Foundation gets installed in the first 14 days. Real performance lift typically shows up in weeks 3–6 as we kill losing creative and scale winners. By Day 60 you'll know if we're worth keeping — and you decide, not us.",
   },
   {
-    q: "How many clients do you take on?",
-    a: "We're capping at 8 clients total to ensure quality service. Once we hit 8, the discounted trial pricing goes away and we go to market rate.",
+    q: "What happens if I'm already working with another agency?",
+    a: "We'll do the audit anyway and tell you straight whether they're underperforming or doing fine. If they're fine, we'll say so. If they're not, you'll have a documented reason to leave — and we'll be ready when you are. Book the audit either way.",
   },
   {
-    q: "What makes you different from other agencies?",
-    a: "Honesty. I'm building this from the ground up, so I'm offering premium service at a discount to build case studies. You get expert ad management for half the price. Once I have 10+ clients and proven results, my prices will match the market. Get in now while spots are available.",
+    q: "Who owns the ads, landing pages, and data?",
+    a: "You do. Always. The ad accounts are in your name, the landing pages live on your domain, the CRM data is yours, and you pay Google + Meta directly with zero markup. If we ever part ways, you walk with everything — that's not a perk, that's the deal.",
+  },
+  {
+    q: "How do I know this isn't another agency that overpromises?",
+    a: "Because we cap at one client per niche per county and only work in Florida home services — we can't scale by signing everyone, so we have to actually perform. Our pricing is published. Our guarantee is documented. Our deliverables are in writing. If we don't beat your numbers in 60 days, you keep everything and leave.",
+  },
+  {
+    q: "Can my competitor hire you if I don't sign?",
+    a: "Yes. One client per niche per county is a first-come, first-served lock — once they sign, we're closed to your niche in your county for as long as they're a client. If you want to claim your county before they do, book the audit.",
   },
 ];
 

@@ -16,8 +16,8 @@ const kpis = [
 ];
 
 const BottomLine = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToUntapped = () => {
+    document.getElementById("untapped-market")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -85,10 +85,10 @@ const BottomLine = () => {
           transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <button
-            onClick={scrollToContact}
+            onClick={scrollToUntapped}
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
-            GET YOUR ATTRIBUTION AUDIT
+            SEE UNTAPPED OPPORTUNITIES
             <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />
           </button>
         </motion.div>

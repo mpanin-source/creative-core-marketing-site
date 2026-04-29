@@ -18,7 +18,7 @@ const UntappedMarket = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="untapped-market" className="py-24 md:py-32 bg-background relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6">
         {/* Eyebrow */}
         <motion.p

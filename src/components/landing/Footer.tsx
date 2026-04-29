@@ -134,7 +134,7 @@ const Footer = () => {
               variants={sectionFade}
               className="text-muted-foreground text-base md:text-lg mb-10 text-center max-w-xl leading-relaxed"
             >
-              Better Ads, Better Results — For Half The Price.
+              AI-Powered Marketing for Florida Home Services. One Client Per Niche, Per County.
             </motion.p>
 
             {/* Dual CTA buttons */}
@@ -146,10 +146,10 @@ const Footer = () => {
               className="flex flex-col sm:flex-row items-center gap-4"
             >
               <button
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("gateway-offer")?.scrollIntoView({ behavior: "smooth" })}
                 className="btn-primary inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-base font-semibold"
               >
-                Schedule Your Free Funnel Audit
+                Get Your $497 Website
                 <ArrowRight size={18} className="arrow-icon transition-transform" />
               </button>
               <button
@@ -167,9 +167,9 @@ const Footer = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={sectionFade}
-              className="text-sm text-muted-foreground mt-10 text-center"
+              className="text-sm text-muted-foreground mt-10 text-center max-w-2xl"
             >
-              Now accepting 8 clients total. Currently serving HVAC, Roofing, Plumbing, Med Spas, Wellness & Home Services.
+              Now accepting 3 Florida home service clients. Specializing in window tinting, roofing, HVAC, plumbing, painting, junk removal, tree service, and more.
             </motion.p>
           </div>
         </div>
