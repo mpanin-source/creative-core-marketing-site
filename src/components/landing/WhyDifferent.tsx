@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { ShieldCheck, MapPin, Thermometer, Globe, Calculator, DollarSign } from "lucide-react";
+import { ShieldCheck, MapPin, Thermometer, Globe, Calculator, DollarSign, Sparkles } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -37,6 +37,11 @@ const strategies = [
     title: "UTILITY REBATE POSITIONING",
     desc: "Many FL utilities offer $200-$600 rebates for energy-efficient window film. Most tinting companies don't know. We position the rebate — you close more deals.",
   },
+  {
+    icon: Sparkles,
+    title: "AI SEARCH DOMINATION (SGE)",
+    desc: "Google's AI now answers most local searches before customers even see results. We optimize your reviews, content, schema, GBP signals, and YouTube presence so Google's AI mentions YOU first — before your competitors are even visible. This is the next 12 months of search. Most agencies haven't caught up.",
+  },
 ];
 
 const WhyDifferent = () => {
@@ -57,7 +62,7 @@ const WhyDifferent = () => {
             YOUR <span className="italic text-shimmer-blue">LOCAL MARKET</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-[640px] mx-auto">
-            Six strategies most Florida agencies skip because they're annoying to set up.
+            Seven strategies most Florida agencies skip because they're annoying to set up.
           </p>
         </motion.div>
 
