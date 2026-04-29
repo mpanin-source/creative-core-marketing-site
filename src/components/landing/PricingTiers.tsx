@@ -100,7 +100,7 @@ const PricingTiers = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-safety/10 border border-safety/30 rounded-full">
             <Zap className="w-4 h-4 text-safety" />
-            <span className="text-sm font-bold text-safety">Limited to 8 clients total — 3 spots remaining</span>
+            <span className="text-sm font-bold text-safety">NOW ACCEPTING: 3 FLORIDA HOME SERVICE CLIENTS</span>
           </div>
         </motion.div>
 
