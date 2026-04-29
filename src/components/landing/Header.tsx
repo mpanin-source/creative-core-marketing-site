@@ -45,18 +45,18 @@ const Header = () => {
             </nav>
             <div className="hidden md:flex items-center gap-3">
               <button
-                onClick={() => scrollTo("contact")}
+                onClick={() => scrollTo("gateway-offer")}
                 className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold"
               >
-                Free Funnel Audit
+                Get Your Website
               </button>
             </div>
             <div className="flex md:hidden items-center gap-2">
               <button
-                onClick={() => scrollTo("contact")}
+                onClick={() => scrollTo("gateway-offer")}
                 className="btn-primary px-4 py-1.5 rounded-lg text-xs font-semibold"
               >
-                Free Audit
+                Get Site
               </button>
               <button
                 onClick={() => setMobileOpen(true)}
@@ -96,10 +96,10 @@ const Header = () => {
                 </button>
               ))}
               <button
-                onClick={() => scrollTo("contact")}
+                onClick={() => scrollTo("gateway-offer")}
                 className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-bold btn-primary"
               >
-                Get Free Funnel Audit
+                Get Your $497 Website
               </button>
             </div>
           </div>

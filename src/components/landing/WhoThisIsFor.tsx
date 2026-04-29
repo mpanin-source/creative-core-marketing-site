@@ -7,17 +7,17 @@ const sectionFade: Variants = {
 };
 
 const goodFit = [
-  "You're currently spending $2,000+ per month on ads (or ready to)",
-  "You want better ROI from your ad spend",
-  "You're tired of agencies that overpromise and underdeliver",
-  "You're open to trying someone new who's hungry and motivated",
+  "You run a Florida home service business (HVAC, roofing, plumbing, tinting, pest control, etc.)",
+  "Your phone isn't ringing as much as your competitor's — and you don't know why",
+  "You want better marketing without overpaying a generic agency",
+  "You're open to starting small ($497) and scaling up when you see results",
 ];
 
 const notFit = [
-  "You don't have an ad budget of at least $2K/month",
-  "You've never run ads before (we're not a good first agency)",
-  "You're looking for overnight results (ads take 30-60 days to optimize)",
-  "You're not willing to share data (we need access to track performance)",
+  "You expect overnight results (good marketing takes 30–60 days to optimize)",
+  "You're not willing to share data or grant tracking access",
+  "You want a contract-locked agency relationship (we don't lock you in)",
+  "You're outside Florida (we only work in FL home services)",
 ];
 
 const WhoThisIsFor = () => {

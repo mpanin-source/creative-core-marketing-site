@@ -39,7 +39,7 @@ const Hero = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-electric"
           >
-            FLORIDA HOME SERVICES — PRE-SUMMER PUSH ACTIVE
+            ONE CLIENT PER NICHE. ONE NICHE PER COUNTY.
           </motion.p>
 
           {/* Headline */}
@@ -48,12 +48,9 @@ const Hero = () => {
             className="text-4xl md:text-5xl lg:text-7xl font-display leading-[0.95] text-foreground uppercase mb-6"
             style={{ fontWeight: 900, lineHeight: 1 }}
           >
-            WE RUN GOOGLE LSA + META
+            STOP LOSING LEADS
             <br />
-            FOR FLORIDA HOME SERVICES —
-            <br />
-            BETTER RESULTS,{" "}
-            <span className="hero-gradient-text">HALF THE PRICE</span>
+            AT YOUR WEBSITE
           </motion.h1>
 
           {/* Subhead */}
@@ -61,28 +58,41 @@ const Hero = () => {
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
             className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 max-w-[680px]"
           >
-            Right now we're signing residential window tinting companies ahead of their pre-summer push. 60-day trial at $1,500/month. If we don't beat your current numbers, you walk away and keep everything we built.
+            Most local service businesses lose 60% of their leads at their website. Pick your starting point — $497 fixes the leak. Full tiers dominate your county. Get found, get clicked, get called.
           </motion.p>
 
-          {/* CTA */}
+          {/* Dual CTAs */}
           <motion.div
             variants={fadeUp} initial="hidden" animate="visible" custom={3}
-            className="flex flex-col items-center mb-4"
+            className="flex flex-col sm:flex-row items-center gap-3 mb-4"
           >
             <button
-              onClick={scrollToContact}
+              onClick={() => document.getElementById("gateway-offer")?.scrollIntoView({ behavior: "smooth" })}
               className="btn-safety cta-pulse-orange px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
             >
-              GET YOUR FREE FUNNEL AUDIT
+              SEE THE $497 OFFER
               <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />
+            </button>
+            <button
+              onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
+              className="px-6 py-3 rounded-lg text-sm font-semibold border border-electric/40 text-electric hover:bg-electric/10 transition-colors"
+            >
+              OR SEE FULL TIERS
             </button>
           </motion.div>
 
           <motion.p
-            variants={fadeUp} initial="hidden" animate="visible" custom={3.5}
+            variants={fadeUp} initial="hidden" animate="visible" custom={3.4}
+            className="italic text-xs md:text-sm text-electric mb-2 max-w-[640px]"
+          >
+            60-day No-BS Guarantee on agency tiers. If we don't beat your numbers, you walk away and keep everything we built.
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp} initial="hidden" animate="visible" custom={3.6}
             className="text-xs text-muted-foreground/70 pb-16"
           >
-            15-minute attribution + funnel breakdown — no pitch, just a plan
+            We build it. You own it. Florida home services only — one client per niche per county.
           </motion.p>
         </div>
       </div>
