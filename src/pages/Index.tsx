@@ -2,10 +2,15 @@ import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import MarqueeStrip from "@/components/landing/MarqueeStrip";
 import WhoThisIsFor from "@/components/landing/WhoThisIsFor";
+import GatewayOffer from "@/components/landing/GatewayOffer";
+import OutcomesNotFeatures from "@/components/landing/OutcomesNotFeatures";
 import SprintEngine from "@/components/landing/SprintEngine";
 import WhyDifferent from "@/components/landing/WhyDifferent";
+import SGEEducation from "@/components/landing/SGEEducation";
 import Deliverables from "@/components/landing/Deliverables";
 import BottomLine from "@/components/landing/BottomLine";
+import LazyAgencyCarousel from "@/components/landing/LazyAgencyCarousel";
+import UsVsThem from "@/components/landing/UsVsThem";
 import UntappedMarket from "@/components/landing/UntappedMarket";
 import PricingTiers from "@/components/landing/PricingTiers";
 import AIVoiceUpsells from "@/components/landing/AIVoiceUpsells";
@@ -18,6 +23,8 @@ import Footer from "@/components/landing/Footer";
 import MouseGlowEffect from "@/components/MouseGlowEffect";
 import StickyUrgencyBanner from "@/components/landing/StickyUrgencyBanner";
 
+const Divider = () => <div className="section-divider-gradient" />;
+
 const Index = () => {
   return (
     <>
@@ -26,27 +33,39 @@ const Index = () => {
       <main className="pt-16">
         <Hero />
         <MarqueeStrip />
-        <div className="section-divider-gradient" />
+        <Divider />
         <WhoThisIsFor />
-        <div className="section-divider-gradient" />
+        <Divider />
+        <GatewayOffer />
+        <Divider />
+        <OutcomesNotFeatures />
+        <Divider />
         <SprintEngine />
-        <div className="section-divider-gradient" />
+        <Divider />
         <WhyDifferent />
+        <Divider />
+        <SGEEducation />
+        <Divider />
         <Deliverables />
+        <Divider />
         <BottomLine />
-        <div className="section-divider-gradient" />
+        <Divider />
+        <LazyAgencyCarousel />
+        <Divider />
+        <UsVsThem />
+        <Divider />
         <UntappedMarket />
-        <div className="section-divider-gradient" />
+        <Divider />
         <PricingTiers />
-        <div className="section-divider-gradient" />
+        <Divider />
         <AIVoiceUpsells />
-        <div className="section-divider-gradient" />
+        <Divider />
         <Day60Transition />
-        <div className="section-divider-gradient" />
+        <Divider />
         <WhyOffering />
-        <div className="section-divider-gradient" />
+        <Divider />
         <FAQSection />
-        <div className="section-divider-gradient" />
+        <Divider />
         <WindowClosing />
         <ContactForm />
       </main>
