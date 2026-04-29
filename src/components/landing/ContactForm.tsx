@@ -17,6 +17,10 @@ const sectionFade: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
 };
 
+// Booking rules (max 14-day window, 24-hr min notice, meeting duration)
+// are configured in the Calendly account itself — not in code.
+const CALENDLY_URL = "https://calendly.com/paninmax2002/30min";
+
 const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,19 +35,28 @@ const ContactForm = () => {
     adSpend: "",
     currentSetup: "",
     monthlyRevenue: "",
+    timeline: "",
     holdback: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1200));
     setIsSubmitting(false);
     setShowSuccess(true);
     toast({
-      title: "Sprint Audit Scheduled!",
-      description: "We'll be in touch within 24 hours.",
+      title: "Sending you to Calendly…",
+      description: "Pick a time in the next 14 days. We'll see you there.",
     });
+    const params = new URLSearchParams({
+      name: formData.name,
+      email: formData.email,
+      a1: formData.phone,
+    });
+    setTimeout(() => {
+      window.location.href = `${CALENDLY_URL}?${params.toString()}`;
+    }, 800);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -62,6 +75,7 @@ const ContactForm = () => {
     formData.serviceType &&
     formData.adSpend &&
     formData.currentSetup &&
+    formData.timeline &&
     formData.holdback;
 
   const inputClasses =
