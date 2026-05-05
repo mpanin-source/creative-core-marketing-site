@@ -7,8 +7,8 @@ const sectionFade: Variants = {
 };
 
 const WindowClosing = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const goToBooking = () => {
+    window.location.href = "/pricing-and-booking";
   };
 
   return (
@@ -23,23 +23,23 @@ const WindowClosing = () => {
           SPOTS ARE LIMITED
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          We're capping at 8 clients total to ensure quality service. Once we hit capacity, the discounted trial pricing goes away and we go to market rate.
+          We're accepting 3 Florida home service clients per county. Once your county fills, we either raise prices or close to new clients in your area.
         </p>
         <p className="text-foreground font-semibold mb-8">
-          Book your free audit now. Lock in your spot before it's gone.
+          Book your free audit now. Lock in your county before someone else does.
         </p>
 
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-safety/10 border border-safety/30 rounded-full mb-6">
           <Clock className="w-4 h-4 text-safety" />
-          <span className="text-sm font-bold text-safety">3 spots remaining at trial pricing</span>
+          <span className="text-sm font-bold text-safety">Now Accepting 3 Florida Home Service Clients</span>
         </div>
 
         <div className="block">
           <button
-            onClick={scrollToContact}
+            onClick={goToBooking}
             className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
           >
-            Get Your Free Audit
+            See Pricing &amp; Book Call
             <ArrowRight size={18} className="arrow-icon transition-transform" />
           </button>
         </div>

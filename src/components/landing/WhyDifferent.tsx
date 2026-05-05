@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
-import { ShieldCheck, MapPin, Thermometer, Globe, Calculator, DollarSign, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ShieldCheck, MapPin, Thermometer, Globe, Calculator, DollarSign, Sparkles, ArrowRight } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -20,34 +21,29 @@ const strategies = [
   {
     icon: Thermometer,
     title: "SEASONAL PRE-SUMMER PUSH",
-    desc: "We run seasonal push campaigns in the 90-day window before summer, when homeowners are most motivated to lower their upcoming AC bills.",
+    desc: "We run seasonal push campaigns in the 90-day window before summer, when homeowners are most motivated to lower their upcoming energy bills.",
   },
   {
     icon: Globe,
-    title: "DEDICATED RESIDENTIAL MICROSITE",
-    desc: "If you run auto tinting and residential, we build you a separate residential-only microsite. Homeowners search for specialists — specialists command premium prices.",
+    title: "SERVICE-SPECIFIC MICROSITES",
+    desc: "We build dedicated microsites focused on a single service or audience. Specialists command premium prices — generalist sites get treated like commodities.",
   },
   {
     icon: Calculator,
-    title: "AC BILL SAVINGS CALCULATOR",
-    desc: "Interactive ROI calculator on your site: customers enter their square footage, get personalized savings estimates. Captures leads + builds trust in one tool.",
+    title: "ROI CALCULATORS (CUSTOM-BUILT FOR YOUR SERVICE)",
+    desc: "Interactive ROI calculators on your site: customers enter their inputs, get personalized savings or value estimates. Captures leads + builds trust in one tool.",
   },
   {
     icon: DollarSign,
-    title: "UTILITY REBATE POSITIONING",
-    desc: "Many FL utilities offer $200-$600 rebates for energy-efficient window film. Most tinting companies don't know. We position the rebate — you close more deals.",
-  },
-  {
-    icon: Sparkles,
-    title: "AI SEARCH DOMINATION (SGE)",
-    desc: "Google's AI now answers most local searches before customers even see results. We optimize your reviews, content, schema, GBP signals, and YouTube presence so Google's AI mentions YOU first — before your competitors are even visible. This is the next 12 months of search. Most agencies haven't caught up.",
+    title: "LOCAL REBATE & INCENTIVE POSITIONING",
+    desc: "Many FL utilities and municipalities offer rebates and incentives for home service work. Most companies don't surface them. We position the rebate — you close more deals.",
   },
 ];
 
 const WhyDifferent = () => {
   return (
     <section id="why-different" className="px-6 py-32 md:px-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
@@ -66,7 +62,7 @@ const WhyDifferent = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-5 mb-5">
           {strategies.map((s, i) => (
             <motion.div
               key={s.title}
@@ -86,6 +82,39 @@ const WhyDifferent = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* SGE highlighted full-width card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="relative p-8 md:p-10 rounded-2xl border-2 border-electric/40 bg-card/80 backdrop-blur-sm shadow-[0_0_40px_rgba(0,209,255,0.18)]"
+        >
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap bg-electric/15 text-electric border border-electric/40">
+            FUTURE-DEFINING
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 md:items-start">
+            <div className="outcome-icon w-12 h-12 rounded-xl bg-electric/15 flex items-center justify-center flex-shrink-0">
+              <Sparkles className="w-6 h-6 text-electric" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-display text-xl md:text-2xl text-foreground uppercase mb-3" style={{ fontWeight: 800 }}>
+                AI SEARCH DOMINATION (SGE)
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
+                Google's AI now answers most local searches before customers even see results. We optimize your reviews, content, schema, GBP signals, and YouTube presence so Google's AI mentions YOU first — before your competitors are even visible. This is the next 12 months of search. Most agencies haven't caught up.
+              </p>
+              <Link
+                to="/ai-search"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:underline"
+              >
+                Learn more about our AI search strategy
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

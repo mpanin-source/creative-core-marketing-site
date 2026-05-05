@@ -15,7 +15,7 @@ const steps = [
   {
     icon: Layers,
     title: "YOU CHOOSE YOUR TIER",
-    desc: "Upgrade to Growth Partner ($3,000/mo), stay at Foundation baseline ($2,000/mo), or walk away and keep everything we built.",
+    desc: "Upgrade to Growth Partner ($3,000/mo), stay at Foundation baseline ($2,000/mo), or walk away and keep everything we built. We hop on a 30-min strategy call to walk through the data together.",
   },
   {
     icon: CreditCard,
