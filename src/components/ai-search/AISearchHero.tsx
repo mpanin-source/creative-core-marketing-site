@@ -1,0 +1,44 @@
+import { motion, type Variants } from "framer-motion";
+
+const sectionFade: Variants = {
+  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const AISearchHero = () => {
+  return (
+    <section className="px-6 py-32 md:px-8 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+      </div>
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <motion.p
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-electric"
+        >
+          AI SEARCH DOMINATION
+        </motion.p>
+        <motion.h1
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-4xl md:text-5xl lg:text-6xl font-display text-foreground uppercase mb-6 leading-[0.95]"
+          style={{ fontWeight: 900 }}
+        >
+          THE FUTURE OF SEARCH IS AI —<br />
+          <span className="italic text-shimmer-blue">WE'RE ALREADY THERE</span>
+        </motion.h1>
+        <motion.p
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto"
+        >
+          Your competitors who get mentioned by Google's AI in 2026 will own their county for the next five years. The ones who wait will spend triple in ad spend trying to catch up.
+        </motion.p>
+      </div>
+    </section>
+  );
+};
+
+export default AISearchHero;
