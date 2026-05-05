@@ -1,76 +1,56 @@
-import Header from "@/components/landing/Header";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Hero from "@/components/landing/Hero";
 import MarqueeStrip from "@/components/landing/MarqueeStrip";
-import WhoThisIsFor from "@/components/landing/WhoThisIsFor";
-import GatewayOffer from "@/components/landing/GatewayOffer";
-import OutcomesNotFeatures from "@/components/landing/OutcomesNotFeatures";
-import SprintEngine from "@/components/landing/SprintEngine";
-import WhyDifferent from "@/components/landing/WhyDifferent";
 import SGEEducation from "@/components/landing/SGEEducation";
-import Deliverables from "@/components/landing/Deliverables";
+import OptimizationSection from "@/components/landing/OptimizationSection";
+import OutcomesNotFeatures from "@/components/landing/OutcomesNotFeatures";
+import WhyDifferent from "@/components/landing/WhyDifferent";
 import BottomLine from "@/components/landing/BottomLine";
-import LazyAgencyCarousel from "@/components/landing/LazyAgencyCarousel";
-import UsVsThem from "@/components/landing/UsVsThem";
-import UntappedMarket from "@/components/landing/UntappedMarket";
-import PricingTiers from "@/components/landing/PricingTiers";
-import AIVoiceUpsells from "@/components/landing/AIVoiceUpsells";
-import Day60Transition from "@/components/landing/Day60Transition";
-import WhyOffering from "@/components/landing/WhyOffering";
+import LazyAgencySection from "@/components/landing/LazyAgencySection";
 import FAQSection from "@/components/landing/FAQSection";
 import WindowClosing from "@/components/landing/WindowClosing";
-import ContactForm from "@/components/landing/ContactForm";
-import Footer from "@/components/landing/Footer";
-import MouseGlowEffect from "@/components/MouseGlowEffect";
-import StickyUrgencyBanner from "@/components/landing/StickyUrgencyBanner";
 
 const Divider = () => <div className="section-divider-gradient" />;
 
 const Index = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Handle scroll-to-anchor when navigated from another route via state
+  useEffect(() => {
+    const state = location.state as { scrollTo?: string } | null;
+    if (state?.scrollTo) {
+      const id = state.scrollTo;
+      // Wait a tick for sections to mount
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 80);
+      // Clear state so it never re-triggers
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location, navigate]);
+
   return (
     <>
-      <MouseGlowEffect />
-      <Header />
-      <main className="pt-16">
-        <Hero />
-        <MarqueeStrip />
-        <Divider />
-        <WhoThisIsFor />
-        <Divider />
-        <GatewayOffer />
-        <Divider />
-        <OutcomesNotFeatures />
-        <Divider />
-        <SprintEngine />
-        <Divider />
-        <WhyDifferent />
-        <Divider />
-        <SGEEducation />
-        <Divider />
-        <Deliverables />
-        <Divider />
-        <BottomLine />
-        <Divider />
-        <LazyAgencyCarousel />
-        <Divider />
-        <UsVsThem />
-        <Divider />
-        <UntappedMarket />
-        <Divider />
-        <PricingTiers />
-        <Divider />
-        <AIVoiceUpsells />
-        <Divider />
-        <Day60Transition />
-        <Divider />
-        <WhyOffering />
-        <Divider />
-        <FAQSection />
-        <Divider />
-        <WindowClosing />
-        <ContactForm />
-      </main>
-      <Footer />
-      <StickyUrgencyBanner />
+      <Hero />
+      <MarqueeStrip />
+      <Divider />
+      <SGEEducation />
+      <Divider />
+      <OptimizationSection />
+      <Divider />
+      <OutcomesNotFeatures />
+      <Divider />
+      <WhyDifferent />
+      <Divider />
+      <BottomLine />
+      <Divider />
+      <LazyAgencySection />
+      <Divider />
+      <FAQSection />
+      <Divider />
+      <WindowClosing />
     </>
   );
 };

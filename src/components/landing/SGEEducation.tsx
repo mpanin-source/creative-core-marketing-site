@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import { Link } from "react-router-dom";
 import { AlertCircle, Search, Sparkles, ArrowRight } from "lucide-react";
 
 const sectionFade: Variants = {
@@ -58,12 +59,13 @@ const SGEEducation = () => {
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{b.body}</p>
               {b.mockup && (
                 <div className="mt-4 rounded-lg border border-electric/30 bg-background/60 p-4 font-mono text-xs">
+                  <p className="text-muted-foreground italic mb-2">"best [your service] in [your city]"</p>
                   <div className="flex items-center gap-2 text-electric mb-2">
                     <Sparkles className="w-3 h-3" />
                     <span className="font-semibold">AI Overview</span>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    "Top-rated window tinting in Sarasota: <span className="text-foreground font-semibold">[Your Business]</span> offers 5-star residential service with..."
+                    "Top-rated providers: <span className="text-foreground font-semibold">[Your Business]</span> offers 5-star service with..."
                   </p>
                 </div>
               )}
@@ -84,13 +86,12 @@ const SGEEducation = () => {
           variants={sectionFade}
           className="text-center"
         >
-          <button
-            onClick={() => document.getElementById("why-different")?.scrollIntoView({ behavior: "smooth" })}
-            className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
-          >
-            SEE HOW WE DO IT
-            <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />
-          </button>
+          <p className="text-sm md:text-base text-muted-foreground mb-2">
+            Want the full breakdown of how AI search works?{" "}
+            <Link to="/ai-search" className="text-electric font-semibold hover:underline inline-flex items-center gap-1">
+              See our deep dive <ArrowRight className="w-4 h-4" />
+            </Link>
+          </p>
         </motion.div>
       </div>
     </section>

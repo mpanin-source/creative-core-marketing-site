@@ -1,23 +1,21 @@
 import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { X, Menu } from "lucide-react";
 import AnimatedLogo from "./AnimatedLogo";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const scrollTo = (id: string) => {
+  const goToFAQ = () => {
     setMobileOpen(false);
-    setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }, 50);
+    if (location.pathname === "/") {
+      document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/", { state: { scrollTo: "faq" } });
+    }
   };
-
-  const navLinks = [
-    { label: "How It Works", id: "engine" },
-    { label: "Why Us", id: "why-different" },
-    { label: "Pricing", id: "pricing" },
-    { label: "FAQ", id: "faq" },
-  ];
 
   return (
     <>
@@ -31,33 +29,22 @@ const Header = () => {
           }}
         >
           <div className="flex items-center justify-between" style={{ height: '56px' }}>
-            <AnimatedLogo size="md" />
+            <Link to="/" aria-label="Home"><AnimatedLogo size="md" /></Link>
             <nav className="hidden md:flex items-center gap-7">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className="relative text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 font-medium tracking-wide after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left"
-                >
-                  {link.label}
-                </button>
-              ))}
+              <Link to="/" className="relative text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 font-medium tracking-wide after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left">Home</Link>
+              <Link to="/ai-search" className="relative text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 font-medium tracking-wide after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left">AI Search</Link>
+              <Link to="/pricing-and-booking" className="relative text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 font-medium tracking-wide after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left">Pricing</Link>
+              <button onClick={goToFAQ} className="relative text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-150 font-medium tracking-wide after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-full after:h-[1px] after:bg-electric after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left">FAQ</button>
             </nav>
             <div className="hidden md:flex items-center gap-3">
-              <button
-                onClick={() => scrollTo("gateway-offer")}
-                className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold"
-              >
-                Get Your Website
-              </button>
+              <Link to="/pricing-and-booking" className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold">
+                Get Started
+              </Link>
             </div>
             <div className="flex md:hidden items-center gap-2">
-              <button
-                onClick={() => scrollTo("gateway-offer")}
-                className="btn-primary px-4 py-1.5 rounded-lg text-xs font-semibold"
-              >
-                Get Site
-              </button>
+              <Link to="/pricing-and-booking" className="btn-primary px-4 py-1.5 rounded-lg text-xs font-semibold">
+                Get Started
+              </Link>
               <button
                 onClick={() => setMobileOpen(true)}
                 className="p-2 rounded-lg hover:bg-secondary/50 transition-colors"
@@ -86,21 +73,13 @@ const Header = () => {
               </button>
             </div>
             <div className="space-y-3">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors"
-                >
-                  {link.label}
-                </button>
-              ))}
-              <button
-                onClick={() => scrollTo("gateway-offer")}
-                className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-bold btn-primary"
-              >
-                Get Your $497 Website
-              </button>
+              <Link to="/" onClick={() => setMobileOpen(false)} className="block w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">Home</Link>
+              <Link to="/ai-search" onClick={() => setMobileOpen(false)} className="block w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">AI Search</Link>
+              <Link to="/pricing-and-booking" onClick={() => setMobileOpen(false)} className="block w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">Pricing</Link>
+              <button onClick={goToFAQ} className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">FAQ</button>
+              <Link to="/pricing-and-booking" onClick={() => setMobileOpen(false)} className="block w-full text-left px-4 py-3 rounded-xl font-body text-base font-bold btn-primary">
+                Get Started
+              </Link>
             </div>
           </div>
         </div>

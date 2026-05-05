@@ -25,13 +25,13 @@ const SprintEngine = () => {
           className="text-center mb-16"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
-            FOUNDATION SPRINT — WHAT YOU GET
+            FOUNDATION SPRINT
           </p>
           <h2
             className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground"
             style={{ fontWeight: 900 }}
           >
-            EVERYTHING IN <span className="italic text-shimmer-blue">FOUNDATION SPRINT</span>
+            WHAT'S <span className="italic text-shimmer-blue">INCLUDED</span>
           </h2>
         </motion.div>
 

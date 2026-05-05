@@ -19,7 +19,7 @@ const sectionFade: Variants = {
 
 // Booking rules (max 14-day window, 24-hr min notice, meeting duration)
 // are configured in the Calendly account itself — not in code.
-const CALENDLY_URL = "https://calendly.com/paninmax2002/30min";
+const CALENDLY_URL = "https://calendly.com/paninmax2002/strategy-call";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -113,7 +113,7 @@ const ContactForm = () => {
             START HERE
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Whether you're starting with the $497 Launch-Ready Website or going straight to a full agency tier — start here. We'll review what you submit and get back to you within 24 hours.
+            Tell us a bit about your business and book a strategy call. We'll review your situation, identify where leads are leaking, and map out which Creative Core path makes sense for you. No pitch — just a plan.
           </p>
         </motion.div>
 
@@ -271,7 +271,7 @@ const ContactForm = () => {
 
               <button type="submit" disabled={!canSubmit || isSubmitting}
                 className="w-full h-14 btn-primary rounded-lg text-base uppercase tracking-wider transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
-                {isSubmitting ? "SUBMITTING..." : "GET MY $497 WEBSITE OR BOOK MY AUDIT"}
+                {isSubmitting ? "SUBMITTING..." : "BOOK MY STRATEGY CALL"}
                 {!isSubmitting && <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />}
               </button>
             </form>

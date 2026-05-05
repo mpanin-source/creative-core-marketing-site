@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { Check, ArrowRight, Zap, Shield, Lock } from "lucide-react";
+import { Check, ArrowRight, Zap, Lock, ChevronDown } from "lucide-react";
 import CountUp from "react-countup";
 
 const sectionFade: Variants = {
@@ -69,6 +70,7 @@ const tiers = [
 ];
 
 const PricingTiers = () => {
+  const [showQual, setShowQual] = useState(false);
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -222,26 +224,91 @@ const PricingTiers = () => {
           </div>
         </motion.div>
 
-        {/* Guarantee Box */}
+        {/* Tier 3 Qualification Accordion */}
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
+          className="max-w-3xl mx-auto"
         >
-          <div
-            className="max-w-3xl mx-auto p-8 rounded-xl border-2 border-safety/40 text-center"
-            style={{ background: "hsla(25, 100%, 50%, 0.04)", boxShadow: "0 0 40px rgba(255,107,0,0.1)" }}
+          <button
+            onClick={() => setShowQual(!showQual)}
+            className="w-full flex items-center justify-between p-5 rounded-xl border border-electric/30 bg-card hover:border-electric/60 transition-colors"
+            aria-expanded={showQual}
           >
-            <Shield className="w-8 h-8 text-safety mx-auto mb-3" />
-            <h3 className="font-display text-2xl text-foreground uppercase mb-3" style={{ fontWeight: 900 }}>
-              THE NO-BS GUARANTEE
-            </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
-              If after 60 days you're not seeing improvement in your ad performance, we'll part ways — no long-term contracts, no complicated refund process, no hard feelings.
-            </p>
-            <p className="text-sm text-foreground font-semibold mt-3">
-              You're either getting better results or you're not working with us. Simple as that.
-            </p>
-          </div>
+            <span className="font-display text-base text-electric uppercase tracking-wide flex items-center gap-2" style={{ fontWeight: 700 }}>
+              <Lock className="w-4 h-4" />
+              See If You Qualify For Tier 3
+            </span>
+            <ChevronDown className={`w-5 h-5 text-electric transition-transform ${showQual ? "rotate-180" : ""}`} />
+          </button>
+          {showQual && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="bg-card border border-electric/20 rounded-xl p-6 md:p-8 mt-3 space-y-6">
+                <div>
+                  <h4 className="font-display text-sm text-electric uppercase tracking-widest mb-3" style={{ fontWeight: 800 }}>
+                    Tier 3 Qualification
+                  </h4>
+                  <p className="text-sm text-muted-foreground mb-4">You qualify for Tier 3 if you meet either path:</p>
+                </div>
+
+                <div>
+                  <p className="font-display text-sm text-foreground uppercase mb-3" style={{ fontWeight: 700 }}>
+                    Standard Path (After 60 Days At Tier 2)
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {[
+                      "Verified Google Business Profile with 50+ reviews at 4.5+ stars",
+                      "3–5 reviews in last 90 days (recency matters)",
+                      "Functional mobile-responsive website",
+                      "Currently servicing 15+ qualified appointments/month",
+                      "Sales close rate at minimum 25%",
+                      "60+ days at Tier 2 with us with 20%+ CPL reduction achieved",
+                      "Willing to produce/approve 4 pieces of content/month",
+                      "6-month minimum commitment",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="font-display text-sm text-foreground uppercase mb-3" style={{ fontWeight: 700 }}>
+                    Skip-Ahead Path (Bypass Tier 2)
+                  </p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {[
+                      "75+ Google reviews at 4.5+ stars",
+                      "Active LSA with Google Guaranteed badge",
+                      "Existing schema markup deployed",
+                      "Active GBP (services, photos, weekly posts)",
+                      "60-day baseline metrics available",
+                      "Functional CRM with lead tracking",
+                      "20+ booked appointments/month consistently",
+                      "3+ existing pieces of content (blogs, videos)",
+                      "Service-area pages for at least 3 specific cities",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <p className="italic text-sm text-muted-foreground border-t border-border pt-4">
+                  Don't qualify yet? Foundation Sprint ($1,500/mo) gets you ready in 60–90 days. Growth Partner ($3,000/mo) builds you to qualification in 90–120 days.
+                </p>
+              </div>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </section>

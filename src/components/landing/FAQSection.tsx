@@ -35,6 +35,14 @@ const faqs = [
     q: "Can my competitor hire you if I don't sign?",
     a: "Yes. One client per niche per county is a first-come, first-served lock — once they sign, we're closed to your niche in your county for as long as they're a client. If you want to claim your county before they do, book the audit.",
   },
+  {
+    q: "Is my monthly fee on top of ad spend, or does it include ads?",
+    a: "Our monthly fee is for our work only — strategy, optimization, content production, agent infrastructure, and management. Your ad spend (whatever you choose to budget for Google and Meta) goes DIRECTLY to those platforms from YOUR credit card on YOUR accounts. We never add markup. Most clients spend $1,500–$5,000/month on ads in addition to our service fee, depending on their growth goals. You control your ad budget at all times — we never touch it.",
+  },
+  {
+    q: "What does the 60-day guarantee actually mean?",
+    a: "If after 60 days we haven't either reduced your cost-per-lead by at least 20% or grown your booked appointments by at least 25%, you can walk away and keep everything we built — your website, ad accounts, landing pages, CRM setup, schema markup, all of it. We require baseline data confirmed in writing within the first 7 days so we both know exactly what success looks like. No contract. No refund battle. Just a clean exit if we don't deliver.",
+  },
 ];
 
 const sectionFade: Variants = {

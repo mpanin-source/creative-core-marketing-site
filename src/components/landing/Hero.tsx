@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 const fadeUp = {
@@ -12,12 +13,10 @@ const fadeUp = {
 } as const;
 
 const Hero = () => {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
 
-  const scrollToEngine = () => {
-    document.getElementById("engine")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToOutcomes = () => {
+    document.getElementById("outcomes")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -56,44 +55,30 @@ const Hero = () => {
           {/* Subhead */}
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 max-w-[680px]"
+            className="text-base md:text-lg text-muted-foreground leading-relaxed mb-10 max-w-[720px]"
           >
-            Most local service businesses lose 60% of their leads at their website. Pick your starting point — $497 fixes the leak. Full tiers dominate your county. Get found, get clicked, get called.
+            Florida home services. Marketed differently. Territory exclusive — one client per niche per county. Start at $497, or walk away after 60 days if we don't reduce your cost-per-lead by <span className="text-electric font-semibold">20%</span> OR grow your booked appointments by <span className="text-electric font-semibold">25%</span> — and keep everything we built.
           </motion.p>
 
           {/* Dual CTAs */}
           <motion.div
             variants={fadeUp} initial="hidden" animate="visible" custom={3}
-            className="flex flex-col sm:flex-row items-center gap-3 mb-4"
+            className="flex flex-col sm:flex-row items-center gap-3 mb-4 pb-16"
           >
             <button
-              onClick={() => document.getElementById("gateway-offer")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={scrollToOutcomes}
               className="btn-safety cta-pulse-orange px-10 py-5 rounded-lg text-lg group flex items-center gap-2"
             >
-              SEE THE $497 OFFER
+              SEE WHAT WE DO
               <ArrowRight className="w-5 h-5 arrow-icon transition-transform" />
             </button>
             <button
-              onClick={() => document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => navigate("/pricing-and-booking")}
               className="px-6 py-3 rounded-lg text-sm font-semibold border border-electric/40 text-electric hover:bg-electric/10 transition-colors"
             >
-              OR SEE FULL TIERS
+              GO STRAIGHT TO PRICING
             </button>
           </motion.div>
-
-          <motion.p
-            variants={fadeUp} initial="hidden" animate="visible" custom={3.4}
-            className="italic text-xs md:text-sm text-electric mb-2 max-w-[640px]"
-          >
-            60-day No-BS Guarantee on agency tiers. If we don't beat your numbers, you walk away and keep everything we built.
-          </motion.p>
-
-          <motion.p
-            variants={fadeUp} initial="hidden" animate="visible" custom={3.6}
-            className="text-xs text-muted-foreground/70 pb-16"
-          >
-            We build it. You own it. Florida home services only — one client per niche per county.
-          </motion.p>
         </div>
       </div>
 
@@ -103,7 +88,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
-        onClick={scrollToEngine}
+        onClick={scrollToOutcomes}
       >
         <span className="text-xs text-electric/60 uppercase tracking-widest">Scroll</span>
         <ChevronDown className="w-5 h-5 text-electric/60 scroll-indicator" />

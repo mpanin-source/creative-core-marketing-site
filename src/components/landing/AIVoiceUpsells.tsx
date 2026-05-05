@@ -30,30 +30,53 @@ const cards = [
   },
 ];
 
-const AIVoiceUpsells = () => {
+interface AIVoiceUpsellsProps {
+  deemphasized?: boolean;
+}
+
+const AIVoiceUpsells = ({ deemphasized = false }: AIVoiceUpsellsProps) => {
+  // De-emphasis: smaller padding, lighter opacity, smaller titles. NO scale transforms.
+  const cardPadding = deemphasized ? "p-4 md:p-5" : "p-6 md:p-8";
+  const cardOpacity = deemphasized ? "opacity-80" : "";
+  const titleSize = deemphasized ? "text-sm" : "text-base";
+  const headlineSize = deemphasized ? "text-2xl md:text-3xl" : "text-3xl md:text-4xl lg:text-5xl";
+
   return (
     <section className="px-6 py-32 md:px-8" id="ai-voice">
       <div className="max-w-6xl mx-auto">
+        {deemphasized && (
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+            variants={sectionFade}
+            className="italic text-sm text-muted-foreground/80 text-center max-w-3xl mx-auto mb-6"
+          >
+            Optional add-ons available after you've signed a Foundation Sprint or Growth Partner tier — these are not required to start.
+          </motion.p>
+        )}
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
             ADD-ONS
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
+          <h2 className={`${headlineSize} font-display text-foreground mb-4`} style={{ fontWeight: 900 }}>
             AUTOMATED VOICE & SMS — SPEED-TO-LEAD IS A <span className="italic text-shimmer-blue">RANKING FACTOR</span>
           </h2>
-          <p className="italic text-base md:text-lg text-muted-foreground max-w-[760px] mx-auto mb-3">
-            These aren't bots or template scripts. They're full generative AI that sounds like a real human, qualifies leads, and books appointments while you're on the job.
-          </p>
-          <p className="text-sm text-muted-foreground/80">
-            Available add-ons for Foundation Sprint + Growth Partner clients
-          </p>
+          {!deemphasized && (
+            <>
+              <p className="italic text-base md:text-lg text-muted-foreground max-w-[760px] mx-auto mb-3">
+                These aren't bots or template scripts. They're full generative AI that sounds like a real human, qualifies leads, and books appointments while you're on the job.
+              </p>
+              <p className="text-sm text-muted-foreground/80">
+                Available add-ons for Foundation Sprint + Growth Partner clients
+              </p>
+            </>
+          )}
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className={`grid md:grid-cols-3 gap-${deemphasized ? "4" : "6"} ${cardOpacity}`}>
           {cards.map((c, i) => (
             <motion.div
               key={c.name}
@@ -61,21 +84,21 @@ const AIVoiceUpsells = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-card rounded-xl p-6 md:p-8 flex flex-col relative border border-border shadow-subtle transition-all duration-300 hover:-translate-y-2 hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.15)]"
+              className={`bg-card rounded-xl ${cardPadding} flex flex-col relative border border-border ${deemphasized ? "shadow-subtle" : "shadow-subtle"} transition-all duration-300 hover:-translate-y-2 hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.15)] ${deemphasized ? "bg-muted/20" : ""}`}
             >
               {c.badge && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap bg-safety/15 text-safety border border-safety/40">
                   {c.badge}
                 </div>
               )}
-              <div className="outcome-icon w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center mb-4">
-                <c.icon className="w-5 h-5 text-electric" />
+              <div className={`outcome-icon ${deemphasized ? "w-8 h-8" : "w-10 h-10"} rounded-xl bg-electric/10 flex items-center justify-center mb-3`}>
+                <c.icon className={`${deemphasized ? "w-4 h-4" : "w-5 h-5"} text-electric`} />
               </div>
-              <h3 className="font-display text-base text-foreground uppercase mb-2" style={{ fontWeight: 800 }}>
+              <h3 className={`font-display ${titleSize} text-foreground uppercase mb-2`} style={{ fontWeight: 800 }}>
                 {c.name}
               </h3>
-              <p className="text-electric font-semibold text-sm mb-3">{c.price}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+              <p className="text-electric font-semibold text-sm mb-2">{c.price}</p>
+              <p className={`${deemphasized ? "text-xs" : "text-sm"} text-muted-foreground leading-relaxed`}>{c.desc}</p>
             </motion.div>
           ))}
         </div>
