@@ -10,6 +10,7 @@ const sectionFade: Variants = {
 
 const tiers = [
   {
+    id: "foundation-tier",
     name: "FOUNDATION SPRINT",
     subtitle: "Test the waters — prove the system works",
     price: 1500,
@@ -30,6 +31,7 @@ const tiers = [
     highlighted: true,
   },
   {
+    id: "growth",
     name: "GROWTH PARTNER",
     subtitle: "Scale what worked + activate dormant leads",
     price: 3000,
@@ -50,6 +52,7 @@ const tiers = [
     highlighted: false,
   },
   {
+    id: "scale",
     name: "SCALE PARTNER",
     subtitle: "Full AI-integrated growth operating system",
     price: 5000,
@@ -117,11 +120,12 @@ const PricingTiers = () => {
             return (
               <motion.div
                 key={tier.name}
+                id={tier.id}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`bg-card rounded-xl p-6 md:p-8 flex flex-col relative transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] ${
+                className={`bg-card rounded-xl p-6 md:p-8 flex flex-col relative scroll-mt-24 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] ${
                   tier.highlighted
                     ? "border-2 border-safety shadow-[0_0_28px_hsla(25,100%,50%,0.25)] pricing-pulse-border"
                     : tier.locked

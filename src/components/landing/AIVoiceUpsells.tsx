@@ -42,7 +42,7 @@ const AIVoiceUpsells = ({ deemphasized = false }: AIVoiceUpsellsProps) => {
   const headlineSize = deemphasized ? "text-2xl md:text-3xl" : "text-3xl md:text-4xl lg:text-5xl";
 
   return (
-    <section className="px-6 py-32 md:px-8" id="ai-voice">
+    <section className="px-6 py-32 md:px-8 scroll-mt-24" id="voice-sms">
       <div className="max-w-6xl mx-auto">
         {deemphasized && (
           <motion.p

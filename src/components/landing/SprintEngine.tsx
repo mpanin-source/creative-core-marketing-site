@@ -17,7 +17,7 @@ const deliverables = [
 
 const SprintEngine = () => {
   return (
-    <section className="px-6 py-32 md:px-8 section-alt" id="engine">
+    <section className="px-6 py-32 md:px-8 section-alt scroll-mt-24" id="foundation">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
