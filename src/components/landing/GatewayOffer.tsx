@@ -46,7 +46,7 @@ const GatewayOffer = () => {
   const scrollToContact = () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section id="gateway-offer" className="px-6 py-32 md:px-8 section-warm">
+    <section id="gateway" className="px-6 py-32 md:px-8 section-warm scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}

@@ -47,9 +47,7 @@ const Hero = () => {
             className="text-4xl md:text-5xl lg:text-7xl font-display leading-[0.95] text-foreground uppercase mb-6"
             style={{ fontWeight: 900, lineHeight: 1 }}
           >
-            STOP LOSING LEADS
-            <br />
-            AT YOUR WEBSITE
+            OWN YOUR COUNTY.
           </motion.h1>
 
           {/* Subhead */}

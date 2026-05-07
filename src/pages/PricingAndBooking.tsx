@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles, Rocket, Clock } from "lucide-react";
 import GatewayOffer from "@/components/landing/GatewayOffer";
@@ -107,6 +109,15 @@ const TrustBlock = () => (
 );
 
 const PricingAndBooking = () => {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.hash]);
   return (
     <>
       <MiniHero />

@@ -146,14 +146,14 @@ const Footer = () => {
               className="flex flex-col sm:flex-row items-center gap-4"
             >
               <button
-                onClick={() => document.getElementById("gateway-offer")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("gateway")?.scrollIntoView({ behavior: "smooth" })}
                 className="btn-primary inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-base font-semibold"
               >
                 Get Your $497 Website
                 <ArrowRight size={18} className="arrow-icon transition-transform" />
               </button>
               <button
-                onClick={() => document.getElementById("engine")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("foundation")?.scrollIntoView({ behavior: "smooth" })}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold border border-border text-foreground hover:border-electric/40 hover:text-electric transition-colors duration-200"
                 style={{ background: "rgba(255,255,255,0.03)" }}
               >
