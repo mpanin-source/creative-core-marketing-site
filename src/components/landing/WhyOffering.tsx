@@ -20,7 +20,7 @@ const WhyOffering = () => {
             THE HONEST TRUTH
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-12" style={{ fontWeight: 900 }}>
-            WHY THIS PRICING <span className="italic text-shimmer-blue">WON'T LAST</span>
+            TERRITORY EXCLUSIVITY <span className="italic text-shimmer-blue">ISN'T MARKETING</span>
           </h2>
         </motion.div>
 
@@ -31,8 +31,8 @@ const WhyOffering = () => {
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-6 text-xl md:text-2xl text-foreground leading-relaxed font-medium"
         >
-          <p>This pricing only works for the first 3 clients per Florida county.</p>
-          <p>Once we hit our cap, we either raise prices or close to new clients in that area.</p>
+          <p>We don't accept clients who already have an agency running their AI Search optimization. If you're with us, your local competitors can't be — that's the whole point.</p>
+          <p>3 Florida home service clients per niche per county. Once your county fills in your niche, we close to new clients in that area.</p>
           <p className="text-electric italic">If you're reading this, your county is still open. That won't be true forever.</p>
         </motion.div>
 
