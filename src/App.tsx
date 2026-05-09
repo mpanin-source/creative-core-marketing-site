@@ -7,6 +7,7 @@ import Layout from "./components/global/Layout";
 import Index from "./pages/Index";
 import PricingAndBooking from "./pages/PricingAndBooking";
 import AISearch from "./pages/AISearch";
+import FAQPage from "./pages/FAQPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/pricing-and-booking" element={<PricingAndBooking />} />
             <Route path="/ai-search" element={<AISearch />} />
+            <Route path="/faq" element={<FAQPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

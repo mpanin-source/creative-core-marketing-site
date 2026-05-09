@@ -1,15 +1,12 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles, Rocket, Clock } from "lucide-react";
 import GatewayOffer from "@/components/landing/GatewayOffer";
 import SprintEngine from "@/components/landing/SprintEngine";
-import CostTransparency from "@/components/pricing/CostTransparency";
-import CostReveal from "@/components/pricing/CostReveal";
 import PricingTiers from "@/components/landing/PricingTiers";
 import GuaranteeSection from "@/components/pricing/GuaranteeSection";
-import AIVoiceUpsells from "@/components/landing/AIVoiceUpsells";
-import Day60Transition from "@/components/landing/Day60Transition";
+import CustomSolutions from "@/components/pricing/CustomSolutions";
 import WhyOffering from "@/components/landing/WhyOffering";
 import ContactForm from "@/components/landing/ContactForm";
 
@@ -90,6 +87,19 @@ const MiniHero = () => {
   );
 };
 
+const Day60Brief = () => (
+  <section className="px-6 py-12 md:px-8">
+    <div className="max-w-2xl mx-auto text-center">
+      <p className="text-sm md:text-base text-muted-foreground">
+        Want to know what happens at Day 60?{" "}
+        <Link to="/faq#day-60" className="text-electric font-semibold hover:underline inline-flex items-center gap-1">
+          See our full breakdown <ArrowRight className="w-4 h-4" />
+        </Link>
+      </p>
+    </div>
+  </section>
+);
+
 const TrustBlock = () => (
   <section className="px-6 py-20 md:px-8">
     <motion.div
@@ -122,21 +132,16 @@ const PricingAndBooking = () => {
     <>
       <MiniHero />
       <Divider />
+      <GuaranteeSection />
+      <Divider />
       <GatewayOffer />
       <Divider />
       <SprintEngine />
       <Divider />
-      <CostTransparency />
-      <Divider />
-      <CostReveal />
-      <Divider />
       <PricingTiers />
       <Divider />
-      <GuaranteeSection />
-      <Divider />
-      <AIVoiceUpsells deemphasized />
-      <Divider />
-      <Day60Transition />
+      <CustomSolutions />
+      <Day60Brief />
       <Divider />
       <WhyOffering />
       <Divider />

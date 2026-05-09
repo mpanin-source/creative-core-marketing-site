@@ -4,11 +4,12 @@ import { X, Menu, ChevronDown } from "lucide-react";
 import AnimatedLogo from "./AnimatedLogo";
 
 const services = [
-  { label: "$497 Launch Site → Stop Losing Leads", to: "/pricing-and-booking#gateway" },
-  { label: "Foundation Sprint → Lower Your CPL", to: "/pricing-and-booking#foundation" },
-  { label: "Growth Partner → Pack Your Calendar", to: "/pricing-and-booking#growth" },
-  { label: "Scale Partner → Own Your County", to: "/pricing-and-booking#scale" },
-  { label: "Automated Voice & SMS → Speed-To-Lead", to: "/pricing-and-booking#voice-sms" },
+  { label: "$497 Launch Site → Stop Losing Leads", anchor: "gateway" },
+  { label: "Foundation Sprint → Lower Your CPL", anchor: "foundation-sprint" },
+  { label: "Growth Partner → Pack Your Calendar", anchor: "growth-partner" },
+  { label: "Scale Partner → Own Your County", anchor: "scale-partner" },
+  { label: "SEO & AI Search Domination", anchor: "sge" },
+  { label: "Voice & SMS Automation", anchor: "voice-sms" },
 ];
 
 const Header = () => {
@@ -29,12 +30,35 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  const goToFAQ = () => {
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     setMobileOpen(false);
     if (location.pathname === "/") {
-      document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      navigate("/", { state: { scrollTo: "faq" } });
+      navigate("/");
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
+    }
+  };
+
+  const handleNavClick = (path: string) => {
+    setMobileOpen(false);
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate(path);
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
+    }
+  };
+
+  const handleServiceClick = (anchor: string) => {
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
+    setMobileOpen(false);
+    if (location.pathname === "/faq") {
+      document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/faq", { state: { scrollTo: anchor } });
     }
   };
 
@@ -53,7 +77,7 @@ const Header = () => {
           }}
         >
           <div className="flex items-center justify-between" style={{ height: '56px' }}>
-            <Link to="/" aria-label="Home"><AnimatedLogo size="md" /></Link>
+            <a href="/" onClick={handleLogoClick} aria-label="Home"><AnimatedLogo size="md" /></a>
             <nav className="hidden md:flex items-center gap-7">
               <div className="relative" ref={dropdownRef}>
                 <button
@@ -74,21 +98,20 @@ const Header = () => {
                     }}
                   >
                     {services.map((s) => (
-                      <Link
-                        key={s.to}
-                        to={s.to}
-                        onClick={() => setServicesOpen(false)}
-                        className="block px-3 py-2.5 rounded-lg text-[13px] text-muted-foreground hover:text-foreground hover:bg-electric/10 transition-colors"
+                      <button
+                        key={s.anchor}
+                        onClick={() => handleServiceClick(s.anchor)}
+                        className="block w-full text-left px-3 py-2.5 rounded-lg text-[13px] text-muted-foreground hover:text-foreground hover:bg-electric/10 transition-colors"
                       >
                         {s.label}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
               </div>
-              <Link to="/ai-search" className={navLinkClass}>AI Search</Link>
-              <Link to="/pricing-and-booking" className={navLinkClass}>Pricing</Link>
-              <button onClick={goToFAQ} className={navLinkClass}>FAQ</button>
+              <button onClick={() => handleNavClick("/ai-search")} className={navLinkClass}>AI Search</button>
+              <button onClick={() => handleNavClick("/pricing-and-booking")} className={navLinkClass}>Pricing</button>
+              <button onClick={() => handleNavClick("/faq")} className={navLinkClass}>FAQ</button>
             </nav>
             <div className="hidden md:flex items-center gap-3">
               <Link to="/pricing-and-booking" className="btn-primary px-5 py-2 rounded-lg text-sm font-semibold">
@@ -138,21 +161,20 @@ const Header = () => {
                 {mobileServicesOpen && (
                   <div className="border-t border-border px-2 py-2 space-y-1">
                     {services.map((s) => (
-                      <Link
-                        key={s.to}
-                        to={s.to}
-                        onClick={() => setMobileOpen(false)}
-                        className="block px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                      <button
+                        key={s.anchor}
+                        onClick={() => handleServiceClick(s.anchor)}
+                        className="block w-full text-left px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                       >
                         {s.label}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
               </div>
-              <Link to="/ai-search" onClick={() => setMobileOpen(false)} className="block w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">AI Search</Link>
-              <Link to="/pricing-and-booking" onClick={() => setMobileOpen(false)} className="block w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">Pricing</Link>
-              <button onClick={goToFAQ} className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">FAQ</button>
+              <button onClick={() => handleNavClick("/ai-search")} className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">AI Search</button>
+              <button onClick={() => handleNavClick("/pricing-and-booking")} className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">Pricing</button>
+              <button onClick={() => handleNavClick("/faq")} className="w-full text-left px-4 py-3 rounded-xl font-body text-base font-semibold text-foreground bg-secondary hover:bg-muted transition-colors">FAQ</button>
               <Link to="/pricing-and-booking" onClick={() => setMobileOpen(false)} className="block w-full text-left px-4 py-3 rounded-xl font-body text-base font-bold btn-primary">
                 START AT $497
               </Link>

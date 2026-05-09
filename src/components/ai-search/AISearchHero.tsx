@@ -26,15 +26,14 @@ const AISearchHero = () => {
           className="text-4xl md:text-5xl lg:text-6xl font-display text-foreground uppercase mb-6 leading-[0.95]"
           style={{ fontWeight: 900 }}
         >
-          THE FUTURE OF SEARCH IS AI —<br />
-          <span className="italic text-shimmer-blue">WE'RE ALREADY THERE</span>
+          GET YOUR BUSINESS MENTIONED BY GOOGLE'S AI <span className="italic text-shimmer-blue">BEFORE YOUR COMPETITORS ARE</span>
         </motion.h1>
         <motion.p
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
           className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto"
         >
-          Your competitors who get mentioned by Google's AI in 2026 will own their county for the next five years. The ones who wait will spend triple in ad spend trying to catch up.
+          Your competitors who get mentioned by Google's AI in 2026 will own their county for the next five years. The ones who wait will spend triple in ad spend trying to catch up. Search just changed forever — here's how we get you ahead.
         </motion.p>
       </div>
     </section>

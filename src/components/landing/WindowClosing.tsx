@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
-import { Clock, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -7,42 +8,30 @@ const sectionFade: Variants = {
 };
 
 const WindowClosing = () => {
-  const goToBooking = () => {
-    window.location.href = "/pricing-and-booking";
-  };
-
   return (
-    <section className="section-padding section-funnel section-warm" id="urgency">
+    <section className="px-6 py-24 md:px-8" id="urgency">
       <motion.div
         initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
         variants={sectionFade}
-        className="max-w-[700px] mx-auto text-center"
+        className="max-w-2xl mx-auto text-center bg-card border border-electric/20 rounded-2xl p-8 md:p-10"
       >
-        <Clock className="w-8 h-8 text-warning mx-auto mb-4" />
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-display text-foreground mb-6" style={{ fontWeight: 700 }}>
-          SPOTS ARE LIMITED
+        <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          GET STARTED
+        </p>
+        <h2 className="text-2xl md:text-3xl font-display text-foreground mb-5" style={{ fontWeight: 800 }}>
+          START AT $497
         </h2>
-        <p className="text-muted-foreground leading-relaxed mb-4">
-          We're accepting 3 Florida home service clients per county. Once your county fills, we either raise prices or close to new clients in your area.
-        </p>
-        <p className="text-foreground font-semibold mb-8">
-          Book your free audit now. Lock in your county before someone else does.
-        </p>
-
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-safety/10 border border-safety/30 rounded-full mb-6">
-          <Clock className="w-4 h-4 text-safety" />
-          <span className="text-sm font-bold text-safety">Now Accepting 3 Florida Home Service Clients</span>
+        <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed mb-7 max-w-xl mx-auto">
+          <p>We're accepting 3 Florida home service clients per niche per county. Once your county fills in your niche, we close to new clients in that area.</p>
+          <p>Start with our $497 Launch-Ready Website — built in 7 days, yours to keep, no contract.</p>
         </div>
-
-        <div className="block">
-          <button
-            onClick={goToBooking}
-            className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base"
-          >
-            See Pricing &amp; Book Call
-            <ArrowRight size={18} className="arrow-icon transition-transform" />
-          </button>
-        </div>
+        <Link
+          to="/pricing-and-booking#gateway"
+          className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-body font-semibold text-sm border border-electric/40 text-electric hover:bg-electric/10 transition-colors"
+        >
+          See What's Included
+          <ArrowRight size={16} />
+        </Link>
       </motion.div>
     </section>
   );

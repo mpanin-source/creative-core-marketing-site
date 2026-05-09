@@ -35,8 +35,8 @@ const SignalLayers = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {layers.map((l, i) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+          {layers.slice(0, 6).map((l, i) => (
             <motion.div
               key={l.title}
               initial={{ opacity: 0, y: 20 }}
@@ -58,6 +58,37 @@ const SignalLayers = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* 7th card — full-width, highlighted */}
+        {(() => {
+          const l = layers[6];
+          const Icon = l.icon;
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="p-7 md:p-8 rounded-2xl border-2 border-electric/50 bg-card/80 backdrop-blur-sm relative shadow-[0_0_40px_rgba(0,209,255,0.18)]"
+            >
+              <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-electric/15 border border-electric/40 text-[10px] font-bold tracking-widest uppercase text-electric">
+                FUTURE-DEFINING
+              </div>
+              <div className="absolute top-5 right-5 font-display text-2xl text-electric/30" style={{ fontWeight: 900 }}>07</div>
+              <div className="flex items-start gap-5">
+                <div className="outcome-icon w-12 h-12 shrink-0 rounded-xl bg-electric/15 flex items-center justify-center">
+                  <Icon className="w-6 h-6 text-electric" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-display text-lg md:text-xl text-foreground uppercase mb-2" style={{ fontWeight: 800 }}>
+                    {l.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{l.desc}</p>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })()}
       </div>
     </section>
   );
