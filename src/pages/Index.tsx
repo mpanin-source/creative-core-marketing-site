@@ -8,7 +8,6 @@ import OutcomesNotFeatures from "@/components/landing/OutcomesNotFeatures";
 import WhyDifferent from "@/components/landing/WhyDifferent";
 import BottomLine from "@/components/landing/BottomLine";
 import LazyAgencySection from "@/components/landing/LazyAgencySection";
-import FAQSection from "@/components/landing/FAQSection";
 import WindowClosing from "@/components/landing/WindowClosing";
 
 const Divider = () => <div className="section-divider-gradient" />;
@@ -17,16 +16,13 @@ const Index = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Handle scroll-to-anchor when navigated from another route via state
   useEffect(() => {
     const state = location.state as { scrollTo?: string } | null;
     if (state?.scrollTo) {
       const id = state.scrollTo;
-      // Wait a tick for sections to mount
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 80);
-      // Clear state so it never re-triggers
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location, navigate]);
@@ -47,8 +43,6 @@ const Index = () => {
       <BottomLine />
       <Divider />
       <LazyAgencySection />
-      <Divider />
-      <FAQSection />
       <Divider />
       <WindowClosing />
     </>
