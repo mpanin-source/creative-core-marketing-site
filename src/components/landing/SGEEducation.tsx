@@ -37,16 +37,40 @@ const SGEEducation = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-lg border border-electric/30 bg-background/60 p-5 font-mono text-xs md:text-sm shadow-[0_0_30px_rgba(0,209,255,0.12)]"
+            className="rounded-xl border border-electric/30 bg-background/70 p-5 shadow-[0_0_30px_rgba(0,209,255,0.12)]"
           >
-            <p className="text-muted-foreground italic mb-3">"best [your service] in [your city]"</p>
-            <div className="flex items-center gap-2 text-electric mb-2">
-              <Sparkles className="w-4 h-4" />
-              <span className="font-semibold">AI Overview</span>
+            {/* Search bar mock */}
+            <div className="rounded-md bg-card/80 border border-border px-3 py-2 mb-4 text-xs text-muted-foreground italic font-mono">
+              best [your service] in [your city]
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              "Top-rated providers: <span className="text-foreground font-semibold">[Your Business]</span> offers 5-star service with..."
-            </p>
+            {/* AI Overview header */}
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-5 h-5 rounded-full bg-gradient-to-br from-electric to-electric/40 flex items-center justify-center">
+                <Sparkles className="w-3 h-3 text-background" />
+              </div>
+              <span className="text-sm font-semibold text-foreground">AI Overview</span>
+              <span className="text-[10px] uppercase tracking-widest text-electric/70 ml-auto">Generative</span>
+            </div>
+            {/* Mock AI response */}
+            <div className="space-y-2 text-sm text-foreground/90 leading-relaxed mb-4">
+              <p>
+                Top-rated providers include <span className="font-semibold text-electric">[Your Business]</span>, known for fast response times and 5-star reviews.
+              </p>
+              <ul className="space-y-1 text-xs text-muted-foreground pl-4 list-disc marker:text-electric/60">
+                <li>Same-day service availability</li>
+                <li>Verified Google Guaranteed badge</li>
+                <li>200+ reviews at 4.9 stars</li>
+              </ul>
+            </div>
+            {/* Citation badges */}
+            <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border">
+              {[1, 2, 3, 4].map((n) => (
+                <span key={n} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-muted/40 border border-border text-[10px] text-muted-foreground">
+                  <span className="w-3 h-3 rounded-full bg-muted/70 inline-block" />
+                  Source {n}
+                </span>
+              ))}
+            </div>
           </motion.div>
         </div>
 
