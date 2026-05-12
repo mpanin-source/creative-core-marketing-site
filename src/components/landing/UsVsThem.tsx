@@ -47,7 +47,7 @@ const UsVsThem = () => {
               key={r.cat}
               className={`grid grid-cols-12 px-6 py-5 items-start gap-4 ${i !== rows.length - 1 ? "border-b border-border" : ""}`}
             >
-              <div className="col-span-3 font-display text-sm uppercase text-foreground" style={{ fontWeight: 700 }}>
+              <div className="col-span-3 font-display uppercase text-foreground text-lg" style={{ fontWeight: 700 }}>
                 {r.cat}
               </div>
               <div className="col-span-4 flex items-start gap-2 text-sm text-muted-foreground">
