@@ -1,4 +1,5 @@
 import AISearchHero from "@/components/ai-search/AISearchHero";
+import HighIntentStat from "@/components/ai-search/HighIntentStat";
 import LocalBrandAdvantage from "@/components/ai-search/LocalBrandAdvantage";
 import SignalLayers from "@/components/ai-search/SignalLayers";
 import ExamplesCarousel from "@/components/ai-search/ExamplesCarousel";
@@ -11,6 +12,8 @@ const AISearch = () => {
   return (
     <>
       <AISearchHero />
+      <Divider />
+      <HighIntentStat />
       <Divider />
       <LocalBrandAdvantage />
       <Divider />

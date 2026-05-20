@@ -18,7 +18,7 @@ const AISearchHero = () => {
           variants={sectionFade}
           className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-electric"
         >
-          AI SEARCH DOMINATION
+          GEO & AI SEARCH DOMINATION
         </motion.p>
         <motion.h1
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}

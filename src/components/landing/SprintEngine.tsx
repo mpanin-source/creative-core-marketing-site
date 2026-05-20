@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { ShieldCheck, Search, Palette, Layout, Database, PhoneCall } from "lucide-react";
+import { ShieldCheck, Search, Layout, PhoneCall, Star, Sparkles } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -7,12 +7,12 @@ const sectionFade: Variants = {
 };
 
 const deliverables = [
-  { icon: Search, title: "ATTRIBUTION AUDIT", desc: "15-min Loom breakdown of where your current marketing is leaking money. Free before you spend a dime." },
-  { icon: ShieldCheck, title: "LSA + GOOGLE GUARANTEED", desc: "We handle license upload, insurance verification, and background checks to get you on Local Services Ads — the #1 local search position." },
-  { icon: Palette, title: "AD CREATIVE SUITE", desc: "5-10 ad variations across Meta and Google. Tested weekly. Losers killed. Winners scaled." },
-  { icon: Layout, title: "LANDING PAGES", desc: "High-converting residential-focused pages built for speed to decision. Mobile-first. Trust-signaled. Clear CTA." },
-  { icon: Database, title: "CRM + LEAD SCORING", desc: "Every lead tagged, scored, and auto-followed-up. SMS + email drip sequences for dormant lead reactivation." },
-  { icon: PhoneCall, title: "CALL TRACKING + ATTRIBUTION", desc: "Every call recorded. Every lead source tagged. You finally know which dollar made which sale." },
+  { icon: Search, title: "LOCAL SEO FOUNDATION", desc: "Schema markup deployment, NAP consistency across the major citation directories, GBP setup with weekly post management, and on-page SEO basics." },
+  { icon: ShieldCheck, title: "LSA + GOOGLE GUARANTEED", desc: "License upload, insurance verification, background checks to get you on Local Services Ads — plus active dispute management on bad-fit leads." },
+  { icon: Sparkles, title: "GEO ELIGIBILITY SCHEMA", desc: "Schema markup that makes you eligible for AI Overview citations across Google, ChatGPT, Claude, and Perplexity. The entry ticket to GEO." },
+  { icon: Layout, title: "CONVERSION FOUNDATION", desc: "Mobile-first conversion audit, Core Web Vitals optimization, CTA placement, click-to-call verification, basic form optimization, trust signal integration." },
+  { icon: Star, title: "REVIEW SYSTEM", desc: "Automated review request flows, monitoring, response drafting, recapture campaigns. Builds the velocity GEO weights heaviest." },
+  { icon: PhoneCall, title: "SPEED-TO-LEAD WORKFLOWS", desc: "Setup in your CRM for sub-60-second response time. Most leads are won or lost in the first minute." },
 ];
 
 const SprintEngine = () => {

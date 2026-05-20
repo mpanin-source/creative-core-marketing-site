@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Hero from "@/components/landing/Hero";
 import MarqueeStrip from "@/components/landing/MarqueeStrip";
-import SGEEducation from "@/components/landing/SGEEducation";
+import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
+import GEOEducation from "@/components/landing/GEOEducation";
 import OptimizationSection from "@/components/landing/OptimizationSection";
 import OutcomesNotFeatures from "@/components/landing/OutcomesNotFeatures";
 import WhyDifferent from "@/components/landing/WhyDifferent";
@@ -32,7 +33,9 @@ const Index = () => {
       <Hero />
       <MarqueeStrip />
       <Divider />
-      <SGEEducation />
+      <ThreePillarEngine />
+      <Divider />
+      <GEOEducation />
       <Divider />
       <OptimizationSection />
       <Divider />

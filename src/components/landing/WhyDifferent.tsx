@@ -83,7 +83,7 @@ const WhyDifferent = () => {
           ))}
         </div>
 
-        {/* SGE highlighted full-width card */}
+        {/* GEO highlighted full-width card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ const WhyDifferent = () => {
             </div>
             <div className="flex-1">
               <h3 className="font-display text-xl md:text-2xl text-foreground uppercase mb-3" style={{ fontWeight: 800 }}>
-                AI SEARCH DOMINATION (SGE)
+                GEO & AI SEARCH DOMINATION
               </h3>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
                 Google's AI now answers most local searches before customers even see results. We optimize your reviews, content, schema, GBP signals, and YouTube presence so Google's AI mentions YOU first — before your competitors are even visible. This is the next 12 months of search. Most agencies haven't caught up.

@@ -20,6 +20,7 @@ export default {
     extend: {
       fontFamily: {
         display: ["'Bebas Neue'", "sans-serif"],
+        sans: ["Inter", "-apple-system", "sans-serif"],
         body: ["Inter", "-apple-system", "sans-serif"],
         mono: ["'JetBrains Mono'", "monospace"],
       },

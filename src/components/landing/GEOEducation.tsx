@@ -7,9 +7,9 @@ const sectionFade: Variants = {
   visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
-const SGEEducation = () => {
+const GEOEducation = () => {
   return (
-    <section id="sge-education" className="px-6 py-32 md:px-8 section-alt">
+    <section id="geo-education" className="px-6 py-32 md:px-8 section-alt">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
@@ -18,7 +18,7 @@ const SGEEducation = () => {
         >
           <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">WHY THIS MATTERS</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground max-w-4xl mx-auto leading-tight" style={{ fontWeight: 900 }}>
-            AI SEARCH DOMINATION:<br />
+            GEO & AI SEARCH DOMINATION:<br />
             <span className="italic text-shimmer-blue">THE NEW BATTLEFIELD</span>
           </h2>
         </motion.div>
@@ -29,7 +29,7 @@ const SGEEducation = () => {
             variants={sectionFade}
             className="text-base md:text-lg text-muted-foreground leading-relaxed"
           >
-            Most agencies are fighting for Google Ads clicks at $50–$200 each using 2018 SEO tactics. In 2026, if you aren't recommended by Google's AI Overview (SGE), you're invisible. We engineer your entire digital footprint to feed Google's AI, putting you at the absolute top of the page — <span className="text-foreground font-semibold">above paid ads, above organic results</span> — before your competitors even load. You pay zero per click, dominate the prime real estate, and own your county.
+            Most agencies are fighting for Google Ads clicks at $50–$200 each using 2018 SEO tactics. In 2026, if you aren't recommended by Google's AI Overview (GEO — Generative Engine Optimization), you're invisible. We engineer your entire digital footprint to feed Google's AI, putting you at the absolute top of the page — <span className="text-foreground font-semibold">above paid ads, above organic results</span> — before your competitors even load. You pay zero per click, dominate the prime real estate, and own your county.
           </motion.p>
 
           <motion.div
@@ -91,4 +91,4 @@ const SGEEducation = () => {
   );
 };
 
-export default SGEEducation;
+export default GEOEducation;

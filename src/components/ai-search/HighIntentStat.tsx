@@ -1,0 +1,78 @@
+import { motion, type Variants } from "framer-motion";
+import { TrendingUp } from "lucide-react";
+
+const sectionFade: Variants = {
+  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+};
+
+const HighIntentStat = () => {
+  return (
+    <section className="px-6 py-24 md:py-28 md:px-8 section-alt">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center mb-10"
+        >
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+            HIGHER-INTENT TRAFFIC
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground leading-tight max-w-3xl mx-auto" style={{ fontWeight: 900 }}>
+            AI SEARCH ISN'T JUST<br />
+            ADDITIONAL TRAFFIC.<br />
+            <span className="italic text-shimmer-blue">IT'S HIGHER-INTENT TRAFFIC.</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch mb-10"
+        >
+          {/* 3.49% — AI search */}
+          <div className="bg-card rounded-2xl p-7 md:p-8 border-2 border-electric/40 shadow-[0_0_30px_rgba(0,209,255,0.12)] text-center flex flex-col justify-center">
+            <p className="text-xs font-semibold tracking-widest uppercase text-electric mb-3">AI SEARCH CONVERSION</p>
+            <p className="font-display text-electric leading-none mb-3" style={{ fontWeight: 900, fontSize: "clamp(3rem, 8vw, 5rem)" }}>
+              3.49%
+            </p>
+            <p className="text-xs text-muted-foreground">ChatGPT, Claude, Perplexity visitors</p>
+          </div>
+
+          {/* +22% delta */}
+          <div className="bg-safety/10 border border-safety/40 rounded-2xl p-7 md:p-8 text-center flex flex-col justify-center">
+            <div className="outcome-icon w-11 h-11 rounded-xl bg-safety/15 flex items-center justify-center mx-auto mb-3">
+              <TrendingUp className="w-5 h-5 text-safety" />
+            </div>
+            <p className="text-xs font-semibold tracking-widest uppercase text-safety mb-2">HIGHER INTENT</p>
+            <p className="font-display text-safety leading-none mb-2" style={{ fontWeight: 900, fontSize: "clamp(2.5rem, 7vw, 4rem)" }}>
+              +22%
+            </p>
+            <p className="text-xs text-muted-foreground">vs. traditional organic</p>
+          </div>
+
+          {/* 2.86% — traditional organic */}
+          <div className="bg-card rounded-2xl p-7 md:p-8 border border-border text-center flex flex-col justify-center">
+            <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">TRADITIONAL ORGANIC</p>
+            <p className="font-display text-muted-foreground leading-none mb-3" style={{ fontWeight: 900, fontSize: "clamp(3rem, 8vw, 5rem)" }}>
+              2.86%
+            </p>
+            <p className="text-xs text-muted-foreground">Google search visitors</p>
+          </div>
+        </motion.div>
+
+        <motion.p
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="text-center text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+        >
+          <span className="text-foreground font-semibold">2026 conversion data:</span> visitors from ChatGPT, Claude, and Perplexity convert at 3.49% vs 2.86% from traditional organic search. AI search is now the highest-intent traffic source on the web. <span className="text-foreground font-semibold">The agencies who own GEO &amp; AI Search Domination capture the most qualified leads.</span>
+        </motion.p>
+      </div>
+    </section>
+  );
+};
+
+export default HighIntentStat;

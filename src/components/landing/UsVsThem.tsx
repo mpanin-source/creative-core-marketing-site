@@ -13,7 +13,7 @@ const rows = [
   { cat: "Ownership", them: "They keep your assets when you leave", us: "You own the ads, landing pages, CRM, data" },
   { cat: "Lock-in", them: "6–12 month contracts", us: "60-day trial. Walk away anytime." },
   { cat: "Markup", them: "10–20% added to ad spend", us: "Zero markup. Pay Google + Meta directly." },
-  { cat: "AI Search Strategy", them: '"What\'s SGE?"', us: "Building it from day one" },
+  { cat: "AI Search Strategy", them: '"What\'s GEO?"', us: "Building it from day one" },
 ];
 
 const UsVsThem = () => {

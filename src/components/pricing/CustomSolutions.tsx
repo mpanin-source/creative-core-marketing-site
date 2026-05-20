@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { Phone, MessageSquare, Star } from "lucide-react";
+import { Phone, PhoneCall, MessageSquare, Star } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -9,21 +9,44 @@ const sectionFade: Variants = {
 const cards = [
   {
     icon: Phone,
-    title: "GENERATIVE VOICE + SMS AUTOMATION",
-    body: "If your data shows lead response delays are killing conversion, we deploy AI agents that answer calls and qualify leads while you're on the job.",
-    tag: "Available for Tier 1 + Tier 2 + Tier 3",
+    title: "VOICE/SMS — STANDARD",
+    price: "$750 setup + $500/mo",
+    body: "Stop losing leads after hours. Most clients capture 30–40% more appointments by closing the after-hours gap.",
+    includes: [
+      "10DLC registration",
+      "Voice AI configuration",
+      "Missed-call text-back",
+      "After-hours coverage",
+      "Consent compliance",
+    ],
+    tag: "Available at any tier",
+  },
+  {
+    icon: PhoneCall,
+    title: "VOICE/SMS — PREMIUM",
+    price: "$1,500 setup + $750/mo",
+    body: "For businesses with high call volume or complex booking needs — premium voice experience that converts at higher rates.",
+    includes: [
+      "Everything in Standard",
+      "Custom-trained voice AI with multi-language support and complex booking flows",
+    ],
+    tag: "Recommended for Tier 3 / high-volume — available after first 3 Standard deployments",
   },
   {
     icon: MessageSquare,
-    title: "AUTOMATED CRM NURTURE",
-    body: "If your CRM shows cold leads going untouched, we set up automated nurture sequences. AI watches behavior and re-engages with personalized outreach.",
-    tag: "Available for Tier 2 + Tier 3",
+    title: "CRM NURTURE",
+    price: "$750 setup + $500/mo",
+    body: "Automated nurture sequences for existing customer lists. AI watches behavior and re-engages cold leads with personalized outreach.",
+    includes: null as string[] | null,
+    tag: "Available at any tier",
   },
   {
     icon: Star,
-    title: "AUTOMATED REVIEW ACQUISITION",
-    body: "If your reviews are stale or scattered, we deploy automated review acquisition + response systems. Builds the SGE signals Google AI weights heaviest.",
-    tag: "Available for Tier 1 + Tier 2 + Tier 3",
+    title: "REVIEW ACQUISITION",
+    price: "$750 setup + $500/mo",
+    body: "Automated review request system + response management. Builds the review velocity and sentiment GEO weights heaviest.",
+    includes: null as string[] | null,
+    tag: "Available at any tier",
   },
 ];
 
@@ -40,15 +63,14 @@ const CustomSolutions = () => {
             BEYOND THE TIERS
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-5" style={{ fontWeight: 900 }}>
-            CUSTOM SOLUTIONS,<br />
-            <span className="italic text-shimmer-blue">DIAGNOSED DURING ONBOARDING</span>
+            CUSTOM <span className="italic text-shimmer-blue">SOLUTIONS</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Every business is different. During your first 30 days, we analyze YOUR data to identify YOUR specific bottlenecks. If we diagnose a real problem, we offer the solution as a custom upsell — not a feature dump. We don't sell you what you don't need.
+            Modular add-ons available at any tier — with transparent setup and monthly pricing. We diagnose during onboarding based on your data, but we don't bundle them by default. Every business has different bottlenecks, so you pay only for what fixes yours.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5 mb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {cards.map((c, i) => (
             <motion.div
               key={c.title}
@@ -56,27 +78,32 @@ const CustomSolutions = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-card border border-electric/20 rounded-2xl p-5 outcome-card hover:border-electric/50 transition-colors"
+              className="bg-card border border-electric/20 rounded-2xl p-5 outcome-card hover:border-electric/50 transition-colors flex flex-col"
             >
               <div className="outcome-icon w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center mb-4">
                 <c.icon className="w-5 h-5 text-electric" />
               </div>
-              <h3 className="font-display text-base text-foreground uppercase mb-3 leading-snug" style={{ fontWeight: 800 }}>
+              <h3 className="font-display text-base text-foreground uppercase mb-2 leading-snug" style={{ fontWeight: 800 }}>
                 {c.title}
               </h3>
+              <p className="font-display text-base text-electric mb-3" style={{ fontWeight: 700 }}>
+                {c.price}
+              </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{c.body}</p>
-              <p className="text-xs font-semibold uppercase tracking-wider text-electric/80">{c.tag}</p>
+              {c.includes && (
+                <ul className="space-y-1.5 mb-4">
+                  {c.includes.map((it) => (
+                    <li key={it} className="flex items-start gap-2 text-xs text-muted-foreground leading-relaxed">
+                      <span className="text-electric mt-0.5">•</span>
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p className="text-xs font-semibold uppercase tracking-wider text-electric/80 mt-auto">{c.tag}</p>
             </motion.div>
           ))}
         </div>
-
-        <motion.p
-          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
-          variants={sectionFade}
-          className="italic text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto"
-        >
-          Custom solutions priced individually based on scope. We don't recommend them unless your data proves you need them.
-        </motion.p>
       </div>
     </section>
   );

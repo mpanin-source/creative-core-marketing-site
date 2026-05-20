@@ -12,7 +12,7 @@ const layers = [
   { icon: Code, title: "SCHEMA MARKUP", desc: "How Google 'understands' your business. Most agencies skip this entirely." },
   { icon: FileText, title: "CONTENT VELOCITY", desc: "Fresh blog/article content tells AI you're active and authoritative." },
   { icon: Youtube, title: "YOUTUBE PRESENCE", desc: "Google owns YouTube. Their AI weights it heavily as an authority signal." },
-  { icon: MessageSquare, title: "REDDIT + EXTERNAL MENTIONS", desc: "Top SGE source most agencies completely ignore." },
+  { icon: MessageSquare, title: "REDDIT + EXTERNAL MENTIONS", desc: "Top GEO source most agencies completely ignore." },
   { icon: Brain, title: "SEMANTIC RELEVANCE", desc: "Your content matches the actual phrases customers search — not just keywords." },
 ];
 

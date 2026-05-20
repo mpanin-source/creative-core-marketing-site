@@ -37,7 +37,7 @@ const cards = [
     body: "They pitch you the same playbook they pitch a yoga studio, a restaurant, and a SaaS company. No niche specialization means no real expertise in YOUR industry's marketing.",
     tells: [
       "They've never mentioned LSA or Google Guaranteed",
-      "They don't talk about Google's AI Overview / SGE",
+      "They don't talk about Google's AI Overview / GEO",
       "They serve too many industries to specialize in yours",
     ],
   },

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Sparkles, Wrench, TrendingUp, Crown, Search, Brain, Phone, DollarSign, Layers, ClipboardCheck, Calendar, FileSignature } from "lucide-react";
+import { ArrowRight, Sparkles, Wrench, TrendingUp, Crown, Search, Target, Brain, Phone, Database, DollarSign, Layers, ClipboardCheck, Calendar, FileSignature } from "lucide-react";
 import DeepDive from "@/components/faq/DeepDive";
+import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
 import FAQSection from "@/components/landing/FAQSection";
 
 const sectionFade: Variants = {
@@ -112,6 +113,10 @@ const FAQPage = () => {
       <FAQHero />
       <Divider />
 
+      {/* Big Three Framing — sets overarching battlegrounds before service deep-dives */}
+      <ThreePillarEngine />
+      <Divider />
+
       {/* SERVICE DEEP-DIVES */}
       <DeepDive
         id="gateway"
@@ -122,11 +127,35 @@ const FAQPage = () => {
         ctaLabel="See full Gateway details on Pricing"
         ctaHref="/pricing-and-booking#gateway"
       >
-        <p><strong className="text-foreground">What it is:</strong> A custom-built, mobile-first, conversion-optimized website built in 7 days. The fastest way to stop losing leads to a broken site.</p>
-        <p><strong className="text-foreground">Who it's for:</strong> The entry point for new clients. Anyone whose current website is killing conversion or who wants a fast, professional site without locking into an agency retainer.</p>
-        <p><strong className="text-foreground">What's included:</strong> Custom design, mobile-first build, conversion-optimized hero + offer + lead form, basic SEO foundation (titles, meta, schema), Google Analytics + call tracking install, hosted on your domain.</p>
-        <p><strong className="text-foreground">Timeline:</strong> 7 days from kickoff to launch.</p>
-        <p><strong className="text-foreground">Yours to keep:</strong> Even if you don't continue to a tier. The site lives on your domain. You own it.</p>
+        <p><strong className="text-foreground">What you get (one-time):</strong></p>
+        <ul className="space-y-2 pl-1">
+          <Bullet>Custom Lovable-built website (AI-search-ready by default thanks to Lovable's May 2026 Discoverability update)</Bullet>
+          <Bullet>7-day delivery</Bullet>
+          <Bullet>Up to 5 pages: Home, Services, About, Contact, plus 1 service-specific landing page</Bullet>
+          <Bullet>Mobile-first design with Core Web Vitals optimization</Bullet>
+          <Bullet>Click-to-call functionality on every page</Bullet>
+          <Bullet>Contact form with proper TCPA consent language</Bullet>
+          <Bullet>Schema markup deployment (LocalBusiness + service-specific)</Bullet>
+          <Bullet>Google Business Profile basics setup</Bullet>
+          <Bullet>Basic SEO meta tags + Open Graph for social sharing</Bullet>
+          <Bullet>Google Analytics 4 setup + Google Search Console verification</Bullet>
+          <Bullet>One round of revisions during build</Bullet>
+          <Bullet>Day 30 check-in call (15 min)</Bullet>
+        </ul>
+
+        <p><strong className="text-foreground">How it works:</strong></p>
+        <ul className="space-y-2 pl-1">
+          <Bullet>You create your own Lovable workspace</Bullet>
+          <Bullet>You purchase your own domain (we recommend Cloudflare or Namecheap, ~$12–$15/year)</Bullet>
+          <Bullet>We get added as collaborators to your workspace</Bullet>
+          <Bullet>We build inside your workspace, in your name</Bullet>
+          <Bullet>You own everything from day one</Bullet>
+          <Bullet>Lovable hosting paid by you directly ($0 free tier with Lovable branding, or $20/mo Pro for custom domain)</Bullet>
+        </ul>
+
+        <p><strong className="text-foreground">What's NOT included (this is honest):</strong> Active ad management, content production, active review management, voice/SMS setup, active CRO testing, active speed-to-lead workflows. The $497 is a launch-ready website. To actively grow leads, you graduate to Foundation Sprint.</p>
+
+        <p><strong className="text-foreground">About Lovable:</strong> Built on Lovable's enterprise-grade platform. As of May 2026, Lovable ships AI-search-ready sites by default — pre-rendering for AI crawlers (ChatGPT, Claude, Perplexity), native Semrush integration (28 billion keywords + 43 trillion backlinks dataset), and a built-in SEO Dashboard. Your site is structurally optimized for the new search landscape before we add our delivery layer on top.</p>
       </DeepDive>
       <Divider />
 
@@ -140,19 +169,21 @@ const FAQPage = () => {
         ctaLabel="See Foundation Sprint pricing"
         ctaHref="/pricing-and-booking#foundation"
       >
-        <p><strong className="text-foreground">What it is:</strong> Your foundation tier — for businesses ready to move beyond just a website into active lead generation and optimization.</p>
+        <p><strong className="text-foreground">What it is:</strong> Your foundation tier — for businesses ready to move beyond just a website into active lead generation, optimization, and the start of GEO eligibility.</p>
         <p><strong className="text-foreground">Who it's for:</strong> Active home service businesses with some existing online presence and $1,500–$2,000/mo ready for ad spend.</p>
-        <p><strong className="text-foreground">What's included:</strong></p>
+        <p><strong className="text-foreground">What you get:</strong></p>
         <ul className="space-y-2 pl-1">
-          <Bullet>Complete marketing audit (15-min Loom)</Bullet>
-          <Bullet>Google Local Services Ads setup + Google Guaranteed verification</Bullet>
-          <Bullet>Google Business Profile optimization + review generation</Bullet>
-          <Bullet>Conversion-optimized residential landing page</Bullet>
-          <Bullet>Call tracking + full attribution setup</Bullet>
-          <Bullet>Meta retargeting pixel + initial campaign</Bullet>
-          <Bullet>Bi-weekly performance reporting</Bullet>
+          <Bullet><strong className="text-foreground">Local SEO foundation:</strong> Schema markup deployment, NAP consistency, citation building, on-page SEO basics, GBP setup + weekly post management</Bullet>
+          <Bullet><strong className="text-foreground">SEM &amp; Paid Search:</strong> LSA setup with Google Guaranteed certification, active dispute management, Google Ads basic management, Meta ads setup</Bullet>
+          <Bullet><strong className="text-foreground">GEO foundation:</strong> Schema markup making you eligible for AI Overview citations — the entry ticket to GEO</Bullet>
+          <Bullet><strong className="text-foreground">Conversion foundation:</strong> Mobile-first conversion audit, Core Web Vitals optimization, CTA placement, click-to-call verification, basic form optimization, trust signal integration</Bullet>
+          <Bullet><strong className="text-foreground">Review system:</strong> Automated review request flows, monitoring, response drafting, recapture campaigns</Bullet>
+          <Bullet><strong className="text-foreground">Content foundation:</strong> Service-area landing pages, basic on-page content optimization</Bullet>
+          <Bullet><strong className="text-foreground">Speed-to-Lead workflows:</strong> Setup in your CRM for sub-60-second response time</Bullet>
+          <Bullet><strong className="text-foreground">License compliance:</strong> Florida licensing verification + advertising compliance audit</Bullet>
+          <Bullet>Day 30 check-in + 60-day guarantee active</Bullet>
         </ul>
-        <p><strong className="text-foreground">First 60 days:</strong> Install foundation, kill losing creative, scale winners. Goal: 20%+ CPL reduction or 25%+ booked-appointment growth.</p>
+        <p><strong className="text-foreground">Outcome:</strong> Foundation built. Eligible for AI Overview citations. GEO mentions start trickling in based on baseline signals.</p>
       </DeepDive>
       <Divider />
 
@@ -165,10 +196,26 @@ const FAQPage = () => {
         ctaLabel="See Growth Partner pricing"
         ctaHref="/pricing-and-booking#growth"
       >
-        <p><strong className="text-foreground">What it is:</strong> The scaling tier — for businesses ready to dominate their county.</p>
-        <p><strong className="text-foreground">Who it's for:</strong> Businesses with a proven sales process and ready to invest in scale.</p>
-        <p><strong className="text-foreground">What's included:</strong> Everything in Foundation, plus content production, AI Search foundation work, advanced LSA optimization, Google Search PPC, Meta ads (Facebook + Instagram), 5–10 ad creative variations monthly, A/B tested landing variants, CRM drip campaigns, and Neighborhood Penetration geo-targeting.</p>
-        <p><strong className="text-foreground">Expected outcomes:</strong> Compounding lead volume month over month, lower CPL through creative iteration, calendar packed with qualified appointments.</p>
+        <p><strong className="text-foreground">What it is:</strong> The scaling tier — for businesses with a proven foundation, ready to push into citation velocity, content velocity, and active GEO presence.</p>
+        <p><strong className="text-foreground">Who it's for:</strong> Businesses that have hit 20%+ CPL reduction in Foundation Sprint and are ready to compound.</p>
+        <p><strong className="text-foreground">Adds to Foundation:</strong></p>
+        <ul className="space-y-2 pl-1">
+          <Bullet>Weekly content production (blog posts, GBP posts, service-area pages)</Bullet>
+          <Bullet>Atomic Answer formatting on all content</Bullet>
+          <Bullet>Active review velocity push (target 75+ reviews threshold)</Bullet>
+          <Bullet>Sentiment optimization (keyword-coached review acquisition)</Bullet>
+          <Bullet>Photo-attached review acquisition (AI vision trust signals)</Bullet>
+          <Bullet>Performance Max campaign management (the 2026 sweet spot: $72 CPL avg vs $149 non-branded search)</Bullet>
+          <Bullet>Meta + Google Ads advanced optimization (targeting, lookalike audiences)</Bullet>
+          <Bullet>Citation velocity building (industry publications, local news, Reddit, YouTube)</Bullet>
+          <Bullet>Basic entity linking (sameAs to Knowledge Graph)</Bullet>
+          <Bullet>Monthly AI Visibility Reports (Google AI Overview + ChatGPT, 5 search terms tracked)</Bullet>
+          <Bullet>A/B testing on top 3 conversion pages</Bullet>
+          <Bullet>Heat map + session recording analysis</Bullet>
+          <Bullet>Funnel drop-off analysis</Bullet>
+          <Bullet>8 service-specific landing pages</Bullet>
+        </ul>
+        <p><strong className="text-foreground">Outcome:</strong> AI Overview citations start appearing. Citation velocity builds. Local competitors who only do SEO start losing visibility to you.</p>
       </DeepDive>
       <Divider />
 
@@ -182,9 +229,25 @@ const FAQPage = () => {
         ctaLabel="See Scale Partner pricing"
         ctaHref="/pricing-and-booking#scale"
       >
-        <p><strong className="text-foreground">What it is:</strong> Full multi-channel domination tier with the complete AI Search Domination stack.</p>
-        <p><strong className="text-foreground">Who it's for:</strong> Businesses meeting Tier 3 qualification (full details on the Pricing page accordion + below).</p>
-        <p><strong className="text-foreground">What's included:</strong> Everything in Growth Partner, plus AI Voice + SMS fully integrated into CRM, social media management, sales call analysis + systematic fix recommendations, dedicated Slack channel (same-day responses), monthly strategy intensive.</p>
+        <p><strong className="text-foreground">What it is:</strong> Full search domination — Local SEO + SEM + GEO at maximum velocity, plus the Information Gain content engine that turns your field experience into authority signal.</p>
+        <p><strong className="text-foreground">Who it's for:</strong> Businesses meeting Tier 3 qualification (5-bullet preview below; full Standard + Skip-Ahead paths in the dedicated section).</p>
+        <p><strong className="text-foreground">Adds to Growth Partner:</strong></p>
+        <ul className="space-y-2 pl-1">
+          <Bullet><strong className="text-foreground">Information Gain content engine:</strong> original surveys, proprietary case studies, contrarian frameworks (folded in — no separate add-on fee)</Bullet>
+          <Bullet>Multi-format content (YouTube long-form + shorts, Reddit threads, podcast guest spots)</Bullet>
+          <Bullet>Schema 3.0 full deployment with entity linking (Knowledge Graph + Wikipedia citations + industry authority sites)</Bullet>
+          <Bullet>Weekly AI Visibility Reports across 4+ platforms (Google AI Overview, ChatGPT, Claude, Perplexity)</Bullet>
+          <Bullet>Citation evidence (screenshots, quoted AI responses) + competitor visibility comparison</Bullet>
+          <Bullet>E-E-A-T signal optimization (turning your field experience into authority content)</Bullet>
+          <Bullet>Multi-platform GEO (optimizing for ChatGPT, Claude, Perplexity, Gemini)</Bullet>
+          <Bullet>AI Max migration support (rolling out September 2026)</Bullet>
+          <Bullet>Personalized landing pages by traffic source</Bullet>
+          <Bullet>Advanced heat map + session-recording analysis</Bullet>
+          <Bullet>Conversion funnel modeling + ROI attribution across all marketing channels</Bullet>
+          <Bullet>Local PR + digital mentions (industry publications, local news, chamber of commerce)</Bullet>
+          <Bullet>Knowledge Graph engineering</Bullet>
+        </ul>
+        <p><strong className="text-foreground">Outcome:</strong> THE recommended business in your county across every major AI search surface. Local competitors invisible.</p>
         <p><strong className="text-foreground">Tier 3 qualification (5-bullet preview):</strong></p>
         <ul className="space-y-2 pl-1">
           <Bullet>50+ Google reviews at 4.5+ stars</Bullet>
@@ -201,48 +264,98 @@ const FAQPage = () => {
         id="seo"
         eyebrow="SERVICE DEEP-DIVE"
         icon={Search}
-        title="HOW WE APPROACH SEO"
-        titleAccent="FOR FLORIDA HOME SERVICES"
+        title="SEO FOR FLORIDA"
+        titleAccent="HOME SERVICES"
         ctaLabel="See pricing"
         ctaHref="/pricing-and-booking"
       >
-        <p><strong className="text-foreground">The traditional SEO problem:</strong> Most agencies still optimize for keywords nobody searches anymore. They publish thin "best [service] in [city]" pages and call it a day, then wonder why rankings stall.</p>
-        <p><strong className="text-foreground">How we approach it differently:</strong> Semantic relevance over keyword stuffing. Schema markup so Google's AI actually understands your business. Content velocity that signals authority. Real answers to real questions homeowners ask.</p>
-        <p><strong className="text-foreground">Why it matters more in 2026:</strong> Google's AI Overview is rewriting search. Whoever feeds the AI the cleanest signals wins free top-of-page mentions — above paid ads, above organic results.</p>
-        <p><strong className="text-foreground">How it's bundled:</strong> Foundation Sprint installs the schema + GBP base. Growth Partner adds content velocity. Scale Partner adds the full AI Search Domination stack.</p>
+        <p><strong className="text-foreground">What it is:</strong> Local SEO — getting found when homeowners search "best [service] near me" on Google. Map Pack rankings, Google Business Profile, citations, and schema.</p>
+        <p><strong className="text-foreground">Why it matters in 2026:</strong> The Map Pack still drives the largest share of clicks for local home-service searches. If you're not in the top 3 map results, most of your county can't find you — even if your website is great.</p>
+        <p><strong className="text-foreground">What we do:</strong></p>
+        <ul className="space-y-2 pl-1">
+          <Bullet>Schema markup (LocalBusiness + service-specific)</Bullet>
+          <Bullet>NAP consistency across the major citation directories</Bullet>
+          <Bullet>Google Business Profile setup, weekly posts, Q&amp;A monitoring, photo management</Bullet>
+          <Bullet>On-page basics: title tags, meta descriptions, header structure, internal linking</Bullet>
+          <Bullet>Service-area landing pages for each city you serve</Bullet>
+          <Bullet>Review velocity push (75+ reviews is where Map Pack rankings compound)</Bullet>
+        </ul>
+        <p><strong className="text-foreground">How it's bundled:</strong> Foundation Sprint installs NAP + citations + schema + GBP basics. Growth Partner adds 8 service-area pages, citation velocity, and basic entity linking. Scale Partner adds Knowledge Graph engineering, E-E-A-T optimization, and local PR.</p>
       </DeepDive>
       <Divider />
 
       <DeepDive
-        id="sge"
+        id="sem"
+        eyebrow="SERVICE DEEP-DIVE"
+        icon={Target}
+        title="SEM & PAID SEARCH"
+        titleAccent="CONVERTING HIGH-INTENT SEARCHERS"
+        alt
+        ctaLabel="See pricing"
+        ctaHref="/pricing-and-booking"
+      >
+        <p><strong className="text-foreground">What it is:</strong> Paid search — Google Local Services Ads (LSA), Google Search Ads, Performance Max, and Meta Ads. Converting homeowners who are actively shopping right now into booked appointments.</p>
+        <p><strong className="text-foreground">Why it matters in 2026:</strong> Performance Max is now the dominant Google Ads campaign type for local services — averaging $72 CPL versus $149 for traditional non-branded search. AI Max migration begins September 2026 — we're already preparing client accounts for the transition.</p>
+        <p><strong className="text-foreground">What we do:</strong></p>
+        <ul className="space-y-2 pl-1">
+          <Bullet>LSA setup + Google Guaranteed certification + active dispute management</Bullet>
+          <Bullet>Google Ads management (Search, Performance Max, Demand Gen)</Bullet>
+          <Bullet>Meta Ads (Facebook + Instagram, lookalike audiences, retargeting)</Bullet>
+          <Bullet>5–10 ad creative variations monthly, A/B tested weekly</Bullet>
+          <Bullet>Personalized landing pages by traffic source (Tier 3)</Bullet>
+          <Bullet>AI Max migration support (rolling out September 2026)</Bullet>
+        </ul>
+        <p><strong className="text-foreground">Zero markup on ad spend:</strong> Ad accounts in your name. Spend goes directly to Google and Meta from your card. Our fee is for the work — not a percentage of your media budget.</p>
+        <p><strong className="text-foreground">How it's bundled:</strong> Foundation Sprint installs LSA + Google Guaranteed and starts Meta retargeting. Growth Partner runs Performance Max and advanced Meta optimization with weekly creative testing. Scale Partner adds AI Max migration, source-personalized landing pages, and full ROI attribution across channels.</p>
+      </DeepDive>
+      <Divider />
+
+      <DeepDive
+        id="geo"
         eyebrow="SERVICE DEEP-DIVE"
         icon={Brain}
-        title="AI SEARCH DOMINATION"
-        titleAccent="EXPLAINED"
-        alt
+        title="GEO & AI SEARCH"
+        titleAccent="GENERATIVE ENGINE OPTIMIZATION"
         ctaLabel="See full AI Search deep-dive"
         ctaHref="/ai-search"
       >
-        <p><strong className="text-foreground">What SGE / Google's AI Overview is:</strong> When a homeowner searches "best HVAC near me," Google now generates an AI summary at the top of the page that recommends businesses by name. Most searchers never scroll past it.</p>
-        <p><strong className="text-foreground">Why it matters for local home services:</strong> The AI Overview is the new front page. Whoever it mentions wins the customer for $0 in clicks.</p>
-        <p><strong className="text-foreground">The signals Google AI uses:</strong> Verified Google Business Profile, review velocity + sentiment, schema markup, content velocity, YouTube presence, Reddit + external mentions, semantic relevance. (Full breakdown on our <Link to="/ai-search" className="text-electric font-semibold hover:underline">AI Search page</Link>.)</p>
-        <p><strong className="text-foreground">How we feed those signals across all tiers:</strong> Foundation Sprint installs the basics. Growth Partner adds content. Scale Partner runs the full domination stack — YouTube, Reddit, weekly position monitoring.</p>
+        <p><strong className="text-foreground">What it is:</strong> Generative Engine Optimization — engineering your business to be recommended by name inside AI search responses. Google's AI Overview, ChatGPT, Claude, Perplexity, Gemini. The new front page of search.</p>
+        <p><strong className="text-foreground">Why it matters in 2026:</strong> Visitors from ChatGPT, Claude, and Perplexity convert at <strong className="text-foreground">3.49% vs 2.86%</strong> from traditional organic search — the highest-intent traffic source on the web. The agencies who own GEO capture the most qualified leads.</p>
+        <p><strong className="text-foreground">What we do:</strong></p>
+        <ul className="space-y-2 pl-1">
+          <Bullet>Schema markup that makes you eligible for AI Overview citations</Bullet>
+          <Bullet>Atomic Answer formatting on all content (the format AI systems extract from)</Bullet>
+          <Bullet>Review velocity + sentiment optimization (heaviest weighted signal)</Bullet>
+          <Bullet>Photo-attached reviews (AI vision trust signal)</Bullet>
+          <Bullet>Citation velocity: industry publications, local news, Reddit, YouTube, podcast guest spots</Bullet>
+          <Bullet>Entity linking: sameAs to Knowledge Graph + Wikipedia + industry authority sites</Bullet>
+          <Bullet>Multi-platform optimization: ChatGPT, Claude, Perplexity, Gemini — not just Google</Bullet>
+          <Bullet>AI Visibility Reports with screenshot evidence</Bullet>
+        </ul>
+        <p><strong className="text-foreground">How it's bundled:</strong> Foundation Sprint installs the schema (your entry ticket). Growth Partner adds content velocity, Atomic Answer formatting, citation velocity, and monthly reports across Google AI Overview + ChatGPT. Scale Partner runs the full Information Gain content engine, Knowledge Graph engineering, and weekly reports across all four major AI surfaces with citation evidence.</p>
       </DeepDive>
       <Divider />
 
       <DeepDive
-        id="voice-sms"
+        id="custom-solutions"
         eyebrow="SERVICE DEEP-DIVE"
         icon={Phone}
-        title="AUTOMATED VOICE"
-        titleAccent="& SMS"
-        ctaLabel="See custom solutions on Pricing"
+        title="CUSTOM SOFTWARE"
+        titleAccent="SOLUTIONS"
+        alt
+        ctaLabel="See full pricing on Pricing"
         ctaHref="/pricing-and-booking#custom-solutions"
       >
-        <p><strong className="text-foreground">What it is:</strong> AI agents that answer your phone, qualify leads, and send SMS sequences — built on real generative AI, not template scripts.</p>
-        <p><strong className="text-foreground">When you need it:</strong> If your data shows lead-response delays killing conversion, if you're working in the field and can't take calls, or if your CRM shows cold leads going untouched.</p>
-        <p><strong className="text-foreground">How it works:</strong> The agent answers in your brand voice, qualifies the lead, books the appointment in your calendar, and texts the homeowner a confirmation — all in under 30 seconds.</p>
-        <p><strong className="text-foreground">Why it's a Custom Solution:</strong> We don't bundle it into tiers because not every business needs it. We diagnose during onboarding and offer it only if your data proves the bottleneck is real.</p>
+        <p><strong className="text-foreground">What it is:</strong> Modular software add-ons that fix specific bottlenecks — available at any tier, with transparent setup + monthly pricing.</p>
+        <p><strong className="text-foreground">When you need them:</strong> We diagnose during onboarding based on your data. If your lead response is slow, your CRM has dead leads sitting in it, or your review velocity is stalled — we deploy the specific fix. We don't bundle these by default.</p>
+        <p><strong className="text-foreground">The four solutions:</strong></p>
+        <ul className="space-y-2 pl-1">
+          <Bullet><strong className="text-foreground">Voice/SMS — Standard ($750 setup + $500/mo):</strong> 10DLC registration, voice AI configuration, missed-call text-back, after-hours coverage, consent compliance. Most clients capture 30–40% more appointments by closing the after-hours gap.</Bullet>
+          <Bullet><strong className="text-foreground">Voice/SMS — Premium ($1,500 setup + $750/mo):</strong> Custom-trained voice AI with multi-language support and complex booking flows. For high-volume operations.</Bullet>
+          <Bullet><strong className="text-foreground">CRM Nurture ($750 setup + $500/mo):</strong> Automated sequences that re-engage cold leads sitting in your existing customer list.</Bullet>
+          <Bullet><strong className="text-foreground">Review Acquisition ($750 setup + $500/mo):</strong> Automated review requests + response management. Builds the review velocity and sentiment GEO weights heaviest.</Bullet>
+        </ul>
+        <p><strong className="text-foreground">Pattern:</strong> Pay only for what fixes your actual bottleneck. Every solution is data-driven, not feature-dumped.</p>
       </DeepDive>
       <Divider />
 
@@ -284,6 +397,22 @@ const FAQPage = () => {
           <Bullet><span className="text-electric font-semibold">Creative Core: $1,500–$5,000/mo — AI-monitored optimization, continuous testing, real-time signal feeding</span></Bullet>
         </ul>
         <p className="italic">Same outcomes other agencies charge $5K–$10K for. Different infrastructure. That's the leverage.</p>
+      </DeepDive>
+      <Divider />
+
+      <DeepDive
+        id="crm-strategy"
+        eyebrow="HOW WE HANDLE YOUR CRM"
+        icon={Database}
+        title="WHAT ABOUT MY"
+        titleAccent="EXISTING CRM?"
+        alt
+      >
+        <p>Three scenarios:</p>
+        <p><strong className="text-foreground">Scenario A — You already have a CRM that works</strong> (HubSpot, Salesforce, Pipedrive, ServiceTitan, Housecall Pro): We integrate GoHighLevel as your marketing layer alongside your existing CRM. Your data stays where it is. Zapier or Make.com bridges the systems. We don't force migrations.</p>
+        <p><strong className="text-foreground">Scenario B — You have spreadsheets or no CRM:</strong> We set you up on GoHighLevel as part of Foundation Sprint onboarding. Free data migration from your spreadsheet. No separate fee.</p>
+        <p><strong className="text-foreground">Scenario C — Your existing CRM is broken or you need a full migration:</strong> We quote separately as a Data Migration Service ($500–1,500 one-time). Most clients don't need this.</p>
+        <p className="text-foreground font-semibold pt-2">Your CRM, your tools, your decision. We integrate. We don't force migrations.</p>
       </DeepDive>
       <Divider />
 

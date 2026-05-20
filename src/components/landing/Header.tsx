@@ -8,8 +8,10 @@ const services = [
   { label: "Foundation Sprint → Lower Your CPL", anchor: "foundation-sprint" },
   { label: "Growth Partner → Pack Your Calendar", anchor: "growth-partner" },
   { label: "Scale Partner → Own Your County", anchor: "scale-partner" },
-  { label: "SEO & AI Search Domination", anchor: "sge" },
-  { label: "Voice & SMS Automation", anchor: "voice-sms" },
+  { label: "SEO for Florida Home Services → Rank Above Local Competitors", anchor: "seo" },
+  { label: "SEM & Paid Search → Convert High-Intent Searchers", anchor: "sem" },
+  { label: "GEO & AI Search → Get Mentioned First", anchor: "geo" },
+  { label: "Custom Software Solutions → Fix Your Bottlenecks", anchor: "custom-solutions" },
 ];
 
 const Header = () => {
@@ -90,7 +92,7 @@ const Header = () => {
                 </button>
                 {servicesOpen && (
                   <div
-                    className="absolute top-full left-0 mt-3 w-[320px] rounded-xl backdrop-blur-xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                    className="absolute top-full left-0 mt-3 w-[380px] rounded-xl backdrop-blur-xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
                     style={{
                       backgroundColor: 'rgba(10, 14, 20, 0.92)',
                       border: '1px solid rgba(255, 255, 255, 0.08)',

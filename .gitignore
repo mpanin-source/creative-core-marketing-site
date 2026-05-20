@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code local briefing (internal — kept out of public repo)
+CLAUDE.md

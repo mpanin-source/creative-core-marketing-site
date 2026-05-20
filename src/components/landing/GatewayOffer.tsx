@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, PackageOpen, TrendingUp, ArrowRightCircle } from "lucide-react";
+import { ArrowRight, PackageOpen, Settings, XCircle } from "lucide-react";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -11,33 +11,43 @@ const columns = [
     icon: PackageOpen,
     title: "WHAT YOU GET",
     items: [
-      "Custom-built single-page website (residential conversion focus)",
-      "Custom domain registered in your name",
-      "60 days of free hosting included",
-      "Loom audit video explaining every change we made and why",
-      "Conversion tracking installed (so you can see what's working)",
-      "Mobile-first design (where 70% of your customers actually visit from)",
-      "Edit anytime for $99 after Month 2",
+      "Custom Lovable-built website (AI-search-ready by default)",
+      "7-day delivery",
+      "Up to 5 pages: Home, Services, About, Contact + 1 service-specific landing page",
+      "Mobile-first design with Core Web Vitals optimization",
+      "Click-to-call functionality on every page",
+      "Contact form with proper TCPA consent language",
+      "Schema markup (LocalBusiness + service-specific)",
+      "Google Business Profile basics setup",
+      "Basic SEO meta tags + Open Graph for social",
+      "Google Analytics 4 + Search Console verification",
+      "One round of revisions during build",
+      "Day 30 check-in call (15 min)",
     ],
   },
   {
-    icon: TrendingUp,
-    title: "WHAT IT'S WORTH",
+    icon: Settings,
+    title: "HOW IT WORKS",
     items: [
-      "Most agencies charge $2,000–$5,000 for this same scope",
-      "You're getting it for $497 because we want to prove ourselves first",
-      "After 60 days, hosting is $39.99/mo standalone — or FREE on Tier 2+",
-      "This is the bottom rung — your launchpad, not your finish line",
+      "You create your own Lovable workspace",
+      "You purchase your own domain (Cloudflare or Namecheap, ~$12–$15/year)",
+      "We get added as collaborators to your workspace",
+      "We build inside your workspace, in your name",
+      "You own everything from day one",
+      "Lovable hosting paid by you directly ($0 free tier with Lovable branding, or $20/mo Pro for custom domain)",
     ],
   },
   {
-    icon: ArrowRightCircle,
-    title: "THE LINE IN THE SAND",
+    icon: XCircle,
+    title: "WHAT'S NOT INCLUDED (HONEST)",
     items: [
-      "Day 1–7: We build your site",
-      "Day 8: Optional 15-min Zoom to discuss next steps (we recommend this)",
-      "After Day 8: Want to keep going? Start Foundation Sprint or above",
-      "Don't want to keep going? Take the site and walk. No hard feelings.",
+      "Active ad management",
+      "Content production",
+      "Active review management",
+      "Voice/SMS setup",
+      "Active CRO testing",
+      "Active speed-to-lead workflows",
+      "The $497 is a launch-ready website. To actively grow leads, you graduate to Foundation Sprint.",
     ],
   },
 ];
@@ -58,7 +68,7 @@ const GatewayOffer = () => {
             THE <span className="hero-gradient-text">$497</span> LAUNCH-READY WEBSITE
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-[720px] mx-auto">
-            Custom-built for Florida home services. Mobile-first. Optimized to convert. Built in 7 days. Yours to keep — even if you walk away after.
+            Custom-built on Lovable. Mobile-first. AI-search-ready by default. Built in 7 days. You own everything from day one.
           </p>
         </motion.div>
 
