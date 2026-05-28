@@ -63,7 +63,7 @@ const GatewayOffer = () => {
           variants={sectionFade}
           className="text-center mb-14"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">START HERE</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">START HERE</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-5" style={{ fontWeight: 900 }}>
             THE <span className="hero-gradient-text">$497</span> LAUNCH-READY WEBSITE
           </h2>
@@ -82,8 +82,8 @@ const GatewayOffer = () => {
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="bg-card rounded-2xl p-6 md:p-8 border border-border outcome-card"
             >
-              <div className="outcome-icon w-11 h-11 rounded-xl bg-electric/10 flex items-center justify-center mb-4">
-                <c.icon className="w-5 h-5 text-electric" />
+              <div className="outcome-icon w-11 h-11 rounded-xl bg-coral/10 flex items-center justify-center mb-4">
+                <c.icon className="w-5 h-5 text-coral" />
               </div>
               <h3 className="font-display text-base text-foreground uppercase mb-4" style={{ fontWeight: 800 }}>
                 {c.title}
@@ -91,7 +91,7 @@ const GatewayOffer = () => {
               <ul className="space-y-2.5">
                 {c.items.map((it, j) => (
                   <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground leading-relaxed">
-                    <span className="text-electric mt-1">•</span>
+                    <span className="text-coral mt-1">•</span>
                     <span>{it}</span>
                   </li>
                 ))}

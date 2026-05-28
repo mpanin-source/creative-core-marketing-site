@@ -25,6 +25,7 @@ export default {
         mono: ["'JetBrains Mono'", "monospace"],
       },
       colors: {
+        // shadcn baseline (HSL-var resolved via index.css :root)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -42,24 +43,11 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
           secondary: "hsl(var(--accent-secondary))",
         },
-        cta: {
-          DEFAULT: "hsl(var(--cta))",
-          foreground: "hsl(var(--cta-foreground))",
-          alt: "hsl(var(--cta-alt))",
-        },
-        electric: "hsl(var(--electric))",
-        safety: "hsl(var(--safety))",
-        success: "hsl(var(--success))",
-        warning: "hsl(var(--warning))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -68,30 +56,68 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        stone: {
-          DEFAULT: "hsl(var(--stone))",
-          dark: "hsl(var(--stone-dark))",
+
+        // === Direction 3 — Editorial cream + coral + forest (Round 7.5) ===
+        cream: {
+          DEFAULT: "#F5F0E8",
+          light: "#FAF6EF",
         },
-        sage: {
-          DEFAULT: "hsl(var(--sage))",
-          light: "hsl(var(--sage-light))",
+        charcoal: {
+          DEFAULT: "#1A1714",
+          light: "#2D2924",
         },
-        army: {
-          DEFAULT: "hsl(var(--army))",
-          dark: "hsl(var(--army-dark))",
+        coral: {
+          DEFAULT: "#FF4D2E",
+          dark: "#E63E1F",
+          soft: "#FFE8E0",
         },
-        charcoal: "hsl(var(--charcoal))",
-        slate: "hsl(var(--slate))",
-        "warm-white": "hsl(var(--warm-white))",
+        purple: {
+          DEFAULT: "#A78BFA",        // decorative fills, badge backgrounds
+          dark: "#6D28D9",           // purple text on cream — 6.26:1 on cream (AA+, R7.6 substitution from #7C3AED which was 5.02:1)
+          soft: "#EDE9FE",           // tinted highlight backgrounds
+        },
+        // Forest aliased to charcoal in Round 7.6 — no green sections remain.
+        // Kept as a token name so existing bg-forest / border-forest references render correctly.
+        forest: {
+          DEFAULT: "#1A1714",        // → charcoal
+          light: "#2D2924",          // → charcoal-light
+          soft: "#FAF6EF",           // → cream-light
+        },
+        muted: {
+          DEFAULT: "#9A8D7C",
+          foreground: "#6E6356",     // shadcn text-muted-foreground compat
+          light: "#B5A998",
+          dark: "#6E6356",
+        },
+        white: "#FFFFFF",
+
+        // === Legacy aliases — Round 6/7 token names → Direction 3 ===
+        // Any straggling `text-electric`/`bg-navy`/etc. references render in Direction 3 colors.
+        navy: { deep: "#1A1714", DEFAULT: "#1A1714" },                              // → charcoal (R7.6)
+        slate: { DEFAULT: "#6E6356", dark: "#1A1714", medium: "#6E6356", light: "#9A8D7C" },
+        cyan: { DEFAULT: "#FF4D2E", dark: "#E63E1F", bright: "#FF6B52" },           // → coral
+        electric: "#FF4D2E",                                                         // → coral
+        safety: "#FF4D2E",                                                           // → coral
+        success: "#1A1714",                                                          // → charcoal (R7.6, was forest)
+        warning: "#E63E1F",                                                          // → coral-dark
+        cta: {
+          DEFAULT: "#FF4D2E",
+          foreground: "#FFFFFF",
+          alt: "#E63E1F",
+        },
+        sage: { DEFAULT: "#1A1714", light: "#2D2924" },                             // → charcoal (R7.6)
+        army: { DEFAULT: "#1A1714", dark: "#0A0807" },                              // → charcoal (R7.6)
+        stone: { DEFAULT: "#6E6356", dark: "#1A1714" },                             // → muted-dark / charcoal
+        "warm-white": "#F5F0E8",                                                     // → cream
         tier: {
-          blue: "hsl(var(--tier-blue))",
-          "blue-foreground": "hsl(var(--tier-blue-foreground))",
-          teal: "hsl(var(--tier-teal))",
-          "teal-foreground": "hsl(var(--tier-teal-foreground))",
-          green: "hsl(var(--tier-green))",
-          "green-foreground": "hsl(var(--tier-green-foreground))",
-          gold: "hsl(var(--tier-gold))",
-          "gold-foreground": "hsl(var(--tier-gold-foreground))",
+          blue: "#FF4D2E",
+          "blue-foreground": "#FFFFFF",
+          teal: "#E63E1F",
+          "teal-foreground": "#FFFFFF",
+          green: "#1A1714",
+          "green-foreground": "#F5F0E8",
+          gold: "#FF4D2E",
+          "gold-foreground": "#FFFFFF",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -108,7 +134,7 @@ export default {
         subtle: "var(--shadow-subtle)",
         card: "var(--shadow-card)",
         elevated: "var(--shadow-elevated)",
-        neon: "0 0 15px rgba(0, 209, 255, 0.5)",
+        neon: "0 0 15px rgba(255, 77, 46, 0.5)",
       },
       borderRadius: {
         lg: "var(--radius)",

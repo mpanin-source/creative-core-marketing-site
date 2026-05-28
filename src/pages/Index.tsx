@@ -1,53 +1,29 @@
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import Hero from "@/components/landing/Hero";
-import MarqueeStrip from "@/components/landing/MarqueeStrip";
-import ThreePillarEngine from "@/components/landing/ThreePillarEngine";
-import GEOEducation from "@/components/landing/GEOEducation";
-import OptimizationSection from "@/components/landing/OptimizationSection";
-import OutcomesNotFeatures from "@/components/landing/OutcomesNotFeatures";
-import WhyDifferent from "@/components/landing/WhyDifferent";
-import BottomLine from "@/components/landing/BottomLine";
-import LazyAgencySection from "@/components/landing/LazyAgencySection";
-import WindowClosing from "@/components/landing/WindowClosing";
-
-const Divider = () => <div className="section-divider-gradient" />;
+import SixSystems from "@/components/landing/SixSystems";
+import NewBattlefield from "@/components/landing/NewBattlefield";
+import LocalPlaybook from "@/components/landing/LocalPlaybook";
+import CantMeasure from "@/components/landing/CantMeasure";
+import Outcomes from "@/components/landing/Outcomes";
+import HowWeWork from "@/components/landing/HowWeWork";
+import EndCTA from "@/components/shared/EndCTA";
 
 const Index = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const state = location.state as { scrollTo?: string } | null;
-    if (state?.scrollTo) {
-      const id = state.scrollTo;
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 80);
-      navigate(location.pathname, { replace: true, state: {} });
-    }
-  }, [location, navigate]);
-
   return (
     <>
       <Hero />
-      <MarqueeStrip />
-      <Divider />
-      <ThreePillarEngine />
-      <Divider />
-      <GEOEducation />
-      <Divider />
-      <OptimizationSection />
-      <Divider />
-      <OutcomesNotFeatures />
-      <Divider />
-      <WhyDifferent />
-      <Divider />
-      <BottomLine />
-      <Divider />
-      <LazyAgencySection />
-      <Divider />
-      <WindowClosing />
+      <SixSystems />
+      <NewBattlefield />
+      <LocalPlaybook />
+      <CantMeasure />
+      <Outcomes />
+      <HowWeWork />
+      <EndCTA
+        headline="Bring us your county."
+        headlineAccent="We'll bring the AI."
+        subhead="Month-to-month engagements starting at $1,500/mo. A 30-minute strategy call is free — and you'll leave with a working hypothesis even if we never work together."
+        secondaryCtaText="See pricing"
+        secondaryCtaHref="/pricing-and-booking"
+      />
     </>
   );
 };

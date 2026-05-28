@@ -66,7 +66,7 @@ const LazyAgencyCarousel = () => {
           variants={sectionFade}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">SOUND FAMILIAR?</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">SOUND FAMILIAR?</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
             IS YOUR CURRENT AGENCY <span className="italic text-shimmer-blue">PULLING THE LAZY WAY OUT?</span>
           </h2>
@@ -120,7 +120,7 @@ const LazyAgencyCarousel = () => {
           <div className="flex items-center justify-between mt-6">
             <button
               onClick={() => go(-1)}
-              className="p-2.5 rounded-full border border-border bg-card hover:border-electric/50 hover:text-electric transition-colors"
+              className="p-2.5 rounded-full border border-border bg-card hover:border-coral/50 hover:text-coral transition-colors"
               aria-label="Previous"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -137,7 +137,7 @@ const LazyAgencyCarousel = () => {
             </div>
             <button
               onClick={() => go(1)}
-              className="p-2.5 rounded-full border border-border bg-card hover:border-electric/50 hover:text-electric transition-colors"
+              className="p-2.5 rounded-full border border-border bg-card hover:border-coral/50 hover:text-coral transition-colors"
               aria-label="Next"
             >
               <ChevronRight className="w-4 h-4" />

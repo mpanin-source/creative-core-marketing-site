@@ -4,10 +4,19 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/global/Layout";
+import ScrollToTop from "./components/global/ScrollToTop";
 import Index from "./pages/Index";
 import PricingAndBooking from "./pages/PricingAndBooking";
 import AISearch from "./pages/AISearch";
 import FAQPage from "./pages/FAQPage";
+import SEOServicePage from "./pages/services/SEOServicePage";
+import SEMServicePage from "./pages/services/SEMServicePage";
+import GEOServicePage from "./pages/services/GEOServicePage";
+import CROServicePage from "./pages/services/CROServicePage";
+import MarketingAutomationServicePage from "./pages/services/MarketingAutomationServicePage";
+import CustomSoftwareServicePage from "./pages/services/CustomSoftwareServicePage";
+import ProcessPage from "./pages/ProcessPage";
+import BlogPage from "./pages/BlogPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -18,12 +27,21 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/pricing-and-booking" element={<PricingAndBooking />} />
             <Route path="/ai-search" element={<AISearch />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/services/seo" element={<SEOServicePage />} />
+            <Route path="/services/sem" element={<SEMServicePage />} />
+            <Route path="/services/geo" element={<GEOServicePage />} />
+            <Route path="/services/cro" element={<CROServicePage />} />
+            <Route path="/services/marketing-automation" element={<MarketingAutomationServicePage />} />
+            <Route path="/services/custom-software" element={<CustomSoftwareServicePage />} />
+            <Route path="/process" element={<ProcessPage />} />
+            <Route path="/blog" element={<BlogPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

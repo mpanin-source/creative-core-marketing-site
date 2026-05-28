@@ -25,7 +25,7 @@ const SignalLayers = () => {
           variants={sectionFade}
           className="text-center mb-14"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">THE SIGNALS</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">THE SIGNALS</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-5" style={{ fontWeight: 900 }}>
             IT'S NOT ABOUT AD SPEND ANYMORE.<br />
             <span className="italic text-shimmer-blue">IT'S ABOUT FOOTPRINT.</span>
@@ -45,11 +45,11 @@ const SignalLayers = () => {
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm outcome-card relative"
             >
-              <div className="absolute top-5 right-5 font-display text-2xl text-electric/20" style={{ fontWeight: 900 }}>
+              <div className="absolute top-5 right-5 font-display text-2xl text-coral/20" style={{ fontWeight: 900 }}>
                 0{i + 1}
               </div>
-              <div className="outcome-icon w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center mb-4">
-                <l.icon className="w-5 h-5 text-electric" />
+              <div className="outcome-icon w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center mb-4">
+                <l.icon className="w-5 h-5 text-coral" />
               </div>
               <h3 className="font-display text-base text-foreground uppercase mb-2 pr-8" style={{ fontWeight: 700 }}>
                 {l.title}
@@ -69,15 +69,15 @@ const SignalLayers = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="p-7 md:p-8 rounded-2xl border-2 border-electric/50 bg-card/80 backdrop-blur-sm relative shadow-[0_0_40px_rgba(0,209,255,0.18)]"
+              className="p-7 md:p-8 rounded-2xl border-2 border-coral/50 bg-card/80 backdrop-blur-sm relative shadow-[0_0_40px_rgba(255, 77, 46,0.18)]"
             >
-              <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-electric/15 border border-electric/40 text-[10px] font-bold tracking-widest uppercase text-electric">
+              <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-coral/15 border border-coral/40 text-[10px] font-bold tracking-widest uppercase text-coral-dark">
                 FUTURE-DEFINING
               </div>
-              <div className="absolute top-5 right-5 font-display text-2xl text-electric/30" style={{ fontWeight: 900 }}>07</div>
+              <div className="absolute top-5 right-5 font-display text-2xl text-coral/30" style={{ fontWeight: 900 }}>07</div>
               <div className="flex items-start gap-5">
-                <div className="outcome-icon w-12 h-12 shrink-0 rounded-xl bg-electric/15 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-electric" />
+                <div className="outcome-icon w-12 h-12 shrink-0 rounded-xl bg-coral/15 flex items-center justify-center">
+                  <Icon className="w-6 h-6 text-coral" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-display text-lg md:text-xl text-foreground uppercase mb-2" style={{ fontWeight: 800 }}>

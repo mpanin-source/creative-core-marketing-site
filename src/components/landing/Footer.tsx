@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -31,7 +31,7 @@ const lastCreativeItem: Variants = {
   }),
 };
 
-// "CORE" letters: reveal → first tap → pause → second tap + turn blue
+// "CORE" letters: reveal → first tap → pause → second tap + turn cyan
 const coreLetterItem: Variants = {
   hidden: { opacity: 0, y: 20, color: "hsl(0, 0%, 95%)" },
   visible: (delay: number) => ({
@@ -44,8 +44,8 @@ const coreLetterItem: Variants = {
       "hsl(0, 0%, 95%)",
       "hsl(0, 0%, 95%)",
       "hsl(0, 0%, 95%)",
-      "hsl(190, 100%, 50%)",
-      "hsl(190, 100%, 50%)",
+      "hsl(9, 100%, 59%)",
+      "hsl(9, 100%, 59%)",
     ],
     filter: [
       "drop-shadow(0 0 0px transparent)",
@@ -54,8 +54,8 @@ const coreLetterItem: Variants = {
       "drop-shadow(0 0 0px transparent)",
       "drop-shadow(0 0 0px transparent)",
       "drop-shadow(0 0 0px transparent)",
-      "drop-shadow(0 0 12px rgba(0,209,255,0.4))",
-      "drop-shadow(0 0 12px rgba(0,209,255,0.4))",
+      "drop-shadow(0 0 12px rgba(255, 77, 46,0.4))",
+      "drop-shadow(0 0 12px rgba(255, 77, 46,0.4))",
     ],
     transition: {
       duration: 2,
@@ -66,36 +66,32 @@ const coreLetterItem: Variants = {
   }),
 };
 
+const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+
 const Footer = () => {
   const creativeText = "CREATIVE";
   const coreText = "CORE";
 
   return (
-    <footer className="border-t border-border">
-      {/* LangChain-style branded CTA block */}
-      <div
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(180deg, hsl(213, 35%, 8%) 0%, hsl(213, 40%, 5%) 100%)" }}
-      >
-        {/* Subtle radial glow behind logo */}
+    <footer className="border-t border-slate-dark">
+      {/* Animated wordmark block (preserved from Round 6, color-migrated to Path A) */}
+      <div className="relative overflow-hidden bg-navy-deep">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse 60% 40% at 50% 60%, rgba(0, 209, 255, 0.06) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 60% 40% at 50% 60%, rgba(255, 77, 46, 0.06) 0%, transparent 70%)",
           }}
         />
 
-        <div className="relative z-10 px-6 py-24 md:py-32 lg:py-40">
+        <div className="relative z-10 px-6 py-20 md:py-24">
           <div className="max-w-[1100px] mx-auto flex flex-col items-center">
-            {/* Large spaced-out brand name */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={letterReveal}
-              className="flex items-center justify-center gap-[0.15em] md:gap-[0.2em] mb-10 md:mb-14 flex-wrap"
+              className="flex items-center justify-center gap-[0.15em] md:gap-[0.2em] mb-8 flex-wrap"
             >
-              {/* CREATIVE letters — last letter bounces on CORE taps */}
               {creativeText.split("").map((char, i) => {
                 const isLast = i === creativeText.length - 1;
                 return (
@@ -103,16 +99,14 @@ const Footer = () => {
                     key={`c-${i}`}
                     custom={i * 0.04}
                     variants={isLast ? lastCreativeItem : letterItem}
-                    className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight"
-                    style={{ fontWeight: 800, color: "hsl(var(--foreground))" }}
+                    className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-cream"
+                    style={{ fontWeight: 800 }}
                   >
                     {char}
                   </motion.span>
                 );
               })}
-              {/* Space */}
               <span className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ width: "0.4em" }} />
-              {/* CORE letters — double tap, turns blue, then pulses */}
               {coreText.split("").map((char, i) => (
                 <motion.span
                   key={`o-${i}`}
@@ -126,64 +120,99 @@ const Footer = () => {
               ))}
             </motion.div>
 
-            {/* Tagline */}
             <motion.p
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={sectionFade}
-              className="text-muted-foreground text-base md:text-lg mb-10 text-center max-w-xl leading-relaxed"
+              className="text-slate-light text-base md:text-lg text-center max-w-xl leading-relaxed"
             >
-              AI-Powered Marketing for Florida Home Services. One Client Per Niche, Per County.
+              AI-Powered Marketing for Florida Home Services.
             </motion.p>
-
-            {/* Dual CTA buttons */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={sectionFade}
-              className="flex flex-col sm:flex-row items-center gap-4"
-            >
-              <button
-                onClick={() => document.getElementById("gateway")?.scrollIntoView({ behavior: "smooth" })}
-                className="btn-primary inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-base font-semibold"
-              >
-                Get Your $497 Website
-                <ArrowRight size={18} className="arrow-icon transition-transform" />
-              </button>
-              <button
-                onClick={() => document.getElementById("foundation")?.scrollIntoView({ behavior: "smooth" })}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold border border-border text-foreground hover:border-electric/40 hover:text-electric transition-colors duration-200"
-                style={{ background: "rgba(255,255,255,0.03)" }}
-              >
-                See How It Works
-              </button>
-            </motion.div>
-
-            {/* Capacity note */}
             <motion.p
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={sectionFade}
-              className="text-sm text-muted-foreground mt-10 text-center max-w-2xl"
+              className="text-slate-light/70 text-sm text-center italic mt-3 max-w-xl"
             >
-              Now accepting 3 Florida home service clients. Specializing in window tinting, roofing, HVAC, plumbing, painting, junk removal, tree service, and more.
+              One client per niche, per county.
             </motion.p>
           </div>
         </div>
       </div>
 
-      {/* Minimal footer bottom */}
-      <div className="px-6 py-8" style={{ background: "hsl(213, 42%, 4%)" }}>
-        <div className="max-w-[1100px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
+      {/* 4-column navigation block */}
+      <div className="bg-navy-deep px-6 py-16 border-t border-slate-dark">
+        <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <p className="text-xs uppercase tracking-wider font-medium text-cyan mb-4">
+              Services
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/services/seo" className="text-slate-light hover:text-cream transition-colors">SEO</Link></li>
+              <li><Link to="/services/sem" className="text-slate-light hover:text-cream transition-colors">SEM &amp; Paid Search</Link></li>
+              <li><Link to="/services/geo" className="text-slate-light hover:text-cream transition-colors">GEO &amp; AI Search</Link></li>
+              <li><Link to="/services/custom-software" className="text-slate-light hover:text-cream transition-colors">Custom Software</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-wider font-medium text-cyan mb-4">
+              Company
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/pricing-and-booking" className="text-slate-light hover:text-cream transition-colors">Pricing</Link></li>
+              <li><Link to="/process" className="text-slate-light hover:text-cream transition-colors">Process</Link></li>
+              <li><Link to="/blog" className="text-slate-light hover:text-cream transition-colors">Blog</Link></li>
+              <li><Link to="/faq" className="text-slate-light hover:text-cream transition-colors">FAQ</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-wider font-medium text-cyan mb-4">
+              Get started
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href={CALENDLY}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-light hover:text-cream transition-colors"
+                >
+                  Book strategy call
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:paninmax2002@gmail.com"
+                  className="text-slate-light hover:text-cream transition-colors"
+                >
+                  Email us
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-wider font-medium text-cyan mb-4">
+              Creative Core
+            </p>
+            <p className="text-sm text-slate-light leading-relaxed">
+              AI-powered marketing for Florida home services.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="bg-navy-deep px-6 py-8 border-t border-slate-dark">
+        <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-slate-light">
             © {new Date().getFullYear()} Creative Core. All rights reserved.
           </p>
-          <div className="flex items-center gap-5 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-electric transition-colors duration-200">Privacy</a>
-            <a href="#" className="hover:text-electric transition-colors duration-200">Terms</a>
+          <div className="flex items-center gap-5 text-xs">
+            <p className="text-slate-light">Sarasota, FL · Florida-based · Florida-licensed pros only</p>
+            <a href="#" className="text-slate-light hover:text-cream transition-colors">Privacy</a>
+            <a href="#" className="text-slate-light hover:text-cream transition-colors">Terms</a>
           </div>
         </div>
       </div>

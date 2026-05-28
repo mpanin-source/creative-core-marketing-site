@@ -74,7 +74,7 @@ const Deliverables = () => {
       {/* Mobile: stacked cards */}
       <div className="md:hidden px-6 py-16">
         <div className="text-center mb-8">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             OUTCOMES, NOT FEATURES
           </p>
           <h2 className="text-3xl font-display text-foreground" style={{ fontWeight: 900 }}>
@@ -92,8 +92,8 @@ const Deliverables = () => {
               className="outcome-card p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm"
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className="outcome-icon w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center">
-                  <item.icon className="w-5 h-5 text-electric" />
+                <div className="outcome-icon w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center">
+                  <item.icon className="w-5 h-5 text-coral" />
                 </div>
                 <h3 className="font-display text-base text-foreground uppercase" style={{ fontWeight: 700 }}>
                   {item.title}
@@ -113,7 +113,7 @@ const Deliverables = () => {
         <div className="sticky top-0 h-screen flex flex-col justify-center">
           {/* Header inside sticky area */}
           <div className="text-center mb-10 px-8">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
               OUTCOMES, NOT FEATURES
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground" style={{ fontWeight: 900 }}>
@@ -130,21 +130,21 @@ const Deliverables = () => {
                   <div
                     key={item.label}
                     className={`relative flex items-center gap-2.5 px-5 py-3 rounded-xl transition-all duration-400 cursor-default flex-1 justify-center ${
-                      isActive ? "bg-electric/10 shadow-[0_0_20px_rgba(0,209,255,0.12)]" : ""
+                      isActive ? "bg-coral/10 shadow-[0_0_20px_rgba(255, 77, 46,0.12)]" : ""
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="del-tab-bg"
-                        className="absolute inset-0 rounded-xl border border-electric/40 bg-electric/5"
+                        className="absolute inset-0 rounded-xl border border-coral/40 bg-coral/5"
                         transition={{ type: "spring", stiffness: 200, damping: 28 }}
                       />
                     )}
                     <item.icon className={`relative z-10 w-4 h-4 transition-colors duration-300 ${
-                      isActive ? "text-electric" : "text-muted-foreground"
+                      isActive ? "text-coral" : "text-muted-foreground"
                     }`} />
                     <span className={`relative z-10 font-display text-sm uppercase transition-colors duration-300 ${
-                      isActive ? "text-electric" : "text-muted-foreground"
+                      isActive ? "text-coral" : "text-muted-foreground"
                     }`} style={{ fontWeight: 700 }}>
                       {item.label}
                     </span>
@@ -155,7 +155,7 @@ const Deliverables = () => {
 
             {/* Progress bar */}
             <div className="mt-3 h-0.5 rounded-full bg-border/50 overflow-hidden">
-              <motion.div className="h-full bg-electric rounded-full" style={{ width: progressBarWidth }} />
+              <motion.div className="h-full bg-coral rounded-full" style={{ width: progressBarWidth }} />
             </div>
           </div>
 
@@ -169,8 +169,8 @@ const Deliverables = () => {
                   style={{ opacity: stepOpacities[i] }}
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center">
-                      <item.icon className="w-6 h-6 text-electric" />
+                    <div className="w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center">
+                      <item.icon className="w-6 h-6 text-coral" />
                     </div>
                     <h3 className="font-display text-2xl text-foreground uppercase" style={{ fontWeight: 700 }}>
                       {item.title}
@@ -180,14 +180,14 @@ const Deliverables = () => {
                     {item.description}
                   </p>
                   {item.extra && (
-                    <p className="text-sm text-muted-foreground/80 leading-relaxed italic mb-6 border-l-2 border-electric/30 pl-4">
+                    <p className="text-sm text-muted-foreground/80 leading-relaxed italic mb-6 border-l-2 border-coral/30 pl-4">
                       {item.extra}
                     </p>
                   )}
                   <div className="grid grid-cols-2 gap-3">
                     {item.bullets.map((b, j) => (
                       <div key={j} className="flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-coral flex-shrink-0" />
                         <span className="text-sm text-foreground/80">{b}</span>
                       </div>
                     ))}

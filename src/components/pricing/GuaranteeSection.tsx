@@ -37,7 +37,7 @@ const GuaranteeSection = () => {
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
           className="rounded-2xl p-8 md:p-12 border-2 border-safety/40"
-          style={{ background: "hsla(25, 100%, 50%, 0.04)", boxShadow: "0 0 40px rgba(255,107,0,0.1)" }}
+          style={{ background: "hsla(9, 100%, 59%, 0.04)", boxShadow: "0 0 40px rgba(255, 77, 46,0.1)" }}
         >
           <div className="flex items-start gap-4 mb-6">
             <Shield className="w-10 h-10 text-safety flex-shrink-0 mt-1" />
@@ -46,8 +46,8 @@ const GuaranteeSection = () => {
                 If after 60 days we haven't either:
               </p>
               <ul className="space-y-1 text-base text-foreground mb-3">
-                <li>• Reduced your cost-per-lead by at least <span className="text-electric font-semibold">20%</span>, OR</li>
-                <li>• Grown your booked appointments by at least <span className="text-electric font-semibold">25%</span></li>
+                <li>• Reduced your cost-per-lead by at least <span className="text-coral font-semibold">20%</span>, OR</li>
+                <li>• Grown your booked appointments by at least <span className="text-coral font-semibold">25%</span></li>
               </ul>
               <p className="text-base md:text-lg text-foreground leading-relaxed">
                 ...you walk away. No contract. No refund battle. You keep:

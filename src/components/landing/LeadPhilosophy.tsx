@@ -66,15 +66,15 @@ const LeadPhilosophy = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="bg-card border border-electric/30 p-6 md:p-8 rounded-xl shadow-card glass-hover"
+            className="bg-card border border-coral/30 p-6 md:p-8 rounded-xl shadow-card glass-hover"
           >
             <h3 className="text-xl font-display text-foreground mb-1" style={{ fontWeight: 700 }}>What You Deserve</h3>
-            <p className="text-xs mb-5 italic text-electric">The Creative Core Difference</p>
+            <p className="text-xs mb-5 italic text-coral">The Creative Core Difference</p>
             <ul className="space-y-3">
               {deserve.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-electric/10 flex items-center justify-center mt-0.5">
-                    <Check className="w-3 h-3 text-electric" />
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-coral/10 flex items-center justify-center mt-0.5">
+                    <Check className="w-3 h-3 text-coral" />
                   </div>
                   <span className="text-sm text-foreground">{item}</span>
                 </li>

@@ -15,14 +15,14 @@ const GuaranteeBanner = () => {
           className="rounded-xl p-8 md:p-12 text-center relative overflow-hidden border border-safety circuit-trace-orange"
           style={{
             background: "linear-gradient(135deg, hsl(213, 35%, 10%) 0%, hsl(213, 40%, 8%) 100%)",
-            boxShadow: "0 0 40px rgba(255, 107, 0, 0.25), 0 8px 32px rgba(0, 0, 0, 0.4)",
+            boxShadow: "0 0 40px rgba(255, 77, 46, 0.25), 0 8px 32px rgba(0, 0, 0, 0.4)",
           }}
         >
           {/* Subtle orange radial glow */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse at center, rgba(255, 107, 0, 0.06) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse at center, rgba(255, 77, 46, 0.06) 0%, transparent 70%)",
             }}
           />
 

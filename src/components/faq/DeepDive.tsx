@@ -29,7 +29,7 @@ const DeepDive = ({ id, eyebrow, title, titleAccent, icon: Icon, alt, ctaLabel, 
           variants={sectionFade}
           className="text-center mb-10"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric flex items-center justify-center gap-2">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark flex items-center justify-center gap-2">
             {Icon && <Icon className="w-4 h-4" />}
             {eyebrow}
           </p>
@@ -62,7 +62,7 @@ const DeepDive = ({ id, eyebrow, title, titleAccent, icon: Icon, alt, ctaLabel, 
           >
             <Link
               to={ctaHref}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-electric hover:text-electric/80 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-coral hover:text-coral/80 transition-colors"
             >
               {ctaLabel} <ArrowRight className="w-4 h-4" />
             </Link>

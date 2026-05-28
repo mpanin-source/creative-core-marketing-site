@@ -54,7 +54,7 @@ const ExamplesCarousel = () => {
           variants={sectionFade}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">PROOF</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">PROOF</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-3" style={{ fontWeight: 900 }}>
             HOW SMART OPERATORS ARE<br />
             <span className="italic text-shimmer-blue">ALREADY WINNING AI SEARCH</span>
@@ -82,10 +82,10 @@ const ExamplesCarousel = () => {
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className="bg-card border border-border rounded-2xl p-8 md:p-12 cursor-grab active:cursor-grabbing select-none"
               >
-                <div className="outcome-icon w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center mb-5">
-                  <Icon className="w-6 h-6 text-electric" />
+                <div className="outcome-icon w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center mb-5">
+                  <Icon className="w-6 h-6 text-coral" />
                 </div>
-                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-electric mb-3">{e.label}</p>
+                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-coral-dark mb-3">{e.label}</p>
 
                 <div className="bg-background/60 border border-border rounded-lg p-4 font-mono text-xs mb-5">
                   <p className="text-muted-foreground mb-1">Search query:</p>
@@ -97,8 +97,8 @@ const ExamplesCarousel = () => {
                   <p className="text-base text-foreground">{e.shows}</p>
                 </div>
 
-                <div className="border-l-2 border-electric pl-4">
-                  <p className="text-xs uppercase tracking-widest text-electric mb-2">Lesson</p>
+                <div className="border-l-2 border-coral pl-4">
+                  <p className="text-xs uppercase tracking-widest text-coral-dark mb-2">Lesson</p>
                   <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{e.lesson}</p>
                 </div>
               </motion.div>
@@ -108,7 +108,7 @@ const ExamplesCarousel = () => {
           <div className="flex items-center justify-between mt-6">
             <button
               onClick={() => go(-1)}
-              className="p-2.5 rounded-full border border-border bg-card hover:border-electric/50 hover:text-electric transition-colors"
+              className="p-2.5 rounded-full border border-border bg-card hover:border-coral/50 hover:text-coral transition-colors"
               aria-label="Previous"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -118,14 +118,14 @@ const ExamplesCarousel = () => {
                 <button
                   key={i}
                   onClick={() => setActive(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-8 bg-electric" : "w-2 bg-border hover:bg-muted-foreground"}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-8 bg-coral" : "w-2 bg-border hover:bg-muted-foreground"}`}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               ))}
             </div>
             <button
               onClick={() => go(1)}
-              className="p-2.5 rounded-full border border-border bg-card hover:border-electric/50 hover:text-electric transition-colors"
+              className="p-2.5 rounded-full border border-border bg-card hover:border-coral/50 hover:text-coral transition-colors"
               aria-label="Next"
             >
               <ChevronRight className="w-4 h-4" />
@@ -151,19 +151,19 @@ const ExamplesCarousel = () => {
             <p className="text-xs text-muted-foreground mt-4 italic">What most agencies optimize for.</p>
           </div>
 
-          <div className="bg-card border-2 border-electric/40 rounded-2xl p-6 shadow-[0_0_30px_rgba(0,209,255,0.15)]">
+          <div className="bg-card border-2 border-coral/40 rounded-2xl p-6 shadow-[0_0_30px_rgba(255, 77, 46,0.15)]">
             <div className="flex items-center gap-2 mb-3">
-              <Sparkles className="w-3 h-3 text-electric" />
-              <p className="text-xs uppercase tracking-widest text-electric font-semibold">Question Search</p>
+              <Sparkles className="w-3 h-3 text-coral" />
+              <p className="text-xs uppercase tracking-widest text-coral-dark font-semibold">Question Search</p>
             </div>
             <p className="font-mono text-xs text-foreground mb-4">"why does my Florida AC freeze in summer"</p>
-            <div className="bg-background/60 border border-electric/30 rounded p-3 font-mono text-xs">
-              <p className="text-electric mb-1">AI Overview</p>
+            <div className="bg-background/60 border border-coral/30 rounded p-3 font-mono text-xs">
+              <p className="text-coral mb-1">AI Overview</p>
               <p className="text-muted-foreground leading-relaxed">
                 Florida AC units freeze due to... <span className="text-foreground">According to [Your Contractor Blog]</span>...
               </p>
             </div>
-            <p className="text-xs text-electric mt-4 italic">What we optimize for.</p>
+            <p className="text-xs text-coral mt-4 italic">What we optimize for.</p>
           </div>
         </motion.div>
 

@@ -49,7 +49,7 @@ const WhyDifferent = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             THE LOCAL DOMINATION PLAYBOOK
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
@@ -72,8 +72,8 @@ const WhyDifferent = () => {
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm outcome-card"
             >
-              <div className="outcome-icon w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center mb-4">
-                <s.icon className="w-5 h-5 text-electric" />
+              <div className="outcome-icon w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center mb-4">
+                <s.icon className="w-5 h-5 text-coral" />
               </div>
               <h3 className="font-display text-base text-foreground uppercase mb-2" style={{ fontWeight: 700 }}>
                 {s.title}
@@ -89,14 +89,14 @@ const WhyDifferent = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative p-8 md:p-10 rounded-2xl border-2 border-electric/40 bg-card/80 backdrop-blur-sm shadow-[0_0_40px_rgba(0,209,255,0.18)]"
+          className="relative p-8 md:p-10 rounded-2xl border-2 border-coral/40 bg-card/80 backdrop-blur-sm shadow-[0_0_40px_rgba(255, 77, 46,0.18)]"
         >
-          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap bg-electric/15 text-electric border border-electric/40">
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap bg-coral/15 text-coral-dark border border-coral/40">
             FUTURE-DEFINING
           </div>
           <div className="flex flex-col md:flex-row gap-6 md:items-start">
-            <div className="outcome-icon w-12 h-12 rounded-xl bg-electric/15 flex items-center justify-center flex-shrink-0">
-              <Sparkles className="w-6 h-6 text-electric" />
+            <div className="outcome-icon w-12 h-12 rounded-xl bg-coral/15 flex items-center justify-center flex-shrink-0">
+              <Sparkles className="w-6 h-6 text-coral" />
             </div>
             <div className="flex-1">
               <h3 className="font-display text-xl md:text-2xl text-foreground uppercase mb-3" style={{ fontWeight: 800 }}>
@@ -107,7 +107,7 @@ const WhyDifferent = () => {
               </p>
               <Link
                 to="/ai-search"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:underline"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-coral hover:underline"
               >
                 Learn more about our AI search strategy
                 <ArrowRight className="w-4 h-4" />

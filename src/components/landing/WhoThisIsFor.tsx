@@ -29,7 +29,7 @@ const WhoThisIsFor = () => {
           variants={sectionFade}
           className="text-center mb-8"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             THE AUDIT
           </p>
           <h2
@@ -60,7 +60,7 @@ const WhoThisIsFor = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="p-8 rounded-2xl border border-safety/30 bg-card/60 backdrop-blur-sm"
-            style={{ boxShadow: "0 0 24px rgba(255,107,0,0.08)" }}
+            style={{ boxShadow: "0 0 24px rgba(255, 77, 46,0.08)" }}
           >
             <h3 className="font-display text-xl text-safety uppercase mb-6" style={{ fontWeight: 700 }}>
               YOU'RE A GOOD FIT IF:

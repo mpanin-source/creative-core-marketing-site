@@ -33,7 +33,7 @@ const OptimizationSection = () => {
           variants={sectionFade}
           className="text-center mb-14"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             WHY WE CAN DO MORE FOR LESS
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-5" style={{ fontWeight: 900 }}>
@@ -54,8 +54,8 @@ const OptimizationSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="bg-card rounded-2xl p-7 md:p-8 border border-border outcome-card"
             >
-              <div className="outcome-icon w-11 h-11 rounded-xl bg-electric/10 flex items-center justify-center mb-5">
-                <c.icon className="w-5 h-5 text-electric" />
+              <div className="outcome-icon w-11 h-11 rounded-xl bg-coral/10 flex items-center justify-center mb-5">
+                <c.icon className="w-5 h-5 text-coral" />
               </div>
               <h3 className="font-display text-base text-foreground uppercase mb-3" style={{ fontWeight: 800 }}>
                 {c.title}

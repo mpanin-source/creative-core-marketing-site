@@ -71,7 +71,7 @@ const InvestmentTransparency = () => {
           variants={sectionFade}
           className="text-center mb-8"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             NO HIDDEN FEES
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 700 }}>
@@ -104,7 +104,7 @@ const InvestmentTransparency = () => {
               transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
               className={`bg-card rounded-xl p-8 md:p-10 flex flex-col relative ${
                 tier.highlight
-                  ? "border-2 border-safety shadow-[0_0_20px_hsla(25,100%,50%,0.3)] glass-hover-orange"
+                  ? "border-2 border-safety shadow-[0_0_20px_hsla(9, 100%, 59%,0.3)] glass-hover-orange"
                   : tier.name === "SCALE"
                     ? "border border-border shadow-subtle glass-hover-orange"
                     : "border border-border shadow-subtle glass-hover"
@@ -119,7 +119,7 @@ const InvestmentTransparency = () => {
                 TIER {i + 1}: {tier.name}
               </h3>
               <motion.p
-                className="text-3xl font-display text-electric"
+                className="text-3xl font-display text-coral"
                 style={{ fontWeight: 700 }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -132,14 +132,14 @@ const InvestmentTransparency = () => {
               <div className="flex-1 space-y-3 mb-6">
                 {tier.items.map((item, j) => (
                   <div key={j} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-coral flex-shrink-0 mt-0.5" />
                     <span className="text-sm text-foreground">{item}</span>
                   </div>
                 ))}
                 {tier.guarantee && (
                   <div className="flex items-start gap-2 mt-2">
-                    <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
-                    <span className="text-sm font-semibold text-electric">15+ Qualified Calls in 45 Days or 50% Refund</span>
+                    <Check className="w-4 h-4 text-coral flex-shrink-0 mt-0.5" />
+                    <span className="text-sm font-semibold text-coral">15+ Qualified Calls in 45 Days or 50% Refund</span>
                   </div>
                 )}
               </div>

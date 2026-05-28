@@ -61,9 +61,9 @@ const FAQSection = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-electric/10 border border-electric/20">
-            <HelpCircle className="w-4 h-4 text-electric" />
-            <span className="text-xs font-bold tracking-widest uppercase text-electric">FAQ</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-coral/10 border border-coral/20">
+            <HelpCircle className="w-4 h-4 text-coral" />
+            <span className="text-xs font-bold tracking-widest uppercase text-coral-dark">FAQ</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display text-foreground" style={{ fontWeight: 900 }}>
             COMMON QUESTIONS
@@ -90,7 +90,7 @@ const FAQSection = () => {
                   transition={{ duration: 0.2 }}
                   className="shrink-0"
                 >
-                  <ChevronDown className="w-5 h-5 text-electric" />
+                  <ChevronDown className="w-5 h-5 text-coral" />
                 </motion.div>
               </button>
               <AnimatePresence>

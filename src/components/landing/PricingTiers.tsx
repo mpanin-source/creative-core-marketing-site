@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { Check, ArrowRight, Zap, Lock, ChevronDown } from "lucide-react";
+import { Check, ArrowRight, Lock, ChevronDown, Sparkles } from "lucide-react";
 import CountUp from "react-countup";
 
 const sectionFade: Variants = {
@@ -8,14 +8,49 @@ const sectionFade: Variants = {
   visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
-const tiers = [
+interface Tier {
+  id: string;
+  name: string;
+  subtitle: string;
+  price: number;
+  priceSuffix: string;
+  badge: string | null;
+  locked: boolean;
+  items: string[];
+  cta: string;
+  highlighted: boolean;
+  isGateway: boolean;
+  qualifier?: string;
+}
+
+const gatewayTier: Tier = {
+  id: "gateway-tier",
+  name: "GATEWAY",
+  subtitle: "Stop losing leads",
+  price: 497,
+  priceSuffix: "one-time, 7-day delivery",
+  badge: null,
+  locked: false,
+  items: [
+    "Custom Lovable-built website",
+    "AI-search-ready by default",
+    "Mobile-first + Core Web Vitals",
+    "Schema + Google Business Profile setup",
+    "You own everything from day one",
+  ],
+  cta: "Get my $497 website",
+  highlighted: false,
+  isGateway: true,
+};
+
+const baseTiers: Tier[] = [
   {
     id: "foundation-tier",
     name: "FOUNDATION SPRINT",
-    subtitle: "Test the waters — prove the system works",
+    subtitle: "Lower your CPL",
     price: 1500,
     priceSuffix: "/month (First 60 Days) → $2,000/mo ongoing",
-    badge: null as string | null,
+    badge: "MOST POPULAR",
     locked: false,
     items: [
       "Local SEO foundation (schema + NAP + GBP setup)",
@@ -26,16 +61,17 @@ const tiers = [
       "Speed-to-Lead CRM setup (sub-60-second response time)",
       "Day 30 check-in + 60-day guarantee active",
     ],
-    cta: "Book Free Audit Call",
+    cta: "Book free audit call",
     highlighted: true,
+    isGateway: false,
   },
   {
     id: "growth",
     name: "GROWTH PARTNER",
-    subtitle: "Scale what worked + activate GEO presence",
+    subtitle: "Pack your calendar",
     price: 3000,
     priceSuffix: "/month",
-    badge: "MOST POPULAR",
+    badge: null,
     locked: false,
     items: [
       "Everything in Foundation Sprint",
@@ -47,13 +83,14 @@ const tiers = [
       "Monthly AI Visibility Reports (Google + ChatGPT)",
       "A/B testing + heat-map analysis",
     ],
-    cta: "Start With Foundation Sprint",
+    cta: "Start with Foundation Sprint",
     highlighted: false,
+    isGateway: false,
   },
   {
     id: "scale",
     name: "SCALE PARTNER",
-    subtitle: "Full search domination + the Information Gain content engine",
+    subtitle: "Own your county",
     price: 5000,
     priceSuffix: "/month (qualification required)",
     badge: "QUALIFICATION REQUIRED",
@@ -67,32 +104,45 @@ const tiers = [
       "AI Max migration + source-personalized landing pages",
       "Multi-channel ROI attribution",
     ],
-    cta: "See If You Qualify",
+    cta: "See if you qualify",
     highlighted: false,
+    isGateway: false,
+    qualifier: "Typical clients $1M+. Custom pricing for multi-location.",
   },
 ];
 
-const PricingTiers = () => {
+interface PricingTiersProps {
+  /** When true, prepends the $497 Gateway tier as a 4th card. */
+  showGateway?: boolean;
+}
+
+const PricingTiers = ({ showGateway = false }: PricingTiersProps) => {
   const [showQual, setShowQual] = useState(false);
+  const tiers = showGateway ? [gatewayTier, ...baseTiers] : baseTiers;
+  const gridCols = tiers.length === 4 ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-2 lg:grid-cols-3";
+
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="px-6 py-32 md:px-8 section-warm" id="pricing">
+    <section className="px-6 py-32 md:px-8 bg-cream" id="pricing">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
           className="text-center mb-6"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
-            TRANSPARENT PRICING
+          <p className="text-xs font-medium tracking-[0.15em] uppercase mb-4 text-coral-dark">
+            Transparent pricing
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
-            SIMPLE, <span className="italic text-shimmer-blue">HONEST PRICING</span>
+          <h2
+            className="font-display text-3xl md:text-5xl mb-4 text-charcoal leading-tight"
+            style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
+          >
+            Simple, honest pricing.
           </h2>
-          <p className="text-base text-muted-foreground max-w-[600px] mx-auto">
+          <p className="text-base text-charcoal/70 max-w-[600px] mx-auto">
             No hidden fees. No ad spend markup. You pay Meta and Google directly.
           </p>
         </motion.div>
@@ -101,21 +151,37 @@ const PricingTiers = () => {
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-16 mt-6"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-safety/10 border border-safety/30 rounded-full">
-            <Zap className="w-4 h-4 text-safety" />
-            <span className="text-sm font-bold text-safety">NOW ACCEPTING: 3 FLORIDA HOME SERVICE CLIENTS</span>
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-soft border border-coral-dark/20"
+            style={{ boxShadow: "0 0 18px rgba(255, 77, 46, 0.18)" }}
+          >
+            <span className="text-sm font-semibold text-coral-dark">
+              Now accepting 3 Florida home service clients
+            </span>
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className={`grid grid-cols-1 ${gridCols} gap-6 mb-16 pt-4`}>
           {tiers.map((tier, i) => {
+            // Card backgrounds: highlighted = white (dominant), others = cream-light (subtle)
+            const cardBg = tier.highlighted ? "bg-white" : "bg-cream-light";
+            const cardBorder = tier.highlighted
+              ? "border-2 border-coral shadow-[0_8px_30px_rgba(255,77,46,0.15)]"
+              : "border border-charcoal/10";
+            const cardScale = tier.highlighted ? "md:scale-105" : "";
+            const priceSize = tier.highlighted ? "text-5xl" : "text-4xl";
+
+            // Badge style — coral for MOST POPULAR, coral-soft for QUALIFICATION (R7.6 Phase 7.5: purple removed)
             const badgeStyle = tier.locked
-              ? "bg-muted/40 text-muted-foreground border border-border"
-              : tier.badge === "MOST POPULAR"
-                ? "bg-safety/15 text-safety border border-safety/40"
-                : "bg-electric/20 text-electric border border-electric/30";
+              ? "bg-coral-soft text-coral-dark border border-coral-dark/20"
+              : "bg-coral text-white border border-coral";
+
+            // Gateway gets its own subtle "START HERE" badge in coral-soft tone
+            const gatewayBadge = tier.isGateway
+              ? "bg-coral-soft text-coral border border-coral/30"
+              : "";
 
             return (
               <motion.div
@@ -124,53 +190,68 @@ const PricingTiers = () => {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`bg-card rounded-xl p-6 md:p-8 flex flex-col relative scroll-mt-24 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] ${
-                  tier.highlighted
-                    ? "border-2 border-safety shadow-[0_0_28px_hsla(25,100%,50%,0.25)] pricing-pulse-border"
-                    : tier.locked
-                      ? "border border-border/60 shadow-subtle hover:border-electric/30"
-                      : "border border-border shadow-subtle hover:border-electric/40 hover:shadow-[0_0_20px_rgba(0,209,255,0.15)]"
-                }`}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className={`rounded-xl p-6 md:p-8 flex flex-col relative scroll-mt-24 transition-shadow duration-300 ${cardBg} ${cardBorder} ${cardScale}`}
               >
+                {tier.isGateway && (
+                  <div className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-medium tracking-wider uppercase whitespace-nowrap flex items-center gap-1.5 ${gatewayBadge}`}>
+                    <Sparkles className="w-3 h-3" />
+                    Start here
+                  </div>
+                )}
                 {tier.badge && (
-                  <div className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap flex items-center gap-1.5 ${badgeStyle}`}>
+                  <div
+                    className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-medium tracking-wider uppercase whitespace-nowrap flex items-center gap-1.5 ${badgeStyle}`}
+                    style={tier.locked ? { boxShadow: "0 0 16px rgba(255, 77, 46, 0.2)" } : undefined}
+                  >
                     {tier.locked && <Lock className="w-3 h-3" />}
                     {tier.badge}
                   </div>
                 )}
-                <h3 className="font-display text-xl text-foreground mt-1 flex items-center gap-2" style={{ fontWeight: 700 }}>
-                  {tier.locked && <Lock className="w-4 h-4 text-muted-foreground" />}
+
+                <h3
+                  className="font-display text-xl text-charcoal mt-1 flex items-center gap-2"
+                  style={{ fontWeight: 700 }}
+                >
+                  {tier.locked && <Lock className="w-4 h-4 text-charcoal/40" />}
                   {tier.name}
                 </h3>
-                <p className="text-xs text-muted-foreground mb-4">{tier.subtitle}</p>
+                <p className="text-xs text-charcoal/60 mb-4">{tier.subtitle}</p>
+
                 <motion.div
                   className="mb-1"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                 >
-                  <span className="text-4xl font-display text-electric" style={{ fontWeight: 700 }}>
+                  <span
+                    className={`font-display text-coral-dark ${priceSize} leading-none`}
+                    style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
+                  >
                     $<CountUp end={tier.price} duration={1.5} separator="," enableScrollSpy scrollSpyOnce />
                   </span>
-                  <span className="text-sm text-muted-foreground ml-1 block mt-1">{tier.priceSuffix}</span>
+                  <span className="text-sm text-charcoal/60 ml-1 block mt-2">{tier.priceSuffix}</span>
                 </motion.div>
 
-                <div className="flex-1 space-y-2.5 mb-6 mt-4">
+                {tier.qualifier ? (
+                  <p className="text-xs text-muted-dark mt-2 italic">{tier.qualifier}</p>
+                ) : null}
+
+                <div className="flex-1 space-y-2.5 mb-6 mt-5">
                   {tier.items.map((item, j) => (
                     <div key={j} className="flex items-start gap-2">
-                      <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${tier.highlighted ? "text-safety" : "text-electric"}`} />
-                      <span className="text-sm text-foreground">{item}</span>
+                      <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-coral" />
+                      <span className="text-sm text-charcoal/80">{item}</span>
                     </div>
                   ))}
                 </div>
 
                 <button
                   onClick={scrollToContact}
-                  className={`w-full py-3 rounded-lg font-body font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] flex items-center justify-center gap-2 ${
+                  className={`w-full py-3 rounded-md font-medium text-sm transition-colors flex items-center justify-center gap-2 ${
                     tier.highlighted
-                      ? "btn-safety"
-                      : "border border-border text-foreground bg-card glass-hover"
+                      ? "bg-coral hover:bg-coral-dark text-white"
+                      : "border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
                   }`}
                 >
                   {tier.cta}
@@ -189,14 +270,17 @@ const PricingTiers = () => {
         >
           <button
             onClick={() => setShowQual(!showQual)}
-            className="w-full flex items-center justify-between p-5 rounded-xl border border-electric/30 bg-card hover:border-electric/60 transition-colors"
+            className="w-full flex items-center justify-between p-5 rounded-md border border-coral-dark/20 bg-coral-soft/50 hover:bg-coral-soft hover:border-coral-dark/40 transition-colors"
             aria-expanded={showQual}
           >
-            <span className="font-display text-base text-electric uppercase tracking-wide flex items-center gap-2" style={{ fontWeight: 700 }}>
-              <Lock className="w-4 h-4" />
-              See If You Qualify For Tier 3
+            <span
+              className="font-display text-base uppercase tracking-wide flex items-center gap-2 text-charcoal"
+              style={{ fontWeight: 700 }}
+            >
+              <Lock className="w-4 h-4 text-coral-dark" />
+              See if you qualify for Tier 3
             </span>
-            <ChevronDown className={`w-5 h-5 text-electric transition-transform ${showQual ? "rotate-180" : ""}`} />
+            <ChevronDown className={`w-5 h-5 transition-transform text-coral-dark ${showQual ? "rotate-180" : ""}`} />
           </button>
           {showQual && (
             <motion.div
@@ -205,19 +289,27 @@ const PricingTiers = () => {
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
-              <div className="bg-card border border-electric/20 rounded-xl p-6 md:p-8 mt-3 space-y-6">
+              <div className="rounded-md p-6 md:p-8 mt-3 space-y-6 border border-charcoal/10 bg-white">
                 <div>
-                  <h4 className="font-display text-sm text-electric uppercase tracking-widest mb-3" style={{ fontWeight: 800 }}>
-                    Tier 3 Qualification
+                  <h4
+                    className="font-display text-sm uppercase tracking-widest mb-3 text-coral-dark"
+                    style={{ fontWeight: 700 }}
+                  >
+                    Tier 3 qualification
                   </h4>
-                  <p className="text-sm text-muted-foreground mb-4">You qualify for Tier 3 if you meet either path:</p>
+                  <p className="text-sm text-charcoal/70 mb-4">
+                    You qualify for Tier 3 if you meet either path:
+                  </p>
                 </div>
 
                 <div>
-                  <p className="font-display text-sm text-foreground uppercase mb-3" style={{ fontWeight: 700 }}>
-                    Standard Path (After 60 Days At Tier 2)
+                  <p
+                    className="font-display text-sm uppercase mb-3 text-charcoal"
+                    style={{ fontWeight: 700 }}
+                  >
+                    Standard Path (after 60 days at Tier 2)
                   </p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+                  <ul className="space-y-2 text-sm text-charcoal/70">
                     {[
                       "Verified Google Business Profile with 50+ reviews at 4.5+ stars",
                       "3–5 reviews in last 90 days (recency matters)",
@@ -229,7 +321,7 @@ const PricingTiers = () => {
                       "6-month minimum commitment",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-coral" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -237,10 +329,13 @@ const PricingTiers = () => {
                 </div>
 
                 <div>
-                  <p className="font-display text-sm text-foreground uppercase mb-3" style={{ fontWeight: 700 }}>
-                    Skip-Ahead Path (Bypass Tier 2)
+                  <p
+                    className="font-display text-sm uppercase mb-3 text-charcoal"
+                    style={{ fontWeight: 700 }}
+                  >
+                    Skip-Ahead Path (bypass Tier 2)
                   </p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+                  <ul className="space-y-2 text-sm text-charcoal/70">
                     {[
                       "75+ Google reviews at 4.5+ stars",
                       "Active LSA with Google Guaranteed badge",
@@ -253,14 +348,14 @@ const PricingTiers = () => {
                       "Service-area pages for at least 3 specific cities",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-coral" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <p className="italic text-sm text-muted-foreground border-t border-border pt-4">
+                <p className="italic text-sm border-t pt-4 text-charcoal/70 border-charcoal/10">
                   Don't qualify yet? Foundation Sprint ($1,500/mo) gets you ready in 60–90 days. Growth Partner ($3,000/mo) builds you to qualification in 90–120 days.
                 </p>
               </div>

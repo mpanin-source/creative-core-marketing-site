@@ -54,8 +54,8 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
           width: actualDims.w,
           height: actualDims.h,
           filter: isHovered
-            ? "drop-shadow(0 0 14px rgba(0,209,255,0.7)) drop-shadow(0 0 28px rgba(0,209,255,0.3))"
-            : "drop-shadow(0 0 6px rgba(0,209,255,0.35))",
+            ? "drop-shadow(0 0 14px rgba(255, 77, 46,0.7)) drop-shadow(0 0 28px rgba(255, 77, 46,0.3))"
+            : "drop-shadow(0 0 6px rgba(255, 77, 46,0.35))",
           transition: "filter 0.3s ease",
         }}
       >
@@ -75,12 +75,12 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
               <stop offset="70%" stopColor="#c0c0c0" />
               <stop offset="100%" stopColor="#e0e0e0" />
             </linearGradient>
-            {/* Cyan gradient */}
+            {/* Coral gradient (R7.6 — was cyan in R7.5) */}
             <linearGradient id={`cg-${uid}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00f0ff" />
-              <stop offset="40%" stopColor="#00d9ff" />
-              <stop offset="70%" stopColor="#0090b0" />
-              <stop offset="100%" stopColor="#00d9ff" />
+              <stop offset="0%" stopColor="#FF6B4D" />
+              <stop offset="40%" stopColor="#FF4D2E" />
+              <stop offset="70%" stopColor="#E63E1F" />
+              <stop offset="100%" stopColor="#FF4D2E" />
             </linearGradient>
             {/* Shimmer gradient */}
             <linearGradient id={`shimmer-${uid}`} x1="0" y1="0" x2="1" y2="0">
@@ -217,7 +217,7 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
         className="absolute inset-0 rounded-full pointer-events-none"
         animate={{ opacity: [0.2, 0.5, 0.2] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-        style={{ background: "radial-gradient(circle, rgba(0,209,255,0.25) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(255, 77, 46,0.25) 0%, transparent 70%)" }}
       />
     </motion.div>
   );
@@ -246,11 +246,11 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
       {/* Mobile */}
       <div className="md:hidden flex items-center">
         <span className={`${s.mobile} font-display tracking-tight`} style={{ fontWeight: 700 }}>
-          <span className="text-foreground">CREATIVE</span>
+          <span>CREATIVE</span>
         </span>
         <CCEmblem size={size} isHovered={false} />
         <span className={`${s.mobile} font-display tracking-tight`} style={{ fontWeight: 700 }}>
-          <span className="text-electric" style={{ filter: `drop-shadow(${s.glow} rgba(0,209,255,0.4))` }}>CORE</span>
+          <span className="text-coral" style={{ filter: `drop-shadow(${s.glow} rgba(255, 77, 46,0.4))` }}>CORE</span>
         </span>
       </div>
 
@@ -262,7 +262,7 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.06 }}
-            className={`${s.desktop} font-display tracking-tight text-foreground`}
+            className={`${s.desktop} font-display tracking-tight`}
             style={{ fontWeight: 700 }}
           >
             {letter}
@@ -277,10 +277,10 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: (creative.length + 1 + i) * 0.06 }}
-            className={`${s.desktop} font-display tracking-tight text-electric transition-all duration-300`}
+            className={`${s.desktop} font-display tracking-tight text-coral transition-all duration-300`}
             style={{
               fontWeight: 700,
-              filter: `drop-shadow(${s.glow} rgba(0,209,255,0.4))`,
+              filter: `drop-shadow(${s.glow} rgba(255, 77, 46,0.4))`,
             }}
           >
             {letter}

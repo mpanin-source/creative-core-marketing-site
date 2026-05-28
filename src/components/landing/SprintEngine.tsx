@@ -24,7 +24,7 @@ const SprintEngine = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             FOUNDATION SPRINT
           </p>
           <h2
@@ -46,8 +46,8 @@ const SprintEngine = () => {
               className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm outcome-card"
             >
               <div className="flex items-start gap-4">
-                <div className="outcome-icon w-10 h-10 rounded-xl bg-electric/10 flex items-center justify-center flex-shrink-0">
-                  <d.icon className="w-5 h-5 text-electric" />
+                <div className="outcome-icon w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center flex-shrink-0">
+                  <d.icon className="w-5 h-5 text-coral" />
                 </div>
                 <div>
                   <h3 className="font-display text-base text-foreground uppercase mb-1" style={{ fontWeight: 700 }}>

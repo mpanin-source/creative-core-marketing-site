@@ -15,7 +15,7 @@ const HighIntentStat = () => {
           variants={sectionFade}
           className="text-center mb-10"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             HIGHER-INTENT TRAFFIC
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground leading-tight max-w-3xl mx-auto" style={{ fontWeight: 900 }}>
@@ -33,9 +33,9 @@ const HighIntentStat = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch mb-10"
         >
           {/* 3.49% — AI search */}
-          <div className="bg-card rounded-2xl p-7 md:p-8 border-2 border-electric/40 shadow-[0_0_30px_rgba(0,209,255,0.12)] text-center flex flex-col justify-center">
-            <p className="text-xs font-semibold tracking-widest uppercase text-electric mb-3">AI SEARCH CONVERSION</p>
-            <p className="font-display text-electric leading-none mb-3" style={{ fontWeight: 900, fontSize: "clamp(3rem, 8vw, 5rem)" }}>
+          <div className="bg-card rounded-2xl p-7 md:p-8 border-2 border-coral/40 shadow-[0_0_30px_rgba(255, 77, 46,0.12)] text-center flex flex-col justify-center">
+            <p className="text-xs font-semibold tracking-widest uppercase text-coral-dark mb-3">AI SEARCH CONVERSION</p>
+            <p className="font-display text-coral-dark leading-none mb-3" style={{ fontWeight: 900, fontSize: "clamp(3rem, 8vw, 5rem)" }}>
               3.49%
             </p>
             <p className="text-xs text-muted-foreground">ChatGPT, Claude, Perplexity visitors</p>

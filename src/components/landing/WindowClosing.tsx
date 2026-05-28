@@ -13,9 +13,9 @@ const WindowClosing = () => {
       <motion.div
         initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
         variants={sectionFade}
-        className="max-w-2xl mx-auto text-center bg-card border border-electric/20 rounded-2xl p-8 md:p-10"
+        className="max-w-2xl mx-auto text-center bg-card border border-coral/20 rounded-2xl p-8 md:p-10"
       >
-        <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+        <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
           GET STARTED
         </p>
         <h2 className="text-2xl md:text-3xl font-display text-foreground mb-5" style={{ fontWeight: 800 }}>
@@ -27,7 +27,7 @@ const WindowClosing = () => {
         </div>
         <Link
           to="/pricing-and-booking#gateway"
-          className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-body font-semibold text-sm border border-electric/40 text-electric hover:bg-electric/10 transition-colors"
+          className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-body font-semibold text-sm border border-coral/40 text-coral hover:bg-coral/10 transition-colors"
         >
           See What's Included
           <ArrowRight size={16} />

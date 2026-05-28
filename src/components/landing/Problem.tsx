@@ -55,8 +55,8 @@ const Problem = () => {
               transition={{ delay: i * 0.12, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
               className="p-6 md:p-8 bg-card rounded-xl border border-border shadow-subtle glass-hover"
             >
-              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 bg-electric/10">
-                <span className="font-display text-lg text-electric" style={{ fontWeight: 700 }}>{p.num}</span>
+              <div className="w-10 h-10 rounded-full flex items-center justify-center mb-4 bg-coral/10">
+                <span className="font-display text-lg text-coral" style={{ fontWeight: 700 }}>{p.num}</span>
               </div>
               <h3 className="text-xl font-display text-foreground mb-3" style={{ fontWeight: 700 }}>{p.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{p.description}</p>
@@ -71,7 +71,7 @@ const Problem = () => {
           className="mb-16 max-w-3xl mx-auto"
         >
           <div className="p-8 rounded-xl border border-safety/30 bg-safety/5 text-center"
-            style={{ boxShadow: "0 0 30px rgba(255, 107, 0, 0.1)" }}
+            style={{ boxShadow: "0 0 30px rgba(255, 77, 46, 0.1)" }}
           >
             <p className="font-display text-2xl md:text-3xl text-safety uppercase" style={{ fontWeight: 900 }}>
               THE AVERAGE HVAC BUSINESS LOSES $40K/YEAR

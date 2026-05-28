@@ -23,7 +23,7 @@ const LazyAgencySection = () => {
         variants={sectionFade}
         className="text-center max-w-3xl mx-auto px-6 -mt-16 mb-4"
       >
-        <p className="italic text-sm md:text-base text-electric/80">
+        <p className="italic text-sm md:text-base text-coral/80">
           Here's exactly how we're different — line by line.
         </p>
       </motion.div>

@@ -24,7 +24,7 @@ const Tier3Summary = () => {
           variants={sectionFade}
           className="text-center mb-10"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">WHO QUALIFIES</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">WHO QUALIFIES</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-2" style={{ fontWeight: 900 }}>
             TIER 3 — <span className="italic text-shimmer-blue">SCALE PARTNER</span>
           </h2>
@@ -33,17 +33,17 @@ const Tier3Summary = () => {
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
-          className="bg-card rounded-2xl p-8 border border-electric/30 shadow-[0_0_24px_rgba(0,209,255,0.1)]"
+          className="bg-card rounded-2xl p-8 border border-coral/30 shadow-[0_0_24px_rgba(255, 77, 46,0.1)]"
         >
           <div className="flex items-center gap-2 mb-5">
-            <Lock className="w-4 h-4 text-electric" />
-            <span className="text-xs font-bold tracking-wider uppercase text-electric">QUALIFICATION PREVIEW</span>
+            <Lock className="w-4 h-4 text-coral" />
+            <span className="text-xs font-bold tracking-wider uppercase text-coral-dark">QUALIFICATION PREVIEW</span>
           </div>
 
           <ul className="space-y-3 mb-8">
             {bullets.map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <span className="text-electric mt-1">✓</span>
+                <span className="text-coral mt-1">✓</span>
                 <span className="text-sm md:text-base text-foreground">{b}</span>
               </li>
             ))}

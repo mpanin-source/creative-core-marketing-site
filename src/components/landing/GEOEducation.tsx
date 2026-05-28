@@ -16,7 +16,7 @@ const GEOEducation = () => {
           variants={sectionFade}
           className="text-center mb-14"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">WHY THIS MATTERS</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">WHY THIS MATTERS</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground max-w-4xl mx-auto leading-tight" style={{ fontWeight: 900 }}>
             GEO & AI SEARCH DOMINATION:<br />
             <span className="italic text-shimmer-blue">THE NEW BATTLEFIELD</span>
@@ -37,7 +37,7 @@ const GEOEducation = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-xl border border-electric/30 bg-background/70 p-5 shadow-[0_0_30px_rgba(0,209,255,0.12)]"
+            className="rounded-xl border border-coral/30 bg-background/70 p-5 shadow-[0_0_30px_rgba(255, 77, 46,0.12)]"
           >
             {/* Search bar mock */}
             <div className="rounded-md bg-card/80 border border-border px-3 py-2 mb-4 text-xs text-muted-foreground italic font-mono">
@@ -49,14 +49,14 @@ const GEOEducation = () => {
                 <Sparkles className="w-3 h-3 text-background" />
               </div>
               <span className="text-sm font-semibold text-foreground">AI Overview</span>
-              <span className="text-[10px] uppercase tracking-widest text-electric/70 ml-auto">Generative</span>
+              <span className="text-[10px] uppercase tracking-widest text-coral-dark/70 ml-auto">Generative</span>
             </div>
             {/* Mock AI response */}
             <div className="space-y-2 text-sm text-foreground/90 leading-relaxed mb-4">
               <p>
-                Top-rated providers include <span className="font-semibold text-electric">[Your Business]</span>, known for fast response times and 5-star reviews.
+                Top-rated providers include <span className="font-semibold text-coral">[Your Business]</span>, known for fast response times and 5-star reviews.
               </p>
-              <ul className="space-y-1 text-xs text-muted-foreground pl-4 list-disc marker:text-electric/60">
+              <ul className="space-y-1 text-xs text-muted-foreground pl-4 list-disc marker:text-coral/60">
                 <li>Same-day service availability</li>
                 <li>Verified Google Guaranteed badge</li>
                 <li>200+ reviews at 4.9 stars</li>
@@ -81,7 +81,7 @@ const GEOEducation = () => {
         >
           <p className="text-sm md:text-base text-muted-foreground mb-2">
             Want the full breakdown of how AI search works?{" "}
-            <Link to="/ai-search" className="text-electric font-semibold hover:underline inline-flex items-center gap-1">
+            <Link to="/ai-search" className="text-coral font-semibold hover:underline inline-flex items-center gap-1">
               See our deep dive <ArrowRight className="w-4 h-4" />
             </Link>
           </p>

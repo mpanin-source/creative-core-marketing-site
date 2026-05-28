@@ -29,8 +29,8 @@ const CountdownInline = ({ target, color }: { target: Date; color: "safety" | "e
     return () => clearInterval(interval);
   }, [target]);
 
-  const colorClass = color === "safety" ? "text-safety" : "text-electric";
-  const sepClass = color === "safety" ? "text-safety/40" : "text-electric/40";
+  const colorClass = color === "safety" ? "text-safety" : "text-coral";
+  const sepClass = color === "safety" ? "text-safety/40" : "text-coral/40";
 
   return (
     <div className="flex items-center gap-1.5 font-mono text-sm tabular-nums">
@@ -61,7 +61,7 @@ const TheSystem = () => {
           variants={sectionFade}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             THE SYSTEM
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-4" style={{ fontWeight: 900 }}>
@@ -80,7 +80,7 @@ const TheSystem = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="p-8 rounded-2xl border border-safety/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-safety/70 hover:shadow-[0_0_30px_rgba(255,107,0,0.25)] flex flex-col"
+            className="p-8 rounded-2xl border border-safety/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-safety/70 hover:shadow-[0_0_30px_rgba(255, 77, 46,0.25)] flex flex-col"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-safety/15 flex items-center justify-center">
@@ -127,43 +127,43 @@ const TheSystem = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="p-8 rounded-2xl border border-electric/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-electric/70 hover:shadow-[0_0_30px_rgba(0,209,255,0.25)] flex flex-col"
+            className="p-8 rounded-2xl border border-coral/40 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-coral/70 hover:shadow-[0_0_30px_rgba(255, 77, 46,0.25)] flex flex-col"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-electric/15 flex items-center justify-center">
-                <Wrench className="w-5 h-5 text-electric" />
+              <div className="w-10 h-10 rounded-xl bg-coral/15 flex items-center justify-center">
+                <Wrench className="w-5 h-5 text-coral" />
               </div>
-              <h3 className="font-display text-xl text-electric uppercase" style={{ fontWeight: 700 }}>
+              <h3 className="font-display text-xl text-coral uppercase" style={{ fontWeight: 700 }}>
                 OPTION 2: BUILD NOW
               </h3>
             </div>
 
             {/* Live countdown */}
-            <div className="mb-6 px-3 py-2 rounded-lg bg-electric/5 border border-electric/20 flex items-center justify-between">
-              <span className="text-[10px] text-electric/80 font-semibold uppercase tracking-wider">June 1 Prep Window</span>
+            <div className="mb-6 px-3 py-2 rounded-lg bg-coral/5 border border-coral/20 flex items-center justify-between">
+              <span className="text-[10px] text-coral-dark/80 font-semibold uppercase tracking-wider">June 1 Prep Window</span>
               <CountdownInline target={JUNE_1} color="electric" />
             </div>
 
             <p className="text-sm font-semibold text-foreground mb-2">Your peak season is 30-90 days away. Build now, dominate later.</p>
             <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed flex-1">
               <li className="flex items-start gap-2">
-                <span className="text-electric mt-0.5">▸</span>
+                <span className="text-coral mt-0.5">▸</span>
                 <span>We build your entire funnel, creative, CRM, and automation stack now</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-electric mt-0.5">▸</span>
+                <span className="text-coral mt-0.5">▸</span>
                 <span>Everything tested, loaded, and ready — flip the switch when demand spikes</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-electric mt-0.5">▸</span>
+                <span className="text-coral mt-0.5">▸</span>
                 <span>Pre-season warm-up campaigns build pipeline so you launch with momentum, not from zero</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-electric mt-0.5">▸</span>
+                <span className="text-coral mt-0.5">▸</span>
                 <span>Capture 80% of early-season demand while competitors are still setting up</span>
               </li>
             </ul>
-            <p className="text-xs text-electric/80 font-semibold mt-6 tracking-wide uppercase">
+            <p className="text-xs text-coral-dark/80 font-semibold mt-6 tracking-wide uppercase">
               Best for: HVAC (June prep), Roofing, Solar, Wellness
             </p>
           </motion.div>

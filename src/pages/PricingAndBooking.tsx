@@ -1,120 +1,141 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Sparkles, Rocket, Clock } from "lucide-react";
+import { ArrowRight, Shield, MapPin } from "lucide-react";
 import GatewayOffer from "@/components/landing/GatewayOffer";
 import SprintEngine from "@/components/landing/SprintEngine";
 import PricingTiers from "@/components/landing/PricingTiers";
-import GuaranteeSection from "@/components/pricing/GuaranteeSection";
-import CustomSolutions from "@/components/pricing/CustomSolutions";
-import WhyOffering from "@/components/landing/WhyOffering";
+import BeyondRetainer from "@/components/pricing/BeyondRetainer";
 import ContactForm from "@/components/landing/ContactForm";
+import EndCTA from "@/components/shared/EndCTA";
 
-const Divider = () => <div className="section-divider-gradient" />;
+const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
 
-const sectionFade: Variants = {
-  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+// R7.6 — Single-phrase typewriter on the pricing hero, same look as the homepage.
+// Types "starting point." once on mount, then rests with cursor blinking.
+const PRICING_TYPED = "starting point.";
+const PRICING_TYPE_MS = 60;
+const PRICING_INITIAL_DELAY = 400;
+
+const PricingTypewriter = () => {
+  const [text, setText] = useState<string>("");
+
+  useEffect(() => {
+    let cancelled = false;
+    const sleep = (ms: number) =>
+      new Promise<void>((resolve) => setTimeout(resolve, ms));
+
+    const run = async () => {
+      await sleep(PRICING_INITIAL_DELAY);
+      if (cancelled) return;
+
+      for (let i = 1; i <= PRICING_TYPED.length; i++) {
+        if (cancelled) return;
+        setText(PRICING_TYPED.slice(0, i));
+        await sleep(PRICING_TYPE_MS);
+      }
+    };
+
+    run();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return (
+    <span
+      aria-hidden="true"
+      className="font-display inline-block text-coral-dark align-baseline"
+    >
+      {text}
+      <span
+        aria-hidden="true"
+        className="typewriter-cursor inline-block text-coral-dark"
+        style={{ marginLeft: "0.05em" }}
+      >
+        _
+      </span>
+    </span>
+  );
 };
 
-const MiniHero = () => {
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+// R7.6 Phase 7: Hero with compressed 60-day guarantee pill replacing the standalone GuaranteeSection.
+const PricingHero = () => {
+  const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
   return (
-    <section className="px-6 py-32 md:px-8 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="hero-orb hero-orb-1" />
-        <div className="hero-orb hero-orb-2" />
-      </div>
-      <div className="max-w-5xl mx-auto text-center relative z-10">
-        <motion.h1
-          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
-          variants={sectionFade}
-          className="text-4xl md:text-5xl lg:text-6xl font-display text-foreground uppercase mb-5 leading-[0.95]"
-          style={{ fontWeight: 900 }}
+    <section className="bg-cream-light pt-32 md:pt-36 pb-20 md:pb-24 px-6">
+      <div className="max-w-5xl mx-auto">
+        <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
+          Transparent pricing
+        </p>
+        <h1
+          className="font-display text-5xl md:text-7xl text-charcoal mb-6 leading-[0.95] max-w-4xl"
+          style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
+          aria-label="Pick your starting point."
         >
-          PICK YOUR <span className="italic text-shimmer-blue">STARTING POINT</span>
-        </motion.h1>
-        <motion.p
-          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
-          variants={sectionFade}
-          className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12"
-        >
-          Whether you're starting with the $497 Launch-Ready Website or going straight to a full agency tier — we have a path that fits where you are.
-        </motion.p>
+          <span aria-hidden="true" className="font-display">Pick your </span>
+          <PricingTypewriter />
+        </h1>
+        <p className="text-lg text-charcoal/80 max-w-2xl mb-8 leading-relaxed">
+          $497 to start. $1,500/mo to scale. Month-to-month after a 60-day trial.
+          You pay Google and Meta directly — zero markup, zero affiliate kickbacks.
+        </p>
 
-        <div className="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            onClick={() => scrollTo("gateway")}
-            className="bg-card border border-border rounded-2xl p-7 outcome-card text-left hover:border-electric/40 transition-colors"
-          >
-            <div className="outcome-icon w-11 h-11 rounded-xl bg-electric/10 flex items-center justify-center mb-4">
-              <Sparkles className="w-5 h-5 text-electric" />
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-electric mb-2">Start Small</p>
-            <h3 className="font-display text-2xl text-foreground mb-2" style={{ fontWeight: 800 }}>$497 LAUNCH-READY WEBSITE</h3>
-            <p className="text-sm text-muted-foreground mb-4">Fix the leak first. See if we're the right fit.</p>
-            <span className="inline-flex items-center gap-1 text-sm font-semibold text-electric">
-              See Gateway Details <ArrowRight className="w-4 h-4" />
-            </span>
-          </motion.button>
+        {/* Compressed 60-day guarantee — pill + one-liner */}
+        <div className="inline-flex items-start gap-3 bg-white rounded-lg px-5 py-4 border border-charcoal/10 mb-10 max-w-2xl">
+          <Shield className="w-5 h-5 text-coral-dark flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-charcoal/80 leading-relaxed">
+            <span className="font-semibold text-charcoal">60-day No-BS Guarantee:</span>{" "}
+            20% CPL reduction or 25% appointment growth — or you walk away and keep everything we built.
+            <Link to="/faq#guarantee" className="text-coral-dark font-medium hover:underline ml-1">
+              How it works →
+            </Link>
+          </p>
+        </div>
 
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
             onClick={() => scrollTo("pricing")}
-            className="bg-card border border-safety/40 rounded-2xl p-7 outcome-card text-left hover:border-safety transition-colors"
-            style={{ background: "hsla(25, 100%, 50%, 0.04)" }}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-coral hover:bg-coral-dark text-white font-medium transition-colors"
           >
-            <div className="outcome-icon w-11 h-11 rounded-xl bg-safety/15 flex items-center justify-center mb-4">
-              <Rocket className="w-5 h-5 text-safety" />
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-safety mb-2">Go All-In</p>
-            <h3 className="font-display text-2xl text-foreground mb-2" style={{ fontWeight: 800 }}>FOUNDATION SPRINT OR HIGHER</h3>
-            <p className="text-sm text-muted-foreground mb-4">Full agency tier. 60-day No-BS Guarantee.</p>
-            <span className="inline-flex items-center gap-1 text-sm font-semibold text-safety">
-              See Tier Pricing <ArrowRight className="w-4 h-4" />
-            </span>
-          </motion.button>
+            See the tiers
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <a
+            href={CALENDLY}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-7 py-3.5 rounded-md border-2 border-charcoal/40 text-charcoal hover:bg-charcoal/5 font-medium transition-colors"
+          >
+            Book a strategy call
+          </a>
         </div>
       </div>
     </section>
   );
 };
 
-const Day60Brief = () => (
-  <section className="px-6 py-12 md:px-8">
-    <div className="max-w-2xl mx-auto text-center">
-      <p className="text-sm md:text-base text-muted-foreground">
-        Want to know what happens at Day 60?{" "}
-        <Link to="/faq#day-60" className="text-electric font-semibold hover:underline inline-flex items-center gap-1">
-          See our full breakdown <ArrowRight className="w-4 h-4" />
-        </Link>
-      </p>
+// R7.6 Phase 7: compressed territory exclusivity — single callout block, no full section.
+const TerritoryCallout = () => (
+  <section className="bg-cream py-16 px-6">
+    <div className="max-w-3xl mx-auto">
+      <div className="bg-coral-soft rounded-xl p-7 md:p-8 border border-coral-dark/15 flex items-start gap-4">
+        <div className="w-10 h-10 rounded-md bg-white flex items-center justify-center flex-shrink-0">
+          <MapPin className="w-5 h-5 text-coral-dark" />
+        </div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-2">
+            Territory exclusive
+          </p>
+          <p className="text-base md:text-lg text-charcoal leading-relaxed">
+            <span className="font-semibold">One client per niche, per county.</span>{" "}
+            When your spot is taken, your competitors lose access to us — and the systems we build for you.
+            Florida home services only. Currently accepting three clients per county per niche.
+          </p>
+        </div>
+      </div>
     </div>
-  </section>
-);
-
-const TrustBlock = () => (
-  <section className="px-6 py-20 md:px-8">
-    <motion.div
-      initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
-      variants={sectionFade}
-      className="max-w-2xl mx-auto text-center"
-    >
-      <Clock className="w-8 h-8 text-warning mx-auto mb-4" />
-      <p className="font-display text-xl md:text-2xl text-foreground uppercase mb-2" style={{ fontWeight: 800 }}>
-        3 spots left this month — first come, first served
-      </p>
-      <p className="text-sm text-muted-foreground">
-        Florida home services only • One client per niche per county
-      </p>
-    </motion.div>
   </section>
 );
 
@@ -128,26 +149,24 @@ const PricingAndBooking = () => {
       }, 100);
     }
   }, [location.hash]);
+
   return (
-    <>
-      <MiniHero />
-      <Divider />
-      <GuaranteeSection />
-      <Divider />
-      <GatewayOffer />
-      <Divider />
-      <SprintEngine />
-      <Divider />
+    <div className="min-h-screen bg-cream">
+      <PricingHero />
       <PricingTiers />
-      <Divider />
-      <CustomSolutions />
-      <Day60Brief />
-      <Divider />
-      <WhyOffering />
-      <Divider />
+      <SprintEngine />
+      <GatewayOffer />
+      <BeyondRetainer />
+      <TerritoryCallout />
       <ContactForm />
-      <TrustBlock />
-    </>
+      <EndCTA
+        headline="Still deciding?"
+        headlineAccent="Book a call."
+        subhead="20 minutes. No pitch. An honest map of which tier fits where you are."
+        secondaryCtaText="See FAQ"
+        secondaryCtaHref="/faq"
+      />
+    </div>
   );
 };
 

@@ -29,7 +29,7 @@ const BottomLine = () => {
           variants={sectionFade}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             THE METRICS THAT MATTER
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground" style={{ fontWeight: 900 }}>
@@ -80,16 +80,16 @@ const BottomLine = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-card border-2 border-electric/40 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(0,209,255,0.18)]"
+            className="bg-card border-2 border-coral/40 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(255, 77, 46,0.18)]"
           >
-            <p className="text-xs font-semibold uppercase tracking-widest text-electric mb-5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-coral-dark mb-5">
               What We Show You
             </p>
             <div className="space-y-2.5 mb-5">
               {realMetrics.map((m) => (
-                <div key={m.label} className="flex justify-between items-baseline border-b border-electric/20 pb-2">
+                <div key={m.label} className="flex justify-between items-baseline border-b border-coral/20 pb-2">
                   <span className="text-sm text-foreground uppercase tracking-wider font-semibold">{m.label}</span>
-                  <span className="font-mono text-electric font-bold text-lg">
+                  <span className="font-mono text-coral font-bold text-lg">
                     {m.prefix}
                     <CountUp end={m.value} duration={2} decimals={m.decimals} enableScrollSpy scrollSpyOnce />
                     {m.suffix}
@@ -97,7 +97,7 @@ const BottomLine = () => {
                 </div>
               ))}
             </div>
-            <p className="italic text-xs text-electric">Real metrics. Actionable insights.</p>
+            <p className="italic text-xs text-coral">Real metrics. Actionable insights.</p>
           </motion.div>
         </div>
 

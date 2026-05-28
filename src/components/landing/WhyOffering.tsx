@@ -16,7 +16,7 @@ const WhyOffering = () => {
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">
             THE HONEST TRUTH
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground mb-12" style={{ fontWeight: 900 }}>
@@ -33,7 +33,7 @@ const WhyOffering = () => {
         >
           <p>We don't accept clients who already have an agency running their AI Search optimization. If you're with us, your local competitors can't be — that's the whole point.</p>
           <p>3 Florida home service clients per niche per county. Once your county fills in your niche, we close to new clients in that area.</p>
-          <p className="text-electric italic">If you're reading this, your county is still open. That won't be true forever.</p>
+          <p className="text-coral italic">If you're reading this, your county is still open. That won't be true forever.</p>
         </motion.div>
 
         <motion.div

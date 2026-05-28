@@ -25,3 +25,9 @@ dist-ssr
 
 # Claude Code local briefing (internal — kept out of public repo)
 CLAUDE.md
+
+# Dev-only screenshot/verification scripts (not for production)
+scripts/
+
+# Local screenshot artifacts
+/tmp/screenshots/

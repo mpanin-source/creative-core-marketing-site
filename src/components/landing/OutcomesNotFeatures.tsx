@@ -63,7 +63,7 @@ const OutcomesNotFeatures = () => {
           variants={sectionFade}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">OUTCOMES, NOT FEATURES</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">OUTCOMES, NOT FEATURES</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground" style={{ fontWeight: 900 }}>
             WHAT YOU ACTUALLY <span className="italic text-shimmer-blue">GET</span>
           </h2>
@@ -80,8 +80,8 @@ const OutcomesNotFeatures = () => {
                 onClick={() => setActive(i)}
                 className={`flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider transition-all duration-200 border ${
                   isActive
-                    ? "bg-electric/15 border-electric text-electric shadow-[0_0_20px_rgba(0,209,255,0.2)]"
-                    : "bg-card border-border text-muted-foreground hover:border-electric/40 hover:text-foreground"
+                    ? "bg-coral/15 border-coral text-coral shadow-[0_0_20px_rgba(255, 77, 46,0.2)]"
+                    : "bg-card border-border text-muted-foreground hover:border-coral/40 hover:text-foreground"
                 }`}
               >
                 <TabIcon className="w-4 h-4" />
@@ -100,26 +100,26 @@ const OutcomesNotFeatures = () => {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="bg-card border border-border rounded-2xl p-8 md:p-12"
           >
-            <div className="outcome-icon w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center mb-5">
-              <Icon className="w-6 h-6 text-electric" />
+            <div className="outcome-icon w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center mb-5">
+              <Icon className="w-6 h-6 text-coral" />
             </div>
             <h3 className="font-display text-2xl md:text-3xl text-foreground uppercase mb-4" style={{ fontWeight: 900 }}>
               {t.headline}
             </h3>
             <p className="text-base text-muted-foreground leading-relaxed mb-5 max-w-3xl">{t.body}</p>
             {!t.bigCallout && (
-              <p className="italic text-sm md:text-base text-electric mb-6">{t.callout}</p>
+              <p className="italic text-sm md:text-base text-coral mb-6">{t.callout}</p>
             )}
             <div className="grid sm:grid-cols-2 gap-3 mb-2">
               {t.bullets.map((b) => (
                 <div key={b} className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-electric flex-shrink-0 mt-1" />
+                  <Check className="w-4 h-4 text-coral flex-shrink-0 mt-1" />
                   <span className="text-sm text-foreground">{b}</span>
                 </div>
               ))}
             </div>
             {t.bigCallout && (
-              <p className="italic text-electric text-xl md:text-2xl text-center mt-8 leading-snug" style={{ textShadow: "0 0 20px rgba(0,209,255,0.3)" }}>
+              <p className="italic text-coral text-xl md:text-2xl text-center mt-8 leading-snug" style={{ textShadow: "0 0 20px rgba(255, 77, 46,0.3)" }}>
                 "{t.callout}"
               </p>
             )}

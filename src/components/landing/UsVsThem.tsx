@@ -25,7 +25,7 @@ const UsVsThem = () => {
           variants={sectionFade}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-electric">THE COMPARISON</p>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-4 text-coral-dark">THE COMPARISON</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-foreground" style={{ fontWeight: 900 }}>
             OTHER FLORIDA AGENCIES <span className="italic text-shimmer-blue">VS. CREATIVE CORE</span>
           </h2>
@@ -40,7 +40,7 @@ const UsVsThem = () => {
           <div className="grid grid-cols-12 px-6 py-4 border-b border-border bg-background/40">
             <div className="col-span-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground">Category</div>
             <div className="col-span-4 text-xs font-semibold tracking-widest uppercase text-muted-foreground">Other Florida Agencies</div>
-            <div className="col-span-5 text-xs font-semibold tracking-widest uppercase text-electric">Creative Core</div>
+            <div className="col-span-5 text-xs font-semibold tracking-widest uppercase text-coral-dark">Creative Core</div>
           </div>
           {rows.map((r, i) => (
             <div
@@ -55,7 +55,7 @@ const UsVsThem = () => {
                 <span>{r.them}</span>
               </div>
               <div className="col-span-5 flex items-start gap-2 text-sm text-foreground">
-                <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
+                <Check className="w-4 h-4 text-coral flex-shrink-0 mt-0.5" />
                 <span>{r.us}</span>
               </div>
             </div>
@@ -73,13 +73,13 @@ const UsVsThem = () => {
               transition={{ duration: 0.4, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="bg-card border border-border rounded-xl p-5"
             >
-              <p className="font-display text-xs uppercase text-electric tracking-widest mb-3" style={{ fontWeight: 800 }}>{r.cat}</p>
+              <p className="font-display text-xs uppercase text-coral-dark tracking-widest mb-3" style={{ fontWeight: 800 }}>{r.cat}</p>
               <div className="flex items-start gap-2 mb-2.5">
                 <X className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-muted-foreground">{r.them}</span>
               </div>
               <div className="flex items-start gap-2">
-                <Check className="w-4 h-4 text-electric flex-shrink-0 mt-0.5" />
+                <Check className="w-4 h-4 text-coral flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-foreground">{r.us}</span>
               </div>
             </motion.div>

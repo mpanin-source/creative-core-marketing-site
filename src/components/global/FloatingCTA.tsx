@@ -16,9 +16,9 @@ const FloatingCTA = () => {
         opacity: 1,
         y: 0,
         boxShadow: [
-          "0 8px 24px rgba(0,209,255,0.35)",
-          "0 8px 32px rgba(0,209,255,0.55)",
-          "0 8px 24px rgba(0,209,255,0.35)",
+          "0 8px 24px rgba(255, 77, 46,0.35)",
+          "0 8px 32px rgba(255, 77, 46,0.55)",
+          "0 8px 24px rgba(255, 77, 46,0.35)",
         ],
       }}
       transition={{
