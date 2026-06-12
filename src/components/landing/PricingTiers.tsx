@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { Check, ArrowRight, Lock, ChevronDown } from "lucide-react";
+import { Check, ArrowRight, Lock, ChevronDown, MapPin } from "lucide-react";
 import CountUp from "react-countup";
 
 const sectionFade: Variants = {
@@ -167,7 +167,7 @@ const PricingTiers = () => {
                 )}
 
                 <h3
-                  className="font-display text-xl text-charcoal mt-1 flex items-center gap-2"
+                  className="font-display text-xl text-charcoal mt-1 mb-1 tracking-wide flex items-center gap-2"
                   style={{ fontWeight: 700 }}
                 >
                   {tier.locked && <Lock className="w-4 h-4 text-charcoal/40" />}
@@ -218,6 +218,21 @@ const PricingTiers = () => {
             );
           })}
         </div>
+
+        {/* R8.2 — territory exclusivity strip (replaces the standalone TerritoryCallout section; placement A, owner pick pending) */}
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="flex justify-center -mt-6 mb-16"
+        >
+          <div className="inline-flex items-start gap-3 rounded-lg bg-coral-soft border border-coral-dark/15 px-5 py-3.5 max-w-3xl">
+            <MapPin className="w-4 h-4 text-coral-dark flex-shrink-0 mt-1" />
+            <p className="text-sm text-charcoal/80 leading-relaxed">
+              <span className="font-semibold text-charcoal">One client per niche, per county.</span>{" "}
+              When your spot is taken, your competitors lose access to us. Florida home services only — currently accepting three clients per county per niche.
+            </p>
+          </div>
+        </motion.div>
 
         {/* Tier 3 Qualification Accordion */}
         <motion.div

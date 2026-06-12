@@ -112,14 +112,14 @@ const ProcessPage = () => {
         </section>
       ))}
 
-      {/* R7.6 Phase 5: moved from homepage to /process */}
-      <SoundFamiliar />
-
-      {/* R8.1 (CS-15): content → AI-signal map */}
+      {/* R8.1 (CS-15): content → AI-signal map. R8.2: moved directly after the phase sections */}
       <SignalMap />
 
       {/* R7.6 Phase 5: new section */}
       <StrategyEvolves />
+
+      {/* R7.6 Phase 5: moved from homepage to /process. R8.2: now after StrategyEvolves */}
+      <SoundFamiliar />
 
       {/* What we won't do — cream */}
       <section className="bg-cream py-24 px-6 border-t border-charcoal/10">

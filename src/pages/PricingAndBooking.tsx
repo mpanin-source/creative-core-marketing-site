@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { ArrowRight, Shield, MapPin } from "lucide-react";
+import { ArrowRight, Shield } from "lucide-react";
 import SprintEngine from "@/components/landing/SprintEngine";
 import PricingTiers from "@/components/landing/PricingTiers";
 import BeyondRetainer from "@/components/pricing/BeyondRetainer";
@@ -115,28 +115,8 @@ const PricingHero = () => {
   );
 };
 
-// R7.6 Phase 7: compressed territory exclusivity — single callout block, no full section.
-const TerritoryCallout = () => (
-  <section className="bg-cream py-16 px-6">
-    <div className="max-w-3xl mx-auto">
-      <div className="bg-coral-soft rounded-xl p-7 md:p-8 border border-coral-dark/15 flex items-start gap-4">
-        <div className="w-10 h-10 rounded-md bg-white flex items-center justify-center flex-shrink-0">
-          <MapPin className="w-5 h-5 text-coral-dark" />
-        </div>
-        <div>
-          <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-2">
-            Territory exclusive
-          </p>
-          <p className="text-base md:text-lg text-charcoal leading-relaxed">
-            <span className="font-semibold">One client per niche, per county.</span>{" "}
-            When your spot is taken, your competitors lose access to us — and the systems we build for you.
-            Florida home services only. Currently accepting three clients per county per niche.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+// R8.2: standalone TerritoryCallout section removed — territory strip now lives inside
+// PricingTiers (placement A) pending owner pick between A and B (see r82 mocks).
 
 const PricingAndBooking = () => {
   const location = useLocation();
@@ -155,7 +135,6 @@ const PricingAndBooking = () => {
       <PricingTiers />
       <SprintEngine />
       <BeyondRetainer />
-      <TerritoryCallout />
       <ContactForm />
       <EndCTA
         headline="Still deciding?"
