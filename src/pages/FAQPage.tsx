@@ -12,7 +12,7 @@ const faqs: FAQ[] = [
     id: "pricing",
     category: "Pricing & guarantee",
     q: "What does each tier cost, and how does the guarantee work?",
-    a: "Three retainer tiers: Foundation Sprint at $1,500/mo (60-day trial, then $2,000/mo ongoing), Growth Partner at $3,000/mo, and Scale Partner at $5,000/mo with qualification. There's also a $497 one-time Gateway website if you're not ready for a retainer. All retainers come with a 60-day guarantee: if we don't reduce your CPL by 20% or grow your booked appointments by 25%, you walk away and keep everything we built.",
+    a: "Three retainer tiers: Foundation Sprint at $1,500/mo, Growth Partner at $3,000/mo, and Scale Partner at $5,000/mo (qualification required). Every retainer carries the 60-day guarantee: if we don't cut your cost-per-lead by 20% or grow booked appointments by 25%, you walk away and keep everything we built.",
   },
   {
     id: "process",

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { Check, ArrowRight, Lock, ChevronDown, Sparkles } from "lucide-react";
+import { Check, ArrowRight, Lock, ChevronDown } from "lucide-react";
 import CountUp from "react-countup";
 
 const sectionFade: Variants = {
@@ -19,51 +19,29 @@ interface Tier {
   items: string[];
   cta: string;
   highlighted: boolean;
-  isGateway: boolean;
   qualifier?: string;
 }
 
-const gatewayTier: Tier = {
-  id: "gateway-tier",
-  name: "GATEWAY",
-  subtitle: "Stop losing leads",
-  price: 497,
-  priceSuffix: "one-time, 7-day delivery",
-  badge: null,
-  locked: false,
-  items: [
-    "Custom Lovable-built website",
-    "AI-search-ready by default",
-    "Mobile-first + Core Web Vitals",
-    "Schema + Google Business Profile setup",
-    "You own everything from day one",
-  ],
-  cta: "Get my $497 website",
-  highlighted: false,
-  isGateway: true,
-};
-
-const baseTiers: Tier[] = [
+const tiers: Tier[] = [
   {
     id: "foundation-tier",
     name: "FOUNDATION SPRINT",
     subtitle: "Lower your CPL",
     price: 1500,
-    priceSuffix: "/month (First 60 Days) → $2,000/mo ongoing",
+    priceSuffix: "/month",
     badge: "MOST POPULAR",
     locked: false,
     items: [
       "Local SEO foundation (schema + NAP + GBP setup)",
-      "LSA + Google Guaranteed certification setup",
+      "LSA application management + Google Guaranteed enrollment",
       "GEO eligibility schema (AI Overview entry ticket)",
-      "Conversion-optimized landing page + Core Web Vitals",
+      "Website CRO overhaul + Core Web Vitals — we optimize the site you have.",
       "Review system (automated requests + response automation)",
       "Speed-to-Lead CRM setup (sub-60-second response time)",
       "Day 30 check-in + 60-day guarantee active",
     ],
     cta: "Book free audit call",
     highlighted: true,
-    isGateway: false,
   },
   {
     id: "growth",
@@ -75,17 +53,15 @@ const baseTiers: Tier[] = [
     locked: false,
     items: [
       "Everything in Foundation Sprint",
-      "Weekly content production + Atomic Answer formatting",
-      "Performance Max + advanced Meta optimization",
+      "Local content engine: 4 local-intent articles + weekly GBP posts every month — built so AI recommends you locally.",
       "Citation velocity + basic entity linking",
       "Review velocity push (75+ reviews target)",
-      "8 service-specific landing pages",
-      "Monthly AI Visibility Reports (Google + ChatGPT)",
-      "A/B testing + heat-map analysis",
+      "Service & service-area coverage pages — scoped to your real services and top counties.",
+      "Monthly AI Visibility Reports (Google AI Overview via Search Console + sampled LLM tracking)",
+      "Conversion testing + heat-map analysis",
     ],
     cta: "Start with Foundation Sprint",
     highlighted: false,
-    isGateway: false,
   },
   {
     id: "scale",
@@ -97,29 +73,21 @@ const baseTiers: Tier[] = [
     locked: true,
     items: [
       "Everything in Growth Partner",
-      "Information Gain content engine (no separate add-on fee)",
-      "Multi-format content (YouTube, Reddit, podcasts)",
-      "Schema 3.0 + Knowledge Graph engineering",
-      "Weekly AI Visibility Reports across 4 platforms",
+      "Local content engine, upgraded: 6 articles/mo including 2 Information-Gain deep dives built on original local data",
+      "4 short videos/mo — you film from our briefs, we edit and distribute. Long-form video: coming soon.",
+      "Advanced entity schema + Knowledge Graph signal engineering",
+      "Biweekly AI Visibility Reports across Google AI Overview, ChatGPT, Perplexity & Gemini",
       "AI Max migration + source-personalized landing pages",
       "Multi-channel ROI attribution",
     ],
     cta: "See if you qualify",
     highlighted: false,
-    isGateway: false,
     qualifier: "Typical clients $1M+. Custom pricing for multi-location.",
   },
 ];
 
-interface PricingTiersProps {
-  /** When true, prepends the $497 Gateway tier as a 4th card. */
-  showGateway?: boolean;
-}
-
-const PricingTiers = ({ showGateway = false }: PricingTiersProps) => {
+const PricingTiers = () => {
   const [showQual, setShowQual] = useState(false);
-  const tiers = showGateway ? [gatewayTier, ...baseTiers] : baseTiers;
-  const gridCols = tiers.length === 4 ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-2 lg:grid-cols-3";
 
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -163,7 +131,7 @@ const PricingTiers = ({ showGateway = false }: PricingTiersProps) => {
           </div>
         </motion.div>
 
-        <div className={`grid grid-cols-1 ${gridCols} gap-6 mb-16 pt-4`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 pt-4">
           {tiers.map((tier, i) => {
             // Card backgrounds: highlighted = white (dominant), others = cream-light (subtle)
             const cardBg = tier.highlighted ? "bg-white" : "bg-cream-light";
@@ -178,11 +146,6 @@ const PricingTiers = ({ showGateway = false }: PricingTiersProps) => {
               ? "bg-coral-soft text-coral-dark border border-coral-dark/20"
               : "bg-coral text-white border border-coral";
 
-            // Gateway gets its own subtle "START HERE" badge in coral-soft tone
-            const gatewayBadge = tier.isGateway
-              ? "bg-coral-soft text-coral border border-coral/30"
-              : "";
-
             return (
               <motion.div
                 key={tier.name}
@@ -193,12 +156,6 @@ const PricingTiers = ({ showGateway = false }: PricingTiersProps) => {
                 transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className={`rounded-xl p-6 md:p-8 flex flex-col relative scroll-mt-24 transition-shadow duration-300 ${cardBg} ${cardBorder} ${cardScale}`}
               >
-                {tier.isGateway && (
-                  <div className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-medium tracking-wider uppercase whitespace-nowrap flex items-center gap-1.5 ${gatewayBadge}`}>
-                    <Sparkles className="w-3 h-3" />
-                    Start here
-                  </div>
-                )}
                 {tier.badge && (
                   <div
                     className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-medium tracking-wider uppercase whitespace-nowrap flex items-center gap-1.5 ${badgeStyle}`}

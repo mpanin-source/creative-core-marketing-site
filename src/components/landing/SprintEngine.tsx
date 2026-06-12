@@ -8,8 +8,8 @@ const sectionFade: Variants = {
 
 const deliverables = [
   { icon: Search, title: "LOCAL SEO FOUNDATION", desc: "Schema markup deployment, NAP consistency across the major citation directories, GBP setup with weekly post management, and on-page SEO basics." },
-  { icon: ShieldCheck, title: "LSA + GOOGLE GUARANTEED", desc: "License upload, insurance verification, background checks to get you on Local Services Ads — plus active dispute management on bad-fit leads." },
-  { icon: Sparkles, title: "GEO ELIGIBILITY SCHEMA", desc: "Schema markup that makes you eligible for AI Overview citations across Google, ChatGPT, Claude, and Perplexity. The entry ticket to GEO." },
+  { icon: ShieldCheck, title: "LSA + GOOGLE GUARANTEED", desc: "We run the application end-to-end — license upload, insurance verification, background-check coordination — then manage bad-fit lead disputes monthly. Approval timelines are Google's (typically 1–4 weeks)." },
+  { icon: Sparkles, title: "GEO ELIGIBILITY SCHEMA", desc: "Structured-data schema that makes you eligible for Google AI Overview citations — the entry ticket to GEO. The same signals strengthen your footprint in ChatGPT, Claude, and Perplexity, where citations are earned over time through authority and crawlable content." },
   { icon: Layout, title: "CONVERSION FOUNDATION", desc: "Mobile-first conversion audit, Core Web Vitals optimization, CTA placement, click-to-call verification, basic form optimization, trust signal integration." },
   { icon: Star, title: "REVIEW SYSTEM", desc: "Automated review request flows, monitoring, response drafting, recapture campaigns. Builds the velocity GEO weights heaviest." },
   { icon: PhoneCall, title: "SPEED-TO-LEAD WORKFLOWS", desc: "Setup in your CRM for sub-60-second response time. Most leads are won or lost in the first minute." },
@@ -59,6 +59,22 @@ const SprintEngine = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* R8.1 (CS-14) — honest-exclusions block, migrated from the removed Gateway offer */}
+        <motion.div
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
+          variants={sectionFade}
+          className="max-w-4xl mx-auto mt-8"
+        >
+          <div className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm">
+            <h3 className="font-display text-base text-foreground uppercase mb-2" style={{ fontWeight: 700 }}>
+              What Foundation Sprint doesn't include
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Ad spend (you pay Google directly) · SMS automation (Q3) · Website builds (separate web-dev engagement) · Social-media management
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

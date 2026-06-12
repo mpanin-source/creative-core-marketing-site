@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import SoundFamiliar from "@/components/landing/SoundFamiliar";
+import SignalMap from "@/components/landing/SignalMap";
 import StrategyEvolves from "@/components/landing/StrategyEvolves";
 import EndCTA from "@/components/shared/EndCTA";
 
@@ -113,6 +114,9 @@ const ProcessPage = () => {
 
       {/* R7.6 Phase 5: moved from homepage to /process */}
       <SoundFamiliar />
+
+      {/* R8.1 (CS-15): content → AI-signal map */}
+      <SignalMap />
 
       {/* R7.6 Phase 5: new section */}
       <StrategyEvolves />

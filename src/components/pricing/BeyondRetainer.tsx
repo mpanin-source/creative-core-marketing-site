@@ -1,13 +1,11 @@
-import { ArrowRight, Phone, Wrench, Check } from "lucide-react";
+import { ArrowRight, Phone, Wrench, Check, Megaphone } from "lucide-react";
 
 const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
 
 const automationFeatures = [
-  "10DLC registration handled (TCPA-compliant)",
-  "Voice AI configured for after-hours calls",
-  "Missed-call text-back automation",
-  "Inbound lead capture + speed-to-lead workflows",
-  "Multi-language support available",
+  "Automated review requests",
+  "AI response drafting",
+  "Speed-to-lead alerts (email + CRM)",
 ];
 
 const BeyondRetainer = () => {
@@ -27,7 +25,7 @@ const BeyondRetainer = () => {
           Modular tools we deploy when a tier alone won't move the metric. Transparent pricing. No bundles forced on you.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card 1 — Smart Automation Add-Ons */}
           <div className="bg-white rounded-lg p-8 border border-charcoal/10 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
@@ -44,7 +42,7 @@ const BeyondRetainer = () => {
             >
               Smart Automation
             </h3>
-            <p className="text-sm text-muted-dark mb-4">Voice AI · SMS · CRM nurture · Reviews</p>
+            <p className="text-sm text-muted-dark mb-4">Reviews · AI drafting · Speed-to-lead</p>
             <div className="mb-5">
               <p className="font-display text-3xl text-coral-dark leading-none" style={{ fontWeight: 700 }}>
                 $750
@@ -52,7 +50,7 @@ const BeyondRetainer = () => {
               <p className="text-sm text-charcoal/70 mt-1">setup + $500/mo</p>
             </div>
             <p className="text-base text-charcoal/80 leading-relaxed mb-5">
-              Stop losing leads after hours. Most clients capture 30–40% more appointments by closing the after-hours gap.
+              Live now:
             </p>
             <ul className="space-y-2.5 mb-6 flex-1">
               {automationFeatures.map((f) => (
@@ -62,12 +60,50 @@ const BeyondRetainer = () => {
                 </li>
               ))}
             </ul>
+            <p className="text-sm text-charcoal/70 leading-relaxed mb-5">
+              Voice AI and SMS text-back (10DLC-registered) roll out Q3 — current clients get first access.
+            </p>
             <p className="text-xs uppercase tracking-wider text-muted-dark font-medium">
-              Available at any tier · Premium tier available for Tier 3 / high-volume
+              Available at any tier
             </p>
           </div>
 
-          {/* Card 2 — Custom Software (simplified, coral-soft warm tint — R7.6 Phase 7.5) */}
+          {/* Card 2 — Paid Social (Meta), readiness-gated upsell (R8.1, CS-04 relocation) */}
+          <div className="bg-white rounded-lg p-8 border border-charcoal/10 flex flex-col">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-md bg-coral/10 flex items-center justify-center">
+                <Megaphone className="w-5 h-5 text-coral-dark" />
+              </div>
+              <span className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark">
+                Add-on
+              </span>
+            </div>
+            <h3
+              className="font-display text-2xl md:text-3xl text-charcoal mb-2 leading-tight"
+              style={{ fontWeight: 700 }}
+            >
+              Paid Social (Meta)
+            </h3>
+            <p className="text-sm text-muted-dark mb-4">Boosted local content · Paid campaigns</p>
+            <div className="mb-5">
+              <p
+                className="font-display text-2xl text-charcoal leading-tight"
+                style={{ fontWeight: 700 }}
+              >
+                Let's talk.
+              </p>
+              <p className="text-sm text-charcoal/70 mt-1">Pricing scoped on call</p>
+            </div>
+            <p className="text-base text-charcoal/80 leading-relaxed mb-6 flex-1">
+              For Growth &amp; Scale clients once your GBP, reviews, and GEO foundation are live.
+              Boosted local content + paid campaigns, KPI-tracked. You approve every dollar.
+            </p>
+            <p className="text-xs uppercase tracking-wider text-muted-dark font-medium">
+              Growth &amp; Scale tiers · Unlocks after foundation is live
+            </p>
+          </div>
+
+          {/* Card 3 — Custom Software (simplified, coral-soft warm tint — R7.6 Phase 7.5) */}
           <div className="bg-coral-soft rounded-lg p-8 border border-coral-dark/15 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-md bg-white flex items-center justify-center">

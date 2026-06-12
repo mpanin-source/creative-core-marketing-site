@@ -35,8 +35,11 @@ const NewBattlefield = () => {
           <p className="text-lg text-charcoal/80 leading-relaxed mb-6">
             Homeowners used to type "AC repair near me" into Google. Now they ask ChatGPT, Claude, and Perplexity. They read AI Overviews instead of clicking the top 3 results.
           </p>
-          <p className="text-lg text-charcoal/80 leading-relaxed">
+          <p className="text-lg text-charcoal/80 leading-relaxed mb-6">
             The result: visibility shifted. Old-school SEO still works, but it's no longer enough. The agencies winning your county aren't just optimizing for Google — they're being recommended by AI before homeowners even open a search bar.
+          </p>
+          <p className="text-lg text-charcoal/80 leading-relaxed">
+            AI doesn't count your followers. It reads local signals — reviews, citations, real activity in your county.
           </p>
         </div>
 

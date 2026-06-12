@@ -31,3 +31,7 @@ scripts/
 
 # Local screenshot artifacts
 /tmp/screenshots/
+
+# Round 8.1 working documents (internal — never committed)
+round-8.1-execution-brief.md
+creative-core-pricing-audit.md

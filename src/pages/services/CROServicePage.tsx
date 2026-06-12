@@ -80,7 +80,7 @@ const CROServicePage = () => {
         },
         {
           q: "Do I need a new website to get CRO benefits?",
-          a: "Usually no. We optimize what you have first. If the site is structurally broken (no mobile responsive, ancient CMS, no analytics), we rebuild via the $497 Gateway path before deeper CRO work begins.",
+          a: "Usually no. We optimize what you already have — CRO and GBP work on your existing site. If the site is genuinely broken or missing, our web development arm rebuilds it as a separate engagement, then optimization begins.",
         },
         {
           q: "Why does mobile-first matter so much for home services?",

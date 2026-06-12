@@ -55,9 +55,9 @@ const plays: Play[] = [
   {
     icon: Target,
     number: "07",
-    title: "Performance Max optimization",
+    title: "Local audience engineering",
     description:
-      "The 2026 sweet spot for paid acquisition. $72 avg CPL vs $149 for traditional non-branded search.",
+      "The right 200 locals seeing your work, not 50K strangers scrolling past.",
   },
 ];
 

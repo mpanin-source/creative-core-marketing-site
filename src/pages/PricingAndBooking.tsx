@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { ArrowRight, Shield, MapPin } from "lucide-react";
-import GatewayOffer from "@/components/landing/GatewayOffer";
 import SprintEngine from "@/components/landing/SprintEngine";
 import PricingTiers from "@/components/landing/PricingTiers";
 import BeyondRetainer from "@/components/pricing/BeyondRetainer";
@@ -78,7 +77,7 @@ const PricingHero = () => {
           <PricingTypewriter />
         </h1>
         <p className="text-lg text-charcoal/80 max-w-2xl mb-8 leading-relaxed">
-          $497 to start. $1,500/mo to scale. Month-to-month after a 60-day trial.
+          Three retainer tiers starting at $1,500/month, every one backed by the 60-day guarantee.
           You pay Google and Meta directly — zero markup, zero affiliate kickbacks.
         </p>
 
@@ -155,7 +154,6 @@ const PricingAndBooking = () => {
       <PricingHero />
       <PricingTiers />
       <SprintEngine />
-      <GatewayOffer />
       <BeyondRetainer />
       <TerritoryCallout />
       <ContactForm />
