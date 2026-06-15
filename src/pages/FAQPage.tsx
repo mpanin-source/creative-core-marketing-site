@@ -36,7 +36,7 @@ const faqs: FAQ[] = [
     id: "contracts",
     category: "Engagement terms",
     q: "Am I locked into a long contract?",
-    a: "No. Foundation Sprint has a 60-day guarantee window. After Day 60, you're month-to-month with 7 days' notice to cancel. Growth Partner is also month-to-month. Scale Partner has a 6-month minimum commitment because the work compounds over 90–180 days, but pricing is still monthly — no annual lump sums, no penalty for leaving after the minimum.",
+    a: "No. All three tiers are month-to-month — Foundation Sprint, Growth Partner, and Scale Partner alike. Foundation Sprint runs through the 60-day guarantee window; after that, every tier is month-to-month with 7 days' notice to cancel. No annual lump sums, no minimum term on any tier. The work compounds over 90–180 days, which is why clients stay — not because a contract makes them.",
   },
   {
     id: "florida-licensing",

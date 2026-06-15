@@ -28,7 +28,7 @@ const CROServicePage = () => {
           number: "02",
           title: "Speed-to-lead workflows",
           description:
-            "Sub-60-second response time triggers 391% conversion lift. The single highest-leverage fix for home services.",
+            "Sub-60-second response time is the single highest-leverage conversion fix for home services — responding in the first minute sharply lifts contact and close rates.",
         },
         {
           number: "03",

@@ -51,8 +51,8 @@ const systems: System[] = [
     name: "Conversion Rate Optimization",
     body: "Mobile-first conversion audits. Core Web Vitals optimization. CTA placement testing. Speed-to-lead workflows. A/B testing on conversion-critical pages. The foundation that turns traffic into appointments.",
     href: "/services/cro",
-    proofStat: "391%",
-    proofLabel: "conversion lift from sub-60-second response time",
+    proofStat: "<60s",
+    proofLabel: "speed-to-lead response — the highest-leverage conversion lift",
   },
   {
     number: "05",

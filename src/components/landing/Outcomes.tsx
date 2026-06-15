@@ -7,10 +7,10 @@ interface Outcome {
 
 const outcomes: Outcome[] = [
   {
-    context: "Florida home services",
-    metric: "391%",
-    label: "conversion lift",
-    detail: "From implementing sub-60-second response time on inbound leads.",
+    context: "Speed-to-lead",
+    metric: "<60s",
+    label: "response lifts conversions",
+    detail: "Responding to inbound leads within the first minute sharply raises contact and conversion rates — the highest-leverage fix in home services.",
   },
   {
     context: "AI search traffic",

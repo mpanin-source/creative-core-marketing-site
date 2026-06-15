@@ -12,7 +12,6 @@ const bullets = [
   "15+ qualified appointments/month",
   "Functional sales process (25%+ close rate)",
   "Willingness to produce 4 pieces of content/month",
-  "6-month minimum engagement",
 ];
 
 const Tier3Summary = () => {

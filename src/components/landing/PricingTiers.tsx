@@ -37,7 +37,7 @@ const tiers: Tier[] = [
       "GEO eligibility schema (AI Overview entry ticket)",
       "Website CRO overhaul + Core Web Vitals — we optimize the site you have.",
       "Review system (automated requests + response automation)",
-      "Speed-to-Lead CRM setup (sub-60-second response time)",
+      "Speed-to-Lead CRM + missed-call text-back (sub-60-second response)",
       "Day 30 check-in + 60-day guarantee active",
     ],
     cta: "Book free audit call",
@@ -52,7 +52,8 @@ const tiers: Tier[] = [
     badge: null,
     locked: false,
     items: [
-      "Everything in Foundation Sprint",
+      "Everything in Foundation Sprint — LSA management, review & reputation system, and speed-to-lead CRM with missed-call text-back",
+      "Call tracking + CSR & booking-rate coaching — we score the inbound calls and coach the close",
       "Local content engine: 4 in-depth, locally-specific articles + weekly GBP posts each month — built to earn AI citations, not hit a word-count quota.",
       "Citation velocity + basic entity linking",
       "Review velocity push (75+ reviews target)",
@@ -72,7 +73,7 @@ const tiers: Tier[] = [
     badge: "QUALIFICATION REQUIRED",
     locked: true,
     items: [
-      "Everything in Growth Partner",
+      "Everything in Growth Partner — every table-stakes system: LSA, reviews, speed-to-lead + missed-call text-back, call tracking, and CSR coaching",
       "Local content engine, upgraded: 6 articles/mo — including 2 Information-Gain deep dives built on original local data — each engineered to earn AI citations",
       "4 short videos/mo — you film from our briefs, we edit and distribute. Long-form video: coming soon.",
       "Advanced structured-data + entity optimization (LocalBusiness, service & sameAs schema)",
@@ -214,6 +215,9 @@ const PricingTiers = () => {
                   {tier.cta}
                   <ArrowRight className="w-4 h-4" />
                 </button>
+                <p className="text-[11px] text-charcoal/50 text-center mt-3 leading-snug">
+                  Month-to-month · cancel anytime · keep everything we build
+                </p>
               </motion.div>
             );
           })}
@@ -288,9 +292,8 @@ const PricingTiers = () => {
                       "Functional mobile-responsive website",
                       "Currently servicing 15+ qualified appointments/month",
                       "Sales close rate at minimum 25%",
-                      "60+ days at Tier 2 with us with 20%+ CPL reduction achieved",
+                      "60+ days at Tier 2 with us showing measurable CPL improvement",
                       "Willing to produce/approve 4 pieces of content/month",
-                      "6-month minimum commitment",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-coral" />

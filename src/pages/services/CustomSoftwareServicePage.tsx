@@ -3,7 +3,7 @@ import ServicePageTemplate from "@/components/services/ServicePageTemplate";
 export default function CustomSoftwareServicePage() {
   return (
     <ServicePageTemplate
-      heroEyebrow="Custom Software Solutions"
+      heroEyebrow="Custom Software & Tooling"
       heroTitle="Fix what your funnel can't."
       heroSubhead="The proprietary tooling that powers your marketing — dashboards, lead-routers, integration bridges and reporting we build when off-the-shelf software caps your results. Productized, not a bespoke dev shop."
       contrarianEyebrow="The AI advantage"
