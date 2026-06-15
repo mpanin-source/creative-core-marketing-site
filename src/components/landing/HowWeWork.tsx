@@ -21,7 +21,7 @@ const steps: Step[] = [
     number: "02",
     title: "Deploy",
     duration: "7–60 days",
-    body: "Foundation laid in week 1. LSA + Google Guaranteed certified. Schema deployed. GBP weaponized. Ads launched. Speed-to-lead workflows live.",
+    body: "Foundation laid in week 1. LSA + Google Verified certified. Schema deployed. GBP weaponized. Ads launched. Speed-to-lead workflows live.",
     outcome: "Production systems running, not slide decks. Day 30 check-in confirms early signal.",
   },
   {

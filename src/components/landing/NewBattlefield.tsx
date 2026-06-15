@@ -122,10 +122,10 @@ const NewBattlefield = () => {
             {/* Stat strip preserved */}
             <div className="mt-5 pt-4 border-t border-charcoal/10 flex items-baseline gap-2">
               <span className="font-display text-coral-dark text-3xl" style={{ fontWeight: 700 }}>
-                3.49%
+                Cited
               </span>
-              <span className="text-charcoal/60 text-xs">conversion rate from AI search</span>
-              <span className="text-charcoal/40 text-xs ml-auto">vs 2.86% organic</span>
+              <span className="text-charcoal/60 text-xs">by AI before the homeowner clicks a result</span>
+              <span className="text-charcoal/40 text-xs ml-auto">3 sources agree</span>
             </div>
           </div>
         </div>

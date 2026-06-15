@@ -17,7 +17,7 @@ export default function SEMServicePage() {
       capabilitiesEyebrow="Capabilities"
       capabilitiesTitle="What we deliver."
       capabilities={[
-        { number: "01", title: "LSA + Google Guaranteed", description: "Setup, certification, active dispute management. Lowest CPL in Florida home services." },
+        { number: "01", title: "LSA + Google Verified", description: "Setup, certification, lead-quality monitoring with credit recovery via Google's review process. Benchmark-beating CPLs on the channel built for home-services intent." },
         { number: "02", title: "Performance Max", description: "2026's dominant Google campaign type. $72 average CPL vs $149 non-branded search." },
         { number: "03", title: "Meta Ads", description: "Facebook + Instagram, lookalike audiences, retargeting. Visual + behavioral targeting." },
         { number: "04", title: "Search Ads", description: "Branded + non-branded queries. Negative keywords managed weekly." },
@@ -27,8 +27,8 @@ export default function SEMServicePage() {
       includedEyebrow="What's included"
       includedTitle="Inside the retainer."
       included={[
-        "LSA setup + Google Guaranteed certification",
-        "Active dispute management",
+        "LSA setup + Google Verified certification",
+        "Lead-quality monitoring + credit recovery",
         "Google Ads campaign management (Search, Performance Max)",
         "Meta Ads management (Facebook + Instagram)",
         "Weekly creative testing",

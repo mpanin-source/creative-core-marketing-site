@@ -5,7 +5,7 @@ export default function CustomSoftwareServicePage() {
     <ServicePageTemplate
       heroEyebrow="Custom Software Solutions"
       heroTitle="Fix what your funnel can't."
-      heroSubhead="Once we're inside your business and we've audited your funnel, we identify specific bottlenecks that off-the-shelf tools can't solve. That's where custom software comes in."
+      heroSubhead="The proprietary tooling that powers your marketing — dashboards, lead-routers, integration bridges and reporting we build when off-the-shelf software caps your results. Productized, not a bespoke dev shop."
       contrarianEyebrow="The AI advantage"
       contrarianTitle="Off-the-shelf solves general. We solve yours."
       contrarianBody={[
@@ -15,7 +15,7 @@ export default function CustomSoftwareServicePage() {
       ]}
       pullQuote="The biggest wins aren't in marketing. They're in the gaps between your tools."
       capabilitiesEyebrow="What we build"
-      capabilitiesTitle="Examples of what we've built (or could build for you)."
+      capabilitiesTitle="The tooling that powers the marketing."
       capabilities={[
         { number: "01", title: "Custom dispatching tools", description: "Automated job assignment based on technician availability, location, skill set." },
         { number: "02", title: "Lead scoring algorithms", description: "Tuned to your specific trade and conversion patterns. Routes hot leads first." },

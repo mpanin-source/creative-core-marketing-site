@@ -33,7 +33,7 @@ const tiers: Tier[] = [
     locked: false,
     items: [
       "Local SEO foundation (schema + NAP + GBP setup)",
-      "LSA application management + Google Guaranteed enrollment",
+      "LSA application management + Google Verified enrollment",
       "GEO eligibility schema (AI Overview entry ticket)",
       "Website CRO overhaul + Core Web Vitals — we optimize the site you have.",
       "Review system (automated requests + response automation)",
@@ -53,7 +53,7 @@ const tiers: Tier[] = [
     locked: false,
     items: [
       "Everything in Foundation Sprint",
-      "Local content engine: 4 local-intent articles + weekly GBP posts every month — built so AI recommends you locally.",
+      "Local content engine: 4 in-depth, locally-specific articles + weekly GBP posts each month — built to earn AI citations, not hit a word-count quota.",
       "Citation velocity + basic entity linking",
       "Review velocity push (75+ reviews target)",
       "Service & service-area coverage pages — scoped to your real services and top counties.",
@@ -73,10 +73,10 @@ const tiers: Tier[] = [
     locked: true,
     items: [
       "Everything in Growth Partner",
-      "Local content engine, upgraded: 6 articles/mo including 2 Information-Gain deep dives built on original local data",
+      "Local content engine, upgraded: 6 articles/mo — including 2 Information-Gain deep dives built on original local data — each engineered to earn AI citations",
       "4 short videos/mo — you film from our briefs, we edit and distribute. Long-form video: coming soon.",
-      "Advanced entity schema + Knowledge Graph signal engineering",
-      "Biweekly AI Visibility Reports across Google AI Overview, ChatGPT, Perplexity & Gemini",
+      "Advanced structured-data + entity optimization (LocalBusiness, service & sameAs schema)",
+      "Monthly AI Visibility Reports across Google AI Overview, ChatGPT, Perplexity & Gemini (sampled snapshots, not a live rank tracker)",
       "AI Max migration + source-personalized landing pages",
       "Multi-channel ROI attribution",
     ],
@@ -310,7 +310,7 @@ const PricingTiers = () => {
                   <ul className="space-y-2 text-sm text-charcoal/70">
                     {[
                       "75+ Google reviews at 4.5+ stars",
-                      "Active LSA with Google Guaranteed badge",
+                      "Active LSA with Google Verified badge",
                       "Existing schema markup deployed",
                       "Active GBP (services, photos, weekly posts)",
                       "60-day baseline metrics available",

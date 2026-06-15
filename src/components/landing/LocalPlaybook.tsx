@@ -48,9 +48,9 @@ const plays: Play[] = [
   {
     icon: ShieldCheck,
     number: "06",
-    title: "LSA dispute management",
+    title: "LSA lead-quality recovery",
     description:
-      "Active monitoring + appeals on bad-fit leads. Most agencies skip this — the lazy ones eat the bad CPL.",
+      "Active monitoring and credit recovery on unqualified leads through Google's review process. Most agencies skip it — the lazy ones eat the bad CPL.",
   },
   {
     icon: Target,

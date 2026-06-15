@@ -61,7 +61,7 @@ const BeyondRetainer = () => {
               ))}
             </ul>
             <p className="text-sm text-charcoal/70 leading-relaxed mb-5">
-              Voice AI and SMS text-back (10DLC-registered) roll out Q3 — current clients get first access.
+              Voice AI and SMS text-back are in rollout (they require 10DLC registration first) — current clients get first access.
             </p>
             <p className="text-xs uppercase tracking-wider text-muted-dark font-medium">
               Available at any tier
@@ -117,7 +117,7 @@ const BeyondRetainer = () => {
               className="font-display text-2xl md:text-3xl text-charcoal mb-2 leading-tight"
               style={{ fontWeight: 700 }}
             >
-              Custom Software Solutions
+              Custom Software & Tooling
             </h3>
             <p className="text-sm text-muted-dark mb-4">Dashboards · Bridges · Reporting layers</p>
             <div className="mb-5">
@@ -130,9 +130,9 @@ const BeyondRetainer = () => {
               <p className="text-sm text-charcoal/70 mt-1">Custom pricing scoped after CRO audit</p>
             </div>
             <p className="text-base text-charcoal/80 leading-relaxed mb-6 flex-1">
-              Once we're inside your business and we've audited your funnel, we identify specific bottlenecks
-              that off-the-shelf tools can't solve. That's where Custom Software comes in — dispatching
-              dashboards, lead-scoring algorithms, CRM bridges, proprietary reporting.
+              The proprietary tools that power your marketing — dispatching dashboards, lead-scoring,
+              CRM bridges, custom reporting. Not a bespoke dev shop: productized tooling we build when a
+              real bottleneck needs its own tool, scoped after a CRO audit.
             </p>
             <a
               href={CALENDLY}

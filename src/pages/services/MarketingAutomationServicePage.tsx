@@ -6,7 +6,7 @@ const MarketingAutomationServicePage = () => {
       currentSlug="marketing-automation"
       heroEyebrow="Marketing Automation"
       heroTitle="Stop doing manual marketing."
-      heroSubhead="Behavioral triggers, lead scoring, review acquisition systems. Voice AI for missed calls, SMS workflows for confirmations and follow-ups. We architect the systems; you handle the jobs."
+      heroSubhead="Behavioral triggers, lead scoring, and review-request automation — live on email and CRM today. Voice AI and SMS text-back are rolling out. We architect the systems; you handle the jobs."
       contrarianEyebrow="The workflow reality"
       contrarianTitle="Done right, automation feels personal. Done wrong, it feels like spam."
       contrarianBody={[
@@ -34,7 +34,7 @@ const MarketingAutomationServicePage = () => {
           number: "03",
           title: "Review acquisition systems",
           description:
-            "Automated review requests timed to job completion. Recapture flows for the customers who didn't respond.",
+            "Automated review requests timed to job completion — every customer asked the same way, un-gated and FTC-compliant. Recapture flows for the customers who didn't respond.",
         },
         {
           number: "04",

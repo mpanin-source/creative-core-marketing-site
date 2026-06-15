@@ -86,7 +86,7 @@ const PricingHero = () => {
           <Shield className="w-5 h-5 text-coral-dark flex-shrink-0 mt-0.5" />
           <p className="text-sm text-charcoal/80 leading-relaxed">
             <span className="font-semibold text-charcoal">60-day No-BS Guarantee:</span>{" "}
-            20% CPL reduction or 25% appointment growth — or you walk away and keep everything we built.
+            We build out every system in your plan — and if we don't deliver what we promised, you walk away and keep everything we've built. Month-to-month, cancel anytime.
             <Link to="/faq#guarantee" className="text-coral-dark font-medium hover:underline ml-1">
               How it works →
             </Link>

@@ -34,7 +34,7 @@ const CROServicePage = () => {
           number: "03",
           title: "Core Web Vitals optimization",
           description:
-            "Page speed directly affects rankings AND conversion. We optimize LCP, INP, and CLS systematically.",
+            "Page speed is a conversion lever first — a slow site loses the appointment before the form loads. We optimize LCP, INP, and CLS systematically (a minor ranking signal, a major conversion one).",
         },
         {
           number: "04",
@@ -76,11 +76,11 @@ const CROServicePage = () => {
         },
         {
           q: "How fast do conversion gains show up?",
-          a: "Speed-to-lead workflows produce measurable lift within days. A/B test outcomes typically reach statistical significance in 2–4 weeks depending on traffic volume. Core Web Vitals improvements compound across SEO and conversion simultaneously.",
+          a: "Speed-to-lead workflows produce measurable lift within days. A/B test outcomes typically reach statistical significance in 2–4 weeks depending on traffic volume. Core Web Vitals improvements mostly pay off in conversion — and a little in SEO — and compound over time.",
         },
         {
           q: "Do I need a new website to get CRO benefits?",
-          a: "Usually no. We optimize what you already have — CRO and GBP work on your existing site. If the site is genuinely broken or missing, our web development arm rebuilds it as a separate engagement, then optimization begins.",
+          a: "Usually no. We optimize what you already have — CRO and GBP work on your existing site. If the site is genuinely broken or missing, our web development team rebuilds it as a separate engagement, then optimization begins.",
         },
         {
           q: "Why does mobile-first matter so much for home services?",

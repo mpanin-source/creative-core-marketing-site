@@ -8,7 +8,7 @@ const sectionFade: Variants = {
 
 const deliverables = [
   { icon: Search, title: "LOCAL SEO FOUNDATION", desc: "Schema markup deployment, NAP consistency across the major citation directories, GBP setup with weekly post management, and on-page SEO basics." },
-  { icon: ShieldCheck, title: "LSA + GOOGLE GUARANTEED", desc: "We run the application end-to-end — license upload, insurance verification, background-check coordination — then manage bad-fit lead disputes monthly. Approval timelines are Google's (typically 1–4 weeks)." },
+  { icon: ShieldCheck, title: "LSA + GOOGLE VERIFIED", desc: "We run the application end-to-end — license upload, insurance verification, background-check coordination — then monitor lead quality and recover credit on unqualified leads through Google's review process. Approval timelines are Google's (typically 1–4 weeks)." },
   { icon: Sparkles, title: "GEO ELIGIBILITY SCHEMA", desc: "Structured-data schema that makes you eligible for Google AI Overview citations — the entry ticket to GEO. The same signals strengthen your footprint in ChatGPT, Claude, and Perplexity, where citations are earned over time through authority and crawlable content." },
   { icon: Layout, title: "CONVERSION FOUNDATION", desc: "Mobile-first conversion audit, Core Web Vitals optimization, CTA placement, click-to-call verification, basic form optimization, trust signal integration." },
   { icon: Star, title: "REVIEW SYSTEM", desc: "Automated review request flows, monitoring, response drafting, recapture campaigns. Builds the velocity GEO weights heaviest." },
@@ -71,7 +71,7 @@ const SprintEngine = () => {
               What Foundation Sprint doesn't include
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Ad spend (you pay Google directly) · SMS automation (Q3) · Website builds (separate web-dev engagement) · Social-media management
+              Ad spend (you pay Google directly) · SMS automation (in rollout) · Website builds (our development team, separate engagement) · Social-media management
             </p>
           </div>
         </motion.div>

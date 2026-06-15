@@ -27,8 +27,8 @@ const steps: Step[] = [
     phase: "Phase two",
     duration: "7–60 days",
     title: "Deploy",
-    body: "Foundation laid in week 1. LSA + Google Guaranteed certified. Schema deployed. GBP weaponized. Ads launched. Speed-to-lead workflows live. Reporting cadence established. Day 30 check-in confirms early signal.",
-    outcome: "Production systems running, not slide decks. By Day 60, the guarantee evaluates against real numbers.",
+    body: "Foundation laid in week 1. LSA + Google Verified certified. Schema deployed. GBP weaponized. Ads launched. Speed-to-lead workflows live. Reporting cadence established. Day 30 check-in confirms early signal.",
+    outcome: "Production systems running, not slide decks. By Day 60, every system we promised is live — or you walk away with everything we've built.",
   },
   {
     number: "03",
@@ -42,7 +42,7 @@ const steps: Step[] = [
 
 const wontDo = [
   "Promise rankings or lead volume — anyone who does is overselling.",
-  "Lock you into a 12-month contract — month-to-month after the 60-day trial.",
+  "Lock you into a 12-month contract — month-to-month after the 60-day guarantee window.",
   "Mark up your ad spend or take affiliate kickbacks on the software you use.",
   "Hold your data, accounts, or assets hostage. You own everything from day one.",
   "Sign your competitor in your county for as long as you're with us.",

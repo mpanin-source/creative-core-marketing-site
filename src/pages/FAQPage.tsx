@@ -12,13 +12,13 @@ const faqs: FAQ[] = [
     id: "pricing",
     category: "Pricing & guarantee",
     q: "What does each tier cost, and how does the guarantee work?",
-    a: "Three retainer tiers: Foundation Sprint at $1,500/mo, Growth Partner at $3,000/mo, and Scale Partner at $5,000/mo (qualification required). Every retainer carries the 60-day guarantee: if we don't cut your cost-per-lead by 20% or grow booked appointments by 25%, you walk away and keep everything we built.",
+    a: "Three retainer tiers: Foundation Sprint at $1,500/mo, Growth Partner at $3,000/mo, and Scale Partner at $5,000/mo (qualification required). Every retainer carries the 60-day guarantee: we build and launch every system in your tier on schedule — and if we don't deliver what we promised, you walk away and keep everything we've built. Month-to-month, cancel anytime.",
   },
   {
     id: "process",
     category: "Process",
     q: "How long does setup take and what does the first 60 days look like?",
-    a: "Discovery to onboarding to launch typically runs 7–14 days. From kickoff: foundation deployed in week 1 (schema, GBP, LSA setup, landing pages, speed-to-lead workflows). First ads live by week 2. Day 30 check-in confirms early signal. Day 60 is the guarantee evaluation — you decide to continue, upgrade, or walk away with everything we built.",
+    a: "Discovery to onboarding to launch typically runs 7–14 days. From kickoff: foundation deployed in week 1 (schema, GBP, LSA setup, landing pages, speed-to-lead workflows). First ads live by week 2. Day 30 check-in confirms early signal. Day 60 is your guarantee checkpoint — continue, upgrade, or walk away with everything we've built.",
   },
   {
     id: "crm-strategy",
@@ -30,19 +30,19 @@ const faqs: FAQ[] = [
     id: "guarantee",
     category: "Pricing & guarantee",
     q: "How does the 60-day guarantee actually work?",
-    a: "Baseline metrics confirmed in writing within the first 7 days (your current CPL, monthly appointments, ad spend, close rate). At Day 60, we measure against that baseline. If we haven't reduced CPL by 20% or grown booked appointments by 25%, you can walk away. You keep everything: ad accounts, landing pages, CRM setup, schema, GBP optimization, content. No contract battles. No refund games.",
+    a: "It's a work guarantee, not a metrics gamble. On day one we put in writing exactly which systems we'll build and launch in your first 60 days — foundation in week 1, ads live by week 2, speed-to-lead and reporting running. If we don't deliver what we promised, you walk away. Either way, you keep everything: ad accounts, landing pages, CRM setup, schema, GBP optimization, content. No contract battles. No clawbacks.",
   },
   {
     id: "contracts",
     category: "Engagement terms",
     q: "Am I locked into a long contract?",
-    a: "No. Foundation Sprint has a 60-day trial period (the guarantee window). After Day 60, you're month-to-month with 7 days' notice to cancel. Growth Partner is also month-to-month. Scale Partner has a 6-month minimum commitment because the work compounds over 90–180 days, but pricing is still monthly — no annual lump sums, no penalty for leaving after the minimum.",
+    a: "No. Foundation Sprint has a 60-day guarantee window. After Day 60, you're month-to-month with 7 days' notice to cancel. Growth Partner is also month-to-month. Scale Partner has a 6-month minimum commitment because the work compounds over 90–180 days, but pricing is still monthly — no annual lump sums, no penalty for leaving after the minimum.",
   },
   {
     id: "florida-licensing",
     category: "Florida-specific",
     q: "Are there Florida home services licensing considerations?",
-    a: "Yes. We verify your license, insurance, and Florida advertising compliance during onboarding. For LSA (Local Services Ads), Google Guaranteed requires background checks and verification — we handle the application on your behalf. For trades that require state licensing (electrical, HVAC, plumbing, roofing), we ensure your marketing surfaces the right credentials. We don't work with unlicensed operators.",
+    a: "Yes. We verify your license, insurance, and Florida advertising compliance during onboarding. For LSA (Local Services Ads), the Google Verified badge (formerly Google Guaranteed) requires background checks and verification — we handle the application on your behalf. For trades that require state licensing (electrical, HVAC, plumbing, roofing), we ensure your marketing surfaces the right credentials. We don't work with unlicensed operators.",
   },
   {
     id: "fit",

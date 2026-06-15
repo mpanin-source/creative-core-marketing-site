@@ -14,9 +14,9 @@ const outcomes: Outcome[] = [
   },
   {
     context: "AI search traffic",
-    metric: "3.49%",
+    metric: "≥ organic",
     label: "conversion rate",
-    detail: "Visitors from ChatGPT, Claude, Perplexity convert higher than organic (2.86%).",
+    detail: "Visitors from ChatGPT, Perplexity and Google's AI Overview arrive mid-decision — early data shows they convert at least as well as organic search.",
   },
   {
     context: "Performance Max",
