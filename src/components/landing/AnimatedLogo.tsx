@@ -237,8 +237,7 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
   const s = sizeClasses[size];
 
   return (
-    <a
-      href="/"
+    <div
       className="flex items-center group relative chrome-shine"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -287,7 +286,7 @@ const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
           </motion.span>
         ))}
       </div>
-    </a>
+    </div>
   );
 };
 
