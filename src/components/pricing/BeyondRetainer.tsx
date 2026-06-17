@@ -1,6 +1,7 @@
 import { ArrowRight, Phone, Wrench, Check, Megaphone } from "lucide-react";
 
-const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+import { CALENDLY_URL as CALENDLY } from "@/config/site";
+import { handleCalendlyClick } from "@/lib/calendly";
 
 const automationFeatures = [
   "Automated review requests",
@@ -138,6 +139,7 @@ const BeyondRetainer = () => {
               href={CALENDLY}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleCalendlyClick}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-coral hover:bg-coral-dark text-white font-medium transition-colors w-fit"
             >
               Book a strategy call

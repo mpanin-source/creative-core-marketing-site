@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
-const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+import { CALENDLY_URL as CALENDLY } from "@/config/site";
+import { handleCalendlyClick } from "@/lib/calendly";
 
 // R7.6 Phase 7.5 — Typewriter rotating headline.
 // Cycle through three phrases ONCE, then rest permanently on phrase 1.
@@ -141,6 +142,7 @@ const Hero = () => {
             href={CALENDLY}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleCalendlyClick}
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-md bg-coral hover:bg-coral-dark text-white font-medium transition-colors"
           >
             Book a strategy call

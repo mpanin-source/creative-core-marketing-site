@@ -66,7 +66,8 @@ const coreLetterItem: Variants = {
   }),
 };
 
-const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+import { CALENDLY_URL as CALENDLY } from "@/config/site";
+import { handleCalendlyClick } from "@/lib/calendly";
 
 const Footer = () => {
   const creativeText = "CREATIVE";
@@ -177,6 +178,7 @@ const Footer = () => {
                   href={CALENDLY}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={handleCalendlyClick}
                   className="text-slate-light hover:text-cream transition-colors"
                 >
                   Book strategy call

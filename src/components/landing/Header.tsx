@@ -19,7 +19,8 @@ const navLinks = [
   { label: "FAQ", to: "/faq" },
 ];
 
-const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+import { CALENDLY_URL as CALENDLY } from "@/config/site";
+import { handleCalendlyClick } from "@/lib/calendly";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -136,6 +137,7 @@ const Header = () => {
                 href={CALENDLY}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleCalendlyClick}
                 className="bg-coral hover:bg-coral-dark text-white px-5 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Book a strategy call
@@ -148,6 +150,7 @@ const Header = () => {
                 href={CALENDLY}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleCalendlyClick}
                 className="bg-coral hover:bg-coral-dark text-white px-4 py-1.5 rounded-md text-xs font-medium"
               >
                 Book a call
@@ -221,7 +224,10 @@ const Header = () => {
                 href={CALENDLY}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => {
+                  setMobileOpen(false);
+                  handleCalendlyClick(e);
+                }}
                 className="block w-full text-center mt-6 px-4 py-4 rounded-md bg-coral hover:bg-coral-dark text-white text-base font-medium transition-colors"
               >
                 Book a strategy call
