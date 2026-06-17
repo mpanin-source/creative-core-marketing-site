@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin } from "lucide-react";
 
-const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+import { CALENDLY_URL as CALENDLY } from "@/config/site";
+import { openCalendlyPopup, isCalendlyUrl } from "@/lib/calendly";
 
 export interface EndCTAProps {
   /** Main H2 headline rendered in charcoal. */
@@ -73,6 +74,12 @@ const EndCTA = ({
             href={primaryCtaHref}
             target={primaryCtaHref.startsWith("http") ? "_blank" : undefined}
             rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}
+            onClick={(e) => {
+              if (isCalendlyUrl(primaryCtaHref)) {
+                e.preventDefault();
+                void openCalendlyPopup(primaryCtaHref);
+              }
+            }}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md bg-coral hover:bg-coral-dark text-white font-medium transition-colors shadow-sm"
           >
             {primaryCtaText}

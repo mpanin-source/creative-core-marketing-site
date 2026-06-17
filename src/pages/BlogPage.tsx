@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+import { CALENDLY_URL as CALENDLY } from "@/config/site";
+import { handleCalendlyClick } from "@/lib/calendly";
 
 const BlogPage = () => {
   return (
@@ -118,6 +119,7 @@ const BlogPage = () => {
               href={CALENDLY}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleCalendlyClick}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-cyan hover:bg-cyan/90 text-white font-medium transition-colors"
             >
               Book a strategy call

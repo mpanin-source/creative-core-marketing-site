@@ -40,3 +40,6 @@ creative-core-pricing-audit.md
 round-8.2-research-brief.md
 round-8.2-research-report.md
 SESSION-STATE-8.2.md
+
+# TypeScript incremental build cache
+*.tsbuildinfo

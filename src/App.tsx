@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/global/Layout";
 import ScrollToTop from "./components/global/ScrollToTop";
+import CalendlyPopup from "./components/CalendlyPopup";
 import Index from "./pages/Index";
 import PricingAndBooking from "./pages/PricingAndBooking";
 import AISearch from "./pages/AISearch";
@@ -28,6 +29,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <CalendlyPopup />
         <Layout>
           <Routes>
             <Route path="/" element={<Index />} />

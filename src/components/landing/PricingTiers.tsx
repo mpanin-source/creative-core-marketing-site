@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import { Check, ArrowRight, Lock, ChevronDown, MapPin } from "lucide-react";
 import CountUp from "react-countup";
+import { openCalendlyPopup } from "@/lib/calendly";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -90,8 +91,8 @@ const tiers: Tier[] = [
 const PricingTiers = () => {
   const [showQual, setShowQual] = useState(false);
 
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const openBooking = () => {
+    void openCalendlyPopup();
   };
 
   return (
@@ -205,7 +206,7 @@ const PricingTiers = () => {
                 </div>
 
                 <button
-                  onClick={scrollToContact}
+                  onClick={openBooking}
                   className={`w-full py-3 rounded-md font-medium text-sm transition-colors flex items-center justify-center gap-2 ${
                     tier.highlighted
                       ? "bg-coral hover:bg-coral-dark text-white"

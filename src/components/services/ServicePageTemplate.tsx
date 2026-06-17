@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
 import EndCTA from "@/components/shared/EndCTA";
 
-const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+import { CALENDLY_URL as CALENDLY } from "@/config/site";
+import { handleCalendlyClick } from "@/lib/calendly";
 
 interface FAQItem {
   q: string;
@@ -89,6 +90,7 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
               href={CALENDLY}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleCalendlyClick}
               className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md bg-coral hover:bg-coral-dark text-white font-medium transition-colors"
             >
               Book a strategy call

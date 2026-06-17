@@ -4,10 +4,9 @@ import { ArrowRight, Shield } from "lucide-react";
 import SprintEngine from "@/components/landing/SprintEngine";
 import PricingTiers from "@/components/landing/PricingTiers";
 import BeyondRetainer from "@/components/pricing/BeyondRetainer";
-import ContactForm from "@/components/landing/ContactForm";
 import EndCTA from "@/components/shared/EndCTA";
-
-const CALENDLY = "https://calendly.com/paninmax2002/strategy-call";
+import { CALENDLY_URL } from "@/config/site";
+import { handleCalendlyClick } from "@/lib/calendly";
 
 // R7.6 — Single-phrase typewriter on the pricing hero, same look as the homepage.
 // Types "starting point." once on mount, then rests with cursor blinking.
@@ -102,9 +101,8 @@ const PricingHero = () => {
             <ArrowRight className="w-4 h-4" />
           </button>
           <a
-            href={CALENDLY}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={CALENDLY_URL}
+            onClick={handleCalendlyClick}
             className="inline-flex items-center justify-center px-7 py-3.5 rounded-md border-2 border-charcoal/40 text-charcoal hover:bg-charcoal/5 font-medium transition-colors"
           >
             Book a strategy call
@@ -135,7 +133,6 @@ const PricingAndBooking = () => {
       <PricingTiers />
       <SprintEngine />
       <BeyondRetainer />
-      <ContactForm />
       <EndCTA
         headline="Still deciding?"
         headlineAccent="Book a call."
