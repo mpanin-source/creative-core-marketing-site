@@ -210,7 +210,7 @@ const PricingTiers = () => {
                   className={`w-full py-3 rounded-md font-medium text-sm transition-colors flex items-center justify-center gap-2 ${
                     tier.highlighted
                       ? "bg-coral hover:bg-coral-dark text-white"
-                      : "border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream"
+                      : "border-2 border-azure/60 text-azure-dark hover:bg-azure hover:text-white hover:border-azure"
                   }`}
                 >
                   {tier.cta}

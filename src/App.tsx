@@ -19,6 +19,8 @@ import CustomSoftwareServicePage from "./pages/services/CustomSoftwareServicePag
 import ProcessPage from "./pages/ProcessPage";
 import BlogPage from "./pages/BlogPage";
 import NotFound from "./pages/NotFound";
+import { LogoVariantProvider } from "./components/cobalt-refresh/logo";
+import RefreshPreloader from "./components/cobalt-refresh/RefreshPreloader";
 
 const queryClient = new QueryClient();
 
@@ -29,25 +31,35 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <CalendlyPopup />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/pricing-and-booking" element={<PricingAndBooking />} />
-            <Route path="/ai-search" element={<AISearch />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/services/seo" element={<SEOServicePage />} />
-            <Route path="/services/sem" element={<SEMServicePage />} />
-            <Route path="/services/geo" element={<GEOServicePage />} />
-            <Route path="/services/cro" element={<CROServicePage />} />
-            <Route path="/services/marketing-automation" element={<MarketingAutomationServicePage />} />
-            <Route path="/services/custom-software" element={<CustomSoftwareServicePage />} />
-            <Route path="/process" element={<ProcessPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <LogoVariantProvider>
+                <RefreshPreloader />
+                <CalendlyPopup />
+                <Layout>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/pricing-and-booking" element={<PricingAndBooking />} />
+                    <Route path="/ai-search" element={<AISearch />} />
+                    <Route path="/faq" element={<FAQPage />} />
+                    <Route path="/services/seo" element={<SEOServicePage />} />
+                    <Route path="/services/sem" element={<SEMServicePage />} />
+                    <Route path="/services/geo" element={<GEOServicePage />} />
+                    <Route path="/services/cro" element={<CROServicePage />} />
+                    <Route path="/services/marketing-automation" element={<MarketingAutomationServicePage />} />
+                    <Route path="/services/custom-software" element={<CustomSoftwareServicePage />} />
+                    <Route path="/process" element={<ProcessPage />} />
+                    <Route path="/blog" element={<BlogPage />} />
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Layout>
+              </LogoVariantProvider>
+            }
+          />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

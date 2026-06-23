@@ -72,10 +72,10 @@ const BeyondRetainer = () => {
           {/* Card 2 — Paid Social (Meta), readiness-gated upsell (R8.1, CS-04 relocation) */}
           <div className="bg-white rounded-lg p-8 border border-charcoal/10 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-md bg-coral/10 flex items-center justify-center">
-                <Megaphone className="w-5 h-5 text-coral-dark" />
+              <div className="w-10 h-10 rounded-md bg-azure-soft flex items-center justify-center">
+                <Megaphone className="w-5 h-5 text-azure-dark" />
               </div>
-              <span className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark">
+              <span className="text-xs uppercase tracking-[0.15em] font-medium text-azure-dark">
                 Add-on
               </span>
             </div>

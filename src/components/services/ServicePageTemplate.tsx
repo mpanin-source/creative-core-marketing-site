@@ -98,7 +98,7 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
             </a>
             <Link
               to="/pricing-and-booking"
-              className="inline-flex items-center justify-center px-7 py-3 rounded-md border-2 border-charcoal/40 text-charcoal hover:bg-charcoal/5 font-medium transition-colors"
+              className="inline-flex items-center justify-center px-7 py-3 rounded-md border-2 border-azure/60 text-azure-dark hover:bg-azure-soft font-medium transition-colors"
             >
               From $1,500/month
             </Link>
@@ -220,7 +220,7 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
       {related.length > 0 && (
         <section className="bg-cream py-20 px-6 border-t border-charcoal/10">
           <div className="max-w-6xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
+            <p className="text-xs uppercase tracking-[0.15em] font-medium text-azure-dark mb-4">
               More services
             </p>
             <h2
@@ -234,13 +234,13 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
                 <Link
                   key={s.slug}
                   to={`/services/${s.slug}`}
-                  className="group bg-white rounded-lg p-5 border border-charcoal/10 hover:border-coral/40 hover:-translate-y-0.5 transition-all duration-200"
+                  className="group bg-white rounded-lg p-5 border border-charcoal/10 hover:border-azure/50 hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <div className="flex items-baseline justify-between mb-2">
-                    <h3 className="font-display text-lg text-charcoal" style={{ fontWeight: 700 }}>
+                    <h3 className="font-display text-lg text-charcoal group-hover:text-azure-dark transition-colors" style={{ fontWeight: 700 }}>
                       {s.label}
                     </h3>
-                    <ArrowRight className="w-4 h-4 text-charcoal/40 group-hover:text-coral transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-charcoal/40 group-hover:text-azure transition-colors" />
                   </div>
                   <p className="text-sm text-charcoal/70 leading-relaxed">{s.tagline}</p>
                 </Link>

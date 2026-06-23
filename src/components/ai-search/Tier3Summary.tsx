@@ -35,8 +35,8 @@ const Tier3Summary = () => {
           className="bg-card rounded-2xl p-8 border border-coral/30 shadow-[0_0_24px_rgba(255, 77, 46,0.1)]"
         >
           <div className="flex items-center gap-2 mb-5">
-            <Lock className="w-4 h-4 text-coral" />
-            <span className="text-xs font-bold tracking-wider uppercase text-coral-dark">QUALIFICATION PREVIEW</span>
+            <Lock className="w-4 h-4 text-azure-dark" />
+            <span className="text-xs font-bold tracking-wider uppercase text-azure-dark">QUALIFICATION PREVIEW</span>
           </div>
 
           <ul className="space-y-3 mb-8">

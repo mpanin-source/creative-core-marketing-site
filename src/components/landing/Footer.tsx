@@ -1,124 +1,36 @@
 import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
+import { RefreshLockup } from "@/components/cobalt-refresh/logo";
+import { CALENDLY_URL as CALENDLY } from "@/config/site";
+import { handleCalendlyClick } from "@/lib/calendly";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] } },
 };
 
-const letterReveal: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.04 } },
-};
-
-const letterItem: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-};
-
-// Last letter of CREATIVE reacts to CORE's taps
-const lastCreativeItem: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (totalDelay: number) => ({
-    opacity: 1,
-    y: [20, 0, 0, -4, 0, 0, -3, 0],
-    transition: {
-      duration: 2,
-      delay: totalDelay,
-      times: [0, 0.2, 0.45, 0.52, 0.6, 0.75, 0.82, 0.9],
-      ease: "easeOut",
-    },
-  }),
-};
-
-// "CORE" letters: reveal → first tap → pause → second tap + turn cyan
-const coreLetterItem: Variants = {
-  hidden: { opacity: 0, y: 20, color: "hsl(0, 0%, 95%)" },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: [20, 0, 0, -8, 0, 0, -6, 0],
-    color: [
-      "hsl(0, 0%, 95%)",
-      "hsl(0, 0%, 95%)",
-      "hsl(0, 0%, 95%)",
-      "hsl(0, 0%, 95%)",
-      "hsl(0, 0%, 95%)",
-      "hsl(0, 0%, 95%)",
-      "hsl(9, 100%, 59%)",
-      "hsl(9, 100%, 59%)",
-    ],
-    filter: [
-      "drop-shadow(0 0 0px transparent)",
-      "drop-shadow(0 0 0px transparent)",
-      "drop-shadow(0 0 0px transparent)",
-      "drop-shadow(0 0 0px transparent)",
-      "drop-shadow(0 0 0px transparent)",
-      "drop-shadow(0 0 0px transparent)",
-      "drop-shadow(0 0 12px rgba(255, 77, 46,0.4))",
-      "drop-shadow(0 0 12px rgba(255, 77, 46,0.4))",
-    ],
-    transition: {
-      duration: 2,
-      delay,
-      times: [0, 0.2, 0.45, 0.55, 0.65, 0.75, 0.85, 1],
-      ease: "easeOut",
-    },
-  }),
-};
-
-import { CALENDLY_URL as CALENDLY } from "@/config/site";
-import { handleCalendlyClick } from "@/lib/calendly";
-
 const Footer = () => {
-  const creativeText = "CREATIVE";
-  const coreText = "CORE";
-
   return (
     <footer className="border-t border-slate-dark">
-      {/* Animated wordmark block (preserved from Round 6, color-migrated to Path A) */}
+      {/* New logo lockup block (replaces the Round 6 animated wordmark) */}
       <div className="relative overflow-hidden bg-navy-deep">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse 60% 40% at 50% 60%, rgba(255, 77, 46, 0.06) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 60% 40% at 50% 60%, rgba(58, 134, 255, 0.08) 0%, transparent 70%)",
           }}
         />
 
         <div className="relative z-10 px-6 py-20 md:py-24">
           <div className="max-w-[1100px] mx-auto flex flex-col items-center">
             <motion.div
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              variants={letterReveal}
-              className="flex items-center justify-center gap-[0.15em] md:gap-[0.2em] mb-8 flex-wrap"
+              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-cream mb-8"
             >
-              {creativeText.split("").map((char, i) => {
-                const isLast = i === creativeText.length - 1;
-                return (
-                  <motion.span
-                    key={`c-${i}`}
-                    custom={i * 0.04}
-                    variants={isLast ? lastCreativeItem : letterItem}
-                    className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-cream"
-                    style={{ fontWeight: 800 }}
-                  >
-                    {char}
-                  </motion.span>
-                );
-              })}
-              <span className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ width: "0.4em" }} />
-              {coreText.split("").map((char, i) => (
-                <motion.span
-                  key={`o-${i}`}
-                  custom={(creativeText.length + 1 + i) * 0.04}
-                  variants={coreLetterItem}
-                  className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight footer-core-glow"
-                  style={{ fontWeight: 800 }}
-                >
-                  {char}
-                </motion.span>
-              ))}
+              <RefreshLockup size={92} />
             </motion.div>
 
             <motion.p

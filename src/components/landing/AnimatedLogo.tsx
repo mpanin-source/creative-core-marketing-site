@@ -1,5 +1,6 @@
 import { motion, useAnimationControls } from "framer-motion";
 import { useState, useId, useEffect } from "react";
+import { useLogoVariant, RefreshLockup } from "../cobalt-refresh/logo";
 
 interface AnimatedLogoProps {
   size?: "sm" | "md" | "lg";
@@ -225,8 +226,14 @@ const CCEmblem = ({ size, isHovered }: { size: string; isHovered: boolean }) => 
 
 const AnimatedLogo = ({ size = "sm" }: AnimatedLogoProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const logoVariant = useLogoVariant();
   const creative = "CREATIVE";
   const core = "CORE";
+
+  // /cobalt-refresh prototype: render the new 06 lockup (recolored to the coral brand).
+  if (logoVariant === "new06") {
+    return <RefreshLockup size={({ sm: 36, md: 46, lg: 60 } as const)[size]} />;
+  }
 
   const sizeClasses = {
     sm: { desktop: "text-2xl", mobile: "text-lg", glow: "0 0 12px" },

@@ -87,7 +87,8 @@ const FAQPage = () => {
           className={`${i % 2 === 0 ? "bg-cream" : "bg-cream-light"} py-16 px-6 border-b border-charcoal/10`}
         >
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.15em] text-coral-dark mb-3 font-medium">
+            {/* Category = metadata label → azure (secondary accent) */}
+            <p className="inline-flex items-center text-xs uppercase tracking-[0.15em] text-azure-dark mb-3 font-medium px-2.5 py-1 rounded-full bg-azure-soft">
               {faq.category}
             </p>
             <h2
@@ -96,7 +97,7 @@ const FAQPage = () => {
             >
               {faq.q}
             </h2>
-            <p className="text-lg text-charcoal/80 leading-relaxed">{faq.a}</p>
+            <p className="text-lg text-charcoal/80 leading-relaxed border-l-2 border-azure/30 pl-5">{faq.a}</p>
           </div>
         </section>
       ))}

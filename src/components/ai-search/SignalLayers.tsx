@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { Search, Star, Code, FileText, Youtube, MessageSquare, Brain } from "lucide-react";
+import { OrbitRings } from "@/components/cobalt-refresh/patterns";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -18,8 +19,9 @@ const layers = [
 
 const SignalLayers = () => {
   return (
-    <section className="px-6 py-32 md:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section className="px-6 py-32 md:px-8 relative overflow-hidden">
+      <OrbitRings color="#3a86ff" opacity={0.09} cx="92%" cy="8%" rings={7} />
+      <div className="max-w-6xl mx-auto relative z-[1]">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
@@ -45,11 +47,12 @@ const SignalLayers = () => {
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm outcome-card relative"
             >
-              <div className="absolute top-5 right-5 font-display text-2xl text-coral/20" style={{ fontWeight: 900 }}>
+              {/* Signal cards alternate coral (primary) / azure (secondary) icon + index */}
+              <div className={`absolute top-5 right-5 font-display text-2xl ${i % 2 === 0 ? "text-coral/20" : "text-azure/30"}`} style={{ fontWeight: 900 }}>
                 0{i + 1}
               </div>
-              <div className="outcome-icon w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center mb-4">
-                <l.icon className="w-5 h-5 text-coral" />
+              <div className={`outcome-icon w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${i % 2 === 0 ? "bg-coral/10" : "bg-azure-soft"}`}>
+                <l.icon className={`w-5 h-5 ${i % 2 === 0 ? "text-coral" : "text-azure-dark"}`} />
               </div>
               <h3 className="font-display text-base text-foreground uppercase mb-2 pr-8" style={{ fontWeight: 700 }}>
                 {l.title}

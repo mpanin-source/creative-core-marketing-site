@@ -89,7 +89,7 @@ const ProcessPage = () => {
                 </p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.15em] text-coral-dark mb-4 font-medium">
+                <p className="text-xs uppercase tracking-[0.15em] text-azure-dark mb-4 font-medium">
                   {step.phase} · {step.duration}
                 </p>
                 <h2

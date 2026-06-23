@@ -71,6 +71,12 @@ export default {
           dark: "#E63E1F",
           soft: "#FFE8E0",
         },
+        // Signal-refresh third color — blue accent (backgrounds, opacity layers, text)
+        azure: {
+          DEFAULT: "#3a86ff",
+          dark: "#2f6fe0",
+          soft: "#E4EEFF",
+        },
         purple: {
           DEFAULT: "#A78BFA",        // decorative fills, badge backgrounds
           dark: "#6D28D9",           // purple text on cream — 6.26:1 on cream (AA+, R7.6 substitution from #7C3AED which was 5.02:1)

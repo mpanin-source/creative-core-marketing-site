@@ -28,7 +28,7 @@ const BlogPage = () => {
       {/* Placeholder posts */}
       <section className="bg-cream py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs uppercase tracking-wider font-medium text-navy-deep mb-4">
+          <p className="text-xs uppercase tracking-wider font-medium text-azure-dark mb-4">
             Coming soon
           </p>
           <h2
@@ -54,9 +54,9 @@ const BlogPage = () => {
             ].map((post, i) => (
               <div
                 key={i}
-                className="bg-white rounded-xl border border-slate-medium/30 p-6 flex flex-col"
+                className="bg-white rounded-xl border border-slate-medium/30 p-6 flex flex-col hover:border-azure/50 transition-colors duration-200"
               >
-                <p className="text-xs uppercase tracking-wider text-slate-medium mb-3 font-medium">
+                <p className="inline-flex items-center self-start text-xs uppercase tracking-wider text-azure-dark mb-3 font-medium px-2.5 py-1 rounded-full bg-azure-soft">
                   {post.category}
                 </p>
                 <h3

@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import { DotGrid, GlowOrb } from "@/components/cobalt-refresh/patterns";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -8,6 +9,9 @@ const sectionFade: Variants = {
 const AISearchHero = () => {
   return (
     <section className="px-6 py-32 md:px-8 relative overflow-hidden">
+      {/* Blue tech texture for the AI-search page (secondary accent) */}
+      <DotGrid color="#3a86ff" opacity={0.12} />
+      <GlowOrb color="#3a86ff" opacity={0.14} size={620} top="6%" left="18%" />
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="hero-orb hero-orb-1" />
         <div className="hero-orb hero-orb-2" />
@@ -16,7 +20,7 @@ const AISearchHero = () => {
         <motion.p
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}
-          className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-coral-dark"
+          className="text-xs font-semibold tracking-[0.2em] uppercase mb-6 text-azure-dark"
         >
           GEO & AI SEARCH DOMINATION
         </motion.p>

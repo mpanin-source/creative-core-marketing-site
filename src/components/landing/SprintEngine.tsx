@@ -46,8 +46,9 @@ const SprintEngine = () => {
               className="p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-sm outcome-card"
             >
               <div className="flex items-start gap-4">
-                <div className="outcome-icon w-10 h-10 rounded-xl bg-coral/10 flex items-center justify-center flex-shrink-0">
-                  <d.icon className="w-5 h-5 text-coral" />
+                {/* Icon chips alternate coral (primary) / azure (secondary) for rhythm */}
+                <div className={`outcome-icon w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${i % 2 === 0 ? "bg-coral/10" : "bg-azure-soft"}`}>
+                  <d.icon className={`w-5 h-5 ${i % 2 === 0 ? "text-coral" : "text-azure-dark"}`} />
                 </div>
                 <div>
                   <h3 className="font-display text-base text-foreground uppercase mb-1" style={{ fontWeight: 700 }}>
