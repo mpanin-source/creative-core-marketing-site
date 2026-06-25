@@ -74,50 +74,55 @@ const ProcessPage = () => {
         </div>
       </section>
 
-      {/* Step sections — alternating cream / cream-light */}
-      {steps.map((step, i) => (
-        <section
-          key={step.number}
-          id={`phase-${step.number}`}
-          className={`relative overflow-hidden ${i % 2 === 0 ? "bg-cream" : "bg-cream-light"} py-24 px-6`}
-        >
-          <SparkField color="#3a86ff" opacity={0.6} animated variant={i} />
-          <div className="relative z-10 max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-[240px_1fr] gap-8 md:gap-16 items-start">
-              <div>
-                <p
-                  className="font-display text-coral-dark leading-none"
-                  style={{ fontWeight: 700, fontSize: "clamp(6rem, 12vw, 10rem)", letterSpacing: "-0.04em" }}
-                >
-                  {step.number}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.15em] text-azure-dark mb-4 font-medium">
-                  {step.phase} · {step.duration}
-                </p>
-                <h2
-                  className="font-display text-4xl md:text-5xl text-charcoal mb-6 leading-tight"
-                  style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
-                >
-                  {step.title}
-                </h2>
-                <p className="text-lg text-charcoal/70 mb-8 leading-relaxed">{step.body}</p>
-
-                <div className="bg-white rounded-md p-6 border-l-4 border-coral">
-                  <p className="text-xs uppercase tracking-[0.15em] text-coral-dark font-medium mb-2">
-                    What you walk away with
+      {/* Step sections + Signal Map — wrapped so the OrbitRings broadcast bleeds across all three
+          phase sections AND the Signal Map below, like the GlowOrb bridging treatment. */}
+      <div className="relative overflow-x-clip">
+        <OrbitRings color="#3a86ff" opacity={0.16} cx="91%" cy="88%" rings={8} animated />
+        {steps.map((step, i) => (
+          <section
+            key={step.number}
+            id={`phase-${step.number}`}
+            className={`relative overflow-x-clip ${i % 2 === 0 ? "bg-cream" : "bg-cream-light"} py-24 px-6`}
+          >
+            <SparkField color="#3a86ff" opacity={0.6} animated variant={i} />
+            <div className="relative z-10 max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-[240px_1fr] gap-8 md:gap-16 items-start">
+                <div>
+                  <p
+                    className="font-display text-coral-dark leading-none"
+                    style={{ fontWeight: 700, fontSize: "clamp(6rem, 12vw, 10rem)", letterSpacing: "-0.04em" }}
+                  >
+                    {step.number}
                   </p>
-                  <p className="text-base text-charcoal/80 leading-relaxed">{step.outcome}</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.15em] text-azure-dark mb-4 font-medium">
+                    {step.phase} · {step.duration}
+                  </p>
+                  <h2
+                    className="font-display text-4xl md:text-5xl text-charcoal mb-6 leading-tight"
+                    style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
+                  >
+                    {step.title}
+                  </h2>
+                  <p className="text-lg text-charcoal/70 mb-8 leading-relaxed">{step.body}</p>
+
+                  <div className="bg-white rounded-md p-6 border-l-4 border-coral">
+                    <p className="text-xs uppercase tracking-[0.15em] text-coral-dark font-medium mb-2">
+                      What you walk away with
+                    </p>
+                    <p className="text-base text-charcoal/80 leading-relaxed">{step.outcome}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        ))}
 
-      {/* R8.1 (CS-15): content → AI-signal map. R8.2: moved directly after the phase sections */}
-      <SignalMap />
+        {/* R8.1 (CS-15): content → AI-signal map. R8.2: moved directly after the phase sections */}
+        <SignalMap />
+      </div>
+
 
       {/* R7.6 Phase 5: new section */}
       <StrategyEvolves />
