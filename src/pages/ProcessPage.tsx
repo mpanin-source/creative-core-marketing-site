@@ -128,7 +128,6 @@ const ProcessPage = () => {
       {/* What we won't do — cream */}
       <section className="relative overflow-x-clip bg-cream py-24 px-6">
         <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
-        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="60%" left="-5%" animated />
         <div className="relative z-10 max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
             The honest part
