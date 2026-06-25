@@ -1,5 +1,4 @@
 import { FileText, MapPin, Video } from "lucide-react";
-import { OrbitRings } from "@/components/cobalt-refresh/patterns";
 
 interface Signal {
   icon: typeof FileText;
@@ -28,8 +27,8 @@ const signals: Signal[] = [
 
 const SignalMap = () => {
   return (
-    <section id="signal-map" className="relative overflow-hidden bg-cream-light py-24 px-6 border-t border-charcoal/10">
-      <OrbitRings color="#3a86ff" opacity={0.16} cx="91%" cy="14%" rings={6} animated />
+    <section id="signal-map" className="relative overflow-x-clip bg-cream-light py-24 px-6">
+
       <div className="relative z-10 max-w-6xl mx-auto">
         <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-6">
           The Signal Map
