@@ -138,7 +138,7 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
       </section>
 
       {/* 3. Capabilities — cream */}
-      <section className="relative overflow-hidden bg-cream pb-24 px-6">
+      <section className="relative overflow-x-clip bg-cream pb-24 px-6">
         <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
         <div className="relative z-10 max-w-6xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
@@ -224,7 +224,7 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
 
       {/* 6. Related services — cream */}
       {related.length > 0 && (
-        <section className="relative overflow-hidden bg-cream py-20 px-6 border-t border-charcoal/10">
+        <section className="relative overflow-x-clip bg-cream py-20 px-6">
           <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
           <div className="relative z-10 max-w-6xl mx-auto">
             <p className="text-xs uppercase tracking-[0.15em] font-medium text-azure-dark mb-4">

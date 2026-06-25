@@ -49,7 +49,7 @@ const EndCTA = ({
   showMoatStatement = true,
 }: EndCTAProps) => {
   return (
-    <section className="relative overflow-hidden bg-cream py-28 md:py-32 px-6 border-t border-charcoal/10">
+    <section className="relative overflow-x-clip bg-cream py-28 md:py-32 px-6">
       <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <h2

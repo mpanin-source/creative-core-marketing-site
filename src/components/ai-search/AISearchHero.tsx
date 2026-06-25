@@ -8,7 +8,7 @@ const sectionFade: Variants = {
 
 const AISearchHero = () => {
   return (
-    <section className="px-6 py-32 md:px-8 relative overflow-hidden">
+    <section className="px-6 py-32 md:px-8 relative overflow-x-clip">
       {/* Blue stars + glow for the AI-search page (secondary accent) */}
       <SparkField color="#3a86ff" opacity={0.6} animated variant={2} />
       <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
