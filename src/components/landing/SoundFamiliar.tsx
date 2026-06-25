@@ -1,5 +1,5 @@
 import { X, Check } from "lucide-react";
-import { ContourBg } from "@/components/cobalt-refresh/patterns";
+import { GlowOrb } from "@/components/cobalt-refresh/patterns";
 
 interface Row {
   lazy: string;
@@ -35,8 +35,8 @@ const rows: Row[] = [
 
 const SoundFamiliar = () => {
   return (
-    <section id="sound-familiar" className="relative overflow-hidden bg-cream-light py-24 px-6">
-      <ContourBg color="#3a86ff" opacity={0.16} animated />
+    <section id="sound-familiar" className="relative overflow-x-clip bg-cream py-24 px-6">
+      <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
       <div className="relative z-10 max-w-6xl mx-auto">
         <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-6">
           Sound familiar?
