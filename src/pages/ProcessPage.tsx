@@ -126,7 +126,7 @@ const ProcessPage = () => {
       <SoundFamiliar />
 
       {/* What we won't do — cream */}
-      <section className="relative overflow-hidden bg-cream py-24 px-6 border-t border-charcoal/10">
+      <section className="relative overflow-x-clip bg-cream py-24 px-6">
         <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
         <div className="relative z-10 max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
