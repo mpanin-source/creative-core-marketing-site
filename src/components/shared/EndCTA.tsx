@@ -3,6 +3,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 
 import { CALENDLY_URL as CALENDLY } from "@/config/site";
 import { openCalendlyPopup, isCalendlyUrl } from "@/lib/calendly";
+import { GlowOrb } from "@/components/cobalt-refresh/patterns";
 
 export interface EndCTAProps {
   /** Main H2 headline rendered in charcoal. */
@@ -48,8 +49,9 @@ const EndCTA = ({
   showMoatStatement = true,
 }: EndCTAProps) => {
   return (
-    <section className="bg-cream py-28 md:py-32 px-6 border-t border-charcoal/10">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="relative overflow-hidden bg-cream py-28 md:py-32 px-6 border-t border-charcoal/10">
+      <GlowOrb color="#3a86ff" opacity={0.2} size={620} top="-4%" left="50%" animated />
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
         <h2
           className="font-display text-4xl md:text-6xl text-charcoal mb-2 leading-tight"
           style={{ fontWeight: 700, letterSpacing: "-0.02em" }}

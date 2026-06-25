@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 import { ArrowRight, Search, Megaphone, Sparkles as SparklesIcon, MousePointerClick, Workflow, Code2, type LucideIcon } from "lucide-react";
 import { COBALT, MonogramCC } from "./CobaltMarks";
+import { OrbitRings } from "../cobalt-refresh/patterns";
 
 /**
  * Orbit / hub Six Systems (concept #5) — "six systems, one conversion foundation".
@@ -45,7 +46,9 @@ export default function OrbitSixSystems({ palette = COBALT_PALETTE }: { palette?
 
       {/* DESKTOP — pinned orbit */}
       <div className="hidden md:flex md:sticky md:top-0 md:h-screen overflow-hidden items-center">
-        <div className="grid max-w-[1200px] mx-auto px-8 grid-cols-2 gap-10 items-center w-full">
+        {/* Pulsing signal rings broadcasting from the conversion-foundation hub */}
+        <OrbitRings color={p.accent} opacity={0.1} cx="27%" cy="48%" rings={7} animated />
+        <div className="relative z-10 grid max-w-[1200px] mx-auto px-8 grid-cols-2 gap-10 items-center w-full">
           <div className="relative mx-auto" style={{ width: BOX, height: BOX }}>
             <svg className="absolute inset-0" width={BOX} height={BOX} aria-hidden>
               <circle cx={BOX / 2} cy={BOX / 2} r={R} fill="none" stroke={p.ink} strokeOpacity="0.12" strokeWidth="1.5" strokeDasharray="2 8" strokeLinecap="round" />

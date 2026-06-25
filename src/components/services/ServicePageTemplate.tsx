@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
 import EndCTA from "@/components/shared/EndCTA";
+import { ContourBg, OrbitRings, SparkField, GlowOrb } from "@/components/cobalt-refresh/patterns";
 
 import { CALENDLY_URL as CALENDLY } from "@/config/site";
 import { handleCalendlyClick } from "@/lib/calendly";
@@ -71,9 +72,10 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
   return (
     <div className="min-h-screen bg-cream">
       {/* 1. Hero — cream-light (R7.6: flipped from bg-forest so transparent Header at scrollY=0 stays readable) */}
-      <section className="bg-cream-light pt-32 md:pt-36 pb-24 md:pb-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
+      <section className="relative overflow-hidden bg-cream-light pt-32 md:pt-36 pb-24 md:pb-28 px-6">
+        <ContourBg color="#3a86ff" opacity={0.16} animated />
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.15em] font-medium text-azure-dark mb-4">
             {props.heroEyebrow}
           </p>
           <h1
@@ -107,8 +109,9 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
       </section>
 
       {/* 2. Contrarian hook — cream */}
-      <section className="bg-cream py-24 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative overflow-hidden bg-cream py-24 px-6">
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={2} />
+        <div className="relative z-10 max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
             {props.contrarianEyebrow ?? "The AI advantage"}
           </p>
@@ -135,8 +138,9 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
       </section>
 
       {/* 3. Capabilities — cream */}
-      <section className="bg-cream pb-24 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative overflow-hidden bg-cream pb-24 px-6">
+        <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="20%" left="14%" animated />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
             {props.capabilitiesEyebrow ?? "Capabilities"}
           </p>
@@ -168,9 +172,10 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
         </div>
       </section>
 
-      {/* 4. What's Included — forest */}
-      <section className="bg-forest py-24 px-6">
-        <div className="max-w-4xl mx-auto">
+      {/* 4. What's Included — forest (dark) with pulsing blue signal rings */}
+      <section className="relative overflow-hidden bg-forest py-24 px-6">
+        <OrbitRings color="#3a86ff" opacity={0.22} cx="90%" cy="14%" rings={6} animated />
+        <div className="relative z-10 max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
             {props.includedEyebrow ?? "What's included"}
           </p>
@@ -192,8 +197,9 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
       </section>
 
       {/* 5. FAQ — cream-light */}
-      <section className="bg-cream-light py-24 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative overflow-hidden bg-cream-light py-24 px-6">
+        <ContourBg color="#3a86ff" opacity={0.16} animated />
+        <div className="relative z-10 max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
             {props.faqsEyebrow ?? "Common questions"}
           </p>
@@ -218,8 +224,9 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
 
       {/* 6. Related services — cream */}
       {related.length > 0 && (
-        <section className="bg-cream py-20 px-6 border-t border-charcoal/10">
-          <div className="max-w-6xl mx-auto">
+        <section className="relative overflow-hidden bg-cream py-20 px-6 border-t border-charcoal/10">
+          <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
+          <div className="relative z-10 max-w-6xl mx-auto">
             <p className="text-xs uppercase tracking-[0.15em] font-medium text-azure-dark mb-4">
               More services
             </p>

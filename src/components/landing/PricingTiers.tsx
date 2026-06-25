@@ -3,6 +3,7 @@ import { motion, type Variants } from "framer-motion";
 import { Check, ArrowRight, Lock, ChevronDown, MapPin } from "lucide-react";
 import CountUp from "react-countup";
 import { openCalendlyPopup } from "@/lib/calendly";
+import { OrbitRings } from "@/components/cobalt-refresh/patterns";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -96,8 +97,9 @@ const PricingTiers = () => {
   };
 
   return (
-    <section className="px-6 py-32 md:px-8 bg-cream" id="pricing">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative overflow-hidden px-6 py-32 md:px-8 bg-cream" id="pricing">
+      <OrbitRings color="#3a86ff" opacity={0.16} cx="92%" cy="10%" rings={6} animated />
+      <div className="relative z-10 max-w-6xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}

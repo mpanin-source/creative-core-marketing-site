@@ -3,6 +3,7 @@ import SoundFamiliar from "@/components/landing/SoundFamiliar";
 import SignalMap from "@/components/landing/SignalMap";
 import StrategyEvolves from "@/components/landing/StrategyEvolves";
 import EndCTA from "@/components/shared/EndCTA";
+import { ContourBg, GlowOrb, SparkField } from "@/components/cobalt-refresh/patterns";
 
 interface Step {
   number: string;
@@ -52,9 +53,11 @@ const ProcessPage = () => {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero — cream-light (R7.6: flipped from bg-forest so transparent Header at scrollY=0 stays readable) */}
-      <section className="bg-cream-light pt-32 md:pt-36 pb-24 md:pb-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
+      <section className="relative overflow-hidden bg-cream-light pt-32 md:pt-36 pb-24 md:pb-28 px-6">
+        <ContourBg color="#3a86ff" opacity={0.16} animated />
+        <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="16%" left="86%" animated />
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.15em] font-medium text-azure-dark mb-4">
             How we work
           </p>
           <h1
@@ -76,9 +79,10 @@ const ProcessPage = () => {
         <section
           key={step.number}
           id={`phase-${step.number}`}
-          className={`${i % 2 === 0 ? "bg-cream" : "bg-cream-light"} py-24 px-6`}
+          className={`relative overflow-hidden ${i % 2 === 0 ? "bg-cream" : "bg-cream-light"} py-24 px-6`}
         >
-          <div className="max-w-6xl mx-auto">
+          <SparkField color="#3a86ff" opacity={0.6} animated variant={i} />
+          <div className="relative z-10 max-w-6xl mx-auto">
             <div className="grid md:grid-cols-[240px_1fr] gap-8 md:gap-16 items-start">
               <div>
                 <p
@@ -122,8 +126,9 @@ const ProcessPage = () => {
       <SoundFamiliar />
 
       {/* What we won't do — cream */}
-      <section className="bg-cream py-24 px-6 border-t border-charcoal/10">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative overflow-hidden bg-cream py-24 px-6 border-t border-charcoal/10">
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
+        <div className="relative z-10 max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
             The honest part
           </p>

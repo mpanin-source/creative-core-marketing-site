@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { OrbitRings } from "@/components/cobalt-refresh/patterns";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight, Sparkles, Home, Wrench, Snowflake } from "lucide-react";
 
@@ -47,8 +48,9 @@ const ExamplesCarousel = () => {
   const Icon = e.icon;
 
   return (
-    <section className="px-6 py-32 md:px-8 section-alt">
-      <div className="max-w-5xl mx-auto">
+    <section className="relative overflow-hidden px-6 py-32 md:px-8 section-alt">
+      <OrbitRings color="#3a86ff" opacity={0.16} cx="8%" cy="86%" rings={6} animated />
+      <div className="relative z-10 max-w-5xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}

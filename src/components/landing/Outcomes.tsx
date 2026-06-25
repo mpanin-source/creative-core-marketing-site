@@ -54,7 +54,7 @@ const Outcomes = () => {
                 {o.context}
               </p>
               <p
-                className="font-display text-coral-dark text-6xl md:text-7xl leading-none mb-3"
+                className="font-display text-azure-dark text-6xl md:text-7xl leading-none mb-3"
                 style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
               >
                 {o.metric}

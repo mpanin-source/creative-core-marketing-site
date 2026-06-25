@@ -1,4 +1,5 @@
 import EndCTA from "@/components/shared/EndCTA";
+import { SparkField } from "@/components/cobalt-refresh/patterns";
 
 interface FAQ {
   id: string;
@@ -62,9 +63,10 @@ const FAQPage = () => {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero */}
-      <section className="bg-cream pt-32 pb-16 px-6 border-b border-charcoal/10">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
+      <section className="relative overflow-hidden bg-cream pt-32 pb-16 px-6 border-b border-charcoal/10">
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.15em] font-medium text-azure-dark mb-4">
             Common questions
           </p>
           <h1

@@ -5,6 +5,7 @@ import SprintEngine from "@/components/landing/SprintEngine";
 import PricingTiers from "@/components/landing/PricingTiers";
 import BeyondRetainer from "@/components/pricing/BeyondRetainer";
 import EndCTA from "@/components/shared/EndCTA";
+import { ContourBg, GlowOrb } from "@/components/cobalt-refresh/patterns";
 import { CALENDLY_URL } from "@/config/site";
 import { handleCalendlyClick } from "@/lib/calendly";
 
@@ -62,9 +63,11 @@ const PricingHero = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="bg-cream-light pt-32 md:pt-36 pb-20 md:pb-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
+    <section className="relative overflow-hidden bg-cream-light pt-32 md:pt-36 pb-20 md:pb-24 px-6">
+      <ContourBg color="#3a86ff" opacity={0.16} animated />
+      <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="18%" left="86%" animated />
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <p className="text-xs uppercase tracking-[0.15em] font-medium text-azure-dark mb-4">
           Transparent pricing
         </p>
         <h1

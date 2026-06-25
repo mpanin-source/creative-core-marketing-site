@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { ShieldCheck, Search, Layout, PhoneCall, Star, Sparkles } from "lucide-react";
+import { SparkField } from "@/components/cobalt-refresh/patterns";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -17,8 +18,9 @@ const deliverables = [
 
 const SprintEngine = () => {
   return (
-    <section className="px-6 py-32 md:px-8 section-alt scroll-mt-24" id="foundation">
-      <div className="max-w-5xl mx-auto">
+    <section className="relative overflow-hidden px-6 py-32 md:px-8 section-alt scroll-mt-24" id="foundation">
+      <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
+      <div className="relative z-10 max-w-5xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}

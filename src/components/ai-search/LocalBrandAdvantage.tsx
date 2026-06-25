@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import { SparkField } from "@/components/cobalt-refresh/patterns";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -7,8 +8,9 @@ const sectionFade: Variants = {
 
 const LocalBrandAdvantage = () => {
   return (
-    <section className="px-6 py-32 md:px-8 section-alt">
-      <div className="max-w-4xl mx-auto">
+    <section className="relative overflow-hidden px-6 py-32 md:px-8 section-alt">
+      <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
+      <div className="relative z-10 max-w-4xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}

@@ -3,14 +3,17 @@ import { ArrowRight } from "lucide-react";
 
 import { CALENDLY_URL as CALENDLY } from "@/config/site";
 import { handleCalendlyClick } from "@/lib/calendly";
+import { ContourBg, GlowOrb, SparkField, OrbitRings } from "@/components/cobalt-refresh/patterns";
 
 const BlogPage = () => {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero — cream-light (R7.6: flipped from bg-navy-deep so transparent Header at scrollY=0 stays readable) */}
-      <section className="bg-cream-light pt-32 md:pt-36 pb-24 md:pb-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs uppercase tracking-wider font-medium text-coral-dark mb-4">
+      <section className="relative overflow-hidden bg-cream-light pt-32 md:pt-36 pb-24 md:pb-28 px-6">
+        <ContourBg color="#3a86ff" opacity={0.16} animated />
+        <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="18%" left="86%" animated />
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <p className="text-xs uppercase tracking-wider font-medium text-azure-dark mb-4">
             From the field
           </p>
           <h1
@@ -26,8 +29,9 @@ const BlogPage = () => {
       </section>
 
       {/* Placeholder posts */}
-      <section className="bg-cream py-24 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative overflow-hidden bg-cream py-24 px-6">
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={2} />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <p className="text-xs uppercase tracking-wider font-medium text-azure-dark mb-4">
             Coming soon
           </p>
@@ -75,8 +79,9 @@ const BlogPage = () => {
       </section>
 
       {/* Subscribe / get notified block */}
-      <section className="bg-cream pb-24 px-6">
-        <div className="max-w-3xl mx-auto bg-navy-deep rounded-xl p-8 md:p-10 text-center">
+      <section className="relative overflow-hidden bg-cream pb-24 px-6">
+        <OrbitRings color="#3a86ff" opacity={0.14} cx="86%" cy="18%" rings={6} animated />
+        <div className="relative z-10 max-w-3xl mx-auto bg-navy-deep rounded-xl p-8 md:p-10 text-center">
           <p className="text-xs uppercase tracking-wider font-medium text-cyan mb-4">
             Get notified when we publish
           </p>
@@ -103,8 +108,9 @@ const BlogPage = () => {
       </section>
 
       {/* Closing CTA */}
-      <section className="bg-navy-deep py-24 px-6 border-t border-slate-dark">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative overflow-hidden bg-navy-deep py-24 px-6 border-t border-slate-dark">
+        <GlowOrb color="#3a86ff" opacity={0.22} size={620} top="10%" left="50%" animated />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <p className="text-xs uppercase tracking-wider font-medium text-cyan mb-6">
             Or skip the reading
           </p>

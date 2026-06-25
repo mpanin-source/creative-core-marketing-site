@@ -1,6 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Lock } from "lucide-react";
+import { ContourBg } from "@/components/cobalt-refresh/patterns";
 
 const sectionFade: Variants = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
@@ -16,8 +17,9 @@ const bullets = [
 
 const Tier3Summary = () => {
   return (
-    <section className="px-6 py-32 md:px-8">
-      <div className="max-w-3xl mx-auto">
+    <section className="relative overflow-hidden px-6 py-32 md:px-8">
+      <ContourBg color="#3a86ff" opacity={0.16} animated />
+      <div className="relative z-10 max-w-3xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
           variants={sectionFade}

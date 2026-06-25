@@ -6,7 +6,7 @@ import CantMeasure from "@/components/landing/CantMeasure";
 import Outcomes from "@/components/landing/Outcomes";
 import HowWeWork from "@/components/landing/HowWeWork";
 import EndCTA from "@/components/shared/EndCTA";
-import { ContourBg, SparkField, MonogramTile, DotGrid, OrbitRings, GlowOrb } from "./patterns";
+import { ContourBg, SparkField, OrbitRings, GlowOrb } from "./patterns";
 
 /**
  * The REAL homepage (current cream + coral brand, real sections/content) with the kit's
@@ -18,7 +18,8 @@ export default function RefreshHome() {
     <>
       <div className="relative">
         <Hero />
-        <ContourBg color="#3a86ff" opacity={0.09} />
+        <ContourBg color="#3a86ff" opacity={0.16} animated />
+        <GlowOrb color="#3a86ff" opacity={0.18} size={580} top="14%" left="88%" animated />
       </div>
 
       {/* Orbit Six Systems — coral brand with BLUE #3a86ff as the third accent (orbit glow/spoke/proof) */}
@@ -26,31 +27,32 @@ export default function RefreshHome() {
 
       <div className="relative">
         <NewBattlefield />
-        <SparkField color="#3a86ff" opacity={0.5} />
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
       </div>
 
-      {/* LocalPlaybook: faint blue dot-grid behind the play cards (cards stay opaque). */}
+      {/* LocalPlaybook: hero treatment — blue contour waves + blue glow behind the cards. */}
       <div className="relative bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <DotGrid color="#3a86ff" opacity={0.16} />
+        <ContourBg color="#3a86ff" opacity={0.16} animated />
+        <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="22%" left="86%" animated />
         <LocalPlaybook />
       </div>
 
-      {/* CantMeasure: blue orbit rings anchored top-right echo the "signal" theme. */}
+      {/* CantMeasure: blue twinkling stars. */}
       <div className="relative bg-cream [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <OrbitRings color="#3a86ff" opacity={0.1} cx="88%" cy="12%" rings={6} />
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={2} />
         <CantMeasure />
       </div>
 
-      {/* Outcomes: monogram pattern fills the section BEHIND the content (section made
-          transparent + lifted above the tile) so the cards stay 100% opaque. */}
+      {/* Outcomes: blue orbit rings from the bottom-left corner — the "data/proof" section
+          reads in blue (matching the azure metric numbers). Cards stay 100% opaque. */}
       <div className="relative bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <MonogramTile color="#1A1714" opacity={0.07} />
+        <OrbitRings color="#3a86ff" opacity={0.18} cx="6%" cy="94%" rings={6} animated />
         <Outcomes />
       </div>
 
-      {/* HowWeWork: soft blue glow orb top-right adds depth behind the step cards. */}
+      {/* HowWeWork: blue twinkling stars behind the step cards. */}
       <div className="relative bg-cream [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <GlowOrb color="#3a86ff" opacity={0.14} size={560} top="-6%" left="82%" />
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
         <HowWeWork />
       </div>
 
@@ -62,7 +64,7 @@ export default function RefreshHome() {
           secondaryCtaText="See pricing"
           secondaryCtaHref="/pricing-and-booking"
         />
-        <SparkField color="#3a86ff" opacity={0.45} />
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
       </div>
     </>
   );
