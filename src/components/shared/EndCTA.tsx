@@ -50,7 +50,7 @@ const EndCTA = ({
 }: EndCTAProps) => {
   return (
     <section className="relative overflow-x-clip bg-cream py-28 md:py-32 px-6">
-      <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
+      <GlowOrb color="#3a86ff" opacity={0.4} size={900} top="-20%" left="-5%" animated />
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <h2
           className="font-display text-4xl md:text-6xl text-charcoal mb-2 leading-tight"
