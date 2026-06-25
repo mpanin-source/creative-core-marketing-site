@@ -36,7 +36,8 @@ const steps: Step[] = [
 
 const HowWeWork = () => {
   return (
-    <section id="how-we-work" className="bg-cream py-24 px-6">
+    <section id="how-we-work" className="relative overflow-x-clip bg-cream py-24 px-6">
+      <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="105%" animated />
       <div className="max-w-6xl mx-auto">
         <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-6">
           07 · How we work
