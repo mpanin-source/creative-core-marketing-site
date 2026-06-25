@@ -33,7 +33,7 @@ export default function RefreshHome() {
       {/* LocalPlaybook: hero treatment — blue contour waves + blue glow behind the cards. */}
       <div className="relative bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
         <ContourBg color="#3a86ff" opacity={0.16} animated />
-        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="105%" animated />
+        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
         <LocalPlaybook />
       </div>
 
