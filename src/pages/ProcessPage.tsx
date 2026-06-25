@@ -160,6 +160,7 @@ const ProcessPage = () => {
         subhead="20 minutes. No pitch. An honest conversation about your county and what's possible."
         secondaryCtaText="See pricing"
         secondaryCtaHref="/pricing-and-booking"
+        glowSide="right"
       />
     </div>
   );
