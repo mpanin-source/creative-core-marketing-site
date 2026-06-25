@@ -1,4 +1,5 @@
 import { MapPin, Zap, Star, Trophy, Sparkles, ShieldCheck, Target } from "lucide-react";
+import { GlowOrb } from "@/components/cobalt-refresh/patterns";
 
 interface Play {
   icon: typeof MapPin;
