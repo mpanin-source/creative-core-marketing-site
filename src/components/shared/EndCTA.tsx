@@ -19,6 +19,8 @@ export interface EndCTAProps {
   secondaryCtaHref?: string;
   /** Show the "Territory exclusive" pill + moat statement. Default true. */
   showMoatStatement?: boolean;
+  /** Which side the blue glow orb sits on. Used to alternate across pages. Default "left". */
+  glowSide?: "left" | "right";
 }
 
 const SecondaryCTA = ({ text, href }: { text: string; href: string }) => {
