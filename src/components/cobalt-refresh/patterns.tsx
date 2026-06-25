@@ -207,7 +207,7 @@ export function GlowOrb({
   const move = animated && !reduce;
   const dim = typeof size === "number" ? `${size}px` : size;
   return (
-    <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none" style={{ opacity }}>
+    <div aria-hidden className="absolute inset-0 pointer-events-none" style={{ opacity }}>
       <div style={{ position: "absolute", top, left, transform: "translate(-50%, -50%)" }}>
         <motion.div
           style={{
@@ -217,9 +217,10 @@ export function GlowOrb({
             background: `radial-gradient(circle, ${color} 0%, transparent 68%)`,
             filter: "blur(40px)",
           }}
-          animate={move ? { scale: [1, 1.13, 1], opacity: [0.55, 1, 0.55] } : undefined}
-          transition={move ? { duration: 6, repeat: Infinity, ease: "easeInOut" } : undefined}
+          animate={move ? { scale: [1, 1.18, 1], opacity: [0.5, 1, 0.5] } : undefined}
+          transition={move ? { duration: 5, repeat: Infinity, ease: "easeInOut" } : undefined}
         />
+
       </div>
     </div>
   );
