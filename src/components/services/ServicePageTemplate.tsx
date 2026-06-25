@@ -196,9 +196,9 @@ const ServicePageTemplate = (props: ServicePageTemplateProps) => {
         </div>
       </section>
 
-      {/* 5. FAQ — cream-light */}
-      <section className="relative overflow-hidden bg-cream-light py-24 px-6">
-        <ContourBg color="#3a86ff" opacity={0.16} animated />
+      {/* 5. FAQ — cream */}
+      <section className="relative overflow-hidden bg-cream py-24 px-6">
+        <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
         <div className="relative z-10 max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-4">
             {props.faqsEyebrow ?? "Common questions"}
