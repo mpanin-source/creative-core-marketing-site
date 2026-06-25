@@ -3,7 +3,7 @@ import SoundFamiliar from "@/components/landing/SoundFamiliar";
 import SignalMap from "@/components/landing/SignalMap";
 import StrategyEvolves from "@/components/landing/StrategyEvolves";
 import EndCTA from "@/components/shared/EndCTA";
-import { ContourBg, GlowOrb, SparkField } from "@/components/cobalt-refresh/patterns";
+import { ContourBg, GlowOrb, SparkField, OrbitRings } from "@/components/cobalt-refresh/patterns";
 
 interface Step {
   number: string;
