@@ -142,6 +142,7 @@ const PricingAndBooking = () => {
         subhead="20 minutes. No pitch. An honest map of which tier fits where you are."
         secondaryCtaText="See FAQ"
         secondaryCtaHref="/faq"
+        glowSide="right"
       />
     </div>
   );
