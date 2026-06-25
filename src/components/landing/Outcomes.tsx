@@ -1,3 +1,5 @@
+import { GlowOrb } from "@/components/cobalt-refresh/patterns";
+
 interface Outcome {
   context: string;
   metric: string;
@@ -28,7 +30,8 @@ const outcomes: Outcome[] = [
 
 const Outcomes = () => {
   return (
-    <section id="outcomes" className="bg-cream-light py-24 px-6">
+    <section id="outcomes" className="relative overflow-x-clip bg-cream-light py-24 px-6">
+      <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
       <div className="max-w-6xl mx-auto">
         <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-6">
           06 · Outcomes
