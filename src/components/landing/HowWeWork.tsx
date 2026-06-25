@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { GlowOrb } from "@/components/cobalt-refresh/patterns";
 
 interface Step {
   number: string;
