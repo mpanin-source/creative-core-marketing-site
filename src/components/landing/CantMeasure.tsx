@@ -1,3 +1,5 @@
+import { GlowOrb } from "@/components/cobalt-refresh/patterns";
+
 interface KPI {
   name: string;
   description: string;
