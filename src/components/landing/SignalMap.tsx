@@ -1,5 +1,4 @@
 import { FileText, MapPin, Video } from "lucide-react";
-import { OrbitRings } from "@/components/cobalt-refresh/patterns";
 
 interface Signal {
   icon: typeof FileText;
