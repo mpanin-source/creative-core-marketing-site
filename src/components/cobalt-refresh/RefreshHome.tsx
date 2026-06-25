@@ -19,7 +19,7 @@ export default function RefreshHome() {
       <div className="relative">
         <Hero />
         <ContourBg color="#3a86ff" opacity={0.16} animated />
-        <GlowOrb color="#3a86ff" opacity={0.25} size={680} top="-10%" left="110%" animated />
+        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="105%" animated />
       </div>
 
       {/* Orbit Six Systems — coral brand with BLUE #3a86ff as the third accent (orbit glow/spoke/proof) */}
@@ -33,7 +33,7 @@ export default function RefreshHome() {
       {/* LocalPlaybook: hero treatment — blue contour waves + blue glow behind the cards. */}
       <div className="relative bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
         <ContourBg color="#3a86ff" opacity={0.16} animated />
-        <GlowOrb color="#3a86ff" opacity={0.25} size={680} top="-10%" left="110%" animated />
+        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="105%" animated />
         <LocalPlaybook />
       </div>
 
