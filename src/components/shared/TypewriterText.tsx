@@ -44,6 +44,7 @@ const TypewriterText = ({
   const [text, setText] = useState<string>(phrases[0] ?? "");
   const [colorIdx, setColorIdx] = useState<number>(0);
   const [reduced, setReduced] = useState<boolean>(false);
+  const [debugLog, setDebugLog] = useState<Array<{ phrase: string; ms: number }>>([]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
