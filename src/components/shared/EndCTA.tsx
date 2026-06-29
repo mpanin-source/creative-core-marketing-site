@@ -92,6 +92,8 @@ const EndCTA = ({
               phrases={accentPhrases}
               colors={["text-coral-dark", "text-azure-dark"]}
               className="font-display leading-tight"
+              debug
+              debugLabel="final-cta"
             />
           </h2>
         ) : headlineAccent ? (

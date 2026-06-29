@@ -46,6 +46,8 @@ const Hero = () => {
             phrases={PHRASES}
             colors={COLORS}
             className="font-display block leading-[0.95] min-h-[1.05em]"
+            debug
+            debugLabel="hero"
           />
 
         </h1>

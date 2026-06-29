@@ -14,6 +14,10 @@ interface TypewriterTextProps {
   className?: string;
   /** Show blinking cursor "_". */
   showCursor?: boolean;
+  /** Render a fixed-position panel showing how long each phrase stayed fully typed on screen. */
+  debug?: boolean;
+  /** Label shown in the debug panel to distinguish multiple instances. */
+  debugLabel?: string;
 }
 
 const DEFAULT_COLORS = ["text-coral-dark", "text-azure-dark", "text-azure"];
@@ -33,11 +37,14 @@ const TypewriterText = ({
   loopPauseMs = 2000,
   className = "",
   showCursor = true,
+  debug = false,
+  debugLabel = "typewriter",
 }: TypewriterTextProps) => {
   const longest = phrases.reduce((a, b) => (a.length >= b.length ? a : b), "");
   const [text, setText] = useState<string>(phrases[0] ?? "");
   const [colorIdx, setColorIdx] = useState<number>(0);
   const [reduced, setReduced] = useState<boolean>(false);
+  const [debugLog, setDebugLog] = useState<Array<{ phrase: string; ms: number }>>([]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -53,15 +60,27 @@ const TypewriterText = ({
     let cancelled = false;
     const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
+    const recordHold = (phrase: string, ms: number) => {
+      if (!debug) return;
+      // eslint-disable-next-line no-console
+      console.log(`[${debugLabel}] "${phrase}" held fully-typed for ${ms}ms`);
+      setDebugLog((log) => [...log.slice(-phrases.length * 2), { phrase, ms }]);
+    };
+
     const run = async () => {
+      // Phrase 0 starts pre-typed; its on-screen-full duration === initialRestMs.
+      const t0 = performance.now();
       await sleep(initialRestMs);
-      let i = 0; // current phrase index; phrase 0 is already typed
+      recordHold(phrases[0] ?? "", Math.round(performance.now() - t0));
+      let i = 0; // current phrase index; phrase 0 already held above
       while (!cancelled) {
         const current = phrases[i];
         // Hold (skip first hold since initialRest already covered phrase 0)
         if (i !== 0 || initialRestMs === 0) {
+          const tHold = performance.now();
           await sleep(holdMs);
           if (cancelled) return;
+          recordHold(current, Math.round(performance.now() - tHold));
         }
         // Delete
         for (let j = current.length - 1; j >= 0; j--) {
@@ -133,6 +152,29 @@ const TypewriterText = ({
           </span>
         )}
       </span>
+      {debug && (
+        <span
+          className="fixed bottom-3 right-3 z-[9999] max-w-[360px] rounded-md border border-azure/40 bg-black/85 p-3 font-mono text-[11px] leading-snug text-white shadow-xl"
+          style={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace" }}
+        >
+          <span className="mb-1 block font-semibold text-azure">
+            ⏱ {debugLabel} — fully-typed hold (ms)
+          </span>
+          <span className="mb-1 block text-white/60">
+            target: initialRest={initialRestMs} · hold={holdMs}
+          </span>
+          {debugLog.length === 0 ? (
+            <span className="block text-white/50">measuring…</span>
+          ) : (
+            debugLog.slice(-phrases.length).map((entry, idx) => (
+              <span key={idx} className="block">
+                <span className="text-azure-dark">{entry.ms}ms</span>{" "}
+                <span className="text-white/70">— {entry.phrase}</span>
+              </span>
+            ))
+          )}
+        </span>
+      )}
     </span>
   );
 };
