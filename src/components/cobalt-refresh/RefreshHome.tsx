@@ -30,32 +30,55 @@ export default function RefreshHome() {
         <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
       </div>
 
-      {/* LocalPlaybook + CantMeasure: merged background with a single sweeping OrbitRings
-          anchored off the right edge so the rings bleed continuously across both sections. */}
-      <div className="relative overflow-x-clip bg-cream [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <OrbitRings color="#3a86ff" opacity={0.18} cx="94%" cy="50%" rings={8} animated />
-        <LocalPlaybook />
-        <CantMeasure />
-      </div>
+      {/* Lower half — Playbook → CantMeasure → Outcomes → HowWeWork → EndCTA all share
+          one continuous container with a unified bg-cream tone and a single very faint
+          OrbitRings backdrop carrying the eye through every seam. Per-block accent rings
+          remain as foreground texture. */}
+      <div className="relative overflow-x-clip bg-cream [&_section]:!bg-transparent [&_section]:relative [&_section]:z-[1]">
+        {/* Shared faint orbit-ring backdrop spanning all five blocks below. */}
+        <OrbitRings color="#3a86ff" opacity={0.08} cx="50%" cy="50%" rings={10} animated />
 
-      {/* Outcomes + HowWeWork: merged background. Single large OrbitRings anchored on the
-          left side spans both sections so the orbit pattern flows through the seam. */}
-      <div className="relative overflow-x-clip bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <OrbitRings color="#3a86ff" opacity={0.16} cx="6%" cy="50%" rings={8} animated />
-        <Outcomes />
-        <HowWeWork />
-      </div>
+        {/* Playbook + CantMeasure: right-anchored accent rings. */}
+        <div className="relative">
+          <OrbitRings color="#3a86ff" opacity={0.16} cx="94%" cy="50%" rings={8} animated />
+          <LocalPlaybook />
+          <div className="relative h-px">
+            <div className="absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-transparent via-cream-light/30 to-transparent pointer-events-none" />
+          </div>
+          <CantMeasure />
+        </div>
 
-      <div className="relative">
+        {/* Seam bleed: gradient overlay across CantMeasure↔Outcomes boundary. */}
+        <div className="relative h-0">
+          <div className="absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-transparent via-azure/[0.04] to-transparent pointer-events-none" />
+        </div>
+
+        {/* Outcomes + HowWeWork: left-anchored accent rings. */}
+        <div className="relative">
+          <OrbitRings color="#3a86ff" opacity={0.16} cx="6%" cy="50%" rings={8} animated />
+          <Outcomes />
+          <HowWeWork />
+          {/* Bridging glow anchored at HowWeWork's bottom — fuses with EndCTA's upward glow below. */}
+          <GlowOrb color="#3a86ff" opacity={0.32} size={700} top="80%" left="-5%" animated />
+        </div>
+
+        {/* Seam bleed: gradient overlay across HowWeWork↔EndCTA boundary. */}
+        <div className="relative h-0">
+          <div className="absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-transparent via-azure/[0.05] to-transparent pointer-events-none" />
+        </div>
+
+        {/* EndCTA in seamless mode — no own bg, tighter top padding, glow bleeds upward. */}
         <EndCTA
           headline="Bring us your county."
           headlineAccent="We'll bring the AI."
           subhead="Month-to-month engagements starting at $1,500/mo. A 30-minute strategy call is free — and you'll leave with a working hypothesis even if we never work together."
           secondaryCtaText="See pricing"
           secondaryCtaHref="/pricing-and-booking"
+          seamless
+          glowSide="left"
         />
-        <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
       </div>
+
     </>
   );
 }

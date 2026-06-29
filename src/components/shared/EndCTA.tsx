@@ -21,6 +21,9 @@ export interface EndCTAProps {
   showMoatStatement?: boolean;
   /** Which side the blue glow orb sits on. Used to alternate across pages. Default "left". */
   glowSide?: "left" | "right";
+  /** When true, drops its own background + tightens top padding so it visually merges
+   *  with the section above. Glow is also pulled upward to bridge the seam. */
+  seamless?: boolean;
 }
 
 const SecondaryCTA = ({ text, href }: { text: string; href: string }) => {
@@ -50,10 +53,24 @@ const EndCTA = ({
   secondaryCtaHref,
   showMoatStatement = true,
   glowSide = "left",
+  seamless = false,
 }: EndCTAProps) => {
   return (
-    <section className="relative overflow-x-clip bg-cream py-28 md:py-32 px-6">
-      <GlowOrb color="#3a86ff" opacity={0.4} size={900} top="-20%" left={glowSide === "left" ? "-5%" : "105%"} animated />
+    <section
+      className={`relative overflow-x-clip px-6 ${
+        seamless ? "pt-12 md:pt-16 pb-24 md:pb-28" : "bg-cream py-28 md:py-32"
+      }`}
+    >
+      <GlowOrb
+        color="#3a86ff"
+        opacity={seamless ? 0.45 : 0.4}
+        size={seamless ? 1000 : 900}
+        top={seamless ? "-40%" : "-20%"}
+        left={glowSide === "left" ? "-5%" : "105%"}
+        animated
+      />
+
+
 
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <h2
