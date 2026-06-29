@@ -8,7 +8,7 @@ const PHRASES = [
   "how people actually search.",
   "the way AI recommends you.",
   "booked appointments, not clicks.",
-  "how ChatGPT picks who to recommend.",
+  "the era of LLM-powered search.",
 ];
 const COLORS = ["text-coral-dark", "text-azure-dark"];
 
