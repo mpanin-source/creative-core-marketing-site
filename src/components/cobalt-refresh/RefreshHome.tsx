@@ -30,29 +30,19 @@ export default function RefreshHome() {
         <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
       </div>
 
-      {/* LocalPlaybook: hero treatment — blue contour waves + blue glow behind the cards. */}
-      <div className="relative bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <ContourBg color="#3a86ff" opacity={0.16} animated />
-        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
+      {/* LocalPlaybook + CantMeasure: merged background with a single sweeping OrbitRings
+          anchored off the right edge so the rings bleed continuously across both sections. */}
+      <div className="relative overflow-x-clip bg-cream [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
+        <OrbitRings color="#3a86ff" opacity={0.18} cx="94%" cy="50%" rings={8} animated />
         <LocalPlaybook />
-      </div>
-
-      {/* CantMeasure: blue twinkling stars. */}
-      <div className="relative bg-cream [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <SparkField color="#3a86ff" opacity={0.6} animated variant={2} />
         <CantMeasure />
       </div>
 
-      {/* Outcomes: blue orbit rings from the bottom-left corner — the "data/proof" section
-          reads in blue (matching the azure metric numbers). Cards stay 100% opaque. */}
-      <div className="relative bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <OrbitRings color="#3a86ff" opacity={0.18} cx="6%" cy="94%" rings={6} animated />
+      {/* Outcomes + HowWeWork: merged background. Single large OrbitRings anchored on the
+          left side spans both sections so the orbit pattern flows through the seam. */}
+      <div className="relative overflow-x-clip bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
+        <OrbitRings color="#3a86ff" opacity={0.16} cx="6%" cy="50%" rings={8} animated />
         <Outcomes />
-      </div>
-
-      {/* HowWeWork: blue twinkling stars behind the step cards. */}
-      <div className="relative bg-cream [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
         <HowWeWork />
       </div>
 
