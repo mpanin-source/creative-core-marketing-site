@@ -37,6 +37,8 @@ const TypewriterText = ({
   loopPauseMs = 2000,
   className = "",
   showCursor = true,
+  debug = false,
+  debugLabel = "typewriter",
 }: TypewriterTextProps) => {
   const longest = phrases.reduce((a, b) => (a.length >= b.length ? a : b), "");
   const [text, setText] = useState<string>(phrases[0] ?? "");
