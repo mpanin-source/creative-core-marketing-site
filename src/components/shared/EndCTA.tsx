@@ -11,6 +11,8 @@ export interface EndCTAProps {
   headline: string;
   /** Optional second line rendered in coral underneath the headline. */
   headlineAccent?: string;
+  /** When provided, second line cycles through these phrases with the looping typewriter (overrides headlineAccent). */
+  accentPhrases?: string[];
   /** Supporting paragraph below the headline. */
   subhead: string;
   primaryCtaText?: string;
