@@ -1,50 +1,39 @@
-# Plan — Blue accent pass + looping typewriter
+# Plan — Restore original type styles + apply CC gradient to Outcomes
 
-## 1. Hero "Why Now?" typewriter — loop + blue color rotation
-File: `src/components/landing/Hero.tsx`
+## 1. Hero + Final CTA — keep loop, restore original font/size
+The looping animation stays. Problem: `TypewriterText` currently uses an absolute-positioned overlay with a hidden spacer, which subtly shifts how the text inherits sizing/line-height vs. the original H1/H2.
 
-- Remove the one-shot sequence and rest-on-phrase-1 logic. Make `PHRASES` cycle forever (type → hold → delete → next, repeat).
-- Add a parallel `colors` array cycled per phrase change:
-  1. `text-coral-dark` (current)
-  2. `text-azure-dark` (#2f6fe0)
-  3. `text-azure` (#3a86ff)
-- Pass the active color to `TypewriterLine` so both the typed text and the `_` cursor swap together. Use a brief CSS color transition (~300ms) so the swap feels intentional, not jarring.
-- No layout / copy / CTA changes.
+Fix: refactor `src/components/shared/TypewriterText.tsx` to render inline (no absolute positioning), so the active text inherits the parent's exact font, size, weight, and line-height.
 
-## 2. LocalPlaybook — "Future-defining" card → blue
-File: `src/components/landing/LocalPlaybook.tsx`
+- Replace the `relative + invisible spacer + absolute overlay` structure with an `inline-grid` stack:
+  ```
+  <span class="inline-grid">
+    <span class="invisible col-start-1 row-start-1 whitespace-pre">{longestPhrase}_</span>
+    <span class="col-start-1 row-start-1 {colorClass} transition-colors duration-300">{text}_</span>
+  </span>
+  ```
+  Both spans occupy the same grid cell, so the longest phrase still reserves width (no layout reflow), but everything is normal inline flow that inherits parent typography 1:1.
+- No public API change; Hero and EndCTA usage stays as-is.
 
-For the featured (05) card only — regular cards stay coral:
-- Card border: `border-coral` → `border-azure`
-- Card glow shadow: `rgba(255,77,46,0.15)` → `rgba(58,134,255,0.18)`
-- "Future-defining" pill: `bg-coral` → `bg-azure`
-- "05" number: `text-coral-dark` → `text-azure-dark`
-- Star icon: `text-coral/60` → `text-azure/70`
+This restores the pre-animation visual rendering (same font, same size, same weight, same line-height) on both the Hero rotating line and the EndCTA accent line.
 
-## 3. Outcomes — softer blue + hover effect
+## 2. Outcomes — CC-logo gradient (orange → blue)
 File: `src/components/landing/Outcomes.tsx`
 
-- Context label (`text-coral-dark`) → keep coral (it's the small uppercase eyebrow, matches section eyebrow).
-- Big metric (`text-azure-dark`, currently a hard saturated blue) → switch to a faded/soft blue. **Question for you:** the CC logo itself is coral, not blue — when you say "faded color inside the CC logo" do you mean:
-  - (a) the muted/translucent coral glow tone (use `text-coral/50` or similar), or
-  - (b) a softer blue like `text-azure/70` (lighter, less saturated than current `azure-dark`)?
-  
-  Default plan = **(b)** `text-azure/70` since metrics should stay in the blue family for visual rhythm. Will switch to (a) on your call.
-- Add card hover: `hover:-translate-y-1 hover:border-azure/40 hover:shadow-[0_8px_30px_rgba(58,134,255,0.12)] transition-all duration-200` on each metric card.
+The gradient used in the top-nav CC logo is:
+```
+linear-gradient(95deg, #FF4D2E 20%, #b65a9e 52%, #3a86ff 85%)
+```
 
-## 4. Final CTA — looping typewriter on accent line
-File: `src/components/shared/EndCTA.tsx` + `src/components/cobalt-refresh/RefreshHome.tsx`
-
-- Extract the typewriter into a small shared component `src/components/shared/TypewriterText.tsx` (reused by Hero + EndCTA) that takes `phrases`, `colors`, and loops forever.
-- In `EndCTA`, when a new optional prop `accentPhrases?: string[]` is provided, render the second-line H2 using `TypewriterText` instead of static `headlineAccent`. Otherwise behavior is unchanged (other pages using `EndCTA` keep their static accent).
-- In `RefreshHome.tsx`, replace `headlineAccent="We'll bring the AI."` with:
-  ```
-  accentPhrases={["We'll bring the AI.", "We'll bring the results.", "We'll bring the traffic."]}
-  ```
-- Color rotation matches Hero (coral-dark → azure-dark → azure), looping.
+Apply to:
+- **Metric number** (currently `text-azure/70`) → render with `bg-clip-text text-transparent` using the exact CC gradient. Bebas Neue at 6xl/7xl handles gradient fills cleanly.
+- **Card hover state** → swap the all-blue hover ring/shadow to a warm-to-cool treatment that echoes the gradient:
+  - Border on hover: subtle coral-tinted (`hover:border-coral/30`)
+  - Shadow on hover: blended glow `hover:shadow-[0_8px_30px_rgba(255,77,46,0.10),0_8px_40px_rgba(58,134,255,0.10)]`
+  - Hover lift `-translate-y-1` kept.
+- **Eyebrow / heading text** stay as-is (charcoal + coral-dark) unless you want those gradient too — call out below if so.
 
 ## Technical notes
-- Color cycling: increment index on each "phrase fully typed" transition; apply via Tailwind class swap on the wrapping span.
-- Reserve layout width with the longest phrase (same trick already in Hero) so the H2 doesn't reflow as text changes.
-- Respect `prefers-reduced-motion`: if set, show first phrase static (no typing, no looping), same color.
-- No changes to other `EndCTA` consumers (Process / Pricing / AI Search pages) — they keep their existing static accents.
+- Gradient text technique: `bg-[linear-gradient(95deg,#FF4D2E_20%,#b65a9e_52%,#3a86ff_85%)] bg-clip-text text-transparent` directly on the metric `<p>`. No new tokens needed.
+- `prefers-reduced-motion` behavior in TypewriterText is preserved (renders first phrase static).
+- No other consumers of `TypewriterText` or `EndCTA.accentPhrases` are affected since the API stays identical.
