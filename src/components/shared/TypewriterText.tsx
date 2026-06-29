@@ -91,7 +91,7 @@ const TypewriterText = ({
     return () => {
       cancelled = true;
     };
-  }, [phrases, colors.length, typeMs, deleteMs, holdMs, initialRestMs, reduced]);
+  }, [phrases, colors.length, typeMs, deleteMs, holdMs, initialRestMs, loopPauseMs, reduced]);
 
   const color = colors[colorIdx % colors.length] ?? "";
 
