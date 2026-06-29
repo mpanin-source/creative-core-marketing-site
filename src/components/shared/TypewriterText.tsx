@@ -8,6 +8,8 @@ interface TypewriterTextProps {
   deleteMs?: number;
   holdMs?: number;
   initialRestMs?: number;
+  /** Extra pause after the final phrase deletes, before restarting at phrase 0. */
+  loopPauseMs?: number;
   /** Optional className applied to the wrapper span (excluding color). */
   className?: string;
   /** Show blinking cursor "_". */
