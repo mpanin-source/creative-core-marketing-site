@@ -60,15 +60,27 @@ const TypewriterText = ({
     let cancelled = false;
     const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
+    const recordHold = (phrase: string, ms: number) => {
+      if (!debug) return;
+      // eslint-disable-next-line no-console
+      console.log(`[${debugLabel}] "${phrase}" held fully-typed for ${ms}ms`);
+      setDebugLog((log) => [...log.slice(-phrases.length * 2), { phrase, ms }]);
+    };
+
     const run = async () => {
+      // Phrase 0 starts pre-typed; its on-screen-full duration === initialRestMs.
+      const t0 = performance.now();
       await sleep(initialRestMs);
-      let i = 0; // current phrase index; phrase 0 is already typed
+      recordHold(phrases[0] ?? "", Math.round(performance.now() - t0));
+      let i = 0; // current phrase index; phrase 0 already held above
       while (!cancelled) {
         const current = phrases[i];
         // Hold (skip first hold since initialRest already covered phrase 0)
         if (i !== 0 || initialRestMs === 0) {
+          const tHold = performance.now();
           await sleep(holdMs);
           if (cancelled) return;
+          recordHold(current, Math.round(performance.now() - tHold));
         }
         // Delete
         for (let j = current.length - 1; j >= 0; j--) {
