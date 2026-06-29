@@ -30,6 +30,7 @@ const TypewriterText = ({
   deleteMs = 35,
   holdMs = 2200,
   initialRestMs = 1500,
+  loopPauseMs = 2000,
   className = "",
   showCursor = true,
 }: TypewriterTextProps) => {
