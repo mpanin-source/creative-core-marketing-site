@@ -88,14 +88,14 @@ const TypewriterText = ({
   const color = colors[colorIdx % colors.length] ?? "";
 
   return (
-    <span className={`relative inline-block ${className}`}>
-      {/* Invisible spacer reserves width of longest phrase so layout doesn't reflow */}
-      <span aria-hidden="true" className="invisible whitespace-pre">
+    <span className={`inline-grid align-baseline ${className}`}>
+      {/* Spacer reserves width of longest phrase — same grid cell as the live text. */}
+      <span aria-hidden="true" className="invisible col-start-1 row-start-1 whitespace-pre">
         {longest}
         {showCursor ? "_" : ""}
       </span>
       <span
-        className={`absolute inset-0 ${color} transition-colors duration-300`}
+        className={`col-start-1 row-start-1 ${color} transition-colors duration-300`}
         aria-live="polite"
       >
         {text}
