@@ -87,15 +87,31 @@ const TypewriterText = ({
 
   const color = colors[colorIdx % colors.length] ?? "";
 
+  // Inherit parent's font-family, weight, size, tracking, and line-height so the
+  // animated text visually matches the surrounding heading rather than the global
+  // `p, span` body-font reset in index.css.
+  const inheritStyle = {
+    fontFamily: "inherit",
+    fontWeight: "inherit" as const,
+    fontSize: "inherit",
+    letterSpacing: "inherit",
+    lineHeight: "inherit",
+  };
+
   return (
-    <span className={`inline-grid align-baseline ${className}`}>
+    <span className={`inline-grid align-baseline ${className}`} style={inheritStyle}>
       {/* Spacer reserves width of longest phrase — same grid cell as the live text. */}
-      <span aria-hidden="true" className="invisible col-start-1 row-start-1 whitespace-pre">
+      <span
+        aria-hidden="true"
+        className="invisible col-start-1 row-start-1 whitespace-pre"
+        style={inheritStyle}
+      >
         {longest}
         {showCursor ? "_" : ""}
       </span>
       <span
         className={`col-start-1 row-start-1 ${color} transition-colors duration-300`}
+        style={inheritStyle}
         aria-live="polite"
       >
         {text}
@@ -103,7 +119,7 @@ const TypewriterText = ({
           <span
             aria-hidden="true"
             className="typewriter-cursor inline-block"
-            style={{ marginLeft: "0.05em" }}
+            style={{ ...inheritStyle, marginLeft: "0.05em" }}
           >
             _
           </span>
