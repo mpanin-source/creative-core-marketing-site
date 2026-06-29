@@ -152,6 +152,29 @@ const TypewriterText = ({
           </span>
         )}
       </span>
+      {debug && (
+        <span
+          className="fixed bottom-3 right-3 z-[9999] max-w-[360px] rounded-md border border-azure/40 bg-black/85 p-3 font-mono text-[11px] leading-snug text-white shadow-xl"
+          style={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace" }}
+        >
+          <span className="mb-1 block font-semibold text-azure">
+            ⏱ {debugLabel} — fully-typed hold (ms)
+          </span>
+          <span className="mb-1 block text-white/60">
+            target: initialRest={initialRestMs} · hold={holdMs}
+          </span>
+          {debugLog.length === 0 ? (
+            <span className="block text-white/50">measuring…</span>
+          ) : (
+            debugLog.slice(-phrases.length).map((entry, idx) => (
+              <span key={idx} className="block">
+                <span className="text-azure-dark">{entry.ms}ms</span>{" "}
+                <span className="text-white/70">— {entry.phrase}</span>
+              </span>
+            ))
+          )}
+        </span>
+      )}
     </span>
   );
 };
