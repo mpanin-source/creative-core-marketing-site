@@ -1,104 +1,15 @@
-import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 import { CALENDLY_URL as CALENDLY } from "@/config/site";
 import { handleCalendlyClick } from "@/lib/calendly";
+import TypewriterText from "@/components/shared/TypewriterText";
 
-// R7.6 Phase 7.5 — Typewriter rotating headline.
-// Cycle through three phrases ONCE, then rest permanently on phrase 1.
-// Sequence on mount:
-//   1) phrase 1 already shown via SSR/initial state
-//   2) initial pause
-//   3) delete phrase 1
-//   4) type phrase 2 → hold → delete
-//   5) type phrase 3 → hold → delete
-//   6) type phrase 1 → hold → REST (cursor keeps blinking)
 const PHRASES = [
   "how people actually search.",
   "the way AI recommends you.",
   "booked appointments, not clicks.",
 ];
-const TYPE_MS = 60;
-const DELETE_MS = 35;
-const HOLD_MS = 2200;
-const INITIAL_REST_MS = 1500;
-
-// Longest phrase reserves layout space so the H1 doesn't reflow as text changes length.
-const LONGEST_PHRASE = PHRASES.reduce((a, b) => (a.length >= b.length ? a : b));
-
-const TypewriterLine = () => {
-  // Initial state = phrase 1 fully typed. If JS strips, the static HTML still reads correctly.
-  const [text, setText] = useState<string>(PHRASES[0]);
-
-  useEffect(() => {
-    let cancelled = false;
-    const sleep = (ms: number) =>
-      new Promise<void>((resolve) => {
-        const id = setTimeout(resolve, ms);
-        // Allow cancellation to also clear pending timeouts
-        if (cancelled) clearTimeout(id);
-      });
-
-    const run = async () => {
-      // Phrase 1 already shown — brief initial rest
-      await sleep(INITIAL_REST_MS);
-      if (cancelled) return;
-
-      // Delete phrase 1
-      for (let j = PHRASES[0].length - 1; j >= 0; j--) {
-        if (cancelled) return;
-        setText(PHRASES[0].slice(0, j));
-        await sleep(DELETE_MS);
-      }
-
-      // Type phrase 2 → hold → delete → phrase 3 → hold → delete → phrase 1 → hold → REST
-      const remaining = [1, 2, 0];
-      for (let k = 0; k < remaining.length; k++) {
-        const phrase = PHRASES[remaining[k]];
-
-        // Type
-        for (let j = 1; j <= phrase.length; j++) {
-          if (cancelled) return;
-          setText(phrase.slice(0, j));
-          await sleep(TYPE_MS);
-        }
-        if (cancelled) return;
-        await sleep(HOLD_MS);
-
-        // Skip delete on last → permanent rest on phrase 1
-        if (k === remaining.length - 1) return;
-
-        // Delete
-        for (let j = phrase.length - 1; j >= 0; j--) {
-          if (cancelled) return;
-          setText(phrase.slice(0, j));
-          await sleep(DELETE_MS);
-        }
-      }
-    };
-
-    run();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return (
-    <span
-      aria-hidden="true"
-      className="font-display block text-coral-dark leading-[0.95] min-h-[1.05em]"
-    >
-      {text}
-      <span
-        aria-hidden="true"
-        className="typewriter-cursor inline-block text-coral-dark"
-        style={{ marginLeft: "0.05em" }}
-      >
-        _
-      </span>
-    </span>
-  );
-};
+const COLORS = ["text-coral-dark", "text-azure-dark", "text-azure"];
 
 const Hero = () => {
   return (
