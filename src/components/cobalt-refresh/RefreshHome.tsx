@@ -35,35 +35,25 @@ export default function RefreshHome() {
           OrbitRings backdrop carrying the eye through every seam. Per-block accent rings
           remain as foreground texture. */}
       <div className="relative overflow-x-clip bg-cream [&_section]:!bg-transparent [&_section]:relative [&_section]:z-[1]">
-        {/* Shared faint orbit-ring backdrop spanning all five blocks below. */}
-        <OrbitRings color="#3a86ff" opacity={0.08} cx="50%" cy="50%" rings={10} animated />
+        {/* One — and only one — orbit field for the entire lower half. Whisper-faint,
+            anchored off-canvas right, providing a single unifying signature behind
+            every block below instead of stacked overlapping ring layers. */}
+        <OrbitRings color="#3a86ff" opacity={0.06} cx="110%" cy="40%" rings={6} animated />
 
-        {/* Playbook + CantMeasure: right-anchored accent rings. */}
-        <div className="relative">
-          <OrbitRings color="#3a86ff" opacity={0.16} cx="94%" cy="50%" rings={8} animated />
-          <LocalPlaybook />
-          <div className="relative h-px">
-            <div className="absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-transparent via-cream-light/30 to-transparent pointer-events-none" />
-          </div>
-          <CantMeasure />
-        </div>
+        <LocalPlaybook />
+        <CantMeasure />
 
         {/* Seam bleed: gradient overlay across CantMeasure↔Outcomes boundary. */}
         <div className="relative h-0">
           <div className="absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-transparent via-azure/[0.04] to-transparent pointer-events-none" />
         </div>
 
-        {/* Outcomes + HowWeWork: left-anchored accent rings. */}
-        <div className="relative">
-          <OrbitRings color="#3a86ff" opacity={0.16} cx="6%" cy="50%" rings={8} animated />
-          <Outcomes />
-          <HowWeWork />
-          {/* Bridging glow anchored at HowWeWork's bottom — fuses with EndCTA's upward glow below. */}
-          <GlowOrb color="#3a86ff" opacity={0.32} size={700} top="80%" left="-5%" animated />
-        </div>
+        <Outcomes />
+        <HowWeWork />
 
-        {/* Seam bleed: gradient overlay across HowWeWork↔EndCTA boundary. */}
+        {/* Bridging glow into EndCTA — diffuse light, not lines. */}
         <div className="relative h-0">
+          <GlowOrb color="#3a86ff" opacity={0.32} size={700} top="-10%" left="-5%" animated />
           <div className="absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-transparent via-azure/[0.05] to-transparent pointer-events-none" />
         </div>
 
