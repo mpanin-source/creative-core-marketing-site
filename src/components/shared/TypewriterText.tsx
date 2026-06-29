@@ -69,6 +69,11 @@ const TypewriterText = ({
           setText(current.slice(0, j));
           await sleep(deleteMs);
         }
+        // If we just deleted the final phrase, pause before restarting the loop.
+        if (i === phrases.length - 1) {
+          await sleep(loopPauseMs);
+          if (cancelled) return;
+        }
         // Advance + color cycle
         i = (i + 1) % phrases.length;
         setColorIdx((c) => (c + 1) % colors.length);
