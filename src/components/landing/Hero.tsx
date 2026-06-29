@@ -41,7 +41,12 @@ const Hero = () => {
           >
             Marketing built for
           </span>
-          <TypewriterLine />
+          <TypewriterText
+            phrases={PHRASES}
+            colors={COLORS}
+            className="font-display block leading-[0.95] min-h-[1.05em]"
+          />
+
         </h1>
 
         <p className="text-lg md:text-xl text-charcoal/80 max-w-2xl mb-10 leading-relaxed">

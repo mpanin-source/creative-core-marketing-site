@@ -51,13 +51,13 @@ const Outcomes = () => {
           {outcomes.map((o) => (
             <div
               key={o.metric}
-              className="bg-white rounded-lg p-8 border border-charcoal/10"
+              className="bg-white rounded-lg p-8 border border-charcoal/10 transition-all duration-200 hover:-translate-y-1 hover:border-azure/40 hover:shadow-[0_8px_30px_rgba(58,134,255,0.15)]"
             >
               <p className="text-xs uppercase tracking-wider text-muted-dark font-medium mb-4">
                 {o.context}
               </p>
               <p
-                className="font-display text-azure-dark text-6xl md:text-7xl leading-none mb-3"
+                className="font-display text-azure/70 text-6xl md:text-7xl leading-none mb-3"
                 style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
               >
                 {o.metric}

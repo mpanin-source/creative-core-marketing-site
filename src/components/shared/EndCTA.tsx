@@ -4,6 +4,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { CALENDLY_URL as CALENDLY } from "@/config/site";
 import { openCalendlyPopup, isCalendlyUrl } from "@/lib/calendly";
 import { GlowOrb } from "@/components/cobalt-refresh/patterns";
+import TypewriterText from "@/components/shared/TypewriterText";
 
 export interface EndCTAProps {
   /** Main H2 headline rendered in charcoal. */
