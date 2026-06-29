@@ -4,12 +4,15 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { CALENDLY_URL as CALENDLY } from "@/config/site";
 import { openCalendlyPopup, isCalendlyUrl } from "@/lib/calendly";
 import { GlowOrb } from "@/components/cobalt-refresh/patterns";
+import TypewriterText from "@/components/shared/TypewriterText";
 
 export interface EndCTAProps {
   /** Main H2 headline rendered in charcoal. */
   headline: string;
   /** Optional second line rendered in coral underneath the headline. */
   headlineAccent?: string;
+  /** When provided, second line cycles through these phrases with the looping typewriter (overrides headlineAccent). */
+  accentPhrases?: string[];
   /** Supporting paragraph below the headline. */
   subhead: string;
   primaryCtaText?: string;
@@ -46,6 +49,7 @@ const SecondaryCTA = ({ text, href }: { text: string; href: string }) => {
 const EndCTA = ({
   headline,
   headlineAccent,
+  accentPhrases,
   subhead,
   primaryCtaText = "Book a strategy call",
   primaryCtaHref = CALENDLY,
@@ -79,14 +83,25 @@ const EndCTA = ({
         >
           {headline}
         </h2>
-        {headlineAccent && (
+        {accentPhrases && accentPhrases.length > 0 ? (
+          <h2
+            className="font-display text-4xl md:text-6xl mb-6 leading-tight"
+            style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
+          >
+            <TypewriterText
+              phrases={accentPhrases}
+              colors={["text-coral-dark", "text-azure-dark", "text-azure"]}
+              className="font-display leading-tight"
+            />
+          </h2>
+        ) : headlineAccent ? (
           <h2
             className="font-display text-4xl md:text-6xl text-coral-dark mb-6 leading-tight"
             style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
           >
             {headlineAccent}
           </h2>
-        )}
+        ) : null}
         <p className="text-lg text-charcoal/80 mb-10 max-w-2xl mx-auto leading-relaxed">
           {subhead}
         </p>
