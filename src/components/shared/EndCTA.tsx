@@ -21,6 +21,9 @@ export interface EndCTAProps {
   showMoatStatement?: boolean;
   /** Which side the blue glow orb sits on. Used to alternate across pages. Default "left". */
   glowSide?: "left" | "right";
+  /** When true, drops its own background + tightens top padding so it visually merges
+   *  with the section above. Glow is also pulled upward to bridge the seam. */
+  seamless?: boolean;
 }
 
 const SecondaryCTA = ({ text, href }: { text: string; href: string }) => {
