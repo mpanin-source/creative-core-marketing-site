@@ -14,6 +14,10 @@ interface TypewriterTextProps {
   className?: string;
   /** Show blinking cursor "_". */
   showCursor?: boolean;
+  /** Render a fixed-position panel showing how long each phrase stayed fully typed on screen. */
+  debug?: boolean;
+  /** Label shown in the debug panel to distinguish multiple instances. */
+  debugLabel?: string;
 }
 
 const DEFAULT_COLORS = ["text-coral-dark", "text-azure-dark", "text-azure"];
