@@ -178,7 +178,7 @@ function OrbitDetail({ i, system, smooth, p }: { i: number; system: Sys; smooth:
       ) : (
         <div className="rounded-2xl p-6 max-w-md" style={{ background: "#fff", border: `1px solid ${p.ink}0F`, boxShadow: `0 18px 44px -20px ${p.ink}59` }}><span className="text-sm" style={{ color: `${p.ink}AA` }}>{system.proofLabel}</span></div>
       )}
-      <a href="#" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold" style={{ color: p.accent }}>See full {system.name.toLowerCase()} <ArrowRight className="w-4 h-4" /></a>
+      <a href="#" className="mt-8 pt-2 flex items-center gap-2 text-sm font-semibold" style={{ color: p.accent }}>See full {system.name.toLowerCase()} <ArrowRight className="w-4 h-4" /></a>
     </motion.div>
   );
 }
