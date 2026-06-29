@@ -8,8 +8,9 @@ const PHRASES = [
   "how people actually search.",
   "the way AI recommends you.",
   "booked appointments, not clicks.",
+  "how ChatGPT picks who to recommend.",
 ];
-const COLORS = ["text-coral-dark", "text-azure-dark", "text-azure"];
+const COLORS = ["text-coral-dark", "text-azure-dark"];
 
 const Hero = () => {
   return (

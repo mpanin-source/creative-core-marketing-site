@@ -8,6 +8,8 @@ interface TypewriterTextProps {
   deleteMs?: number;
   holdMs?: number;
   initialRestMs?: number;
+  /** Extra pause after the final phrase deletes, before restarting at phrase 0. */
+  loopPauseMs?: number;
   /** Optional className applied to the wrapper span (excluding color). */
   className?: string;
   /** Show blinking cursor "_". */
@@ -28,6 +30,7 @@ const TypewriterText = ({
   deleteMs = 35,
   holdMs = 2200,
   initialRestMs = 1500,
+  loopPauseMs = 2000,
   className = "",
   showCursor = true,
 }: TypewriterTextProps) => {
@@ -66,6 +69,11 @@ const TypewriterText = ({
           setText(current.slice(0, j));
           await sleep(deleteMs);
         }
+        // If we just deleted the final phrase, pause before restarting the loop.
+        if (i === phrases.length - 1) {
+          await sleep(loopPauseMs);
+          if (cancelled) return;
+        }
         // Advance + color cycle
         i = (i + 1) % phrases.length;
         setColorIdx((c) => (c + 1) % colors.length);
@@ -83,7 +91,7 @@ const TypewriterText = ({
     return () => {
       cancelled = true;
     };
-  }, [phrases, colors.length, typeMs, deleteMs, holdMs, initialRestMs, reduced]);
+  }, [phrases, colors.length, typeMs, deleteMs, holdMs, initialRestMs, loopPauseMs, reduced]);
 
   const color = colors[colorIdx % colors.length] ?? "";
 

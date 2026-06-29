@@ -1,39 +1,37 @@
-# Plan — Restore original type styles + apply CC gradient to Outcomes
+## Goal
+Add a 2-second pause between loop cycles and force strict orange → blue → orange → blue color alternation in both typewriter animations. Each typewriter gets a 4th phrase so the alternation lands cleanly.
 
-## 1. Hero + Final CTA — keep loop, restore original font/size
-The looping animation stays. Problem: `TypewriterText` currently uses an absolute-positioned overlay with a hidden spacer, which subtly shifts how the text inherits sizing/line-height vs. the original H1/H2.
+## Changes
 
-Fix: refactor `src/components/shared/TypewriterText.tsx` to render inline (no absolute positioning), so the active text inherits the parent's exact font, size, weight, and line-height.
+### 1. `src/components/shared/TypewriterText.tsx`
+- Add `loopPauseMs` (default 2000ms). After the final phrase in the array finishes its hold + delete, sleep `loopPauseMs` before typing phrase 0 again.
+- Keep color rotation tied to phrase index so a 2-color palette produces strict orange/blue alternation.
 
-- Replace the `relative + invisible spacer + absolute overlay` structure with an `inline-grid` stack:
-  ```
-  <span class="inline-grid">
-    <span class="invisible col-start-1 row-start-1 whitespace-pre">{longestPhrase}_</span>
-    <span class="col-start-1 row-start-1 {colorClass} transition-colors duration-300">{text}_</span>
-  </span>
-  ```
-  Both spans occupy the same grid cell, so the longest phrase still reserves width (no layout reflow), but everything is normal inline flow that inherits parent typography 1:1.
-- No public API change; Hero and EndCTA usage stays as-is.
-
-This restores the pre-animation visual rendering (same font, same size, same weight, same line-height) on both the Hero rotating line and the EndCTA accent line.
-
-## 2. Outcomes — CC-logo gradient (orange → blue)
-File: `src/components/landing/Outcomes.tsx`
-
-The gradient used in the top-nav CC logo is:
-```
-linear-gradient(95deg, #FF4D2E 20%, #b65a9e 52%, #3a86ff 85%)
+### 2. Hero — `src/components/landing/Hero.tsx`
+Update to 4 phrases, 2-color palette:
+```ts
+const PHRASES = [
+  "how people actually search.",            // orange
+  "the way AI recommends you.",             // blue
+  "booked appointments, not clicks.",       // orange
+  "how ChatGPT picks who to recommend.",    // blue  ← NEW
+];
+const COLORS = ["text-coral-dark", "text-azure-dark"];
 ```
 
-Apply to:
-- **Metric number** (currently `text-azure/70`) → render with `bg-clip-text text-transparent` using the exact CC gradient. Bebas Neue at 6xl/7xl handles gradient fills cleanly.
-- **Card hover state** → swap the all-blue hover ring/shadow to a warm-to-cool treatment that echoes the gradient:
-  - Border on hover: subtle coral-tinted (`hover:border-coral/30`)
-  - Shadow on hover: blended glow `hover:shadow-[0_8px_30px_rgba(255,77,46,0.10),0_8px_40px_rgba(58,134,255,0.10)]`
-  - Hover lift `-translate-y-1` kept.
-- **Eyebrow / heading text** stay as-is (charcoal + coral-dark) unless you want those gradient too — call out below if so.
+### 3. Final CTA — `src/components/cobalt-refresh/RefreshHome.tsx` + `src/components/shared/EndCTA.tsx`
+Pass 4 accent phrases and trim EndCTA's internal color list to two so alternation holds:
+```ts
+accentPhrases={[
+  "We'll bring the AI.",            // orange
+  "We'll bring the results.",       // blue
+  "We'll bring the traffic.",       // orange
+  "We'll bring the conversions.",   // blue  ← NEW
+]}
+```
+Inside `EndCTA.tsx`, change the colors prop to `["text-coral-dark", "text-azure-dark"]`.
 
-## Technical notes
-- Gradient text technique: `bg-[linear-gradient(95deg,#FF4D2E_20%,#b65a9e_52%,#3a86ff_85%)] bg-clip-text text-transparent` directly on the metric `<p>`. No new tokens needed.
-- `prefers-reduced-motion` behavior in TypewriterText is preserved (renders first phrase static).
-- No other consumers of `TypewriterText` or `EndCTA.accentPhrases` are affected since the API stays identical.
+## Result
+- Both animations cycle 4 phrases, colors strictly alternate orange → blue → orange → blue.
+- A 2-second pause precedes each new cycle restart.
+- Font, size, weight, and layout unchanged.

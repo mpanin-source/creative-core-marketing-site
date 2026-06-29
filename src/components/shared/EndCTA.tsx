@@ -90,7 +90,7 @@ const EndCTA = ({
           >
             <TypewriterText
               phrases={accentPhrases}
-              colors={["text-coral-dark", "text-azure-dark", "text-azure"]}
+              colors={["text-coral-dark", "text-azure-dark"]}
               className="font-display leading-tight"
             />
           </h2>
