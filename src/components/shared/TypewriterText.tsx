@@ -41,6 +41,7 @@ const TypewriterText = ({
   debugLabel = "typewriter",
 }: TypewriterTextProps) => {
   const longest = phrases.reduce((a, b) => (a.length >= b.length ? a : b), "");
+  const showDebug = debug && import.meta.env.DEV;
   const [text, setText] = useState<string>(phrases[0] ?? "");
   const [colorIdx, setColorIdx] = useState<number>(0);
   const [reduced, setReduced] = useState<boolean>(false);
