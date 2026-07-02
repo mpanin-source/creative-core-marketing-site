@@ -153,7 +153,7 @@ const TypewriterText = ({
           </span>
         )}
       </span>
-      {debug && (
+      {showDebug && (
         <span
           className="fixed bottom-3 right-3 z-[9999] max-w-[360px] rounded-md border border-azure/40 bg-black/85 p-3 font-mono text-[11px] leading-snug text-white shadow-xl"
           style={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace" }}
