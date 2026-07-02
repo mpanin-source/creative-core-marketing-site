@@ -14,7 +14,7 @@ interface TypewriterTextProps {
   className?: string;
   /** Show blinking cursor "_". */
   showCursor?: boolean;
-  /** Render a fixed-position panel showing how long each phrase stayed fully typed on screen. */
+  /** Render a fixed-position panel in development showing how long each phrase stayed fully typed on screen. */
   debug?: boolean;
   /** Label shown in the debug panel to distinguish multiple instances. */
   debugLabel?: string;
@@ -41,6 +41,7 @@ const TypewriterText = ({
   debugLabel = "typewriter",
 }: TypewriterTextProps) => {
   const longest = phrases.reduce((a, b) => (a.length >= b.length ? a : b), "");
+  const showDebug = debug && import.meta.env.DEV;
   const [text, setText] = useState<string>(phrases[0] ?? "");
   const [colorIdx, setColorIdx] = useState<number>(0);
   const [reduced, setReduced] = useState<boolean>(false);
@@ -61,7 +62,7 @@ const TypewriterText = ({
     const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
     const recordHold = (phrase: string, ms: number) => {
-      if (!debug) return;
+      if (!showDebug) return;
       // eslint-disable-next-line no-console
       console.log(`[${debugLabel}] "${phrase}" held fully-typed for ${ms}ms`);
       setDebugLog((log) => [...log.slice(-phrases.length * 2), { phrase, ms }]);
@@ -110,7 +111,7 @@ const TypewriterText = ({
     return () => {
       cancelled = true;
     };
-  }, [phrases, colors.length, typeMs, deleteMs, holdMs, initialRestMs, loopPauseMs, reduced]);
+  }, [phrases, colors.length, typeMs, deleteMs, holdMs, initialRestMs, loopPauseMs, reduced, showDebug]);
 
   const color = colors[colorIdx % colors.length] ?? "";
 
@@ -152,7 +153,7 @@ const TypewriterText = ({
           </span>
         )}
       </span>
-      {debug && (
+      {showDebug && (
         <span
           className="fixed bottom-3 right-3 z-[9999] max-w-[360px] rounded-md border border-azure/40 bg-black/85 p-3 font-mono text-[11px] leading-snug text-white shadow-xl"
           style={{ fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace" }}

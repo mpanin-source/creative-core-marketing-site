@@ -1,8 +1,23 @@
-## Issue
-In `TypewriterText.tsx`, phrase 0 renders pre-typed at mount and uses `initialRestMs` (1500ms) as its hold, while every other phrase holds for `holdMs` (2200ms). Result: "How people actually search." and "We'll bring the AI." flash off ~700ms sooner than the rest.
+Plan: Add a production-safe environment gate to the TypewriterText debug panel.
 
-## Fix
-In `src/components/shared/TypewriterText.tsx`, raise the default `initialRestMs` to match `holdMs` (2200ms) so phrase 0's on-screen time equals every other phrase. No call-site changes needed — both Hero and EndCTA use the default.
+## Goal
+Ensure the debug panel in `TypewriterText` never renders in production builds, even if the `debug` prop is accidentally left on, while keeping it fully functional in development.
 
-## Result
-First phrase in each loop now lingers as long as the others. Loop pause and color alternation unchanged.
+## Implementation
+
+1. **Gate the debug panel in `TypewriterText.tsx`**
+   - Add a build-time check using Vite's `import.meta.env.DEV`.
+   - Derive `const showDebug = debug && import.meta.env.DEV;`.
+   - Replace the panel render condition `{debug && (...)}` with `{showDebug && (...)}`.
+   - Apply the same `showDebug` gate to the `recordHold` console-log helper so debug logging is also disabled in production.
+
+2. **Keep the `debug` prop API unchanged**
+   - The `debug` prop remains available as a manual toggle for local development.
+   - Existing instances (Hero, Final CTA) can keep `debug` if still useful; the panel will simply not appear in production.
+
+3. **Verify behavior**
+   - Confirm the panel still appears during `vite` dev mode when `debug` is true.
+   - Confirm the panel is absent after a production build by checking the rendered output (the debug DOM is stripped by the `false` branch and Vite's build-time evaluation).
+
+## Scope
+Only touches `src/components/shared/TypewriterText.tsx`. No route, page, or design changes.
