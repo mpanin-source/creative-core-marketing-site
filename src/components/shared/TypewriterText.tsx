@@ -62,7 +62,7 @@ const TypewriterText = ({
     const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
     const recordHold = (phrase: string, ms: number) => {
-      if (!debug) return;
+      if (!showDebug) return;
       // eslint-disable-next-line no-console
       console.log(`[${debugLabel}] "${phrase}" held fully-typed for ${ms}ms`);
       setDebugLog((log) => [...log.slice(-phrases.length * 2), { phrase, ms }]);
