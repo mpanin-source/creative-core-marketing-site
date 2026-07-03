@@ -277,7 +277,7 @@ const ContactForm = () => {
           <div className="mt-6 pt-6 border-t border-charcoal/10">
             <div className="flex items-center gap-3 text-sm text-muted-dark">
               <Shield className="w-4 h-4 shrink-0 text-coral-dark" />
-              <span>15-minute strategy session — no pitch, no obligation.</span>
+              <span>20-minute strategy session — no pitch, no obligation.</span>
             </div>
           </div>
         </div>
