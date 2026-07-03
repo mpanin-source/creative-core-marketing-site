@@ -4,12 +4,15 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { CALENDLY_URL as CALENDLY } from "@/config/site";
 import { openCalendlyPopup, isCalendlyUrl } from "@/lib/calendly";
 import { GlowOrb } from "@/components/cobalt-refresh/patterns";
+import TypewriterText from "@/components/shared/TypewriterText";
 
 export interface EndCTAProps {
   /** Main H2 headline rendered in charcoal. */
   headline: string;
   /** Optional second line rendered in coral underneath the headline. */
   headlineAccent?: string;
+  /** When provided, second line cycles through these phrases with the looping typewriter (overrides headlineAccent). */
+  accentPhrases?: string[];
   /** Supporting paragraph below the headline. */
   subhead: string;
   primaryCtaText?: string;
@@ -19,6 +22,11 @@ export interface EndCTAProps {
   secondaryCtaHref?: string;
   /** Show the "Territory exclusive" pill + moat statement. Default true. */
   showMoatStatement?: boolean;
+  /** Which side the blue glow orb sits on. Used to alternate across pages. Default "left". */
+  glowSide?: "left" | "right";
+  /** When true, drops its own background + tightens top padding so it visually merges
+   *  with the section above. Glow is also pulled upward to bridge the seam. */
+  seamless?: boolean;
 }
 
 const SecondaryCTA = ({ text, href }: { text: string; href: string }) => {
@@ -41,16 +49,33 @@ const SecondaryCTA = ({ text, href }: { text: string; href: string }) => {
 const EndCTA = ({
   headline,
   headlineAccent,
+  accentPhrases,
   subhead,
   primaryCtaText = "Book a strategy call",
   primaryCtaHref = CALENDLY,
   secondaryCtaText,
   secondaryCtaHref,
   showMoatStatement = true,
+  glowSide = "left",
+  seamless = false,
 }: EndCTAProps) => {
   return (
-    <section className="relative overflow-hidden bg-cream py-28 md:py-32 px-6 border-t border-charcoal/10">
-      <GlowOrb color="#3a86ff" opacity={0.2} size={620} top="-4%" left="50%" animated />
+    <section
+      className={`relative overflow-x-clip px-6 ${
+        seamless ? "pt-12 md:pt-16 pb-24 md:pb-28" : "bg-cream py-28 md:py-32"
+      }`}
+    >
+      <GlowOrb
+        color="#3a86ff"
+        opacity={seamless ? 0.45 : 0.4}
+        size={seamless ? 1000 : 900}
+        top={seamless ? "-40%" : "-20%"}
+        left={glowSide === "left" ? "-5%" : "105%"}
+        animated
+      />
+
+
+
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <h2
           className="font-display text-4xl md:text-6xl text-charcoal mb-2 leading-tight"
@@ -58,14 +83,27 @@ const EndCTA = ({
         >
           {headline}
         </h2>
-        {headlineAccent && (
+        {accentPhrases && accentPhrases.length > 0 ? (
+          <h2
+            className="font-display text-4xl md:text-6xl mb-6 leading-tight"
+            style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
+          >
+            <TypewriterText
+              phrases={accentPhrases}
+              colors={["text-coral-dark", "text-azure-dark"]}
+              className="font-display leading-tight"
+              debug
+              debugLabel="final-cta"
+            />
+          </h2>
+        ) : headlineAccent ? (
           <h2
             className="font-display text-4xl md:text-6xl text-coral-dark mb-6 leading-tight"
             style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
           >
             {headlineAccent}
           </h2>
-        )}
+        ) : null}
         <p className="text-lg text-charcoal/80 mb-10 max-w-2xl mx-auto leading-relaxed">
           {subhead}
         </p>

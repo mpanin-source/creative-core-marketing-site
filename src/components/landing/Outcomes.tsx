@@ -1,3 +1,5 @@
+import { GlowOrb } from "@/components/cobalt-refresh/patterns";
+
 interface Outcome {
   context: string;
   metric: string;
@@ -28,7 +30,8 @@ const outcomes: Outcome[] = [
 
 const Outcomes = () => {
   return (
-    <section id="outcomes" className="bg-cream-light py-24 px-6">
+    <section id="outcomes" className="relative overflow-x-clip bg-cream-light py-24 px-6">
+      <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
       <div className="max-w-6xl mx-auto">
         <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-6">
           06 · Outcomes
@@ -48,13 +51,13 @@ const Outcomes = () => {
           {outcomes.map((o) => (
             <div
               key={o.metric}
-              className="bg-white rounded-lg p-8 border border-charcoal/10"
+              className="bg-white rounded-lg p-8 border border-charcoal/10 transition-all duration-200 hover:-translate-y-1 hover:border-coral/30 hover:shadow-[0_8px_30px_rgba(255,77,46,0.10),0_8px_40px_rgba(58,134,255,0.10)]"
             >
               <p className="text-xs uppercase tracking-wider text-muted-dark font-medium mb-4">
                 {o.context}
               </p>
               <p
-                className="font-display text-azure-dark text-6xl md:text-7xl leading-none mb-3"
+                className="font-display text-6xl md:text-7xl leading-none mb-3 bg-[linear-gradient(95deg,#FF4D2E_20%,#b65a9e_52%,#3a86ff_85%)] bg-clip-text text-transparent"
                 style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
               >
                 {o.metric}

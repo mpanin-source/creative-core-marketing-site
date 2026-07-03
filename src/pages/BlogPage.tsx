@@ -9,9 +9,9 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-cream">
       {/* Hero — cream-light (R7.6: flipped from bg-navy-deep so transparent Header at scrollY=0 stays readable) */}
-      <section className="relative overflow-hidden bg-cream-light pt-32 md:pt-36 pb-24 md:pb-28 px-6">
+      <section className="relative overflow-x-clip bg-cream-light pt-32 md:pt-36 pb-24 md:pb-28 px-6">
         <ContourBg color="#3a86ff" opacity={0.16} animated />
-        <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="18%" left="86%" animated />
+        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="105%" animated />
         <div className="relative z-10 max-w-6xl mx-auto">
           <p className="text-xs uppercase tracking-wider font-medium text-azure-dark mb-4">
             From the field
@@ -108,8 +108,8 @@ const BlogPage = () => {
       </section>
 
       {/* Closing CTA */}
-      <section className="relative overflow-hidden bg-navy-deep py-24 px-6 border-t border-slate-dark">
-        <GlowOrb color="#3a86ff" opacity={0.22} size={620} top="10%" left="50%" animated />
+      <section className="relative overflow-x-clip bg-navy-deep py-24 px-6">
+        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <p className="text-xs uppercase tracking-wider font-medium text-cyan mb-6">
             Or skip the reading

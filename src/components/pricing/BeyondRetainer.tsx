@@ -14,8 +14,8 @@ const voicePackageFeatures = [
 
 const BeyondRetainer = () => {
   return (
-    <section id="beyond" className="relative overflow-hidden bg-cream-light py-24 px-6 border-t border-charcoal/10">
-      <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="16%" left="86%" animated />
+    <section id="beyond" className="relative overflow-x-clip bg-cream-light py-24 px-6">
+      <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
       <div className="relative z-10 max-w-6xl mx-auto">
         <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-6">
           Beyond the retainer

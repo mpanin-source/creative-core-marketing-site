@@ -1,4 +1,5 @@
 import { MapPin, Zap, Star, Trophy, Sparkles, ShieldCheck, Target } from "lucide-react";
+import { GlowOrb } from "@/components/cobalt-refresh/patterns";
 
 interface Play {
   icon: typeof MapPin;
@@ -66,7 +67,8 @@ const LocalPlaybook = () => {
   const featuredPlay = plays.find((p) => p.featured);
 
   return (
-    <section id="local-playbook" className="bg-cream-light py-24 px-6">
+    <section id="local-playbook" className="relative overflow-x-clip bg-cream-light py-24 px-6">
+      <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="-5%" animated />
       <div className="max-w-6xl mx-auto">
         <p className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark mb-6">
           04 · Local domination playbook
@@ -102,19 +104,19 @@ const LocalPlaybook = () => {
         </div>
 
         {featuredPlay && (
-          <div className="bg-white rounded-lg p-8 md:p-10 border-2 border-coral shadow-[0_8px_30px_rgba(255,77,46,0.15)] relative">
-            <div className="absolute -top-3 left-8 px-3 py-1 rounded-full bg-coral text-white text-xs font-medium uppercase tracking-wider">
+          <div className="bg-white rounded-lg p-8 md:p-10 border-2 border-azure shadow-[0_8px_30px_rgba(58,134,255,0.18)] relative">
+            <div className="absolute -top-3 left-8 px-3 py-1 rounded-full bg-azure text-white text-xs font-medium uppercase tracking-wider">
               Future-defining
             </div>
             <div className="grid md:grid-cols-[auto_1fr] gap-8 items-start mt-2">
               <div>
                 <span
-                  className="font-display text-coral-dark text-6xl block leading-none"
+                  className="font-display text-azure-dark text-6xl block leading-none"
                   style={{ fontWeight: 700 }}
                 >
                   {featuredPlay.number}
                 </span>
-                <featuredPlay.icon className="w-8 h-8 text-coral/60 mt-4" />
+                <featuredPlay.icon className="w-8 h-8 text-azure/70 mt-4" />
               </div>
               <div>
                 <h3

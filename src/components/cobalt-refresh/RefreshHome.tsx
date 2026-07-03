@@ -19,7 +19,7 @@ export default function RefreshHome() {
       <div className="relative">
         <Hero />
         <ContourBg color="#3a86ff" opacity={0.16} animated />
-        <GlowOrb color="#3a86ff" opacity={0.18} size={580} top="14%" left="88%" animated />
+        <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="105%" animated />
       </div>
 
       {/* Orbit Six Systems — coral brand with BLUE #3a86ff as the third accent (orbit glow/spoke/proof) */}
@@ -30,42 +30,45 @@ export default function RefreshHome() {
         <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
       </div>
 
-      {/* LocalPlaybook: hero treatment — blue contour waves + blue glow behind the cards. */}
-      <div className="relative bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <ContourBg color="#3a86ff" opacity={0.16} animated />
-        <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="22%" left="86%" animated />
+      {/* Lower half — Playbook → CantMeasure → Outcomes → HowWeWork → EndCTA all share
+          one continuous container with a unified bg-cream tone and a single very faint
+          OrbitRings backdrop carrying the eye through every seam. Per-block accent rings
+          remain as foreground texture. */}
+      <div className="relative overflow-x-clip bg-cream [&_section]:!bg-transparent [&_section]:relative [&_section]:z-[1]">
+        {/* One — and only one — orbit field for the entire lower half. Whisper-faint,
+            anchored off-canvas right, providing a single unifying signature behind
+            every block below instead of stacked overlapping ring layers. */}
+        <OrbitRings color="#3a86ff" opacity={0.06} cx="110%" cy="40%" rings={6} animated />
+
         <LocalPlaybook />
-      </div>
-
-      {/* CantMeasure: blue twinkling stars. */}
-      <div className="relative bg-cream [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <SparkField color="#3a86ff" opacity={0.6} animated variant={2} />
         <CantMeasure />
-      </div>
 
-      {/* Outcomes: blue orbit rings from the bottom-left corner — the "data/proof" section
-          reads in blue (matching the azure metric numbers). Cards stay 100% opaque. */}
-      <div className="relative bg-cream-light [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <OrbitRings color="#3a86ff" opacity={0.18} cx="6%" cy="94%" rings={6} animated />
+        {/* Seam bleed: gradient overlay across CantMeasure↔Outcomes boundary. */}
+        <div className="relative h-0">
+          <div className="absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-transparent via-azure/[0.04] to-transparent pointer-events-none" />
+        </div>
+
         <Outcomes />
-      </div>
-
-      {/* HowWeWork: blue twinkling stars behind the step cards. */}
-      <div className="relative bg-cream [&>section]:!bg-transparent [&>section]:relative [&>section]:z-[1]">
-        <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
         <HowWeWork />
-      </div>
 
-      <div className="relative">
+        {/* Bridging glow into EndCTA — diffuse light, not lines. */}
+        <div className="relative h-0">
+          <GlowOrb color="#3a86ff" opacity={0.32} size={700} top="-10%" left="-5%" animated />
+          <div className="absolute inset-x-0 -top-32 h-64 bg-gradient-to-b from-transparent via-azure/[0.05] to-transparent pointer-events-none" />
+        </div>
+
+        {/* EndCTA in seamless mode — no own bg, tighter top padding, glow bleeds upward. */}
         <EndCTA
           headline="Bring us your county."
-          headlineAccent="We'll bring the AI."
+          accentPhrases={["We'll bring the AI.", "We'll bring the results.", "We'll bring the traffic.", "We'll bring the conversions."]}
           subhead="Month-to-month engagements starting at $1,500/mo. A free 20-minute strategy call — and you'll leave with a working hypothesis even if we never work together."
           secondaryCtaText="See pricing"
           secondaryCtaHref="/pricing-and-booking"
+          seamless
+          glowSide="left"
         />
-        <SparkField color="#3a86ff" opacity={0.6} animated variant={1} />
       </div>
+
     </>
   );
 }

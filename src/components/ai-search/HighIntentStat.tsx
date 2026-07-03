@@ -9,8 +9,8 @@ const sectionFade: Variants = {
 
 const HighIntentStat = () => {
   return (
-    <section className="relative overflow-hidden px-6 py-24 md:py-28 md:px-8 section-alt">
-      <GlowOrb color="#3a86ff" opacity={0.18} size={560} top="16%" left="86%" animated />
+    <section className="relative overflow-x-clip px-6 py-24 md:py-28 md:px-8 section-alt">
+      <GlowOrb color="#3a86ff" opacity={0.35} size={800} top="-5%" left="105%" animated />
       <div className="relative z-10 max-w-5xl mx-auto">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
