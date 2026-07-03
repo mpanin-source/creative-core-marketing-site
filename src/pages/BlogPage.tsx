@@ -44,8 +44,8 @@ const BlogPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                category: "Case study",
-                title: "How we cut HVAC CPL by 38% in 60 days",
+                category: "Field notes",
+                title: "Inside a Foundation Sprint: every system we launch in the first 30 days",
               },
               {
                 category: "Benchmarks",

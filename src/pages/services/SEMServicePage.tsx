@@ -5,7 +5,7 @@ export default function SEMServicePage() {
     <ServicePageTemplate
       heroEyebrow="SEM & Paid Search"
       heroTitle="Convert intent into appointments."
-      heroSubhead="Google Local Services Ads, Performance Max, Meta. Zero markup on ad spend. Your card pays the platforms directly. Our fee is for the work — not a cut of your media."
+      heroSubhead="Google Local Services Ads, Search, Performance Max. Zero markup on ad spend. Your card pays the platforms directly. Our fee is for the work — not a cut of your media."
       contrarianEyebrow="The AI advantage"
       contrarianTitle="Zero markup. Incentives aligned with appointments."
       contrarianBody={[
@@ -19,9 +19,9 @@ export default function SEMServicePage() {
       capabilities={[
         { number: "01", title: "LSA + Google Verified", description: "Setup, certification, lead-quality monitoring with credit recovery via Google's review process. Benchmark-beating CPLs on the channel built for home-services intent." },
         { number: "02", title: "Performance Max", description: "2026's dominant Google campaign type. $72 average CPL vs $149 non-branded search — per 2026 HVAC ad benchmarks." },
-        { number: "03", title: "Meta Ads", description: "Facebook + Instagram, lookalike audiences, retargeting. Visual + behavioral targeting." },
+        { number: "03", title: "Paid Social (Meta) — add-on", description: "Available to Growth & Scale clients once your GBP, reviews, and foundation are live. Scoped on a call — you approve every dollar." },
         { number: "04", title: "Search Ads", description: "Branded + non-branded queries. Negative keywords managed weekly." },
-        { number: "05", title: "Creative testing", description: "5–10 ad variations monthly, A/B tested. We find what converts and scale it." },
+        { number: "05", title: "Creative iteration", description: "Ad copy and assets refreshed based on what your search-term and conversion data actually say — scaled to your spend, not a testing quota." },
         { number: "06", title: "AI Max migration", description: "We're already preparing client accounts for Google's AI Max transition." },
       ]}
       includedEyebrow="What's included"
@@ -30,8 +30,8 @@ export default function SEMServicePage() {
         "LSA setup + Google Verified certification",
         "Lead-quality monitoring + credit recovery",
         "Google Ads campaign management (Search, Performance Max)",
-        "Meta Ads management (Facebook + Instagram)",
-        "Weekly creative testing",
+        "Paid Social (Meta) — readiness-gated add-on for Growth & Scale",
+        "Ad copy iteration driven by conversion data",
         "Negative keyword + match type refinement",
         "Quality Score monitoring + improvement",
         "Monthly performance reporting",

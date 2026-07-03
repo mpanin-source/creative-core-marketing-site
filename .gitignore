@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# OS / desktop shortcuts
+*.lnk
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -40,6 +43,16 @@ creative-core-pricing-audit.md
 round-8.2-research-brief.md
 round-8.2-research-report.md
 SESSION-STATE-8.2.md
+
+# Delivery / fulfillment working documents (internal — never committed)
+creative-core-research-brief.md
+creative-core-delivery-playbook.md
+fable5-review-brief.md
+creative-core-delivery-playbook-review.md
+creative-core-kpi-research-brief.md
+creative-core-kpi-benchmarks.md
+round-8.3-offer-simplification-brief.md
+creative-core-prospect-list.md
 
 # TypeScript incremental build cache
 *.tsbuildinfo

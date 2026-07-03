@@ -60,7 +60,7 @@ export default function RefreshHome() {
         <EndCTA
           headline="Bring us your county."
           headlineAccent="We'll bring the AI."
-          subhead="Month-to-month engagements starting at $1,500/mo. A 30-minute strategy call is free — and you'll leave with a working hypothesis even if we never work together."
+          subhead="Month-to-month engagements starting at $1,500/mo. A free 20-minute strategy call — and you'll leave with a working hypothesis even if we never work together."
           secondaryCtaText="See pricing"
           secondaryCtaHref="/pricing-and-booking"
         />

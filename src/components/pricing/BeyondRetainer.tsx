@@ -4,10 +4,12 @@ import { GlowOrb } from "@/components/cobalt-refresh/patterns";
 import { CALENDLY_URL as CALENDLY } from "@/config/site";
 import { handleCalendlyClick } from "@/lib/calendly";
 
-const automationFeatures = [
-  "Automated review requests",
-  "AI response drafting",
-  "Speed-to-lead alerts (email + CRM)",
+// R8.3: Smart Automation add-on PARKED — reviews + speed-to-lead now live inside the tiers.
+// This card relaunches as the Voice AI + SMS package at Q3 launch.
+const voicePackageFeatures = [
+  "AI answers the calls your team misses",
+  "Missed-call text-back + SMS follow-up",
+  "Books the job straight into your calendar",
 ];
 
 const BeyondRetainer = () => {
@@ -29,34 +31,34 @@ const BeyondRetainer = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Card 1 — Smart Automation Add-Ons */}
+          {/* Card 1 — Voice AI + SMS (Q3 teaser; Smart Automation parked R8.3) */}
           <div className="bg-white rounded-lg p-8 border border-charcoal/10 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-md bg-coral/10 flex items-center justify-center">
                 <Phone className="w-5 h-5 text-coral-dark" />
               </div>
               <span className="text-xs uppercase tracking-[0.15em] font-medium text-coral-dark">
-                Add-on
+                Coming Q3
               </span>
             </div>
             <h3
               className="font-display text-2xl md:text-3xl text-charcoal mb-2 leading-tight"
               style={{ fontWeight: 700 }}
             >
-              Smart Automation
+              Voice AI + SMS
             </h3>
-            <p className="text-sm text-muted-dark mb-4">Reviews · AI drafting · Speed-to-lead</p>
+            <p className="text-sm text-muted-dark mb-4">AI receptionist · Missed-call recovery · SMS</p>
             <div className="mb-5">
-              <p className="font-display text-3xl text-coral-dark leading-none" style={{ fontWeight: 700 }}>
-                $750
+              <p
+                className="font-display text-2xl text-charcoal leading-tight"
+                style={{ fontWeight: 700 }}
+              >
+                Launching Q3.
               </p>
-              <p className="text-sm text-charcoal/70 mt-1">setup + $500/mo</p>
+              <p className="text-sm text-charcoal/70 mt-1">Pricing announced at launch</p>
             </div>
-            <p className="text-base text-charcoal/80 leading-relaxed mb-5">
-              Live now:
-            </p>
             <ul className="space-y-2.5 mb-6 flex-1">
-              {automationFeatures.map((f) => (
+              {voicePackageFeatures.map((f) => (
                 <li key={f} className="flex items-start gap-2.5">
                   <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-coral-dark" />
                   <span className="text-sm text-charcoal/80 leading-relaxed">{f}</span>
@@ -64,10 +66,11 @@ const BeyondRetainer = () => {
               ))}
             </ul>
             <p className="text-sm text-charcoal/70 leading-relaxed mb-5">
-              Voice AI and SMS text-back are in rollout (they require 10DLC registration first) — current clients get first access.
+              Review automation and speed-to-lead already live inside every tier. This package adds the AI
+              that answers when nobody can — in carrier registration and rollout now.
             </p>
             <p className="text-xs uppercase tracking-wider text-muted-dark font-medium">
-              Available at any tier
+              Retainer clients get first access
             </p>
           </div>
 

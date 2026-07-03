@@ -57,7 +57,7 @@ const PricingTypewriter = () => {
   );
 };
 
-// R7.6 Phase 7: Hero with compressed 60-day guarantee pill replacing the standalone GuaranteeSection.
+// R7.6 Phase 7 hero; R8.3: pill carries the 30-Day Launch Guarantee (locked 2026-07-02).
 const PricingHero = () => {
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -79,16 +79,16 @@ const PricingHero = () => {
           <PricingTypewriter />
         </h1>
         <p className="text-lg text-charcoal/80 max-w-2xl mb-8 leading-relaxed">
-          Three retainer tiers starting at $1,500/month, every one backed by the 60-day guarantee.
+          Three retainer tiers starting at $1,500/month, every one backed by the 30-day launch guarantee.
           You pay Google and Meta directly — zero markup, zero affiliate kickbacks.
         </p>
 
-        {/* Compressed 60-day guarantee — pill + one-liner */}
+        {/* Launch-guarantee pill + one-liner (R8.3) */}
         <div className="inline-flex items-start gap-3 bg-white rounded-lg px-5 py-4 border border-charcoal/10 mb-10 max-w-2xl">
           <Shield className="w-5 h-5 text-coral-dark flex-shrink-0 mt-0.5" />
           <p className="text-sm text-charcoal/80 leading-relaxed">
-            <span className="font-semibold text-charcoal">60-day No-BS Guarantee:</span>{" "}
-            We build out every system in your plan — and if we don't deliver what we promised, you walk away and keep everything we've built. Month-to-month, cancel anytime.
+            <span className="font-semibold text-charcoal">30-Day Launch Guarantee:</span>{" "}
+            Every system in your plan live within 30 days of access — or month 2 is free. You keep everything we build, and every account stays in your name. Month-to-month, cancel anytime.
             <Link to="/faq#guarantee" className="text-coral-dark font-medium hover:underline ml-1">
               How it works →
             </Link>

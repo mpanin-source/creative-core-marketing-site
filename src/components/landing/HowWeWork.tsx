@@ -13,7 +13,7 @@ const steps: Step[] = [
   {
     number: "01",
     title: "Diagnose",
-    duration: "20–30 min",
+    duration: "20 min",
     body: "Free strategy call. We audit your current funnel, identify the highest-leverage gaps, and confirm fit before any money changes hands.",
     outcome: "You walk away with a working hypothesis — even if we never work together.",
   },

@@ -13,13 +13,13 @@ const faqs: FAQ[] = [
     id: "pricing",
     category: "Pricing & guarantee",
     q: "What does each tier cost, and how does the guarantee work?",
-    a: "Three retainer tiers: Foundation Sprint at $1,500/mo, Growth Partner at $3,000/mo, and Scale Partner at $5,000/mo (qualification required). Every retainer carries the 60-day guarantee: we build and launch every system in your tier on schedule — and if we don't deliver what we promised, you walk away and keep everything we've built. Month-to-month, cancel anytime.",
+    a: "Three retainer tiers: Foundation Sprint at $1,500/mo, Growth Partner at $3,000/mo, and Scale Partner at $5,000/mo (qualification required). Every retainer carries the 30-day launch guarantee: every system in your tier live within 30 days of access — or month 2 is free. Either way you keep everything we've built. Month-to-month, cancel anytime.",
   },
   {
     id: "process",
     category: "Process",
     q: "How long does setup take and what does the first 60 days look like?",
-    a: "Discovery to onboarding to launch typically runs 7–14 days. From kickoff: foundation deployed in week 1 (schema, GBP, LSA setup, landing pages, speed-to-lead workflows). First ads live by week 2. Day 30 check-in confirms early signal. Day 60 is your guarantee checkpoint — continue, upgrade, or walk away with everything we've built.",
+    a: "Discovery to onboarding to launch typically runs 7–14 days. From kickoff: foundation deployed in week 1 (schema, GBP, LSA application submitted, landing pages, speed-to-lead workflows). First ads live by week 2. Day 30 closes the launch-guarantee window — every system live, or month 2 is free. Day 60 is your measured review: continue, upgrade, or walk away with everything we've built.",
   },
   {
     id: "crm-strategy",
@@ -30,14 +30,14 @@ const faqs: FAQ[] = [
   {
     id: "guarantee",
     category: "Pricing & guarantee",
-    q: "How does the 60-day guarantee actually work?",
-    a: "It's a work guarantee, not a metrics gamble. On day one we put in writing exactly which systems we'll build and launch in your first 60 days — foundation in week 1, ads live by week 2, speed-to-lead and reporting running. If we don't deliver what we promised, you walk away. Either way, you keep everything: ad accounts, landing pages, CRM setup, schema, GBP optimization, content. No contract battles. No clawbacks.",
+    q: "How does the 30-day launch guarantee actually work?",
+    a: "It's a work guarantee with a deadline, not a metrics gamble. On day one we put in writing exactly which systems we'll build — and if every system in your tier isn't live within 30 days of getting access, month 2 is free. The only clocks we can't own are Google's and the phone carriers': LSA verification (typically 1–4 weeks) and SMS registration (1–2 weeks) — we submit both in week 1 and track them for you; the guarantee covers everything in our control. Either way, you keep everything: ad accounts, landing pages, CRM setup, schema, GBP optimization, content. No contract battles. No clawbacks.",
   },
   {
     id: "contracts",
     category: "Engagement terms",
     q: "Am I locked into a long contract?",
-    a: "No. All three tiers are month-to-month — Foundation Sprint, Growth Partner, and Scale Partner alike. Foundation Sprint runs through the 60-day guarantee window; after that, every tier is month-to-month with 7 days' notice to cancel. No annual lump sums, no minimum term on any tier. The work compounds over 90–180 days, which is why clients stay — not because a contract makes them.",
+    a: "No. All three tiers are month-to-month from day one — Foundation Sprint, Growth Partner, and Scale Partner alike — with 7 days' notice to cancel. No annual lump sums, no minimum term on any tier. The work compounds over 90–180 days, which is why clients stay — not because a contract makes them.",
   },
   {
     id: "florida-licensing",

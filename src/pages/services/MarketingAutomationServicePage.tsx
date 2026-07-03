@@ -20,15 +20,15 @@ const MarketingAutomationServicePage = () => {
       capabilities={[
         {
           number: "01",
-          title: "Voice AI for missed calls",
+          title: "Voice AI for missed calls (launching Q3)",
           description:
-            "Voicemail-to-text + AI agent that handles initial booking. Captures leads when the technicians can't.",
+            "Voicemail-to-text + AI agent that handles initial booking. Captures leads when the technicians can't. Rolling out Q3 — retainer clients get first access.",
         },
         {
           number: "02",
           title: "SMS workflows",
           description:
-            "Confirmation, reminder, post-job follow-up sequences. TCPA-compliant. STOP keyword handled.",
+            "Confirmation, reminder, post-job follow-up sequences. TCPA-compliant. STOP keyword handled. Live once your carrier registration clears (1–2 weeks, filed in week 1).",
         },
         {
           number: "03",
@@ -59,8 +59,8 @@ const MarketingAutomationServicePage = () => {
       includedTitle="Inside the retainer."
       included={[
         "Workflow audit + architecture design",
-        "Voice AI setup (where applicable)",
-        "SMS workflow build (TCPA-compliant, STOP-handled)",
+        "Voice AI — launching Q3, retainer clients get first access",
+        "SMS workflow build (TCPA-compliant, STOP-handled — live after your 1–2 week carrier registration)",
         "Review acquisition system deployment",
         "Lead scoring model tuned to your trade",
         "Lifecycle automation sequences",

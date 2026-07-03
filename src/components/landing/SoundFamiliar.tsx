@@ -25,7 +25,7 @@ const rows: Row[] = [
   },
   {
     lazy: "Locks you into 12-month contracts",
-    us: "Month-to-month after the 60-day guarantee",
+    us: "Month-to-month from day one — backed by the 30-day launch guarantee",
   },
   {
     lazy: "Has 50 clients in your category",

@@ -30,7 +30,7 @@ export default function SEOServicePage() {
         "Local SEO audit + competitive benchmarking",
         "Schema deployment (LocalBusiness + service-specific)",
         "NAP consistency across all major citation directories",
-        "Google Business Profile setup + weekly post management",
+        "Google Business Profile setup + full optimization (weekly posts at Growth tier and up)",
         "Service-area landing pages for each city served",
         "On-page SEO basics on all key pages",
         "Review velocity workflows",

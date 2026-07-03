@@ -158,7 +158,7 @@ const Hero = () => {
 
         <div className="mt-16 pt-8 border-t border-charcoal/10 flex flex-wrap items-baseline gap-x-8 gap-y-2">
           <span className="text-xs uppercase tracking-wider text-muted-dark font-medium">
-            Trusted by
+            Built for
           </span>
           <span className="text-sm text-charcoal/60">
             Florida-licensed home service businesses

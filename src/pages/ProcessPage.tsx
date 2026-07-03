@@ -18,7 +18,7 @@ const steps: Step[] = [
   {
     number: "01",
     phase: "Phase one",
-    duration: "20–30 min",
+    duration: "20 min",
     title: "Diagnose",
     body: "Free strategy call. We audit your current funnel, identify the highest-leverage gaps, and confirm fit before any money changes hands. No pitch deck. No SOW upsell. Just an honest conversation about your county and what's possible.",
     outcome: "You walk away with a working hypothesis — even if we never work together.",
@@ -43,7 +43,7 @@ const steps: Step[] = [
 
 const wontDo = [
   "Promise rankings or lead volume — anyone who does is overselling.",
-  "Lock you into a 12-month contract — month-to-month after the 60-day guarantee window.",
+  "Lock you into a 12-month contract — every tier is month-to-month from day one.",
   "Mark up your ad spend or take affiliate kickbacks on the software you use.",
   "Hold your data, accounts, or assets hostage. You own everything from day one.",
   "Sign your competitor in your county for as long as you're with us.",
