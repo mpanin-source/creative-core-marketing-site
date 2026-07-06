@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface TypewriterTextProps {
   phrases: string[];
@@ -24,8 +24,18 @@ const DEFAULT_COLORS = ["text-coral-dark", "text-azure-dark", "text-azure"];
 
 /**
  * Looping typewriter: types each phrase, holds, deletes, advances to the next, repeats forever.
- * Color rotates in parallel with the active phrase. Respects prefers-reduced-motion (renders
- * the first phrase static with no animation).
+ *
+ * Performance notes:
+ * - Keystroke updates bypass React and write directly to a text node via a ref, so each
+ *   character change is a single `nodeValue` mutation instead of a full component re-render +
+ *   reconciliation cycle. This dramatically reduces main-thread work on mobile.
+ * - Updates are scheduled inside `requestAnimationFrame` so the browser batches at most one
+ *   paint per frame — even if `setTimeout` fires late/early, we never write more than once
+ *   per frame.
+ * - The outer grid places an invisible spacer sized to the longest phrase in the same cell as
+ *   the live text, so per-keystroke width/height never changes ⇒ no ancestor reflow.
+ * - `contain: content` + `will-change: contents` on the live span isolates paint to just that
+ *   element.
  */
 const TypewriterText = ({
   phrases,
@@ -42,11 +52,11 @@ const TypewriterText = ({
 }: TypewriterTextProps) => {
   const longest = phrases.reduce((a, b) => (a.length >= b.length ? a : b), "");
   const showDebug = debug && import.meta.env.DEV;
-  const [text, setText] = useState<string>(phrases[0] ?? "");
   const [colorIdx, setColorIdx] = useState<number>(0);
   const [reduced, setReduced] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [debugLog, setDebugLog] = useState<Array<{ phrase: string; ms: number }>>([]);
+  const textRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -73,7 +83,30 @@ const TypewriterText = ({
   useEffect(() => {
     if (reduced || phrases.length === 0) return;
     let cancelled = false;
-    const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+    let rafId = 0;
+    let timerId: ReturnType<typeof setTimeout> | null = null;
+
+    // Direct DOM writer — coalesces to a single write per animation frame so we
+    // never touch the DOM more than once between paints even if timers fire early.
+    let pendingText: string | null = null;
+    const flush = () => {
+      rafId = 0;
+      if (pendingText !== null && textRef.current) {
+        textRef.current.textContent = pendingText;
+      }
+      pendingText = null;
+    };
+    const writeText = (value: string) => {
+      pendingText = value;
+      if (rafId === 0) {
+        rafId = requestAnimationFrame(flush);
+      }
+    };
+
+    const sleep = (ms: number) =>
+      new Promise<void>((r) => {
+        timerId = setTimeout(r, ms);
+      });
 
     const recordHold = (phrase: string, ms: number) => {
       if (!showDebug) return;
@@ -82,15 +115,17 @@ const TypewriterText = ({
       setDebugLog((log) => [...log.slice(-phrases.length * 2), { phrase, ms }]);
     };
 
+    // Seed the initial phrase directly (no React state → no reconcile).
+    writeText(phrases[0] ?? "");
+
     const run = async () => {
-      // Phrase 0 starts pre-typed; its on-screen-full duration === initialRestMs.
       const t0 = performance.now();
       await sleep(initialRestMs);
+      if (cancelled) return;
       recordHold(phrases[0] ?? "", Math.round(performance.now() - t0));
-      let i = 0; // current phrase index; phrase 0 already held above
+      let i = 0;
       while (!cancelled) {
         const current = phrases[i];
-        // Hold (skip first hold since initialRest already covered phrase 0)
         if (i !== 0 || initialRestMs === 0) {
           const tHold = performance.now();
           await sleep(holdMs);
@@ -100,22 +135,20 @@ const TypewriterText = ({
         // Delete
         for (let j = current.length - 1; j >= 0; j--) {
           if (cancelled) return;
-          setText(current.slice(0, j));
+          writeText(current.slice(0, j));
           await sleep(effDeleteMs);
         }
-        // If we just deleted the final phrase, pause before restarting the loop.
         if (i === phrases.length - 1) {
           await sleep(loopPauseMs);
           if (cancelled) return;
         }
-        // Advance + color cycle
         i = (i + 1) % phrases.length;
         setColorIdx((c) => (c + 1) % colors.length);
         const next = phrases[i];
         // Type
         for (let j = 1; j <= next.length; j++) {
           if (cancelled) return;
-          setText(next.slice(0, j));
+          writeText(next.slice(0, j));
           await sleep(effTypeMs);
         }
       }
@@ -124,8 +157,10 @@ const TypewriterText = ({
     run();
     return () => {
       cancelled = true;
+      if (timerId !== null) clearTimeout(timerId);
+      if (rafId !== 0) cancelAnimationFrame(rafId);
     };
-  }, [phrases, colors.length, effTypeMs, effDeleteMs, holdMs, initialRestMs, loopPauseMs, reduced, showDebug]);
+  }, [phrases, colors.length, effTypeMs, effDeleteMs, holdMs, initialRestMs, loopPauseMs, reduced, showDebug, debugLabel]);
 
   const color = colors[colorIdx % colors.length] ?? "";
 
@@ -153,10 +188,20 @@ const TypewriterText = ({
       </span>
       <span
         className={`col-start-1 row-start-1 whitespace-normal break-words ${color} transition-colors duration-300`}
-        style={inheritStyle}
+        style={{
+          ...inheritStyle,
+          contain: "content",
+          willChange: "contents",
+        }}
         aria-live="polite"
       >
-        {text}
+        {/*
+          Live text node written directly via ref. React never re-renders this element
+          per keystroke, so there is no reconciliation cost per character.
+        */}
+        <span ref={textRef} style={inheritStyle}>
+          {phrases[0] ?? ""}
+        </span>
         {showCursor && (
           <span
             aria-hidden="true"
