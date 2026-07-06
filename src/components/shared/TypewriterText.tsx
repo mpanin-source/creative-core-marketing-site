@@ -101,7 +101,7 @@ const TypewriterText = ({
         for (let j = current.length - 1; j >= 0; j--) {
           if (cancelled) return;
           setText(current.slice(0, j));
-          await sleep(deleteMs);
+          await sleep(effDeleteMs);
         }
         // If we just deleted the final phrase, pause before restarting the loop.
         if (i === phrases.length - 1) {
