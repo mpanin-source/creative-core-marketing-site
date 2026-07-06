@@ -91,7 +91,7 @@ function MobileCarousel({ p }: { p: OrbitPalette }) {
     setActive(Math.max(0, Math.min(N - 1, i)));
   };
   return (
-    <div className="md:hidden px-6 py-16">
+    <div className="md:hidden px-6 py-16 overflow-x-clip">
       <p className="text-xs uppercase tracking-[0.16em] font-semibold mb-3" style={{ color: p.primary }}>The operating system</p>
       <h2 className="mb-2" style={{ fontFamily: HEAD, fontWeight: 700, fontSize: "2.5rem", lineHeight: 0.98, color: p.ink }}>Six systems. One conversion foundation.</h2>
       <p className="text-sm mb-7" style={{ color: `${p.ink}99` }}>Swipe through the stack — or keep scrolling.</p>
