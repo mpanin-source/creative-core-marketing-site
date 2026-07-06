@@ -45,6 +45,7 @@ const TypewriterText = ({
   const [text, setText] = useState<string>(phrases[0] ?? "");
   const [colorIdx, setColorIdx] = useState<number>(0);
   const [reduced, setReduced] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [debugLog, setDebugLog] = useState<Array<{ phrase: string; ms: number }>>([]);
 
   useEffect(() => {
@@ -53,8 +54,21 @@ const TypewriterText = ({
     setReduced(mq.matches);
     const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
     mq.addEventListener?.("change", onChange);
-    return () => mq.removeEventListener?.("change", onChange);
+    const mm = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mm.matches);
+    const onMM = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mm.addEventListener?.("change", onMM);
+    return () => {
+      mq.removeEventListener?.("change", onChange);
+      mm.removeEventListener?.("change", onMM);
+    };
   }, []);
+
+  // Mobile browsers throttle short setTimeout intervals and each keystroke
+  // triggers a full React render — use tighter intervals so the animation
+  // feels as snappy as it does on desktop.
+  const effTypeMs = isMobile ? Math.min(typeMs, 28) : typeMs;
+  const effDeleteMs = isMobile ? Math.min(deleteMs, 15) : deleteMs;
 
   useEffect(() => {
     if (reduced || phrases.length === 0) return;
@@ -87,7 +101,7 @@ const TypewriterText = ({
         for (let j = current.length - 1; j >= 0; j--) {
           if (cancelled) return;
           setText(current.slice(0, j));
-          await sleep(deleteMs);
+          await sleep(effDeleteMs);
         }
         // If we just deleted the final phrase, pause before restarting the loop.
         if (i === phrases.length - 1) {
@@ -102,7 +116,7 @@ const TypewriterText = ({
         for (let j = 1; j <= next.length; j++) {
           if (cancelled) return;
           setText(next.slice(0, j));
-          await sleep(typeMs);
+          await sleep(effTypeMs);
         }
       }
     };
@@ -111,7 +125,7 @@ const TypewriterText = ({
     return () => {
       cancelled = true;
     };
-  }, [phrases, colors.length, typeMs, deleteMs, holdMs, initialRestMs, loopPauseMs, reduced, showDebug]);
+  }, [phrases, colors.length, effTypeMs, effDeleteMs, holdMs, initialRestMs, loopPauseMs, reduced, showDebug]);
 
   const color = colors[colorIdx % colors.length] ?? "";
 
