@@ -116,7 +116,7 @@ const TypewriterText = ({
         for (let j = 1; j <= next.length; j++) {
           if (cancelled) return;
           setText(next.slice(0, j));
-          await sleep(typeMs);
+          await sleep(effTypeMs);
         }
       }
     };
