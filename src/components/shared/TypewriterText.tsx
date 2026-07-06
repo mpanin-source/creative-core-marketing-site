@@ -127,18 +127,18 @@ const TypewriterText = ({
   };
 
   return (
-    <span className={`inline-grid align-baseline ${className}`} style={inheritStyle}>
-      {/* Spacer reserves width of longest phrase — same grid cell as the live text. */}
+    <span className={`grid align-baseline max-w-full min-w-0 ${className}`} style={inheritStyle}>
+      {/* Spacer reserves height for the tallest (wrapped) phrase — same grid cell as the live text. */}
       <span
         aria-hidden="true"
-        className="invisible col-start-1 row-start-1 whitespace-pre"
+        className="invisible col-start-1 row-start-1 whitespace-normal break-words"
         style={inheritStyle}
       >
         {longest}
         {showCursor ? "_" : ""}
       </span>
       <span
-        className={`col-start-1 row-start-1 ${color} transition-colors duration-300`}
+        className={`col-start-1 row-start-1 whitespace-normal break-words ${color} transition-colors duration-300`}
         style={inheritStyle}
         aria-live="polite"
       >
