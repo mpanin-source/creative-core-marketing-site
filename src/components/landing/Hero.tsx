@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
 
         <h1
-          className="font-display text-5xl md:text-7xl xl:text-8xl mb-8 max-w-[1500px] leading-[0.95]"
+          className="font-display text-4xl sm:text-5xl md:text-7xl xl:text-8xl mb-8 max-w-full md:max-w-[1500px] leading-[0.95] min-w-0"
           style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
           aria-label="Marketing built for how people actually search."
         >
