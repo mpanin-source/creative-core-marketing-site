@@ -26,10 +26,11 @@ export default function RefreshHome() {
       {/* Orbit Six Systems — coral brand with BLUE #3a86ff as the third accent (orbit glow/spoke/proof) */}
       <OrbitSixSystems palette={{ bg: "#FAF6EF", ink: "#1A1714", primary: "#FF4D2E", accent: "#3a86ff", hubText: "#FFFFFF" }} />
 
-      <div className="relative">
+      <div className="relative overflow-x-clip">
         <NewBattlefield />
         <SparkField color="#3a86ff" opacity={0.6} animated variant={0} />
       </div>
+
 
       {/* Lower half — Playbook → CantMeasure → Outcomes → HowWeWork → EndCTA all share
           one continuous container with a unified bg-cream tone and a single very faint
