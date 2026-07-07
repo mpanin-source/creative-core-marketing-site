@@ -18,7 +18,7 @@ const steps: Step[] = [
   {
     number: "01",
     phase: "Phase one",
-    duration: "20 min",
+    duration: "30 min",
     title: "Diagnose",
     body: "Free strategy call. We audit your current funnel, identify the highest-leverage gaps, and confirm fit before any money changes hands. No pitch deck. No SOW upsell. Just an honest conversation about your county and what's possible.",
     outcome: "You walk away with a working hypothesis — even if we never work together.",
@@ -157,7 +157,7 @@ const ProcessPage = () => {
       {/* Closing CTA — shared EndCTA (R7.6 Phase 6) */}
       <EndCTA
         headline="Book the diagnostic call."
-        subhead="20 minutes. No pitch. An honest conversation about your county and what's possible."
+        subhead="30 minutes. No pitch. An honest conversation about your county and what's possible."
         secondaryCtaText="See pricing"
         secondaryCtaHref="/pricing-and-booking"
         glowSide="right"

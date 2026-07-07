@@ -61,7 +61,7 @@ export default function RefreshHome() {
         <EndCTA
           headline="Bring us your county."
           accentPhrases={["We'll bring the AI.", "We'll bring the results.", "We'll bring the traffic.", "We'll bring the conversions."]}
-          subhead="Month-to-month engagements starting at $1,500/mo. A free 20-minute strategy call — and you'll leave with a working hypothesis even if we never work together."
+          subhead="Month-to-month engagements starting at $1,500/mo. A free 30-minute strategy call — and you'll leave with a working hypothesis even if we never work together."
           secondaryCtaText="See pricing"
           secondaryCtaHref="/pricing-and-booking"
           seamless

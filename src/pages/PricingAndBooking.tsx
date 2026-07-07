@@ -139,7 +139,7 @@ const PricingAndBooking = () => {
       <EndCTA
         headline="Still deciding?"
         headlineAccent="Book a call."
-        subhead="20 minutes. No pitch. An honest map of which tier fits where you are."
+        subhead="30 minutes. No pitch. An honest map of which tier fits where you are."
         secondaryCtaText="See FAQ"
         secondaryCtaHref="/faq"
         glowSide="right"

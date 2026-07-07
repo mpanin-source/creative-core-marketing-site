@@ -108,7 +108,7 @@ const FAQPage = () => {
       <EndCTA
         headline="Still questions?"
         headlineAccent="Book a call."
-        subhead="20 minutes. No pitch. Real answers about your county."
+        subhead="30 minutes. No pitch. Real answers about your county."
         secondaryCtaText="See pricing"
         secondaryCtaHref="/pricing-and-booking"
       />
