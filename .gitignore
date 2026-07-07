@@ -56,3 +56,7 @@ creative-core-prospect-list.md
 
 # TypeScript incremental build cache
 *.tsbuildinfo
+creative-core-call-kit.md
+creative-core-close-kit.md
+clients/
+creative-core-owner-todo.md

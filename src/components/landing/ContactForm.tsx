@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Shield } from "lucide-react";
+import { openCalendlyPopup } from "@/lib/calendly";
+import { CALENDLY_URL } from "@/config/site";
 import {
   Select,
   SelectContent,
@@ -10,12 +11,76 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const CALENDLY_URL = "https://calendly.com/paninmax2002/strategy-call";
+// Web3Forms client-side relay (https://web3forms.com). Keys are designed to be exposed
+// in frontend code — submissions are relayed to the account inbox (paninmax2002@gmail.com).
+const WEB3FORMS_ACCESS_KEY = "307765c8-b142-4e7b-b91b-4f2751de2ec3";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const OWNER_EMAIL = "paninmax2002@gmail.com";
+
+type Option = { value: string; label: string };
+
+const BUSINESS_TYPES: Option[] = [
+  { value: "hvac", label: "HVAC" },
+  { value: "roofing", label: "Roofing" },
+  { value: "plumbing", label: "Plumbing" },
+  { value: "pest-control", label: "Pest Control" },
+  { value: "window-tinting", label: "Window Tinting" },
+  { value: "painting", label: "Painting" },
+  { value: "tree-service", label: "Tree Service" },
+  { value: "garage-repair", label: "Garage Door Repair" },
+  { value: "junk-removal", label: "Junk Removal" },
+  { value: "other-home", label: "Other Home Services" },
+  { value: "not-local", label: "Not a Florida home service" },
+];
+
+const AD_SPEND_OPTIONS: Option[] = [
+  { value: "under-1k", label: "Under $1,000/month" },
+  { value: "1k-2k", label: "$1,000 – $2,000/month" },
+  { value: "2k-5k", label: "$2,000 – $5,000/month" },
+  { value: "5k-10k", label: "$5,000 – $10,000/month" },
+  { value: "10k-plus", label: "$10,000+/month" },
+];
+
+const CURRENT_SETUP_OPTIONS: Option[] = [
+  { value: "agency", label: "I'm working with an agency" },
+  { value: "myself", label: "I'm doing it myself" },
+  { value: "in-house", label: "I have an in-house team" },
+  { value: "not-running", label: "I'm not running ads yet" },
+];
+
+const MONTHLY_REVENUE_OPTIONS: Option[] = [
+  { value: "under-50k", label: "Under $50k/month" },
+  { value: "50k-100k", label: "$50k – $100k/month" },
+  { value: "100k-250k", label: "$100k – $250k/month" },
+  { value: "250k-500k", label: "$250k – $500k/month" },
+  { value: "500k-plus", label: "$500k+/month" },
+];
+
+const TIMELINE_OPTIONS: Option[] = [
+  { value: "30-days", label: "Ready to start within 30 days" },
+  { value: "60-days", label: "Within 60 days" },
+  { value: "90-days", label: "Within 90 days" },
+  { value: "exploring", label: "Just exploring options" },
+];
+
+const HOLDBACK_OPTIONS: Option[] = [
+  { value: "not-enough-leads", label: "Not enough leads" },
+  { value: "leads-not-converting", label: "Leads aren't converting to customers" },
+  { value: "low-customer-value", label: "Customers aren't spending enough / coming back" },
+  { value: "capacity", label: "Can't handle the work we already have" },
+  { value: "unsure", label: "Honestly not sure" },
+];
+
+// Send human-readable labels (not slugs like "1k-2k") in the lead email.
+const labelFor = (options: Option[], value: string) =>
+  options.find((o) => o.value === value)?.label ?? value;
 
 const ContactForm = () => {
-  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  // Honeypot field (Web3Forms "botcheck" convention) — humans never see it.
+  const [botcheck, setBotcheck] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -32,22 +97,57 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(false);
+
+    // Honeypot filled → bot. Silently pretend success, send nothing.
+    if (botcheck) {
+      setShowSuccess(true);
+      return;
+    }
+
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setIsSubmitting(false);
-    setShowSuccess(true);
-    toast({
-      title: "Sending you to Calendly…",
-      description: "Pick a time in the next 14 days. We'll see you there.",
-    });
-    const params = new URLSearchParams({
-      name: formData.name,
-      email: formData.email,
-      a1: formData.phone,
-    });
-    setTimeout(() => {
-      window.location.href = `${CALENDLY_URL}?${params.toString()}`;
-    }, 800);
+    try {
+      // Never pretend a lead was delivered while the relay key is unconfigured.
+      if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "REPLACE_WITH_WEB3FORMS_ACCESS_KEY") {
+        throw new Error("Web3Forms access key not configured");
+      }
+
+      const businessType = labelFor(BUSINESS_TYPES, formData.serviceType);
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New strategy call request — ${formData.name} (${businessType})`,
+          from_name: "Creative Core Website",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || "Not provided",
+          website: formData.website,
+          business_type: businessType,
+          monthly_ad_spend: labelFor(AD_SPEND_OPTIONS, formData.adSpend),
+          current_setup: labelFor(CURRENT_SETUP_OPTIONS, formData.currentSetup),
+          monthly_revenue:
+            labelFor(MONTHLY_REVENUE_OPTIONS, formData.monthlyRevenue) || "Not provided",
+          timeline: labelFor(TIMELINE_OPTIONS, formData.timeline),
+          biggest_holdback: labelFor(HOLDBACK_OPTIONS, formData.holdback),
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || "Web3Forms submission failed");
+      }
+
+      setShowSuccess(true);
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -69,6 +169,22 @@ const ContactForm = () => {
     formData.timeline &&
     formData.holdback;
 
+  // Failed relay must never lose a lead — mailto fallback carries their details.
+  const mailtoFallback = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(
+    `Strategy call request — ${formData.name || "my business"}`
+  )}&body=${encodeURIComponent(
+    `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nWebsite: ${formData.website}`
+  )}`;
+
+  const openCalendlyWithPrefill = () => {
+    const params = new URLSearchParams({
+      name: formData.name,
+      email: formData.email,
+      a1: formData.phone,
+    });
+    void openCalendlyPopup(`${CALENDLY_URL}?${params.toString()}`);
+  };
+
   // R7.6 Phase 7: cream/white discipline. Inputs are white bg + charcoal text. Labels charcoal. Placeholders muted-dark.
   const inputClasses =
     "bg-white border border-charcoal/20 text-charcoal placeholder:text-muted-dark focus:border-coral focus:ring-2 focus:ring-coral/20 h-12 transition-all duration-200 rounded-md";
@@ -86,11 +202,20 @@ const ContactForm = () => {
             className="font-display text-3xl md:text-5xl text-charcoal mb-4 leading-[0.95]"
             style={{ fontWeight: 700, letterSpacing: "-0.02em" }}
           >
-            Redirecting to Calendly…
+            Request received.
           </h2>
-          <p className="text-lg text-charcoal/70 mb-6">
-            Pick a time that works for you. We'll see you there.
+          <p className="text-lg text-charcoal/70 mb-8 max-w-xl mx-auto leading-relaxed">
+            Thanks — we'll review your details and reply within one business day.
+            Want to skip the wait? Grab a time on the calendar now.
           </p>
+          <button
+            type="button"
+            onClick={openCalendlyWithPrefill}
+            className="h-14 px-8 rounded-md bg-coral hover:bg-coral-dark text-white text-base font-medium tracking-wider transition-colors inline-flex items-center justify-center gap-2"
+          >
+            Book my strategy call
+            <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
       </section>
     );
@@ -117,6 +242,17 @@ const ContactForm = () => {
 
         <div className="bg-white rounded-xl p-6 sm:p-10 border border-charcoal/10 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Honeypot (Web3Forms botcheck) — hidden from humans, bots fill it */}
+            <input
+              type="text"
+              name="botcheck"
+              value={botcheck}
+              onChange={(e) => setBotcheck(e.target.value)}
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
             {/* Name */}
             <div>
               <label className={labelClasses}>Your Name *</label>
@@ -146,19 +282,7 @@ const ContactForm = () => {
                   <SelectValue placeholder="Select your business type" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-charcoal/20">
-                  {[
-                    { value: "hvac", label: "HVAC" },
-                    { value: "roofing", label: "Roofing" },
-                    { value: "plumbing", label: "Plumbing" },
-                    { value: "pest-control", label: "Pest Control" },
-                    { value: "window-tinting", label: "Window Tinting" },
-                    { value: "painting", label: "Painting" },
-                    { value: "tree-service", label: "Tree Service" },
-                    { value: "garage-repair", label: "Garage Door Repair" },
-                    { value: "junk-removal", label: "Junk Removal" },
-                    { value: "other-home", label: "Other Home Services" },
-                    { value: "not-local", label: "Not a Florida home service" },
-                  ].map((t) => (
+                  {BUSINESS_TYPES.map((t) => (
                     <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
                   ))}
                 </SelectContent>
@@ -172,13 +296,7 @@ const ContactForm = () => {
                   <SelectValue placeholder="Select your ad spend" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-charcoal/20">
-                  {[
-                    { value: "under-1k", label: "Under $1,000/month" },
-                    { value: "1k-2k", label: "$1,000 – $2,000/month" },
-                    { value: "2k-5k", label: "$2,000 – $5,000/month" },
-                    { value: "5k-10k", label: "$5,000 – $10,000/month" },
-                    { value: "10k-plus", label: "$10,000+/month" },
-                  ].map((t) => (
+                  {AD_SPEND_OPTIONS.map((t) => (
                     <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
                   ))}
                 </SelectContent>
@@ -192,12 +310,7 @@ const ContactForm = () => {
                   <SelectValue placeholder="Select current setup" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-charcoal/20">
-                  {[
-                    { value: "agency", label: "I'm working with an agency" },
-                    { value: "myself", label: "I'm doing it myself" },
-                    { value: "in-house", label: "I have an in-house team" },
-                    { value: "not-running", label: "I'm not running ads yet" },
-                  ].map((t) => (
+                  {CURRENT_SETUP_OPTIONS.map((t) => (
                     <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
                   ))}
                 </SelectContent>
@@ -211,13 +324,7 @@ const ContactForm = () => {
                   <SelectValue placeholder="Optional" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-charcoal/20">
-                  {[
-                    { value: "under-50k", label: "Under $50k/month" },
-                    { value: "50k-100k", label: "$50k – $100k/month" },
-                    { value: "100k-250k", label: "$100k – $250k/month" },
-                    { value: "250k-500k", label: "$250k – $500k/month" },
-                    { value: "500k-plus", label: "$500k+/month" },
-                  ].map((t) => (
+                  {MONTHLY_REVENUE_OPTIONS.map((t) => (
                     <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
                   ))}
                 </SelectContent>
@@ -231,12 +338,7 @@ const ContactForm = () => {
                   <SelectValue placeholder="Select your timeline" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-charcoal/20">
-                  {[
-                    { value: "30-days", label: "Ready to start within 30 days" },
-                    { value: "60-days", label: "Within 60 days" },
-                    { value: "90-days", label: "Within 90 days" },
-                    { value: "exploring", label: "Just exploring options" },
-                  ].map((t) => (
+                  {TIMELINE_OPTIONS.map((t) => (
                     <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
                   ))}
                 </SelectContent>
@@ -251,18 +353,22 @@ const ContactForm = () => {
                   <SelectValue placeholder="Select what's holding you back" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-charcoal/20">
-                  {[
-                    { value: "not-enough-leads", label: "Not enough leads" },
-                    { value: "leads-not-converting", label: "Leads aren't converting to customers" },
-                    { value: "low-customer-value", label: "Customers aren't spending enough / coming back" },
-                    { value: "capacity", label: "Can't handle the work we already have" },
-                    { value: "unsure", label: "Honestly not sure" },
-                  ].map((t) => (
+                  {HOLDBACK_OPTIONS.map((t) => (
                     <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
+
+            {submitError && (
+              <div className="rounded-md bg-coral/10 border border-coral/40 p-4 text-sm text-charcoal leading-relaxed">
+                Something went wrong sending your request. Email us directly at{" "}
+                <a href={mailtoFallback} className="font-semibold text-coral-dark underline hover:text-coral transition-colors">
+                  {OWNER_EMAIL}
+                </a>{" "}
+                and we'll take it from there — no lead gets lost.
+              </div>
+            )}
 
             <button
               type="submit"
@@ -272,12 +378,17 @@ const ContactForm = () => {
               {isSubmitting ? "Submitting…" : "Book my strategy call"}
               {!isSubmitting && <ArrowRight className="w-5 h-5" />}
             </button>
+
+            <p className="text-xs text-muted-dark text-center leading-relaxed">
+              By submitting, you agree we may contact you about your request. See our{" "}
+              <a href="/privacy" className="underline hover:text-charcoal transition-colors">privacy policy</a>.
+            </p>
           </form>
 
           <div className="mt-6 pt-6 border-t border-charcoal/10">
             <div className="flex items-center gap-3 text-sm text-muted-dark">
               <Shield className="w-4 h-4 shrink-0 text-coral-dark" />
-              <span>20-minute strategy session — no pitch, no obligation.</span>
+              <span>30-minute strategy session — no pitch, no obligation.</span>
             </div>
           </div>
         </div>

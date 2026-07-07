@@ -18,6 +18,8 @@ import MarketingAutomationServicePage from "./pages/services/MarketingAutomation
 import CustomSoftwareServicePage from "./pages/services/CustomSoftwareServicePage";
 import ProcessPage from "./pages/ProcessPage";
 import BlogPage from "./pages/BlogPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
 import NotFound from "./pages/NotFound";
 import { LogoVariantProvider } from "./components/cobalt-refresh/logo";
 import RefreshPreloader from "./components/cobalt-refresh/RefreshPreloader";
@@ -52,6 +54,8 @@ const App = () => (
                     <Route path="/services/custom-software" element={<CustomSoftwareServicePage />} />
                     <Route path="/process" element={<ProcessPage />} />
                     <Route path="/blog" element={<BlogPage />} />
+                    <Route path="/privacy" element={<PrivacyPage />} />
+                    <Route path="/terms" element={<TermsPage />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>

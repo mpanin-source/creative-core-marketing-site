@@ -125,8 +125,8 @@ const Footer = () => {
           </p>
           <div className="flex items-center gap-5 text-xs">
             <p className="text-slate-light">Sarasota, FL · Florida-based · Florida-licensed pros only</p>
-            <a href="#" className="text-slate-light hover:text-cream transition-colors">Privacy</a>
-            <a href="#" className="text-slate-light hover:text-cream transition-colors">Terms</a>
+            <Link to="/privacy" className="text-slate-light hover:text-cream transition-colors">Privacy</Link>
+            <Link to="/terms" className="text-slate-light hover:text-cream transition-colors">Terms</Link>
           </div>
         </div>
       </div>
