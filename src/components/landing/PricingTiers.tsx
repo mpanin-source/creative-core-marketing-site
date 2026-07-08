@@ -135,8 +135,8 @@ const PricingTiers = () => {
             style={{ boxShadow: "0 0 18px rgba(255, 77, 46, 0.18)" }}
           >
             <span className="text-sm font-semibold text-coral-dark text-center block">
-              We strictly accept one client per county,<br />
-              ensuring we never create a conflict of interest or drive up your ad costs
+              We strictly accept one client per county, ensuring we never<br />
+              create a conflict of interest or drive up your ad costs
             </span>
           </div>
         </motion.div>
@@ -262,7 +262,7 @@ const PricingTiers = () => {
             <MapPin className="w-4 h-4 text-coral-dark flex-shrink-0 mt-1" />
             <p className="text-sm text-charcoal/80 leading-relaxed">
               <span className="font-semibold text-charcoal">One client per niche, per county.</span>{" "}
-              When your spot is taken, your competitors lose access to us. Florida home services only — currently accepting three clients per county per niche.
+              When your spot is taken, your competitors lose access to us. Florida home services only — we strictly accept one client per county.
             </p>
           </div>
         </motion.div>
