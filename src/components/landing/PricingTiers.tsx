@@ -131,10 +131,10 @@ const PricingTiers = () => {
           className="flex justify-center mb-16 mt-6"
         >
           <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-soft border border-coral-dark/20"
+            className="inline-flex items-center justify-center text-center px-5 py-3 rounded-2xl bg-coral-soft border border-coral-dark/20"
             style={{ boxShadow: "0 0 18px rgba(255, 77, 46, 0.18)" }}
           >
-            <span className="text-sm font-semibold text-coral-dark text-center">
+            <span className="text-sm font-semibold text-coral-dark text-center block">
               We strictly accept one client per county,<br />
               ensuring we never create a conflict of interest or drive up your ad costs
             </span>
