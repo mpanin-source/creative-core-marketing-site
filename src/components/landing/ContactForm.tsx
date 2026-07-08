@@ -108,7 +108,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
     try {
       // Never pretend a lead was delivered while the relay key is unconfigured.
-      if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "REPLACE_WITH_WEB3FORMS_ACCESS_KEY") {
+      if (!WEB3FORMS_ACCESS_KEY) {
         throw new Error("Web3Forms access key not configured");
       }
 
