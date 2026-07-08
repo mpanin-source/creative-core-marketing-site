@@ -14,34 +14,40 @@ interface Tier {
   id: string;
   name: string;
   subtitle: string;
+  outcome: string;
   price: number;
   priceSuffix: string;
   badge: string | null;
   locked: boolean;
+  plusLabel?: string;
   items: string[];
+  guaranteeLine?: string;
   cta: string;
   highlighted: boolean;
   qualifier?: string;
 }
 
+// R8.4 — outcome-first tier cards. Same locked deliverables + prices; bullets lead with what
+// changes in the client's business, the deliverable rides as proof. Full per-tier system
+// enumeration lives in the day-one systems letter + creative-core-tier-delivery-map.md.
 const tiers: Tier[] = [
   {
     id: "foundation-tier",
     name: "FOUNDATION SPRINT",
     subtitle: "Lower your CPL",
+    outcome: "Stop leaking the leads you already get — and get found by the people already searching.",
     price: 1500,
     priceSuffix: "/month",
     badge: "MOST POPULAR",
     locked: false,
     items: [
-      "Local SEO foundation (schema + NAP + GBP setup)",
-      "LSA application management + Google Verified enrollment",
-      "GEO eligibility schema (AI Overview entry ticket)",
-      "Website CRO overhaul + Core Web Vitals — we optimize the site you have.",
-      "Review system (automated requests + response automation)",
-      "Speed-to-Lead CRM + missed-call text-back (sub-60-second response)",
-      "Day 30 check-in + 30-day launch guarantee (live in 30 days, or month 2 is free)",
+      "Show up when your county searches — Google Business Profile rebuilt, local schema, and AI-search eligibility from day one",
+      "The green Google Verified badge, handled — we file and manage your Local Services Ads application end to end",
+      "Never lose an after-hours call again — every missed call gets a text back in under 60 seconds",
+      "More visitors become callers — conversion and speed overhaul on the website you already have",
+      "Reviews on autopilot — every finished job triggers a request, every review gets a response",
     ],
+    guaranteeLine: "Every system live within 30 days of access — or month 2 is free.",
     cta: "Book free audit call",
     highlighted: true,
   },
@@ -49,19 +55,18 @@ const tiers: Tier[] = [
     id: "growth",
     name: "GROWTH PARTNER",
     subtitle: "Pack your calendar",
+    outcome: "Foundation captures the demand that exists. Growth creates more — and books more of it.",
     price: 3000,
     priceSuffix: "/month",
     badge: null,
     locked: false,
+    plusLabel: "Everything in Foundation Sprint, plus:",
     items: [
-      "Everything in Foundation Sprint — LSA management, review & reputation system, and speed-to-lead CRM with missed-call text-back",
-      "Call tracking + monthly call-quality scorecard — every inbound call scored, with specific fixes for what's costing you bookings",
-      "Local content engine: 4 in-depth, locally-specific articles + weekly GBP posts each month — built to earn AI citations, not hit a word-count quota.",
-      "Citation velocity + basic entity linking",
-      "Review velocity push (75+ reviews target)",
-      "Service & service-area coverage pages — scoped to your real services and top counties.",
-      "Monthly AI Visibility Reports (Google AI Overview via Search Console + sampled LLM tracking)",
-      "Conversion testing + heat-map analysis",
+      "Become the answer your county finds — 4 locally-researched articles + weekly Google Business posts a month, built to earn AI citations",
+      "Find out why callers don't book — every inbound call recorded, scored, and fixed in a monthly call-quality scorecard",
+      "A page for every service and city you actually cover — built from your real service area, not a template",
+      "A structured push past 75 reviews — the trust bar that separates county leaders from everyone else",
+      "Know where AI mentions you — monthly sampled AI Visibility Report, plus ongoing conversion testing on your site",
     ],
     cta: "Start with Foundation Sprint",
     highlighted: false,
@@ -70,18 +75,18 @@ const tiers: Tier[] = [
     id: "scale",
     name: "SCALE PARTNER",
     subtitle: "Own your county",
+    outcome: "When your county asks AI who to call, the answer is your name.",
     price: 5000,
     priceSuffix: "/month (qualification required)",
     badge: "QUALIFICATION REQUIRED",
     locked: true,
+    plusLabel: "Everything in Growth Partner, plus:",
     items: [
-      "Everything in Growth Partner — every table-stakes system: LSA, reviews, speed-to-lead + missed-call text-back, call tracking, and call-quality scorecards",
-      "Local content engine, upgraded: 6 articles/mo — including 2 Information-Gain deep dives built on original local data — each engineered to earn AI citations",
-      "4 short videos/mo — you film from our briefs, we edit and distribute. Long-form video: coming soon.",
-      "Advanced structured-data + entity optimization (LocalBusiness, service & sameAs schema)",
-      "Monthly AI Visibility Reports across Google AI Overview, ChatGPT, Perplexity & Gemini (sampled snapshots, not a live rank tracker)",
-      "AI Max migration readiness for your Search campaigns",
-      "Spend-to-booked-appointment reporting by channel",
+      "A content engine competitors can't copy — 6 articles a month, including 2 deep dives built on original local data AI can't find anywhere else",
+      "Your face on the county's feeds — 4 short videos a month: you film from our briefs, we edit and distribute",
+      "Tracked across every AI engine — monthly sampled visibility reports spanning Google AI Overview, ChatGPT, Perplexity & Gemini",
+      "Every ad dollar traced to a booked job — spend-to-booked-appointment reporting by channel",
+      "Your Search campaigns stay ready for Google's AI Max shift — migration readiness handled before it's urgent",
     ],
     cta: "See if you qualify",
     highlighted: false,
@@ -198,14 +203,34 @@ const PricingTiers = () => {
                   <p className="text-xs text-muted-dark mt-2 italic">{tier.qualifier}</p>
                 ) : null}
 
-                <div className="flex-1 space-y-2.5 mb-6 mt-5">
-                  {tier.items.map((item, j) => (
-                    <div key={j} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-coral" />
-                      <span className="text-sm text-charcoal/80">{item}</span>
-                    </div>
-                  ))}
+                <p className="text-[15px] font-semibold text-charcoal leading-snug mt-4">
+                  {tier.outcome}
+                </p>
+
+                <div className="flex-1 mb-6 mt-5">
+                  {tier.plusLabel && (
+                    <p className="text-xs uppercase tracking-wide font-semibold text-charcoal/50 mb-3">
+                      {tier.plusLabel}
+                    </p>
+                  )}
+                  <div className="space-y-2.5">
+                    {tier.items.map((item, j) => (
+                      <div key={j} className="flex items-start gap-2">
+                        <Check className="w-4 h-4 flex-shrink-0 mt-0.5 text-coral" />
+                        <span className="text-sm text-charcoal/80">{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+
+                {tier.guaranteeLine && (
+                  <div className="mb-4 rounded-md bg-coral-soft/60 border border-coral-dark/15 px-3.5 py-2.5">
+                    <p className="text-xs text-charcoal/80 leading-snug">
+                      <span className="font-semibold text-coral-dark">30-Day Launch Guarantee — </span>
+                      {tier.guaranteeLine}
+                    </p>
+                  </div>
+                )}
 
                 <button
                   onClick={openBooking}
