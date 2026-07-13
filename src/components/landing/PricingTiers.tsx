@@ -131,11 +131,12 @@ const PricingTiers = () => {
           className="flex justify-center mb-16 mt-6"
         >
           <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-soft border border-coral-dark/20"
+            className="inline-flex items-center justify-center text-center px-5 py-3 rounded-2xl bg-coral-soft border border-coral-dark/20"
             style={{ boxShadow: "0 0 18px rgba(255, 77, 46, 0.18)" }}
           >
-            <span className="text-sm font-semibold text-coral-dark">
-              One client per niche, per county
+            <span className="text-sm font-semibold text-coral-dark text-center block">
+              We strictly accept one client per niche, per county — never a<br />
+              conflict of interest, never driving up your own ad costs
             </span>
           </div>
         </motion.div>
@@ -261,7 +262,7 @@ const PricingTiers = () => {
             <MapPin className="w-4 h-4 text-coral-dark flex-shrink-0 mt-1" />
             <p className="text-sm text-charcoal/80 leading-relaxed">
               <span className="font-semibold text-charcoal">One client per niche, per county.</span>{" "}
-              When your spot is taken, your competitors lose access to us. Florida home services only.
+              When your spot is taken, your competitors lose access to us. Florida home services only — strictly enforced, so we never work both sides of your market.
             </p>
           </div>
         </motion.div>
