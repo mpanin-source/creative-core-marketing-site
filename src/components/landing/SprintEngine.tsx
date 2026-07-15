@@ -74,7 +74,7 @@ const SprintEngine = () => {
               What Foundation Sprint doesn't include
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Ad spend (you pay Google directly) · SMS automation (in rollout) · Website builds (our development team, separate engagement) · Social-media management
+              Ad spend (you pay Google directly) · SMS automation (in rollout) · Website builds (FirstChoice, our website arm — separate engagement) · Social-media management
             </p>
           </div>
         </motion.div>
