@@ -4,6 +4,7 @@ import { ArrowRight, Shield } from "lucide-react";
 import SprintEngine from "@/components/landing/SprintEngine";
 import PricingTiers from "@/components/landing/PricingTiers";
 import BeyondRetainer from "@/components/pricing/BeyondRetainer";
+import ContactForm from "@/components/landing/ContactForm";
 import EndCTA from "@/components/shared/EndCTA";
 import { ContourBg, GlowOrb } from "@/components/cobalt-refresh/patterns";
 import { CALENDLY_URL } from "@/config/site";
@@ -136,6 +137,11 @@ const PricingAndBooking = () => {
       <PricingTiers />
       <SprintEngine />
       <BeyondRetainer />
+      {/* R8.5 (2026-07-30): ContactForm re-mounted at #contact. Built + wired to Web3Forms in
+          534e37d but never mounted, so the site had zero lead capture outside Calendly. This is
+          the secondary path for visitors who won't book a call cold — the primary CTA everywhere
+          else stays the Calendly popup. */}
+      <ContactForm />
       <EndCTA
         headline="Still deciding?"
         headlineAccent="Book a call."

@@ -80,7 +80,7 @@ const CROServicePage = () => {
         },
         {
           q: "Do I need a new website to get CRO benefits?",
-          a: "No. Conversion work pays off fastest on the site you already have — speed, mobile tap-to-call, forms, trust signals, tracking — and it produces in weeks, not months. A rebuild costs time you don't need to spend and risks the search equity your current site has already banked. If yours genuinely can't be optimized — dead stack, no CMS access — that's a separate conversation, and a rare one.",
+          a: "No — and we commit to trying to save what you have before we ever suggest otherwise. Conversion work pays off fastest on the site you already own: speed, mobile tap-to-call, forms, trust signals, tracking. It produces in weeks, not months, and it protects the search equity your site has already banked. The exceptions are real but narrow — a site you can't get the keys to because a vendor owns it, a stack that can't be made fast no matter what we do, or past SEO that has to be removed rather than improved. In those cases we show you exactly why, in writing, before anything gets rebuilt.",
         },
         {
           q: "Why does mobile-first matter so much for home services?",
