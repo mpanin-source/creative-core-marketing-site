@@ -12,7 +12,7 @@
  *  (trade, ad spend, revenue, etc. live as Calendly invitee questions, set in
  *  Calendly). Inline-embedded on /pricing-and-booking; every CC "Book a strategy
  *  call" CTA points here. If the event slug changes, this is the only edit.
- *  NOTE: FirstChoice uses a DIFFERENT, lighter event — never this one. */
+ *  NOTE: Max's other business books a DIFFERENT, lighter event — never this one. */
 export const CALENDLY_URL = "https://calendly.com/paninmax2002/30min";
 
 /** One-line reassurance shown above the inline booking embed. Number-free on

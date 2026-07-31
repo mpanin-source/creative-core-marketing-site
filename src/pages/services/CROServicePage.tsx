@@ -80,7 +80,7 @@ const CROServicePage = () => {
         },
         {
           q: "Do I need a new website to get CRO benefits?",
-          a: "Usually no. We optimize what you already have — CRO and GBP work on your existing site. If the site is genuinely broken or missing, FirstChoice — our website arm — rebuilds it as a separate engagement, then optimization begins.",
+          a: "No. Conversion work pays off fastest on the site you already have — speed, mobile tap-to-call, forms, trust signals, tracking — and it produces in weeks, not months. A rebuild costs time you don't need to spend and risks the search equity your current site has already banked. If yours genuinely can't be optimized — dead stack, no CMS access — that's a separate conversation, and a rare one.",
         },
         {
           q: "Why does mobile-first matter so much for home services?",
