@@ -107,10 +107,12 @@ export default {
         // Real green restored 2026-08-13 — the ONLY green in the palette, reserved for
         // confirmation states (form submitted, step complete). Was aliased to charcoal in
         // R7.6 when forest sections were removed; it had zero usages, so repointing it
-        // changes nothing else. Muted rather than neon so it sits beside coral on cream.
+        // changes nothing else. Deliberately BRIGHT (owner call): this is a status signal,
+        // and a muted green doesn't read as "done" at a glance. Used as a SOLID fill with
+        // a white glyph — the universally recognised success pattern.
         success: {
-          DEFAULT: "#2E9E5B",                                                        // borders / mid fills — 3.17:1 on cream-light (AA for UI components)
-          dark: "#1B7A43",                                                           // icons + text on cream — 4.99:1 on cream-light (AA normal text)
+          DEFAULT: "#22C55E",                                                        // solid badge fill. White glyph on it = 2.28:1 — below the 3:1 UI threshold, acceptable ONLY because the badge is decorative and the "Request received." headline carries the message. Swap to #16A34A for 3.3:1 if it ever becomes the sole indicator.
+          dark: "#15803D",                                                           // the text-safe one — use for any green TEXT on cream (6.4:1). Never use DEFAULT for text.
           soft: "#E4F4EA",                                                           // tinted fill, mirrors coral-soft
         },
         warning: "#E63E1F",                                                          // → coral-dark
