@@ -99,11 +99,17 @@ const ContactForm = () => {
     `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nWebsite: ${formData.website}\nService: ${formData.service}\nCity/market: ${formData.city}`
   )}`;
 
+  // Calendly prefill: `name`/`email` map to its built-ins; a1..aN map to the CUSTOM
+  // invitee questions BY POSITION. On the live /30min event the first custom question
+  // is Website URL, so a1 = website. (It used to be phone, which is why a1 carried the
+  // phone number — that stuffed a phone into the URL field once the form was rebuilt.)
+  // To extend: confirm whether Phone is Calendly's built-in field or a custom question,
+  // then a2/a3/a4 follow the on-screen order — service, city, spend.
   const openCalendlyWithPrefill = () => {
     const params = new URLSearchParams({
       name: formData.name,
       email: formData.email,
-      a1: formData.phone,
+      a1: formData.website,
     });
     void openCalendlyPopup(`${CALENDLY_URL}?${params.toString()}`);
   };
