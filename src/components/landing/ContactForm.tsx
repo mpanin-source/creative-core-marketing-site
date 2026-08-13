@@ -137,8 +137,10 @@ const ContactForm = () => {
     return (
       <section id="contact" className="bg-cream-light py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-coral/15 border-2 border-coral flex items-center justify-center">
-            <Shield className="w-10 h-10 text-coral-dark" />
+          {/* Green, not coral: this is the one confirmation state on the site, and coral
+              reads as "action needed" everywhere else. See tailwind `success` tokens. */}
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-success-soft border-2 border-success flex items-center justify-center">
+            <Shield className="w-10 h-10 text-success-dark" />
           </div>
           <h2
             className="font-display text-3xl md:text-5xl text-charcoal mb-4 leading-[0.95]"
