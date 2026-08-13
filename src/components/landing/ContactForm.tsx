@@ -1,15 +1,9 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Shield } from "lucide-react";
 import { openCalendlyPopup } from "@/lib/calendly";
 import { CALENDLY_URL } from "@/config/site";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 // Web3Forms client-side relay (https://web3forms.com). Keys are designed to be exposed
 // in frontend code — submissions are relayed to the account inbox (paninmax2002@gmail.com).
@@ -17,63 +11,6 @@ const WEB3FORMS_ACCESS_KEY = "307765c8-b142-4e7b-b91b-4f2751de2ec3";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const OWNER_EMAIL = "paninmax2002@gmail.com";
 
-type Option = { value: string; label: string };
-
-const BUSINESS_TYPES: Option[] = [
-  { value: "hvac", label: "HVAC" },
-  { value: "roofing", label: "Roofing" },
-  { value: "plumbing", label: "Plumbing" },
-  { value: "pest-control", label: "Pest Control" },
-  { value: "window-tinting", label: "Window Tinting" },
-  { value: "painting", label: "Painting" },
-  { value: "tree-service", label: "Tree Service" },
-  { value: "garage-repair", label: "Garage Door Repair" },
-  { value: "junk-removal", label: "Junk Removal" },
-  { value: "other-home", label: "Other Home Services" },
-  { value: "not-local", label: "Not a Florida home service" },
-];
-
-const AD_SPEND_OPTIONS: Option[] = [
-  { value: "under-1k", label: "Under $1,000/month" },
-  { value: "1k-2k", label: "$1,000 – $2,000/month" },
-  { value: "2k-5k", label: "$2,000 – $5,000/month" },
-  { value: "5k-10k", label: "$5,000 – $10,000/month" },
-  { value: "10k-plus", label: "$10,000+/month" },
-];
-
-const CURRENT_SETUP_OPTIONS: Option[] = [
-  { value: "agency", label: "I'm working with an agency" },
-  { value: "myself", label: "I'm doing it myself" },
-  { value: "in-house", label: "I have an in-house team" },
-  { value: "not-running", label: "I'm not running ads yet" },
-];
-
-const MONTHLY_REVENUE_OPTIONS: Option[] = [
-  { value: "under-50k", label: "Under $50k/month" },
-  { value: "50k-100k", label: "$50k – $100k/month" },
-  { value: "100k-250k", label: "$100k – $250k/month" },
-  { value: "250k-500k", label: "$250k – $500k/month" },
-  { value: "500k-plus", label: "$500k+/month" },
-];
-
-const TIMELINE_OPTIONS: Option[] = [
-  { value: "30-days", label: "Ready to start within 30 days" },
-  { value: "60-days", label: "Within 60 days" },
-  { value: "90-days", label: "Within 90 days" },
-  { value: "exploring", label: "Just exploring options" },
-];
-
-const HOLDBACK_OPTIONS: Option[] = [
-  { value: "not-enough-leads", label: "Not enough leads" },
-  { value: "leads-not-converting", label: "Leads aren't converting to customers" },
-  { value: "low-customer-value", label: "Customers aren't spending enough / coming back" },
-  { value: "capacity", label: "Can't handle the work we already have" },
-  { value: "unsure", label: "Honestly not sure" },
-];
-
-// Send human-readable labels (not slugs like "1k-2k") in the lead email.
-const labelFor = (options: Option[], value: string) =>
-  options.find((o) => o.value === value)?.label ?? value;
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -87,12 +24,9 @@ const ContactForm = () => {
     email: "",
     phone: "",
     website: "",
-    serviceType: "",
-    adSpend: "",
-    currentSetup: "",
-    monthlyRevenue: "",
-    timeline: "",
-    holdback: "",
+    service: "",
+    city: "",
+    focus: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -112,7 +46,6 @@ const ContactForm = () => {
         throw new Error("Web3Forms access key not configured");
       }
 
-      const businessType = labelFor(BUSINESS_TYPES, formData.serviceType);
       const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         headers: {
@@ -121,19 +54,15 @@ const ContactForm = () => {
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New strategy call request — ${formData.name} (${businessType})`,
+          subject: `New strategy call request — ${formData.name}`,
           from_name: "Creative Core Website",
           name: formData.name,
           email: formData.email,
-          phone: formData.phone || "Not provided",
+          phone: formData.phone,
           website: formData.website,
-          business_type: businessType,
-          monthly_ad_spend: labelFor(AD_SPEND_OPTIONS, formData.adSpend),
-          current_setup: labelFor(CURRENT_SETUP_OPTIONS, formData.currentSetup),
-          monthly_revenue:
-            labelFor(MONTHLY_REVENUE_OPTIONS, formData.monthlyRevenue) || "Not provided",
-          timeline: labelFor(TIMELINE_OPTIONS, formData.timeline),
-          biggest_holdback: labelFor(HOLDBACK_OPTIONS, formData.holdback),
+          service: formData.service,
+          city_market: formData.city,
+          fix_first: formData.focus || "Not provided",
         }),
       });
 
@@ -155,25 +84,19 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSelect = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
   const canSubmit =
     formData.name &&
     formData.email &&
+    formData.phone &&
     formData.website &&
-    formData.serviceType &&
-    formData.adSpend &&
-    formData.currentSetup &&
-    formData.timeline &&
-    formData.holdback;
+    formData.service &&
+    formData.city;
 
   // Failed relay must never lose a lead — mailto fallback carries their details.
   const mailtoFallback = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(
     `Strategy call request — ${formData.name || "my business"}`
   )}&body=${encodeURIComponent(
-    `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nWebsite: ${formData.website}`
+    `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nWebsite: ${formData.website}\nService: ${formData.service}\nCity/market: ${formData.city}`
   )}`;
 
   const openCalendlyWithPrefill = () => {
@@ -265,99 +188,38 @@ const ContactForm = () => {
             </div>
             {/* Phone */}
             <div>
-              <label className={labelClasses}>Phone Number</label>
-              <Input type="tel" name="phone" placeholder="+1 (555) 123-4567" value={formData.phone} onChange={handleChange} className={inputClasses} />
-              <p className="text-muted-dark text-xs mt-1.5">For faster scheduling (optional)</p>
+              <label className={labelClasses}>Phone Number *</label>
+              <Input type="tel" name="phone" placeholder="+1 (555) 123-4567" value={formData.phone} onChange={handleChange} required className={inputClasses} />
             </div>
             {/* Website */}
             <div>
               <label className={labelClasses}>Website URL *</label>
               <Input type="url" name="website" placeholder="https://yourbusiness.com" value={formData.website} onChange={handleChange} required className={inputClasses} />
             </div>
-            {/* Business Type */}
+            {/* Service + city mirror the Calendly invitee questions so both surfaces
+                collect the same thing. City/market is what makes the county exclusivity
+                check (and the cross-brand check) runnable before the call. */}
             <div>
-              <label className={labelClasses}>What type of business are you? *</label>
-              <Select value={formData.serviceType} onValueChange={(v) => handleSelect("serviceType", v)}>
-                <SelectTrigger className={inputClasses}>
-                  <SelectValue placeholder="Select your business type" />
-                </SelectTrigger>
-                <SelectContent className="bg-white border border-charcoal/20">
-                  {BUSINESS_TYPES.map((t) => (
-                    <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <label className={labelClasses}>Your Service *</label>
+              <Input type="text" name="service" placeholder="e.g. HVAC repair &amp; install" value={formData.service} onChange={handleChange} required className={inputClasses} />
             </div>
-            {/* Monthly Ad Spend */}
             <div>
-              <label className={labelClasses}>Current Monthly Ad Spend *</label>
-              <Select value={formData.adSpend} onValueChange={(v) => handleSelect("adSpend", v)}>
-                <SelectTrigger className={inputClasses}>
-                  <SelectValue placeholder="Select your ad spend" />
-                </SelectTrigger>
-                <SelectContent className="bg-white border border-charcoal/20">
-                  {AD_SPEND_OPTIONS.map((t) => (
-                    <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <label className={labelClasses}>City / Primary Market(s) You Serve *</label>
+              <Input type="text" name="city" placeholder="e.g. Sarasota &amp; Manatee County" value={formData.city} onChange={handleChange} required className={inputClasses} />
             </div>
-            {/* Current Setup */}
+            {/* The one open question — optional on purpose. The qualifier lives in the
+                Calendly booking intake (Call Kit §3a); this path is for people not ready
+                to book, so it must stay LIGHTER than booking, never heavier. */}
             <div>
-              <label className={labelClasses}>Who's running your ads right now? *</label>
-              <Select value={formData.currentSetup} onValueChange={(v) => handleSelect("currentSetup", v)}>
-                <SelectTrigger className={inputClasses}>
-                  <SelectValue placeholder="Select current setup" />
-                </SelectTrigger>
-                <SelectContent className="bg-white border border-charcoal/20">
-                  {CURRENT_SETUP_OPTIONS.map((t) => (
-                    <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            {/* Monthly Revenue */}
-            <div>
-              <label className={labelClasses}>Current Monthly Revenue</label>
-              <Select value={formData.monthlyRevenue} onValueChange={(v) => handleSelect("monthlyRevenue", v)}>
-                <SelectTrigger className={inputClasses}>
-                  <SelectValue placeholder="Optional" />
-                </SelectTrigger>
-                <SelectContent className="bg-white border border-charcoal/20">
-                  {MONTHLY_REVENUE_OPTIONS.map((t) => (
-                    <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            {/* Timeline */}
-            <div>
-              <label className={labelClasses}>What timeline are you on? *</label>
-              <Select value={formData.timeline} onValueChange={(v) => handleSelect("timeline", v)}>
-                <SelectTrigger className={inputClasses}>
-                  <SelectValue placeholder="Select your timeline" />
-                </SelectTrigger>
-                <SelectContent className="bg-white border border-charcoal/20">
-                  {TIMELINE_OPTIONS.map((t) => (
-                    <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <p className="text-muted-dark text-xs mt-1.5">We prioritize businesses ready to start in the next 30 days.</p>
-            </div>
-            {/* Holdback Diagnostic */}
-            <div>
-              <label className={labelClasses}>What's the #1 thing holding your business back? *</label>
-              <Select value={formData.holdback} onValueChange={(v) => handleSelect("holdback", v)}>
-                <SelectTrigger className={inputClasses}>
-                  <SelectValue placeholder="Select what's holding you back" />
-                </SelectTrigger>
-                <SelectContent className="bg-white border border-charcoal/20">
-                  {HOLDBACK_OPTIONS.map((t) => (
-                    <SelectItem key={t.value} value={t.value} className="text-charcoal focus:bg-coral/10 focus:text-charcoal">{t.label}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <label className={labelClasses}>What would you want fixed first?</label>
+              <Textarea
+                name="focus"
+                placeholder="Optional — a sentence is plenty."
+                value={formData.focus}
+                onChange={handleChange}
+                rows={3}
+                className={`${inputClasses} h-auto py-3 resize-y`}
+              />
             </div>
 
             {submitError && (
@@ -388,7 +250,7 @@ const ContactForm = () => {
           <div className="mt-6 pt-6 border-t border-charcoal/10">
             <div className="flex items-center gap-3 text-sm text-muted-dark">
               <Shield className="w-4 h-4 shrink-0 text-coral-dark" />
-              <span>30-minute strategy session — no pitch, no obligation.</span>
+              <span>Free strategy call — no pitch, no obligation.</span>
             </div>
           </div>
         </div>
