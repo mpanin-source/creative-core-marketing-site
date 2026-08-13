@@ -99,18 +99,31 @@ const ContactForm = () => {
     `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nWebsite: ${formData.website}\nService: ${formData.service}\nCity/market: ${formData.city}`
   )}`;
 
-  // Calendly prefill: `name`/`email` map to its built-ins; a1..aN map to the CUSTOM
-  // invitee questions BY POSITION. On the live /30min event the first custom question
-  // is Website URL, so a1 = website. (It used to be phone, which is why a1 carried the
-  // phone number — that stuffed a phone into the URL field once the form was rebuilt.)
-  // To extend: confirm whether Phone is Calendly's built-in field or a custom question,
-  // then a2/a3/a4 follow the on-screen order — service, city, spend.
+  // Calendly prefill. `name`/`email` hit its built-in fields; a1..aN map to the CUSTOM
+  // invitee questions BY POSITION — there is no prefill-by-name for custom questions.
+  //
+  // Live /30min custom-question order (confirmed with owner 2026-08-13; Phone is a
+  // CUSTOM field on this event, not Calendly's built-in, which is what sets these
+  // indices): a1 Website URL · a2 Phone · a3 Your Service · a4 City/Primary Market(s) ·
+  // a5 marketing spend · a6 ad-creative link · a7 bottleneck.
+  //
+  // We prefill a1–a4 — every field this form collects that maps 1:1. a5 (spend) is
+  // required in Calendly and isn't asked here, so they still pick it. a7 is deliberately
+  // left alone: if the link question ever moves, an off-by-one would paste their answer
+  // into the wrong box, and a mis-filled field is worse than an empty one.
+  //
+  // ⚠️ Reordering questions in Calendly silently breaks this. Re-check on any change.
   const openCalendlyWithPrefill = () => {
-    const params = new URLSearchParams({
-      name: formData.name,
-      email: formData.email,
+    const params = new URLSearchParams({ name: formData.name, email: formData.email });
+    const byPosition = {
       a1: formData.website,
-    });
+      a2: formData.phone,
+      a3: formData.service,
+      a4: formData.city,
+    };
+    for (const [key, value] of Object.entries(byPosition)) {
+      if (value) params.set(key, value);
+    }
     void openCalendlyPopup(`${CALENDLY_URL}?${params.toString()}`);
   };
 
